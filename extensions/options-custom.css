@@ -1,0 +1,9 @@
+/**
+ * Classing up the Options Framework panel styling a bit
+ * Minor customizations for certain style IDs
+ *
+ */
+ 
+#section-tagline h4 {
+	display:none;
+}
