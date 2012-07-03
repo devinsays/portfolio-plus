@@ -3,7 +3,7 @@
  * Template Name: Portfolio
  *
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 get_header();

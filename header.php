@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -26,7 +26,7 @@
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'portfoliopress' ), max( $paged, $page ) );
+		echo ' | ' . sprintf( __( 'Page %s', 'portfolioplus' ), max( $paged, $page ) );
 
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -59,8 +59,8 @@
 			</hgroup>
       
 		<nav id="navigation">
-			<h3 class="screen-reader-text"><?php _e( 'Main menu', 'portfoliopress' ); ?></h3>
-			<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'portfoliopress' ); ?>"><?php _e( 'Skip to content', 'portfoliopress' ); ?></a></div>
+			<h3 class="screen-reader-text"><?php _e( 'Main menu', 'portfolioplus' ); ?></h3>
+			<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'portfolioplus' ); ?>"><?php _e( 'Skip to content', 'portfolioplus' ); ?></a></div>
 	
 			<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
 		</nav><!-- #access -->

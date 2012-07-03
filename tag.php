@@ -3,7 +3,7 @@
  * The template used to display Tag Archive pages
  *
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 get_header(); ?>
@@ -14,7 +14,7 @@ get_header(); ?>
 			<?php the_post(); ?>
 
 			<h2 class="page-title"><?php
-				printf( __( 'Tag Archives: %s', 'portfoliopress' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+				printf( __( 'Tag Archives: %s', 'portfolioplus' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 			?></h2>
 
 			<?php rewind_posts(); ?>

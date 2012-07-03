@@ -3,7 +3,7 @@
  * The template for displaying portfolio post content
  *
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 if ( post_password_required() ) {
@@ -51,9 +51,9 @@ if ( post_password_required() ) {
 		} ?>
 		<div class="<?php echo $classes; ?>">
 			<?php if ( has_post_thumbnail() ) { ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfoliopress' ); ?><?php the_title_attribute(); ?>" class="thumb"><?php the_post_thumbnail( $thumbnail ); ?></a>
+			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?><?php the_title_attribute(); ?>" class="thumb"><?php the_post_thumbnail( $thumbnail ); ?></a>
 			<?php } ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfoliopress' ); ?> <?php the_title_attribute(); ?>" class="title-overlay"><?php the_title() ?></a>
+			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?> <?php the_title_attribute(); ?>" class="title-overlay"><?php the_title() ?></a>
 		</div>
 
 		<?php endwhile; ?>
@@ -62,7 +62,7 @@ if ( post_password_required() ) {
 			
 		<?php else: ?>
 
-			<h2 class="title"><?php _e( 'Sorry, no posts matched your criteria.', 'portfoliopress' ) ?></h2>
+			<h2 class="title"><?php _e( 'Sorry, no posts matched your criteria.', 'portfolioplus' ) ?></h2>
 
 	<?php endif; ?>
 

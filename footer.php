@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 ?>
 	</div>
@@ -35,7 +35,7 @@
 	        
 			<div id="site-generator">
 				<p><?php if (!$footer = of_get_option('footer_text', false) ) { ?>
-					<?php _e('Powered by', 'portfoliopress'); ?> <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'portfoliopress' ); ?>" rel="generator"><?php printf( __( 'WordPress', 'portfoliopress' ) ); ?></a> &amp; <a href="http://wptheming.com/2010/07/portfolio-theme/"><?php _e('Portfolio', 'portfoliopress'); ?>.</a>
+					<?php _e('Powered by', 'portfolioplus'); ?> <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'portfolioplus' ); ?>" rel="generator"><?php printf( __( 'WordPress', 'portfolioplus' ) ); ?></a> &amp; <a href="http://wptheming.com/2010/07/portfolio-theme/"><?php _e('Portfolio', 'portfolioplus'); ?>.</a>
 				<?php } else {
 					echo stripslashes($footer);
 					} ?>

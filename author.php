@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 get_header(); ?>
@@ -11,7 +11,7 @@ get_header(); ?>
 
 			<?php the_post(); ?>
 
-			<h2 class="page-title author"><?php printf( __( 'Author Archives: <span class="vcard">%s</span>', 'portfoliopress' ), "<a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a>" ); ?></h2>
+			<h2 class="page-title author"><?php printf( __( 'Author Archives: <span class="vcard">%s</span>', 'portfolioplus' ), "<a class='url fn n' href='" . get_author_posts_url( get_the_author_meta( 'ID' ) ) . "' title='" . esc_attr( get_the_author() ) . "' rel='me'>" . get_the_author() . "</a>" ); ?></h2>
 
 			<?php rewind_posts(); ?>
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 get_header(); ?>
@@ -10,7 +10,7 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<h2 class="page-title"><?php
-				printf( __( 'Category Archives: %s', 'portfoliopress' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+				printf( __( 'Category Archives: %s', 'portfolioplus' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 			?></h2>
 
 			<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>

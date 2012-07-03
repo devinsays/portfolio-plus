@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
 
 get_header(); ?>

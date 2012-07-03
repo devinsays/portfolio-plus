@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
  
 // Set the content width based on the theme's design and stylesheet
@@ -21,7 +21,7 @@ function portfoliopress_setup() {
 	 * Make the theme available for translation.
 	 * Translations can be added in the /languages/ directory.
 	 */
-	load_theme_textdomain( 'portfoliopress', TEMPLATEPATH . '/languages' );
+	load_theme_textdomain( 'portfolioplus', TEMPLATEPATH . '/languages' );
 	
 	$locale = get_locale();
 	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
@@ -33,7 +33,7 @@ function portfoliopress_setup() {
 	
 	// This theme uses wp_nav_menu() in one location
 	register_nav_menus( array(
-			'primary' => __( 'Primary Menu', 'portfoliopress' ),
+			'primary' => __( 'Primary Menu', 'portfolioplus' ),
 		) );
 	
 	// Add default posts and comments RSS feed links to head
@@ -93,8 +93,8 @@ function portfoliopress_infinite_scroll_js() {
 	    var infinite_scroll = {
 	        loading: {
 	            img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-	            msgText: "<?php _e( 'Loading more...', 'portfoliopress' ); ?>",
-	            finishedMsg: "<?php _e( 'Congratulations.  You\'ve seen it all.', 'portfoliopress' ); ?>",
+	            msgText: "<?php _e( 'Loading more...', 'portfolioplus' ); ?>",
+	            finishedMsg: "<?php _e( 'Congratulations.  You\'ve seen it all.', 'portfolioplus' ); ?>",
 	            speed: 'slow'
 	        },
 	        "nextSelector":"#nav-below .nav-previous a",
@@ -172,7 +172,7 @@ add_filter( 'wp_nav_menu_args', 'portfolio_wp_nav_menu_args' );
 function portfoliopress_widgets_init() {
 	
 	register_sidebar( array (
-			'name' => __( 'Sidebar', 'portfoliopress' ),
+			'name' => __( 'Sidebar', 'portfolioplus' ),
 			'id' => 'sidebar',
 			'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
 			'after_widget' => "</li>",
@@ -180,10 +180,10 @@ function portfoliopress_widgets_init() {
 			'after_title' => '</h3>',
 		) );
 
-	register_sidebar( array( 'name' => __( 'Footer 1', 'portfoliopress' ),'id' => 'footer-1', 'description' => __( "Widetized footer", 'portfoliopress' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
-	register_sidebar( array( 'name' => __( 'Footer 2', 'portfoliopress' ),'id' => 'footer-2', 'description' => __( "Widetized footer", 'portfoliopress' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
-	register_sidebar( array( 'name' => __( 'Footer 3', 'portfoliopress' ),'id' => 'footer-3', 'description' => __( "Widetized footer", 'portfoliopress' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
-	register_sidebar( array( 'name' => __( 'Footer 4', 'portfoliopress' ),'id' => 'footer-4', 'description' => __( "Widetized footer", 'portfoliopress' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
+	register_sidebar( array( 'name' => __( 'Footer 1', 'portfolioplus' ),'id' => 'footer-1', 'description' => __( "Widetized footer", 'portfolioplus' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
+	register_sidebar( array( 'name' => __( 'Footer 2', 'portfolioplus' ),'id' => 'footer-2', 'description' => __( "Widetized footer", 'portfolioplus' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
+	register_sidebar( array( 'name' => __( 'Footer 3', 'portfolioplus' ),'id' => 'footer-3', 'description' => __( "Widetized footer", 'portfolioplus' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
+	register_sidebar( array( 'name' => __( 'Footer 4', 'portfolioplus' ),'id' => 'footer-4', 'description' => __( "Widetized footer", 'portfolioplus' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
 }
 
 add_action( 'init', 'portfoliopress_widgets_init' );
@@ -199,9 +199,9 @@ function portfoliopress_content_nav() {
 			wp_pagenavi();
 		} else { ?>
         	<nav id="nav-below">
-			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'portfoliopress' ); ?></h1>		
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'portfoliopress' ) ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'portfoliopress' ) ); ?></div>
+			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'portfolioplus' ); ?></h1>		
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'portfolioplus' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'portfolioplus' ) ); ?></div>
 			</nav><!-- #nav-below -->
     	<?php }
 	endif;

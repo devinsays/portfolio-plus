@@ -1,7 +1,7 @@
 <?php
 /**
  * @package WordPress
- * @subpackage Portfolio Press
+ * @subpackage Portfolio Plus
  */
  
 /**
@@ -29,9 +29,9 @@ function of_get_option($name, $default = false) {
 }
 }
 
-if ( !function_exists( 'optionsframework_add_page' ) && current_user_can('edit_theme_options') ) {
+if ( !function_exists( 'optionsframework_add_page' ) && current_user_can( 'edit_theme_options' ) ) {
 	function portfolio_options_default() {
-		add_theme_page(__('Theme Options','portfoliopress'), __('Theme Options','portfoliopress'), 'edit_theme_options', 'options-framework','optionsframework_page_notice');
+		add_theme_page(__('Theme Options','portfolioplus'), __('Theme Options','portfolioplus'), 'edit_theme_options', 'options-framework','optionsframework_page_notice');
 	}
 	add_action('admin_menu', 'portfolio_options_default');
 }
@@ -45,8 +45,8 @@ if ( !function_exists( 'optionsframework_page_notice' ) ) {
 	
 		<div class="wrap">
 		<?php screen_icon( 'themes' ); ?>
-		<h2><?php _e('Theme Options','portfoliopress'); ?></h2>
-        <p><b><?php printf( __( 'If you would like to use the Portfolio Press theme options, please install the %s plugin.', 'portfoliopress' ), '<a href="http://wordpress.org/extend/plugins/options-framework/">Options Framework</a>' ); ?></b></p>
+		<h2><?php _e('Theme Options','portfolioplus'); ?></h2>
+        <p><b><?php printf( __( 'If you would like to use the Portfolio Press theme options, please install the %s plugin.', 'portfolioplus' ), '<a href="http://wordpress.org/extend/plugins/options-framework/">Options Framework</a>' ); ?></b></p>
 		</div>
 	<?php
 	}
@@ -162,7 +162,7 @@ function portfoliopress_output_bg( $selector, $option, $default ) {
 	if ( $option['color'] != $default['color'] ) {
 		$output .= 'background:' . $option['color'] . '; ';
 	}
-	if ( $option['image'] != '' ) {
+	if ( isset( $option['image'] ) && $option['image'] != '' ) {
 		$output .= 'background-image: url("' . $option['image'] . '"); ';
 		$output .= 'background-repeat:' . $option['repeat'] . '; ';
 		$output .= 'background-position:' . $option['position'] . '; ';
@@ -180,12 +180,44 @@ function portfoliopress_output_bg( $selector, $option, $default ) {
  * WordPress 3.4 Required
  */
 
-add_action( 'customize_register', 'portfoliopress_customize_register' );
+if ( function_exists( 'optionsframework_init' ) ) {
+	add_action( 'customize_register', 'portfoliopress_customize_register' );
+}
 
 function portfoliopress_customize_register($wp_customize) {
 
+	$options = optionsframework_options();
+
+	/* Title & Tagline */
+	
+	$wp_customize->add_setting( 'portfoliopress[tagline]', array(
+		'default' => '1',
+		'type' => 'option'
+	) );
+	
+	if ( !of_get_option('logo') ) {
+		$wp_customize->add_control( 'portfoliopress_tagline', array(
+			'label' => $options['tagline']['name'],
+			'section' => 'title_tagline',
+			'settings' => 'portfoliopress[tagline]',
+			'type' => 'checkbox'
+		) );
+	}
+	
+	$wp_customize->add_setting( 'portfoliopress[logo]', array(
+		'type' => 'option'
+	) );
+	
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo', array(
+		'label' => $options['logo']['name'],
+		'section' => 'title_tagline',
+		'settings' => 'portfoliopress[logo]'
+	) ) );
+	
+	/* Layout */
+
 	$wp_customize->add_section( 'portfoliopress_layout', array(
-		'title' => __( 'Layout', 'portfoliopress' ),
+		'title' => __( 'Layout', 'portfolioplus' ),
 		'priority' => 100,
 	) );
 	
@@ -195,7 +227,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 
 	$wp_customize->add_control( 'portfoliopress_layout', array(
-		'label' => __( 'Layout', 'portfoliopress' ),
+		'label' => $options['layout']['name'],
 		'section' => 'portfoliopress_layout',
 		'settings' => 'portfoliopress[layout]',
 		'type' => 'radio',
@@ -211,19 +243,17 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 
 	$wp_customize->add_control( 'portfoliopress_menu_position', array(
-		'label' => __( 'Menu Position', 'portfoliopress' ),
+		'label' => $options['menu_position']['name'],
 		'section' => 'nav',
 		'settings' => 'portfoliopress[menu_position]',
-		'type' => 'select',
-		'choices' => array(
-			 'right' => 'Right of Logo',
-			 'clear' => 'Underneath Logo')
+		'type' => 'radio',
+		'choices' => $options['menu_position']['options']
 	) );
 	
 	/* Header Styles */
 	
 	$wp_customize->add_section( 'portfoliopress_header_styles', array(
-		'title' => __( 'Header Styles', 'portfoliopress' ),
+		'title' => __( 'Header Styles', 'portfolioplus' ),
 		'priority' => 105,
 	) );
 	
@@ -233,19 +263,9 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
-		'label' => __( 'Background Color', 'portfoliopress' ),
+		'label' => __( 'Background Color', 'portfolioplus' ),
 		'section' => 'portfoliopress_header_styles',
 		'settings'   => 'portfoliopress[header_bg][color]'
-	) ) );
-	
-	$wp_customize->add_setting( 'portfoliopress[header_bg][image]', array(
-		'type' => 'option'
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'header_bg_image', array(
-		'label' => __( 'Background Image', 'portfoliopress' ),
-		'section' => 'portfoliopress_header_styles',
-		'settings' => 'portfoliopress[header_bg][image]'
 	) ) );
 	
 	$wp_customize->add_setting( 'portfoliopress[site_title_color]', array(
@@ -254,7 +274,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_title_color', array(
-		'label' => __( 'Site Title Color', 'portfoliopress' ),
+		'label' => $options['site_title_color']['desc'],
 		'section' => 'portfoliopress_header_styles',
 		'settings' => 'portfoliopress[site_title_color]'
 	) ) );
@@ -265,7 +285,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
-		'label' => __( 'Site Tagline Color', 'portfoliopress' ),
+		'label' => $options['tagline_color']['desc'],
 		'section' => 'portfoliopress_header_styles',
 		'settings' => 'portfoliopress[tagline_color]'
 	) ) );
@@ -276,7 +296,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_color', array(
-		'label' => __( 'Menu Text Color', 'portfoliopress' ),
+		'label' => $options['menu_color']['desc'],
 		'section' => 'portfoliopress_header_styles',
 		'settings' => 'portfoliopress[menu_color]'
 	) ) );
@@ -284,7 +304,7 @@ function portfoliopress_customize_register($wp_customize) {
 	/* Body Styles */
 		
 	$wp_customize->add_section( 'portfoliopress_body_styles', array(
-		'title' => __( 'Body Styles', 'portfoliopress' ),
+		'title' => __( 'Body Styles', 'portfolioplus' ),
 		'priority' => 110,
 	) );
 	
@@ -294,19 +314,9 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_bg_color', array(
-		'label' => __( 'Background Color', 'portfoliopress' ),
+		'label' => $options['main_bg']['name'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[main_bg][color]'
-	) ) );
-	
-	$wp_customize->add_setting( 'portfoliopress[main_bg][image]', array(
-		'type' => 'option'
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'main_bg_image', array(
-		'label' => __( 'Background Image', 'portfoliopress' ),
-		'section' => 'portfoliopress_body_styles',
-		'settings' => 'portfoliopress[main_bg][image]'
 	) ) );
 	
 	$wp_customize->add_setting( 'portfoliopress[body_color]', array(
@@ -316,7 +326,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_color', array(
-		'label' => __( 'Body Color', 'portfoliopress' ),
+		'label' => $options['body_color']['name'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[body_color]',
 	) ) );
@@ -327,7 +337,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label' => __( 'Link Color', 'portfoliopress' ),
+		'label' => $options['link_color']['desc'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[link_color]',
 	) ) );
@@ -338,7 +348,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
-		'label' => __( 'Link Hover', 'portfoliopress' ),
+		'label' => $options['link_hover_color']['desc'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[link_hover_color]'
 	) ) );
@@ -349,7 +359,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-		'label' => __( 'Header Colors (H1, H2, H3)', 'portfoliopress' ),
+		'label' => $options['header_color']['name'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[header_color]'
 	) ) );
@@ -360,7 +370,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'widget_header_color', array(
-		'label' => __( 'Sidebar Header Colors (Widgets)', 'portfoliopress' ),
+		'label' => $options['widget_header_color']['name'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[widget_header_color]'
 	) ) );
@@ -371,7 +381,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'border_color', array(
-		'label' => __( 'Border Color', 'portfoliopress' ),
+		'label' => $options['border_color']['name'],
 		'section' => 'portfoliopress_body_styles',
 		'settings' => 'portfoliopress[border_color]'
 	) ) );
@@ -379,7 +389,7 @@ function portfoliopress_customize_register($wp_customize) {
 	/* Footer Styles */
 	
 	$wp_customize->add_section( 'portfoliopress_footer_styles', array(
-		'title' => __( 'Footer Styles', 'portfoliopress' ),
+		'title' => __( 'Footer Styles', 'portfolioplus' ),
 		'priority' => 115
 	) );
 	
@@ -389,19 +399,9 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
-		'label' => __( 'Footer Background Color', 'portfoliopress' ),
+		'label' => __( 'Footer Background Color', 'portfolioplus' ),
 		'section' => 'portfoliopress_footer_styles',
 		'settings' => 'portfoliopress[footer_bg][color]'
-	) ) );
-	
-	$wp_customize->add_setting( 'portfoliopress[footer_bg][image]', array(
-		'type' => 'option'
-	) );
-	
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'footer_bg_image', array(
-		'label' => __( 'Footer Background Image', 'portfoliopress' ),
-		'section' => 'portfoliopress_footer_styles',
-		'settings' => 'portfoliopress[footer_bg][image]'
 	) ) );
 	
 	$wp_customize->add_setting( 'portfoliopress[footer_color]', array(
@@ -410,7 +410,7 @@ function portfoliopress_customize_register($wp_customize) {
 	) );
 	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-		'label' => __( 'Footer Text Color', 'portfoliopress' ),
+		'label' => $options['footer_color']['name'],
 		'section' => 'portfoliopress_footer_styles',
 		'settings' => 'portfoliopress[footer_color]'
 	) ) );
