@@ -102,7 +102,9 @@ function portfoliopress_infinite_scroll_js() {
 	        "itemSelector":"article, .portfolio-item",
 	        "contentSelector":"#content, #portfolio"
 	    };
-	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, portfoliopress_bindings );
+	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function(elements) {
+		    portfoliopress_bind(elements);
+	    });
 	    </script>
 	    <?php
     }
