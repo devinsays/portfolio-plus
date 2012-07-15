@@ -22,7 +22,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php portfoliopress_content_nav(); ?>
+				<?php portfolioplus_content_nav(); ?>
 
 			<?php else : ?>
 

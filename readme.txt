@@ -1,9 +1,9 @@
-Portfolio Press Read Me
+Portfolio+ Read Me
 ---------------------------------
 
-You can use this Portfolio Theme for your own websites and projects.  No attribution is needed, but always appreciated.
+You can use Portfolio+ for your own websites and projects.  No attribution is needed, but always appreciated.
 
-To leave comments or ask questions about the theme, please visit the theme page: http://wptheming.com/portfolio-theme/
+To leave comments or ask questions about the theme, please visit the theme page: http://wptheming.com/portfolio-plus/
 
 Instructions and Common Questions
 ---------------------------------
@@ -25,7 +25,7 @@ Credits
 
 WordPress projects always stand on the shoulders of others.  Please take this theme and build upon it for you own work!
 
-Portfolio was built on the solid foundation of Toolbox:
+Portfolio+ was built on the solid foundation of Toolbox:
 http://wordpress.org/extend/themes/toolbox
 
 Testing and extremely helpful code reviews were done by Michael Fields (http://wordpress.mfields.org/) and Jacob M Goldman (http://www.cmurrayconsulting.com).

@@ -11,11 +11,11 @@ if ( ! isset( $content_width ) )
 // Sets up the options panel and default functions
 require_once( TEMPLATEPATH . '/extensions/options-functions.php' );
 
-// Tell WordPress to run portfoliopress_setup() when the 'after_setup_theme' hook is run
-add_action( 'after_setup_theme', 'portfoliopress_setup' );
+// Tell WordPress to run portfolioplus_setup() when the 'after_setup_theme' hook is run
+add_action( 'after_setup_theme', 'portfolioplus_setup' );
  
-if ( ! function_exists( 'portfoliopress_setup' ) ):
-function portfoliopress_setup() {
+if ( ! function_exists( 'portfolioplus_setup' ) ):
+function portfolioplus_setup() {
 
 	/**
 	 * Make the theme available for translation.
@@ -47,14 +47,14 @@ function portfoliopress_setup() {
 	add_image_size( 'portfolio-large', 630, 9999, false );
 
 }
-endif; // portfoliopress_setup
+endif; // portfolioplus_setup
 
 /**
  * Loads the required javascript for the drop down menus and jquery effects
  * on portfolio items and post formats.
  */
  
-function portfoliopress_scripts() {
+function portfolioplus_scripts() {
 	wp_register_script( 'superfish', get_template_directory_uri() .'/js/superfish.js', array( 'jquery' ), false, true );
 	wp_enqueue_script('superfish');
 	wp_register_script( 'themejs', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ), false, true );
@@ -65,36 +65,36 @@ function portfoliopress_scripts() {
 	}
 }
 
-add_action('wp_enqueue_scripts', 'portfoliopress_scripts');
+add_action('wp_enqueue_scripts', 'portfolioplus_scripts');
 
 /**
  * Load webfonts from Google
  */
  
-if ( !function_exists( 'portfoliopress_google_fonts' ) ) {
-	function portfoliopress_google_fonts() {
+if ( !function_exists( 'portfolioplus_google_fonts' ) ) {
+	function portfolioplus_google_fonts() {
 		if ( !is_admin() ) {
-			wp_register_style( 'portfoliopress_open_sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', '', null, 'screen' );
-			wp_register_style( 'portfoliopress_rokkitt', 'http://fonts.googleapis.com/css?family=Rokkitt:400,700', '', null, 'screen' );
-			wp_enqueue_style( 'portfoliopress_open_sans' );
-			wp_enqueue_style( 'portfoliopress_rokkitt' );
+			wp_register_style( 'portfolioplus_open_sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', '', null, 'screen' );
+			wp_register_style( 'portfolioplus_rokkitt', 'http://fonts.googleapis.com/css?family=Rokkitt:400,700', '', null, 'screen' );
+			wp_enqueue_style( 'portfolioplus_open_sans' );
+			wp_enqueue_style( 'portfolioplus_rokkitt' );
 		}
 	}
 }
 
-add_action( 'init', 'portfoliopress_google_fonts' );
+add_action( 'init', 'portfolioplus_google_fonts' );
 
 /**
  * Infinite Scroll
  */
-function portfoliopress_infinite_scroll_js() {
+function portfolioplus_infinite_scroll_js() {
     if ( !is_singular() && of_get_option('infinite_scroll', true) ) { ?>
 	    <script>
 	    var infinite_scroll = {
 	        loading: {
 	            img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
 	            msgText: "<?php _e( 'Loading more...', 'portfolioplus' ); ?>",
-	            finishedMsg: "<?php _e( 'Congratulations.  You\'ve seen it all.', 'portfolioplus' ); ?>",
+	            finishedMsg: "<?php _e( 'All items have loaded.', 'portfolioplus' ); ?>",
 	            speed: 'slow'
 	        },
 	        "nextSelector":"#nav-below .nav-previous a",
@@ -103,13 +103,13 @@ function portfoliopress_infinite_scroll_js() {
 	        "contentSelector":"#content, #portfolio"
 	    };
 	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function(elements) {
-		    portfoliopress_bind(elements);
+		    portfolioplus_bind(elements);
 	    });
 	    </script>
 	    <?php
     }
 }
-add_action( 'wp_footer', 'portfoliopress_infinite_scroll_js',100 );
+add_action( 'wp_footer', 'portfolioplus_infinite_scroll_js',100 );
 
 /**
  * Displays a notice letting the user know that portfolio post type functionality
@@ -120,13 +120,13 @@ if ( !function_exists( 'portfolioposttype' ) && current_user_can( 'install_plugi
 
 	/* Display a notice that can be dismissed */
 
-	add_action( 'admin_notices', 'portfoliopress_install_plugin_notice' );
+	add_action( 'admin_notices', 'portfolioplus_install_plugin_notice' );
 
-	function portfoliopress_install_plugin_notice() {
+	function portfolioplus_install_plugin_notice() {
 		global $current_user ;
 		$user_id = $current_user->ID;
 		/* Check that the user hasn't already clicked to ignore the message */
-		if ( ! get_user_meta( $user_id, 'portfoliopress_install_plugin_notice' ) ) {
+		if ( ! get_user_meta( $user_id, 'portfolioplus_install_plugin_notice' ) ) {
 			add_thickbox();
 			echo '<div class="updated"><p>';
 			printf( __( 'If you wish to use custom post types for portfolios, please install the Portfolio Post Type Plugin.  <a href="%1$s" class="thickbox onclick">Install Now</a> | <a href="%2$s">Hide Notice</a>' ), admin_url() . 'plugin-install.php?tab=plugin-information&plugin=portfolio-post-type&TB_iframe=true&width=640&height=517', '?example_nag_ignore=0' );
@@ -134,9 +134,9 @@ if ( !function_exists( 'portfolioposttype' ) && current_user_can( 'install_plugi
 		}
 	}
 
-	add_action( 'admin_init', 'portfoliopress_post_plugin_ignore' );
+	add_action( 'admin_init', 'portfolioplus_post_plugin_ignore' );
 
-	function portfoliopress_post_plugin_ignore() {
+	function portfolioplus_post_plugin_ignore() {
 		global $current_user;
 		$user_id = $current_user->ID;
 		/* If user clicks to ignore the notice, add that to their user meta */
@@ -171,7 +171,7 @@ add_filter( 'wp_nav_menu_args', 'portfolio_wp_nav_menu_args' );
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function portfoliopress_widgets_init() {
+function portfolioplus_widgets_init() {
 	
 	register_sidebar( array (
 			'name' => __( 'Sidebar', 'portfolioplus' ),
@@ -188,13 +188,13 @@ function portfoliopress_widgets_init() {
 	register_sidebar( array( 'name' => __( 'Footer 4', 'portfolioplus' ),'id' => 'footer-4', 'description' => __( "Widetized footer", 'portfolioplus' ), 'before_widget' => '<div id="%1$s" class="widget-container %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>' ) );
 }
 
-add_action( 'init', 'portfoliopress_widgets_init' );
+add_action( 'init', 'portfolioplus_widgets_init' );
 
 /**
  * Reusable navigation code for navigation
  * Display navigation to next/previous pages when applicable
  */
-function portfoliopress_content_nav() {
+function portfolioplus_content_nav() {
 	global $wp_query;
 	if (  $wp_query->max_num_pages > 1 ) :
 		if (function_exists('wp_pagenavi') ) {
@@ -225,12 +225,12 @@ add_action( 'pre_get_posts', 'wpt_portfolio_custom_posts_per_page' );
  * Overrides the default behavior of portfolio taxonomies to use the archive-portfolio template
  * http://www.billerickson.net/reusing-wordpress-theme-files/
  */
-function portfoliopress_template_chooser( $template ) {
+function portfolioplus_template_chooser( $template ) {
 	if ( is_tax( 'portfolio_tag' ) ||  is_tax( 'portfolio_category' ) )
 		$template = get_query_template( 'archive-portfolio' );
 	return $template;
 }
-add_filter( 'template_include', 'portfoliopress_template_chooser' );
+add_filter( 'template_include', 'portfolioplus_template_chooser' );
 
 /**
  * Custom CSS is loaded for the options panel

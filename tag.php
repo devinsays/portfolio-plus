@@ -34,7 +34,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php portfoliopress_content_nav(); ?>
+				<?php portfolioplus_content_nav(); ?>
 				
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
