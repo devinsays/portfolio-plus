@@ -46,7 +46,7 @@ if ( !function_exists( 'optionsframework_page_notice' ) ) {
 		<div class="wrap">
 		<?php screen_icon( 'themes' ); ?>
 		<h2><?php _e('Theme Options','portfolioplus'); ?></h2>
-        <p><b><?php printf( __( 'If you would like to use the Portfolio Press theme options, please install the %s plugin.', 'portfolioplus' ), '<a href="http://wordpress.org/extend/plugins/options-framework/">Options Framework</a>' ); ?></b></p>
+        <p><b><?php printf( __( 'If you would like to use the Portfolio+ theme options, please install the %s plugin.', 'portfolioplus' ), '<a href="http://wordpress.org/extend/plugins/options-framework/">Options Framework</a>' ); ?></b></p>
 		</div>
 	<?php
 	}

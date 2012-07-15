@@ -22,6 +22,14 @@ function optionsframework_options() {
 	// If using image radio buttons, define a directory path
 	$imagepath =  get_template_directory_uri() . '/images/';
 	
+	// Background Defaults
+	$background_defaults = array(
+		'color' => '',
+		'image' => '',
+		'repeat' => 'repeat',
+		'position' => 'top center',
+		'attachment'=>'scroll' );
+	
 	$options = array();
 		
 	$options[] = array( 'name' => __('General','portfolioplus'),
@@ -150,15 +158,18 @@ function optionsframework_options() {
 						
 	$options['header_bg'] = array( 'name' =>  __('Header Background', 'portfolioplus'),
 						'id' => 'header_bg',
-						'std' => array( 'color' => '#000000', 'image' => '') );
+						'std' => array_merge( $background_defaults, array( 'color' => '#000000') ),
+						'type' =>'background' );
 						
 	$options['main_bg'] = array( 'name' =>  __('Body Background', 'portfolioplus'),
 						'id' => 'main_bg',
-						'std' => array( 'color' => '#f3f3f3', 'image' => '' ) );
+						'std' => array_merge( $background_defaults, array( 'color' => '#f3f3f3') ),
+						'type' =>'background' );
 						
 	$options['footer_bg'] = array( 'name' =>  __('Footer Background', 'portfolioplus'),
 						'id' => 'footer_bg',
-						'std' => array( 'color' => '#ffffff', 'image' => '' ) );
+						'std' => array_merge( $background_defaults, array( 'color' => '#ffffff') ),
+						'type' =>'background' );
 						
 	$options[] = array( 'name' => __('Portfolio','portfolioplus'),
                     	'type' => 'heading');
