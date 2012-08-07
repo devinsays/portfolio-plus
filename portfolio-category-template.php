@@ -14,7 +14,11 @@ get_header();
 	   
 	   $portolioplus_category_query = get_transient('portoliopress_category_query');
 	   if ( !$portolioplus_category_query ) {
-	   		$portolioplus_category_query = portfoliopress_category_cache();
+	   		if ( function_exists( 'portfolioposttype' ) ) {
+	   			$portolioplus_category_query = portfolioplus_category_cache();
+	   		} else {
+		   		$portolioplus_category_query = array();
+	   		}
 	   }
 	    
 	   $fullwidth = of_get_option( 'portfolio_sidebar', false );
