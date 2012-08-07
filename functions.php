@@ -284,3 +284,20 @@ function optionsframework_custom_css () {
 	wp_register_style( 'optionsframework_custom_css', get_template_directory_uri() .'/extensions/options-custom.css' );
 	wp_enqueue_style( 'optionsframework_custom_css' );
 }
+
+/**
+ * Deletes the portoliopress_category_query transient if a portfolio post is updated
+ */
+ 
+function portfolioplus_save_portfolio( $post_id ) {
+
+	// If this is an auto save routine don't do anyting
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+		return;
+		
+	if ( 'portfolio' == $_POST['post_type'] )
+		delete_transient( 'portolioplus_category_query' );
+	
+}
+ 
+add_action( 'save_post', 'portfolioplus_save_portfolio' );
