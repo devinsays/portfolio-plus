@@ -52,12 +52,19 @@ if ( post_password_required() ) {
 		}
 		if ( !has_post_thumbnail() ) {
 			$classes .= ' no-thumb';
-		} ?>
+		}
+		$link_url = get_permalink();
+		$url_target = '';
+		if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
+			$link_url = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+			$url_target = ' target="_blank"';
+		}
+		?>
 		<div class="<?php echo $classes; ?>">
 			<?php if ( has_post_thumbnail() ) { ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?><?php the_title_attribute(); ?>" class="thumb"><?php the_post_thumbnail( $thumbnail ); ?></a>
+			<a href="<?php echo $link_url; ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?><?php the_title_attribute(); ?>" class="thumb"<?php echo $url_target;?>><?php the_post_thumbnail( $thumbnail ); ?></a>
 			<?php } ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?> <?php the_title_attribute(); ?>" class="title-overlay"><?php the_title() ?></a>
+			<a href="<?php echo $link_url; ?>" rel="bookmark" class="title-overlay"><?php the_title() ?></a>
 		</div>
 
 		<?php endwhile; ?>

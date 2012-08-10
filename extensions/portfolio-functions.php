@@ -61,7 +61,7 @@ function portfoliopress_save_url_meta( $post_id, $post ) {
 	if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
 		return $post_id;
 
-	/* Get the posted data and sanitize it for use as an HTML class. */
+	/* Get the posted data and sanitize it for a url */
 	$new_meta_value = ( isset( $_POST['portfolioplus-portfolio-url'] ) ? esc_url( $_POST['portfolioplus-portfolio-url'] ) : '' );
 
 	/* Get the meta key. */

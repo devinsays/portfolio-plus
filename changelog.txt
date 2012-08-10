@@ -2,6 +2,7 @@ Portfolio+ 1.1
 
 - Bugfix for portfolios with single column layout
 - Template for displaying Portfolio Categories
+- Metabox for portfolio item url
 
 Portfolio+ 1.0.1
 
