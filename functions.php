@@ -11,6 +11,11 @@ if ( ! isset( $content_width ) )
 // Sets up the options panel and default functions
 require_once( TEMPLATEPATH . '/extensions/options-functions.php' );
 
+// Adds specific portfolio post type functions
+if ( function_exists( 'portfolioposttype' ) ) {
+	require_once( TEMPLATEPATH . '/extensions/portfolio-functions.php' );
+}
+
 // Tell WordPress to run portfolioplus_setup() when the 'after_setup_theme' hook is run
 add_action( 'after_setup_theme', 'portfolioplus_setup' );
  
@@ -299,5 +304,4 @@ function portfolioplus_save_portfolio( $post_id ) {
 		delete_transient( 'portolioplus_category_query' );
 	
 }
- 
 add_action( 'save_post', 'portfolioplus_save_portfolio' );
