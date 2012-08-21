@@ -12,7 +12,7 @@ require_once( get_template_directory() . '/extensions/portfolio-category-functio
 
 get_header();
 	   
-	   $portolioplus_category_query = get_transient('portoliopress_category_query');
+	   $portolioplus_category_query = get_transient( 'portolioplus_category_query' );
 	   if ( !$portolioplus_category_query ) {
 	   		if ( function_exists( 'portfolioposttype' ) ) {
 	   			$portolioplus_category_query = portfolioplus_category_cache();

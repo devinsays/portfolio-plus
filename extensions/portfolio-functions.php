@@ -13,7 +13,7 @@ add_action( 'load-post-new.php', 'portfolioplus_meta_boxes_setup' );
 function portfolioplus_meta_boxes_setup() {
 
 	/* Add meta boxes on the 'add_meta_boxes' hook. */
-	add_action( 'add_meta_boxes', 'smashing_add_post_meta_boxes' );
+	add_action( 'add_meta_boxes', 'portfolioplus_add_post_meta_boxes' );
 
 	/* Save post meta on the 'save_post' hook. */
 	add_action( 'save_post', 'portfoliopress_save_url_meta', 10, 2 );
@@ -23,7 +23,7 @@ function portfolioplus_meta_boxes_setup() {
  *	http://codex.wordpress.org/Function_Reference/add_meta_box
  */
 
-function smashing_add_post_meta_boxes() {
+function portfolioplus_add_post_meta_boxes() {
 
 	add_meta_box(
 		'portfolioplus-portfolio-url',	// Unique ID

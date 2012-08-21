@@ -1,3 +1,8 @@
+Portfolio+ 1.2
+
+- Fixed bug that caused an error when deleting a portfolio item
+- Updated the metabox function name
+
 Portfolio+ 1.1
 
 - Bugfix for portfolios with single column layout

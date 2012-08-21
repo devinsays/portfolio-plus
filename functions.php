@@ -294,14 +294,15 @@ function optionsframework_custom_css () {
  * Deletes the portoliopress_category_query transient if a portfolio post is updated
  */
  
-function portfolioplus_save_portfolio( $post_id ) {
+function portfolioplus_save_portfolio( $post_id, $post ) {
 
 	// If this is an auto save routine don't do anyting
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
 		
-	if ( 'portfolio' == $_POST['post_type'] )
+	if ( $post->post_type == 'portfolio' ) {
 		delete_transient( 'portolioplus_category_query' );
+	}
 	
 }
-add_action( 'save_post', 'portfolioplus_save_portfolio' );
+add_action( 'save_post', 'portfolioplus_save_portfolio', 10, 2 );
