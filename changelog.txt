@@ -1,3 +1,7 @@
+Development
+
+- Fix for plugin notices
+
 Portfolio+ 1.2
 
 - Fixed bug that caused an error when deleting a portfolio item
