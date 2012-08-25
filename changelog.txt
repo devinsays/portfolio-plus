@@ -1,6 +1,7 @@
 Development
 
 - Fix for plugin notices
+- Display gallery images in archives
 
 Portfolio+ 1.2
 
