@@ -1,16 +1,16 @@
-function portfoliopress_bind(elements) {
+function portfolioplus_bind(elements) {
 	$ = jQuery;
 	$(elements).each( function() {
 		if ( $(this).hasClass('format-image') ) {
-			portfoliopress_imageformat($(this));
+			portfolioplus_imageformat($(this));
 		}
 		if ( $(this).hasClass('portfolio-item') ) {
-			portfoliopress_portfolio($(this));
+			portfolioplus_portfolio($(this));
 		}
 	});
 }
 
-function portfoliopress_imageformat(imageformat) {
+function portfolioplus_imageformat(imageformat) {
 	var image = imageformat.find('img:first');
 	if (image.width() > 200 ) {
 		var link = imageformat.find('.entry-title').children();
@@ -29,7 +29,7 @@ function portfoliopress_imageformat(imageformat) {
 	});
 }
 
-function portfoliopress_portfolio(portfolio) {
+function portfolioplus_portfolio(portfolio) {
 	// Portfolio Archive
     portfolio.hover(function(){
     	if ( !$(this).hasClass('no-thumb') ) {
@@ -48,10 +48,10 @@ jQuery(window).load( function(){
 	$ = jQuery;
 	// Image Post Format
 	$('#content .format-image').each( function() {
-	    portfoliopress_imageformat($(this));
+	    portfolioplus_imageformat($(this));
 	});
 	// Portfolio
 	$('#portfolio .portfolio-item').each( function() {
-	    portfoliopress_portfolio($(this));
+	    portfolioplus_portfolio($(this));
 	});
 });

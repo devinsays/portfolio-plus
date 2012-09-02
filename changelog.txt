@@ -1,7 +1,8 @@
-Development
+Portfolio+ 1.3
 
 - Fix for plugin notices
 - Display gallery images in archives
+- Fix for js binding on infinite scroll
 
 Portfolio+ 1.2
 

@@ -254,7 +254,7 @@ function portfolioplus_content_nav() {
 }
 
 /**
- * Sets posts displayed per portfolio page to 9
+ * Sets posts displayed per portfolio to 9 or 12 (whatever the option is set to)
  */
 function wpt_portfolio_custom_posts_per_page( $query ) {
 	global $wp_the_query;
