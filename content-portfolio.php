@@ -43,6 +43,12 @@ if ( post_password_required() ) {
 	}
 ?>
 <div id="portfolio"<?php if ( $fullwidth ) { echo ' class="full-width"'; }?>>
+	
+	<?php if ( is_tax() && ( of_get_option('archive_titles', 0 ) ) ): ?>
+	<h2 class="archive-title"><?php echo single_cat_title( '', false ); ?></h2>
+
+	<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
+	<?php endif; ?>
 
 	<?php  if ( have_posts() ) : $count = 0;
 		while ( have_posts() ) : the_post(); $count++;

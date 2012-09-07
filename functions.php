@@ -48,7 +48,7 @@ function portfolioplus_setup() {
 	add_theme_support( 'post-formats', array( 'gallery', 'quote', 'image' ) );
 	
 	add_image_size( 'portfolio-thumbnail', 215, 175, true );
-	add_image_size( 'portfolio-thumbnail-fullwidth', 308, 220, true );
+	add_image_size( 'portfolio-thumbnail-fullwidth', 314, 224, true );
 	add_image_size( 'portfolio-large', 630, 9999, false );
 
 }
@@ -258,7 +258,8 @@ function portfolioplus_content_nav() {
  */
 function wpt_portfolio_custom_posts_per_page( $query ) {
 	global $wp_the_query;
-	if ( $wp_the_query === $query && !is_admin() && is_post_type_archive( 'portfolio' ) ) {
+	if ( $wp_the_query === $query && !is_admin() ) {
+		if ( is_post_type_archive( 'portfolio' ) || is_tax( 'portfolio_tag' ) ||  is_tax( 'portfolio_category' ) )
 		$query->set( 'posts_per_page', of_get_option('portfolio_num','9') );
 	}
 }

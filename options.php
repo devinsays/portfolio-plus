@@ -186,6 +186,12 @@ function optionsframework_options() {
 						'std' => '0',
 						'type' => 'checkbox');
 						
+	$options['archive_titles'] = array( 'name' => __('Archive Titles','portfolioplus'),
+						'desc' => 'Display titles and descriptions on portfolio category/tag pages.',
+						'id' => 'archive_titles',
+						'std' => '0',
+						'type' => 'checkbox');
+						
 	$options['portfolio_num'] = array( 'name' => __('Number of Portfolio Items','portfolioplus'),
 						'desc' => __('Select the number of portfolio items to show per page.','portfolioplus'),
 						'id' => 'portfolio_num',

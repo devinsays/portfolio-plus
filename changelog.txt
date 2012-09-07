@@ -1,3 +1,9 @@
+Portfolio+ 1.4
+
+- Fix for number of items shown in portfolio taxonomies
+- Update thumbnail sizing (props @alexkunz)
+- Added option to display portfolio category/tag titles
+
 Portfolio+ 1.3
 
 - Fix for plugin notices
