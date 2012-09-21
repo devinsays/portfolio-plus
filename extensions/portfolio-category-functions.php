@@ -50,7 +50,7 @@ function portfolioplus_category_cache() {
 
 			$portolioplus_category_query[$category->slug] = array(
 				'name' => $category->name,
-				'term_link' =>  esc_attr( get_term_link( $category->name, 'portfolio_category' ) ),
+				'term_link' =>  esc_attr( get_term_link( $category->slug, 'portfolio_category' ) ),
 				'portfolio-thumbnail' => $portfolio_thumbnail[0],
 				'portfolio-thumbnail-fullwidth' => $portfolio_thumbnail_fullwidth[0]
 			);

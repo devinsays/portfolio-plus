@@ -1,3 +1,8 @@
+Portfolio+ Dev
+
+- Max-width for logo image
+- Bugfix for portfolio category template
+
 Portfolio+ 1.4
 
 - Fix for number of items shown in portfolio taxonomies
