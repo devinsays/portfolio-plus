@@ -160,7 +160,7 @@ $license = trim( get_option( 'portfolioplus_license_key' ) );
 
 $edd_updater = new EDD_SL_Theme_Updater( array( 
 		'remote_api_url' 	=> PORTFOLIOPLUS_URL,  		// Website to check for updates
-		'version' 			=> '0.1', 					// Current version
+		'version' 			=> '1.5', 					// Current version
 		'license' 			=> $license, 				// License key
 		'item_name' 		=> PORTFOLIOPLUS_DOWNLOAD,	// Theme name
 		'author'			=> 'Devin Price'			// Author Name
