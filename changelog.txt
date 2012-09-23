@@ -1,4 +1,4 @@
-Portfolio+ Dev
+Portfolio+ 1.5
 
 - Max-width for logo image
 - Bugfix for portfolio category template
