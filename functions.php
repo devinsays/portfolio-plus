@@ -16,6 +16,9 @@ if ( function_exists( 'portfolioposttype' ) ) {
 	require_once( TEMPLATEPATH . '/extensions/portfolio-functions.php' );
 }
 
+// Theme updater functions
+include( dirname( __FILE__ ) . '/extensions/theme-updater.php' );
+
 // Tell WordPress to run portfolioplus_setup() when the 'after_setup_theme' hook is run
 add_action( 'after_setup_theme', 'portfolioplus_setup' );
  

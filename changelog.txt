@@ -2,6 +2,7 @@ Portfolio+ Dev
 
 - Max-width for logo image
 - Bugfix for portfolio category template
+- Theme supports automatic updates with license key
 
 Portfolio+ 1.4
 
