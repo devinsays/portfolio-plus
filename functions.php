@@ -135,7 +135,7 @@ add_action( 'init', 'portfolioplus_google_fonts' );
  * Infinite Scroll
  */
 function portfolioplus_infinite_scroll_js() {
-    if ( !is_singular() && of_get_option('infinite_scroll', true) ) { ?>
+    if ( !is_single() && of_get_option('infinite_scroll', true) ) { ?>
 	    <script>
 	    var infinite_scroll = {
 	        loading: {
