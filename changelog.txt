@@ -1,3 +1,8 @@
+Portfolio+ 1.6
+
+- Allow licensing screen to be translatable
+- Enqueue infinite scroll on single rather than singular
+
 Portfolio+ 1.5
 
 - Max-width for logo image

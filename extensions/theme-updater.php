@@ -160,7 +160,7 @@ $license = trim( get_option( 'portfolioplus_license_key' ) );
 
 $edd_updater = new EDD_SL_Theme_Updater( array( 
 		'remote_api_url' 	=> PORTFOLIOPLUS_URL,  		// Website to check for updates
-		'version' 			=> '1.5', 					// Current version
+		'version' 			=> '1.6', 					// Current version
 		'license' 			=> $license, 				// License key
 		'item_name' 		=> PORTFOLIOPLUS_DOWNLOAD,	// Theme name
 		'author'			=> 'Devin Price'			// Author Name
@@ -168,7 +168,8 @@ $edd_updater = new EDD_SL_Theme_Updater( array(
 );
 
 function portfolioplus_license_menu() {
-	add_theme_page( 'Theme License', 'Theme License', 'manage_options', 'portfolioplus-license', 'portfolioplus_license_page' );
+	
+	add_theme_page( __('Theme License', 'portfolioplus'), __('Theme License', 'portfolioplus'), 'manage_options', 'portfolioplus-license', 'portfolioplus_license_page' );
 }
 add_action( 'admin_menu', 'portfolioplus_license_menu', 100);
 
@@ -178,7 +179,7 @@ function portfolioplus_license_page() {
 	?>
 	<div class="wrap">
 		<?php screen_icon( 'themes' ); ?>
-		<h2><?php _e( 'Portfolio+ License' ); ?></h2>
+		<h2><?php _e( 'Portfolio+ License', 'portfoliolus' ); ?></h2>
 		<form method="post" action="options.php">
 		
 			<?php settings_fields( 'portfolioplus_license' ); ?>
@@ -187,7 +188,7 @@ function portfolioplus_license_page() {
 				<tbody>
 					<tr valign="top">	
 						<th scope="row" valign="top">
-							<?php _e( 'Enter Your License Key' ); ?>
+							<?php _e( 'Enter Your License Key', 'portfolioplus' ); ?>
 						</th>
 						<td>
 							<input id="portfolioplus_license_key" name="portfolioplus_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
@@ -196,14 +197,14 @@ function portfolioplus_license_page() {
 					<?php if( false !== $license ) { ?>
 						<tr valign="top">	
 							<th scope="row" valign="top">
-								<?php _e( 'Activate License' ); ?>
+								<?php _e( 'Activate License', 'portfolioplus' ); ?>
 							</th>
 							<td>
 								<?php if( $status !== false && $status == 'valid' ) { ?>
 									<span style="color:green;"><?php _e('active'); ?></span>
 								<?php } else {
 									wp_nonce_field( 'portfolioplus_license_nonce', 'portfolioplus_license_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="portfolioplus_license_activate" value="<?php _e( 'Activate License' ); ?>"/>
+									<input type="submit" class="button-secondary" name="portfolioplus_license_activate" value="<?php _e( 'Activate License', 'portfolioplus' ); ?>"/>
 								<?php } ?>
 							</td>
 						</tr>

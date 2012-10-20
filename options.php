@@ -133,12 +133,12 @@ function optionsframework_options() {
 						'std' => '#ffffff',
 						'type' => 'color' );
 						
-	$options['header_color'] = array( 'name' => __('Header Colors (H1, H2, H3)','portfolioplus'),
+	$options['header_color'] = array( 'name' => __('Heading/Title Colors (H1, H2, H3)','portfolioplus'),
 						'id' => 'header_color',
 						'std' => '#111111',
 						'type' => 'color' );
 						
-	$options['widget_header_color'] = array( 'name' => __('Sidebar Header Colors (Widgets)','portfolioplus'),
+	$options['widget_header_color'] = array( 'name' => __('Sidebar Heading/Title Colors (Widgets)','portfolioplus'),
 						'id' => 'widget_header_color',
 						'std' => '#555555',
 						'type' => 'color' );
