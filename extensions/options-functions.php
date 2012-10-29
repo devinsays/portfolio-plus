@@ -119,8 +119,10 @@ function portfolio_head_css() {
 			$output .= '.widget-container h3 { color:' . of_get_option('widget_header_color') . "; }\n";
 		}
 		
-		if ( of_get_option('border_color') ) {
-			$output .= '#content .entry-title, .widget-container h3 { border-bottom-color:' . of_get_option('border_color') . "; }\n";
+		if ( of_get_option('border_color') != '#dddddd' ) {
+			$output .= '#content .entry-title, .widget-container h3 { border-bottom-color:' . of_get_option('border_color') . "; box-shadow:none; }\n";
+			$output .= 'footer.entry-meta:before, footer.entry-meta:after, #comments:before { background:' . of_get_option('border_color') . "; box-shadow:none; }\n";
+			
 		}
 		
 		if ( of_get_option('footer_color') ) {
@@ -131,8 +133,12 @@ function portfolio_head_css() {
 			$output .= portfolioplus_output_bg( '#branding', of_get_option('header_bg'), array('color'=>'#000000') );
 		}
 		
-		if ( of_get_option('main_bg') ) {
+		$main_bg = of_get_option('main_bg');
+		if ( $main_bg ) {
 			$output .= portfolioplus_output_bg( '#main', of_get_option('main_bg'), array('color'=>'#f3f3f3') );
+			if ( $main_bg['color'] != '#f3f3f3' ) {
+				$output .= '#content .entry-title, .widget-container h3 { text-shadow: none; }\n"';
+			}
 		}
 		
 		if ( of_get_option('footer_bg') ) {

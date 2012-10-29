@@ -1,3 +1,10 @@
+Portfolio+ 1.7
+
+- Add transient expiration for portfolio category template
+- Make the full width layout option max-width 980px
+- Add box shadows to borders
+
+
 Portfolio+ 1.6
 
 - Allow licensing screen to be translatable

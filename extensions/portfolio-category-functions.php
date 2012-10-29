@@ -61,7 +61,7 @@ function portfolioplus_category_cache() {
    	// Reset Post Data
 	wp_reset_postdata();
 	
-	set_transient( 'portolioplus_category_query', $portolioplus_category_query );
+	set_transient( 'portolioplus_category_query', $portolioplus_category_query, 60*60*24*7 );
 	
 	return $portolioplus_category_query;
 }

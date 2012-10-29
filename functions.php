@@ -5,8 +5,13 @@
  */
  
 // Set the content width based on the theme's design and stylesheet
-if ( ! isset( $content_width ) )
-	$content_width = 640;
+if ( ! isset( $content_width ) ) {
+	if ( of_get_option('layout') == 'layout-1col' ) {
+		$content_width = 980;
+	} else {
+		$content_width = 640;
+	}
+}
 	
 // Sets up the options panel and default functions
 require_once( TEMPLATEPATH . '/extensions/options-functions.php' );
