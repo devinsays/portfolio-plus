@@ -22,7 +22,7 @@ function portfolioplus_category_cache() {
 
 	$categories = get_categories( $args );
 	
-	$portolioplus_category_query = array();
+	$portfolioplus_category_query = array();
 	
 	/* Pulls the first post from each of the individual portfolio categories */
 
@@ -48,7 +48,7 @@ function portfolioplus_category_cache() {
 		
 			/* All the data pulled is saved into an array which we'll save later */
 
-			$portolioplus_category_query[$category->slug] = array(
+			$portfolioplus_category_query[$category->slug] = array(
 				'name' => $category->name,
 				'term_link' =>  esc_attr( get_term_link( $category->slug, 'portfolio_category' ) ),
 				'portfolio-thumbnail' => $portfolio_thumbnail[0],
@@ -61,7 +61,7 @@ function portfolioplus_category_cache() {
    	// Reset Post Data
 	wp_reset_postdata();
 	
-	set_transient( 'portolioplus_category_query', $portolioplus_category_query, 60*60*24*7 );
+	set_transient( 'portfolioplus_category_query', $portfolioplus_category_query, 60*60*24*7 );
 	
-	return $portolioplus_category_query;
+	return $portfolioplus_category_query;
 }

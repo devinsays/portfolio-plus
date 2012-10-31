@@ -12,12 +12,13 @@ require_once( get_template_directory() . '/extensions/portfolio-category-functio
 
 get_header();
 	   
-	   $portolioplus_category_query = get_transient( 'portolioplus_category_query' );
-	   if ( !$portolioplus_category_query ) {
-	   		if ( function_exists( 'portfolioposttype' ) ) {
-	   			$portolioplus_category_query = portfolioplus_category_cache();
+	   $portfolioplus_category_query = get_transient( 'portfolioplus_category_query' );
+	   
+	   if ( !$portfolioplus_category_query ) {
+	   		if ( class_exists( 'Portfolio_Post_Type' ) ) {
+	   			$portfolioplus_category_query = portfolioplus_category_cache();
 	   		} else {
-		   		$portolioplus_category_query = array();
+		   		$portfolioplus_category_query = array();
 	   		}
 	   }
 	    
@@ -33,7 +34,7 @@ get_header();
 	   <div id="portfolio"<?php if ( $fullwidth ) { echo ' class="full-width"'; }?>>
 	   	
 	   <?php  $count = 0;
-	   foreach ( $portolioplus_category_query as $portfolio_cat ) {
+	   foreach ( $portfolioplus_category_query as $portfolio_cat ) {
 		   
 		   $count++;
 		   $classes = 'portfolio-item item-' . $count;

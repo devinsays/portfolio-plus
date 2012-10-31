@@ -57,7 +57,7 @@ function portfolioplus_setup() {
 	
 	add_image_size( 'portfolio-thumbnail', 215, 175, true );
 	add_image_size( 'portfolio-thumbnail-fullwidth', 314, 224, true );
-	add_image_size( 'portfolio-large', 630, 9999, false );
+	add_image_size( 'portfolio-large', 640, 9999, false );
 
 }
 endif; // portfolioplus_setup
@@ -300,7 +300,7 @@ function optionsframework_custom_css () {
 }
 
 /**
- * Deletes the portolioplus_category_query transient if a portfolio post is updated
+ * Deletes the portfolioplus_category_query transient if a portfolio post is updated
  */
  
 function portfolioplus_save_portfolio( $post_id, $post ) {
@@ -310,7 +310,7 @@ function portfolioplus_save_portfolio( $post_id, $post ) {
 		return;
 		
 	if ( $post->post_type == 'portfolio' ) {
-		delete_transient( 'portolioplus_category_query' );
+		delete_transient( 'portfolioplus_category_query' );
 	}
 	
 }

@@ -155,13 +155,15 @@ function portfolio_head_css() {
 		}
 		
 		// Output styles
-		if ($output <> '') {
+		if ( $output <> '' ) {
 			$output = "\n<!-- Custom Styling -->\n<style type=\"text/css\">\n" . $output . "</style>\n";
 			echo $output;
 		}
 }
 
-add_action('wp_head', 'portfolio_head_css');
+if ( !of_get_option( 'disable_styles', false ) ) {
+	add_action('wp_head', 'portfolio_head_css');
+}
 
 function portfolioplus_output_bg( $selector, $option, $default ) {
 	$output = '';

@@ -1,9 +1,12 @@
 Portfolio+ 1.7
 
-- Add transient expiration for portfolio category template
-- Make the full width layout option max-width 980px
 - Add box shadows to borders
-
+- Remove prev/next post navigation on single posts and portfolio items
+- Add borders around post meta
+- Add transient expiration for portfolio category template
+- Make the full width layout option max-width 780px
+- Increase width for full size posts to 640px
+- Make "Turn Off Inline Styles" option work correctly
 
 Portfolio+ 1.6
 
