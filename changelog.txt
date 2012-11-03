@@ -1,6 +1,11 @@
+Portfolio+ 1.7.1
+
+- Removes theme dependency on Options Framework plugin
+- Show taxonomy descriptions by default (option to turn off)
+
 Portfolio+ 1.7
 
-- Add box shadows to borders
+- Added box shadows to borders
 - Remove prev/next post navigation on single posts and portfolio items
 - Add borders around post meta
 - Add transient expiration for portfolio category template
