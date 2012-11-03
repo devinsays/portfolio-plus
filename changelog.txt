@@ -1,3 +1,8 @@
+Portfolio+ 1.7.2
+
+- Fixed bug on portfolio page that caused an error
+- Updated version number for automatic updater
+
 Portfolio+ 1.7.1
 
 - Removes theme dependency on Options Framework plugin
