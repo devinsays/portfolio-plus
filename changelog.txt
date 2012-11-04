@@ -1,6 +1,7 @@
 Portfolio+ 1.7.3
 
 - Fixed minor output error with inline styles
+- Fix styling for archive meta descriptions
 
 Portfolio+ 1.7.2
 

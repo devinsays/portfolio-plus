@@ -8,12 +8,11 @@ get_header(); ?>
 
 	<div id="primary">
 		<div id="content" role="main">
-
-			<h2 class="page-title"><?php
-				printf( __( 'Category Archives: %s', 'portfolioplus' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-			?></h2>
-
-			<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
+		
+			<header class="entry-header">
+				<h1 class="archive-title"><?php printf( __( 'Category: %s', 'portfolioplus' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h1>
+				<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
+			</header>
 
 			<?php if ( have_posts() ) : ?>
 

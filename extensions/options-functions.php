@@ -121,7 +121,7 @@ function portfolio_head_css() {
 		
 		if ( of_get_option('border_color') != '#dddddd' ) {
 			$output .= '#content .entry-title, .widget-container h3 { border-bottom-color:' . of_get_option('border_color') . "; box-shadow:none; }\n";
-			$output .= 'footer.entry-meta:before, footer.entry-meta:after, #comments:before { background:' . of_get_option('border_color') . "; box-shadow:none; }\n";
+			$output .= '.archive-title:after, .archive-meta:after, footer.entry-meta:before, footer.entry-meta:after, #comments:before { background:' . of_get_option('border_color') . "; box-shadow:none; }\n";
 			
 		}
 		

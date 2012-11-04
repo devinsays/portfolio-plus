@@ -12,10 +12,11 @@ get_header(); ?>
 		<div id="content" role="main">
 
 			<?php the_post(); ?>
-
-			<h2 class="page-title"><?php
-				printf( __( 'Tag Archives: %s', 'portfolioplus' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-			?></h2>
+			
+			<header class="entry-header">
+				<h1 class="archive-title"><?php printf( __( 'Tag: %s', 'portfolioplus' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
+				<?php $categorydesc = category_description(); if ( ! empty( $categorydesc ) ) echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' ); ?>
+			</header>
 
 			<?php rewind_posts(); ?>
 
