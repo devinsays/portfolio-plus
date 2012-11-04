@@ -1,3 +1,7 @@
+Portfolio+ 1.7.3
+
+- Fixed minor output error with inline styles
+
 Portfolio+ 1.7.2
 
 - Fixed bug on portfolio page that caused an error

@@ -137,7 +137,7 @@ function portfolio_head_css() {
 		if ( $main_bg ) {
 			$output .= portfolioplus_output_bg( '#main', of_get_option('main_bg'), array('color'=>'#f3f3f3') );
 			if ( $main_bg['color'] != '#f3f3f3' ) {
-				$output .= '#content .entry-title, .widget-container h3 { text-shadow: none; }\n"';
+				$output .= "#content .entry-title, .widget-container h3 { text-shadow: none; }\n";
 			}
 		}
 		
