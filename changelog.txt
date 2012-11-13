@@ -1,3 +1,8 @@
+Portfolio+ 1.7.4
+
+- Fix so portfolio meta boxes work again
+- Put single portfolio navigation back due to multiple requests
+
 Portfolio+ 1.7.3
 
 - Fixed minor output error with inline styles

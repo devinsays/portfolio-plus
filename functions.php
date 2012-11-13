@@ -17,7 +17,7 @@ if ( ! isset( $content_width ) ) {
 }
 
 // Adds specific portfolio post type functions
-if ( function_exists( 'portfolioposttype' ) ) {
+if ( class_exists( 'Portfolio_Post_Type' ) || function_exists( 'portfolioposttype' ) ) {
 	require_once( TEMPLATEPATH . '/extensions/portfolio-functions.php' );
 }
 
