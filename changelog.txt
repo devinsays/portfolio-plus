@@ -1,3 +1,7 @@
+Portfolio+ 1.7.5
+
+- Add fullwidth portfolio thumnail size
+
 Portfolio+ 1.7.4
 
 - Fix so portfolio meta boxes work again
