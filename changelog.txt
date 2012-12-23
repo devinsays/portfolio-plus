@@ -1,6 +1,7 @@
 Portfolio+ 1.7.5
 
 - Add fullwidth portfolio thumnail size
+- Max-width for iframe,embeds and objects
 
 Portfolio+ 1.7.4
 
