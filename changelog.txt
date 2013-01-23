@@ -1,3 +1,7 @@
+Development
+
+- Better responsive menu
+
 Portfolio+ 1.7.5
 
 - Add fullwidth portfolio thumnail size

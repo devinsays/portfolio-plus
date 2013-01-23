@@ -9,7 +9,7 @@
  * CHANGELOG: http://users.tpg.com.au/j_birch/plugins/superfish/changelog.txt
  */
 
-;(function($){
+(function($){
 	$.fn.superfish = function(op){
 
 		var sf = $.fn.superfish,
@@ -35,7 +35,7 @@
 				return menu;
 			},
 			addArrow = function($a){ $a.addClass(c.anchorClass).append($arrow.clone()); };
-			
+
 		return this.each(function() {
 			var s = this.serial = sf.o.length;
 			var o = $.extend({},sf.defaults,op);
@@ -44,20 +44,20 @@
 					.filter('li:has(ul)').removeClass(o.pathClass);
 			});
 			sf.o[s] = sf.op = o;
-			
+
 			$('li:has(ul)',this)[($.fn.hoverIntent && !o.disableHI) ? 'hoverIntent' : 'hover'](over,out).each(function() {
 				if (o.autoArrows) addArrow( $('>a:first-child',this) );
 			})
 			.not('.'+c.bcClass)
 				.hideSuperfishUl();
-			
+
 			var $a = $('a',this);
 			$a.each(function(i){
 				var $li = $a.eq(i).parents('li');
 				$a.eq(i).focus(function(){over.call($li);}).blur(function(){out.call($li);});
 			});
 			o.onInit.call(this);
-			
+
 		}).each(function() {
 			var menuClasses = [c.menuClass];
 			if (sf.op.dropShadows  && !($.browser.msie && $.browser.version < 7)) menuClasses.push(c.shadowClass);
@@ -120,8 +120,20 @@
 })(jQuery);
 
 jQuery(document).ready(function($){
+
 	$('#navigation .menu ul').superfish({
 		animation: {opacity:'show',height:'show'},
 		speed: 'fast'
 	});
+
+	$('.menu-toggle').on( 'click', function() {
+		$('#navigation .menu').fadeToggle( 400, function () {
+			// In the edge case of someone hiding the menu in a small screen
+			// But then making the browser window larger, the menu will show
+			if ( $(this).is(":hidden") ) {
+				$(this).attr('style','');
+			}
+		});
+	});
+
 });
