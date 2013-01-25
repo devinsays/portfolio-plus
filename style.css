@@ -521,7 +521,7 @@ footer.entry-meta:before, footer.entry-meta:after {
 	margin-bottom: 20px;
 	margin-top:-5px;
 }
-.archive-meta:after {
+.archive-meta:after, .author .page-title:after, .author-info:after {
 	content: '';
 	width: 100%;
 	height: 1px;
@@ -530,6 +530,23 @@ footer.entry-meta:before, footer.entry-meta:after {
 	box-shadow: 0 1px 0 0 #fff;
 	display: block;
 	margin-top:10px;
+}
+
+/* Author Template */
+
+.author-info:after {
+	margin-bottom:20px;
+}
+.author-avatar {
+	float:left;
+	margin-right:20px;
+	margin-bottom:10px;
+}
+.author-description {
+	float:left;
+}
+#content .author-description h3 {
+	padding-bottom:10px;
 }
 
 /* Alignment */

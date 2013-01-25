@@ -1,7 +1,10 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * Functions
+ *
+ * @package      Portfolio+
+ * @author       Devin Price <devin@wptheming.com>
+ * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 	
 // Sets up the options panel and default functions

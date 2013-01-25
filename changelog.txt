@@ -1,6 +1,7 @@
 Development
 
 - Better responsive menu
+- Author page displays posts and author description
 
 Portfolio+ 1.7.5
 
