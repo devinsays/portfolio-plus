@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		?>
 		<div class="<?php echo $classes; ?>">
 			<?php if ( has_post_thumbnail() ) { ?>
-			<a href="<?php echo $link_url; ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'portfolioplus' ); ?><?php the_title_attribute(); ?>" class="thumb"<?php echo $url_target;?>><?php the_post_thumbnail( $thumbnail ); ?></a>
+			<a href="<?php echo $link_url; ?>" rel="bookmark" class="thumb"<?php echo $url_target;?>><?php the_post_thumbnail( $thumbnail ); ?></a>
 			<?php } ?>
 			<a href="<?php echo $link_url; ?>" rel="bookmark" class="title-overlay"><?php the_title() ?></a>
 		</div>
