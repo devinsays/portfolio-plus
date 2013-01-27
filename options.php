@@ -214,31 +214,16 @@ function optionsframework_options() {
                     	
     $options['portfolio_images'] = array(
     	'name' => __('Display Images on Portfolio Posts','portfolioplus'),
-		'desc' => __('Uncheck this if you wish to manually display portfolio images on single posts','portfolioplus'),
+		'desc' => __('Display images automatically on portfolio posts','portfolioplus'),
 		'id' => 'portfolio_images',
 		'std' => '1',
 		'type' => 'checkbox');
 		
 	$options['portfolio_sidebar'] = array(
 		'name' => __('Display Portfolio Archives Full Width','portfolioplus'),
-		'desc' => __('Check this to display all portfolio archives full width','portfolioplus'),
+		'desc' => __('Display all portfolio archives full width.','portfolioplus'),
 		'id' => 'portfolio_sidebar',
 		'std' => '0',
-		'type' => 'checkbox');
-		
-	$options['portfolio_navigation'] = array(
-		'name' => __('Display portfolio navigation','portfolioplus'),
-		'desc' => __('Check if you want prev/next links to appear on portfolio posts','portfolioplus'),
-		'id' => 'portfolio_sidebar',
-		'std' => '1',
-		'type' => 'checkbox'
-	);
-			
-	$options['archive_titles'] = array(
-		'name' => __('Archive Titles','portfolioplus'),
-		'desc' => 'Display titles and descriptions on portfolio category/tag pages.',
-		'id' => 'archive_titles',
-		'std' => '1',
 		'type' => 'checkbox');
 		
 	$options['portfolio_num'] = array(
@@ -253,6 +238,21 @@ function optionsframework_options() {
 			'12' => '12',
 			'15' => '15')
 		);
+		
+	$options['portfolio_navigation'] = array(
+		'name' => __('Display portfolio navigation','portfolioplus'),
+		'desc' => __('Show prev/next links to appear on portfolio posts.','portfolioplus'),
+		'id' => 'portfolio_navigation',
+		'std' => '1',
+		'type' => 'checkbox'
+	);
+			
+	$options['archive_titles'] = array(
+		'name' => __('Archive Titles','portfolioplus'),
+		'desc' => 'Display titles and descriptions on portfolio category/tag pages.',
+		'id' => 'archive_titles',
+		'std' => '1',
+		'type' => 'checkbox');
 					
 	return $options;
 }

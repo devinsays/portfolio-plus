@@ -1,7 +1,9 @@
-Development
+Portfolio+ 1.8
 
 - Better responsive menu
 - Author page displays posts and author description
+- Option to include bottom navigation on portfolio posts
+- Add metabox on post for featured image display
 
 Portfolio+ 1.7.5
 

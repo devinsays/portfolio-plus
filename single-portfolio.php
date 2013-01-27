@@ -31,7 +31,16 @@ get_header(); ?>
 
 				<div class="entry-content">
                 
-                <?php if ( has_post_thumbnail() && of_get_option('portfolio_images', "1") ) {
+                <?php
+                // If the hide_featured_image field is checked, we won't display the image
+                $display_thumbnail = get_post_meta( $post->ID, 'hide_featured_image', true );
+                if ( $display_thumbnail ) {
+	                $display_thumbnail = false;
+	            } else {
+		            $display_thumbnail = true;
+                } ?>
+                
+                <?php if ( has_post_thumbnail() && of_get_option('portfolio_images', "1") &&$display_thumbnail ) {
                 	if ( of_get_option( 'layout') == 'layout-1col' ) {
 	                	the_post_thumbnail( 'portfolio-fullwidth' );
                 	} else {
