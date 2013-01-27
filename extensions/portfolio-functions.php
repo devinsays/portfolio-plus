@@ -4,7 +4,7 @@
  * @subpackage Portfolio Plus
  */
 
-/* Add a checkbox to the featured image field */
+/* Add a checkbox to the featured image metabox */
 
 if ( of_get_option('portfolio_images', "1") ) {
 	add_filter( 'admin_post_thumbnail_html', 'portfolioplus_featured_image_meta');
@@ -13,8 +13,8 @@ if ( of_get_option('portfolio_images', "1") ) {
 function portfolioplus_featured_image_meta( $content ) {
 	global $post;
 	$text = __( "Don't display image on post.", 'portfolioplus' );
-	$value = esc_attr( get_post_meta( $post->ID, 'hide_featured_image', true ) );
 	$id = 'hide_featured_image';
+	$value = esc_attr( get_post_meta( $post->ID, $id, true ) );
     $label = '<label for="' . $id . '" class="selectit"><input name="' . $id . '" type="checkbox" id="' . $id . '" value="' . $value . ' "'. checked( $value, 1, false) .'> ' . $text .'</label>';
     return $content .= $label;
 }
