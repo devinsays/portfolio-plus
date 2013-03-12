@@ -1,3 +1,7 @@
+Portfolio+ 1.8.1
+
+- Toggle menu inherits menu color (if set by option)
+
 Portfolio+ 1.8
 
 - Better responsive menu

@@ -109,6 +109,7 @@ function portfolio_head_css() {
 		
 		if ( of_get_option('menu_color') ) {
 			$output .= '#navigation ul a { color:' . of_get_option('menu_color') . "; }\n";
+			$output .= '#navigation .menu-toggle { color:' . of_get_option('menu_color') . "; }\n";
 		}
 		
 		if ( of_get_option('header_color') ) {

@@ -142,7 +142,7 @@ if ( !function_exists( 'portfolioplus_google_fonts' ) ) {
 	}
 }
 
-add_action( 'init', 'portfolioplus_google_fonts' );
+add_action( 'init', 'portfolioplus_google_fonts', 10 );
 
 /**
  * Infinite Scroll
