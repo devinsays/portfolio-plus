@@ -1,6 +1,7 @@
 Portfolio+ 1.8.1
 
 - Toggle menu inherits menu color (if set by option)
+- Update $content_width on full page templates
 
 Portfolio+ 1.8
 
