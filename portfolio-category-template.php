@@ -3,8 +3,7 @@
  * Template Name: Portfolio Categories
  * Description: Displays all the portfolio categories
  *
- * @package WordPress
- * @subpackage Portfolio+
+ * @package Portfolio Plus
  */
  
 // This template requires some additional functions to work properly

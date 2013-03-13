@@ -2,7 +2,7 @@
 /**
  * Functions
  *
- * @package      Portfolio+
+ * @package      Portfolio Plus
  * @author       Devin Price <devin@wptheming.com>
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
@@ -259,8 +259,10 @@ add_action( 'init', 'portfolioplus_widgets_init' );
 function wpt_portfolio_custom_posts_per_page( $query ) {
 	global $wp_the_query;
 	if ( $wp_the_query === $query && !is_admin() ) {
-		if ( is_post_type_archive( 'portfolio' ) || is_tax( 'portfolio_tag' ) ||  is_tax( 'portfolio_category' ) )
-		$query->set( 'posts_per_page', of_get_option('portfolio_num','9') );
+		if ( is_post_type_archive( 'portfolio' ) || is_tax( 'portfolio_tag' ) ||  is_tax( 'portfolio_category' ) ) {
+			$posts_per_page = apply_filters( 'portfolioplus_posts_per_page', of_get_option('portfolio_num','9') );
+			$query->set( 'posts_per_page', $posts_per_page );
+		}
 	}
 }
 

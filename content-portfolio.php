@@ -34,9 +34,10 @@ if ( is_page() && post_password_required() ) {
 		else
 			$paged = 1;
 			
+		$posts_per_page = apply_filters( 'portfolioplus_posts_per_page', of_get_option('portfolio_num','9') );
 		$args = array(
 			'post_type' => 'portfolio',
-			'posts_per_page' => of_get_option('portfolio_num','9'),
+			'posts_per_page' => $posts_per_page,
 			'paged' => $paged );
 		query_posts( $args );
 	}
