@@ -10,7 +10,7 @@ if ( is_page() && post_password_required() ) {
 } else {
 	// Set the size of the thumbnails and content width
 	$fullwidth = false;
-	if ( of_get_option( 'portfolio_sidebar' ) || is_page_template('full-width-portfolio.php') )
+	if ( of_get_option( 'portfolio_sidebar' ) || is_page_template( 'full-width-portfolio.php' ) )
 		$fullwidth = true;
 	
 	$thumbnail = 'portfolio-thumbnail';
@@ -53,15 +53,11 @@ if ( is_page() && post_password_required() ) {
 
 	<?php  if ( have_posts() ) : $count = 0;
 		while ( have_posts() ) : the_post(); $count++;
-		if ( post_password_required() ) {
-			$count = $count - 1;
-			continue;
-		}
 		$classes = 'portfolio-item item-' . $count;
 		if ( $count % 3 == 0 ) {
 			$classes .= ' ie-col3';
 		}
-		if ( !has_post_thumbnail() ) {
+		if ( !has_post_thumbnail() || post_password_required() ) {
 			$classes .= ' no-thumb';
 		}
 		$link_url = get_permalink();
@@ -72,7 +68,7 @@ if ( is_page() && post_password_required() ) {
 		}
 		?>
 		<div class="<?php echo $classes; ?>">
-			<?php if ( has_post_thumbnail() ) { ?>
+			<?php if ( has_post_thumbnail() && !post_password_required() ) { ?>
 			<a href="<?php echo $link_url; ?>" rel="bookmark" class="thumb"<?php echo $url_target;?>><?php the_post_thumbnail( $thumbnail ); ?></a>
 			<?php } ?>
 			<a href="<?php echo $link_url; ?>" rel="bookmark" class="title-overlay"><?php the_title() ?></a>

@@ -17,7 +17,7 @@ get_header(); ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 						<div class="entry-meta">
-							<?php portfoliopress_postby_meta(); ?>
+							<?php portfolioplus_postby_meta(); ?>
 						</div><!-- .entry-meta -->
 					</header><!-- .entry-header -->
 

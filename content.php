@@ -25,6 +25,6 @@
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
-	<?php portfoliopress_footer_meta( get_post_format() ); ?>
+	<?php portfolioplus_footer_meta( get_post_format() ); ?>
 	
 </article><!-- #post-<?php the_ID(); ?> -->

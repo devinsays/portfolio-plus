@@ -13,6 +13,6 @@
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 
-	<?php portfoliopress_footer_meta( get_post_format() ); ?>
+	<?php portfolioplus_footer_meta( get_post_format() ); ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
