@@ -1,7 +1,8 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * Template for displaying a single post
+ *
+ * @package Portfolio Plus
  */
 
 get_header(); ?>
@@ -16,16 +17,7 @@ get_header(); ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 						<div class="entry-meta">
-							<?php
-								printf( __( '<span class="meta-prep meta-prep-author">Posted on </span><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'portfolioplus' ),
-									get_permalink(),
-									get_the_date( 'c' ),
-									get_the_date(),
-									get_author_posts_url( get_the_author_meta( 'ID' ) ),
-									sprintf( esc_attr__( 'View all posts by %s', 'portfolioplus' ), get_the_author() ),
-									get_the_author()
-								);
-							?>
+							<?php portfoliopress_postby_meta(); ?>
 						</div><!-- .entry-meta -->
 					</header><!-- .entry-header -->
 

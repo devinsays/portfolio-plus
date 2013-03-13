@@ -1,7 +1,8 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * The template part for displaying a message that posts cannot be found
+ *
+ * @package Portfolio Plus
  */
 ?>
 

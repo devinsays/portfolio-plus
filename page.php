@@ -1,7 +1,8 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * The template for displaying pages
+ *
+ * @package Portfolio Plus
  */
 
 get_header(); ?>

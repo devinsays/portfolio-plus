@@ -6,7 +6,10 @@
  * @author       Devin Price <devin@wptheming.com>
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
-	
+
+// Adds some template functions
+require_once( TEMPLATEPATH . '/extensions/template-helpers.php' );
+
 // Sets up the options panel and default functions
 require_once( TEMPLATEPATH . '/extensions/options-functions.php' );
 
@@ -249,25 +252,6 @@ function portfolioplus_widgets_init() {
 }
 
 add_action( 'init', 'portfolioplus_widgets_init' );
-
-/**
- * Reusable navigation code for navigation
- * Display navigation to next/previous pages when applicable
- */
-function portfolioplus_content_nav() {
-	global $wp_query;
-	if (  $wp_query->max_num_pages > 1 ) :
-		if (function_exists('wp_pagenavi') ) {
-			wp_pagenavi();
-		} else { ?>
-        	<nav id="nav-below">
-			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'portfolioplus' ); ?></h1>		
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'portfolioplus' ) ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'portfolioplus' ) ); ?></div>
-			</nav><!-- #nav-below -->
-    	<?php }
-	endif;
-}
 
 /**
  * Sets posts displayed per portfolio to 9 or 12 (whatever the option is set to)

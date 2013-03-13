@@ -2,7 +2,7 @@
 /**
  * The template for displaying author pages
  *
- * @package Portfolio+
+ * @package Portfolio Plus
  */
 
 get_header(); ?>

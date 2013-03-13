@@ -1,7 +1,8 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * Header template
+ *
+ * @package Portfolio Plus
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

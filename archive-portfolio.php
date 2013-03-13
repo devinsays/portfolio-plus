@@ -2,8 +2,10 @@
 /**
  * Template Name: Portfolio
  *
- * @package WordPress
- * @subpackage Portfolio Plus
+ * This is for the default archive view of portfolio archives.
+ * It can also be used as a page template.
+ *
+ * @package Portfolio Plus
  */
 
 get_header();
