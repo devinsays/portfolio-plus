@@ -2,6 +2,7 @@ Development
 
 - Show larger thumbnails on one-column layouts
 - Increase thumbnail sizes on regular layouts
+- Max-width fix for logos in Firefox
 
 Portfolio+ 1.9
 
