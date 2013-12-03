@@ -1,12 +1,11 @@
 <?php
 
 /**
- * @package WordPress
- * @subpackage Portfolio Plus
+ * @package Portfolio Plus
  *
  * Theme updater class from Easy Digital Downloads
  */
- 
+
 if ( !class_exists( 'EDD_SL_Theme_Updater' ) ) :
 
 class EDD_SL_Theme_Updater {
@@ -17,7 +16,7 @@ class EDD_SL_Theme_Updater {
 	private $license_key;
 	private $version;
 	private $author;
-	
+
 	function __construct( $args = array() ) {
 		$args = wp_parse_args( $args, array(
 			'remote_api_url' => 'http://easydigitaldownloads.com',
@@ -29,7 +28,7 @@ class EDD_SL_Theme_Updater {
 			'author' => ''
 		) );
 		extract( $args );
-		
+
 		$this->license = $license;
 		$this->item_name = $item_name;
 		$this->version = $version;
@@ -37,30 +36,30 @@ class EDD_SL_Theme_Updater {
 		$this->author = $author;
 		$this->remote_api_url = $remote_api_url;
 		$this->response_key = $this->theme_slug . '-update-response';
-		
+
 		add_filter( 'site_transient_update_themes', array( &$this, 'theme_update_transient' ) );
 		add_filter( 'delete_site_transient_update_themes', array( &$this, 'delete_theme_update_transient' ) );
 		add_action( 'load-update-core.php', array( &$this, 'delete_theme_update_transient' ) );
 		add_action( 'load-themes.php', array( &$this, 'delete_theme_update_transient' ) );
 		add_action( 'load-themes.php', array( &$this, 'load_themes_screen' ) );
 	}
-	
+
 	function load_themes_screen() {
 		add_thickbox();
 		add_action( 'admin_notices', array( &$this, 'update_nag' ) );
 	}
-	
+
 	function update_nag() {
 		$theme = wp_get_theme( $this->theme_slug );
-		
+
 		$api_response = get_transient( $this->response_key );
-		
+
 		if( false === $api_response )
 			return;
 
 		$update_url = wp_nonce_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $this->theme_slug ), 'upgrade-theme_' . $this->theme_slug );
 		$update_onclick = ' onclick="if ( confirm(\'' . esc_js( __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update." ) ) . '\') ) {return true;}return false;"';
-		
+
 		if ( version_compare( $theme->get( 'Version' ), $api_response->new_version, '<' ) ) {
 
 			echo '<div id="update-nag">';
@@ -78,7 +77,7 @@ class EDD_SL_Theme_Updater {
 			echo '</div>';
 		}
 	}
-	
+
 	function theme_update_transient( $value ) {
 		$update_data = $this->check_for_update();
 		if ( $update_data ) {
@@ -86,40 +85,40 @@ class EDD_SL_Theme_Updater {
 		}
 		return $value;
 	}
-	
+
 	function delete_theme_update_transient() {
 		delete_transient( $this->response_key );
 	}
-	
+
 	function check_for_update() {
 
 		$theme = wp_get_theme( $this->theme_slug );
-		
+
 		$update_data = get_transient( $this->response_key );
 		if ( false === $update_data ) {
 			$failed = false;
-			
-			$api_params = array( 
+
+			$api_params = array(
 				'edd_action' 	=> 'get_version',
-				'license' 		=> $this->license, 
+				'license' 		=> $this->license,
 				'name' 			=> $this->item_name,
 				'slug' 			=> $this->theme_slug,
 				'author'		=> $this->author
 			);
 
 			$response = wp_remote_post( $this->remote_api_url, array( 'timeout' => 15, 'body' => $api_params ) );
-			
+
 			// make sure the response was successful
 			if ( is_wp_error( $response ) || 200 != wp_remote_retrieve_response_code( $response ) ) {
 				$failed = true;
 			}
-			
+
 			$update_data = json_decode( wp_remote_retrieve_body( $response ) );
 
 			if ( ! is_object( $update_data ) ) {
 				$failed = true;
 			}
-			
+
 			// if the response failed, try again in 30 minutes
 			if ( $failed ) {
 				$data = new stdClass;
@@ -127,18 +126,18 @@ class EDD_SL_Theme_Updater {
 				set_transient( $this->response_key, $data, strtotime( '+30 minutes' ) );
 				return false;
 			}
-			
+
 			// if the status is 'ok', return the update arguments
 			if ( ! $failed ) {
 				$update_data->sections = maybe_unserialize( $update_data->sections );
 				set_transient( $this->response_key, $update_data, strtotime( '+12 hours' ) );
 			}
 		}
-		
+
 		if ( version_compare( $theme->get( 'Version' ), $update_data->new_version, '>=' ) ) {
 			return false;
 		}
-		
+
 		return (array) $update_data;
 	}
 }
@@ -158,9 +157,9 @@ define( 'PORTFOLIOPLUS_DOWNLOAD', 'Portfolio' );
 
 $license = trim( get_option( 'portfolioplus_license_key' ) );
 
-$edd_updater = new EDD_SL_Theme_Updater( array( 
+$edd_updater = new EDD_SL_Theme_Updater( array(
 		'remote_api_url' 	=> PORTFOLIOPLUS_URL,  		// Website to check for updates
-		'version' 			=> '1.9', 					// Current version
+		'version' 			=> '2.0', 					// Current version
 		'license' 			=> $license, 				// License key
 		'item_name' 		=> PORTFOLIOPLUS_DOWNLOAD,	// Theme name
 		'author'			=> 'Devin Price'			// Author Name
@@ -168,7 +167,7 @@ $edd_updater = new EDD_SL_Theme_Updater( array(
 );
 
 function portfolioplus_license_menu() {
-	
+
 	add_theme_page( __('Theme License', 'portfolioplus'), __('Theme License', 'portfolioplus'), 'manage_options', 'portfolioplus-license', 'portfolioplus_license_page' );
 }
 add_action( 'admin_menu', 'portfolioplus_license_menu', 100);
@@ -181,12 +180,12 @@ function portfolioplus_license_page() {
 		<?php screen_icon( 'themes' ); ?>
 		<h2><?php _e( 'Portfolio+ License', 'portfoliolus' ); ?></h2>
 		<form method="post" action="options.php">
-		
+
 			<?php settings_fields( 'portfolioplus_license' ); ?>
-			
+
 			<table class="form-table">
 				<tbody>
-					<tr valign="top">	
+					<tr valign="top">
 						<th scope="row" valign="top">
 							<?php _e( 'Enter Your License Key', 'portfolioplus' ); ?>
 						</th>
@@ -195,7 +194,7 @@ function portfolioplus_license_page() {
 						</td>
 					</tr>
 					<?php if( false !== $license ) { ?>
-						<tr valign="top">	
+						<tr valign="top">
 							<th scope="row" valign="top">
 								<?php _e( 'Activate License', 'portfolioplus' ); ?>
 							</th>
@@ -210,7 +209,7 @@ function portfolioplus_license_page() {
 						</tr>
 					<?php } ?>
 				</tbody>
-			</table>	
+			</table>
 			<?php submit_button(); ?>
 		</form>
 	<?php
@@ -231,27 +230,27 @@ function portfolioplus_sanitize_license( $new ) {
 }
 
 function portfolioplus_activate_license() {
-	if ( isset( $_POST['portfolioplus_license_activate'] ) ) { 
-	 	if ( ! check_admin_referer( 'portfolioplus_license_nonce', 'portfolioplus_license_nonce' ) ) 	
+	if ( isset( $_POST['portfolioplus_license_activate'] ) ) {
+	 	if ( ! check_admin_referer( 'portfolioplus_license_nonce', 'portfolioplus_license_nonce' ) )
 			return; // Get out if we didn't click the Activate button
 
 		global $wp_version;
 
 		$license = trim( get_option( 'portfolioplus_license_key' ) );
-				
-		$api_params = array( 
-			'edd_action' => 'activate_license', 
-			'license' => $license, 
-			'item_name' => urlencode( PORTFOLIOPLUS_DOWNLOAD ) 
+
+		$api_params = array(
+			'edd_action' => 'activate_license',
+			'license' => $license,
+			'item_name' => urlencode( PORTFOLIOPLUS_DOWNLOAD )
 		);
-		
+
 		$response = wp_remote_get( add_query_arg( $api_params, PORTFOLIOPLUS_URL ) );
 
 		if ( is_wp_error( $response ) )
 			return false;
 
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-		
+
 		// $license_data->license will be either "active" or "inactive"
 		update_option( 'portfolioplus_license_key_status', $license_data->license );
 	}
@@ -263,13 +262,13 @@ function portfolioplus_check_license() {
 	global $wp_version;
 
 	$license = trim( get_option( 'portfolioplus_license_key' ) );
-		
-	$api_params = array( 
-		'edd_action' => 'check_license', 
-		'license' => $license, 
-		'item_name' => urlencode( PORTFOLIOPLUS_DOWNLOAD ) 
+
+	$api_params = array(
+		'edd_action' => 'check_license',
+		'license' => $license,
+		'item_name' => urlencode( PORTFOLIOPLUS_DOWNLOAD )
 	);
-	
+
 	$response = wp_remote_get( add_query_arg( $api_params, PORTFOLIOPLUS_URL ) );
 
 	if ( is_wp_error( $response ) )
