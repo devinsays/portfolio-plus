@@ -2,10 +2,10 @@
 /**
  * Sidebar template
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
- if ( of_get_option('layout') != 'layout-1col' ) : ?>
+ 	if ( of_get_option('layout') != 'layout-1col' ) : ?>
 	<div id="sidebar" role="complementary">
 		<ul class="xoxo">
 		<?php if ( ! dynamic_sidebar( 'sidebar' ) ) : ?>

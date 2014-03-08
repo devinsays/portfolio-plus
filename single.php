@@ -2,7 +2,7 @@
 /**
  * Template for displaying a single post
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
 get_header(); ?>
@@ -21,30 +21,14 @@ get_header(); ?>
 						</div><!-- .entry-meta -->
 					</header><!-- .entry-header -->
 
-					<div class="entry-content clearfix">
+					<div class="entry-content">
+						<?php portfolioplus_display_image(); ?>
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
 					</div><!-- .entry-content -->
 
-					<footer class="entry-meta">
-						<?php
-							$tag_list = get_the_tag_list( '', ', ' );
-							if ( '' != $tag_list ) {
-								$utility_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'portfolioplus' );
-							} else {
-								$utility_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'portfolioplus' );
-							}
-							printf(
-								$utility_text,
-								get_the_category_list( ', ' ),
-								$tag_list,
-								get_permalink(),
-								the_title_attribute( 'echo=0' )
-							);
-						?>
+					<?php portfolioplus_footer_meta( $post ); ?>
 
-						<?php edit_post_link( __( 'Edit', 'portfolioplus' ), '<span class="edit-link">', '</span>' ); ?>
-					</footer><!-- .entry-meta -->
 				</article><!-- #post-<?php the_ID(); ?> -->
 
 				<?php if ( comments_open() ) {

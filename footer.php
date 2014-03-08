@@ -2,7 +2,7 @@
 /**
  * Footer template
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 ?>
 	</div>

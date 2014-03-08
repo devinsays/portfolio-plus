@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
 get_header(); ?>
@@ -23,7 +23,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php portfolioplus_content_nav(); ?>
+				<?php portfolioplus_paging_nav(); ?>
 
 			<?php else : ?>
 

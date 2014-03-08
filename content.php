@@ -2,32 +2,42 @@
 /**
  * General post content template
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'portfolioplus' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php if ( 'page' != $post->post_type ) : ?>
 		<div class="entry-meta">
 			<?php portfolioplus_postby_meta(); ?>
 		</div><!-- .entry-meta -->
+		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php if ( is_archive() || is_search() ) : // Only display Excerpts for archives & search ?>
+	<?php // Display excerpts for archives and search ?>
+	<?php if ( is_archive() || is_search() ) :?>
 	<div class="entry-summary">
-		<?php if ( has_post_thumbnail() && !post_password_required() ) { ?>
-			<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb"><?php the_post_thumbnail( 'portfolio-thumbnail-fullwidth' ); ?></a>
-		<?php } ?>
-		<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'portfolioplus' ) ); ?>
+		<?php portfolioplus_display_image(); ?>
+		<?php $excerpt = get_the_excerpt(); ?>
+		<?php if ( ( !$excerpt ) && !has_post_thumbnail() ) {
+			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'portfolioplus' ) );
+		} else {
+			echo '<p>' . $excerpt . '</p>';
+		} ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
+
+	<?php // Otherwise show full content ?>
 	<div class="entry-content">
+		<?php portfolioplus_display_image(); ?>
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'portfolioplus' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
-	<?php portfolioplus_footer_meta( get_post_format() ); ?>
-	
+	<?php portfolioplus_footer_meta( $post ); ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->

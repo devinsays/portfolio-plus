@@ -2,14 +2,14 @@
 /**
  * The template for displaying archive pages
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
 get_header(); ?>
 
 	<div id="primary">
 		<div id="content" role="main">
-		
+
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -25,8 +25,8 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php portfolioplus_content_nav(); ?>
-			
+			<?php portfolioplus_paging_nav(); ?>
+
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>

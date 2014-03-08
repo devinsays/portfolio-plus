@@ -2,7 +2,7 @@
 /**
  * The template used for displaying comments
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
  ?>
 

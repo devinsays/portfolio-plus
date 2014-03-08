@@ -1,3 +1,13 @@
+Portfolio+ 3.0.0
+
+- New menu styling
+- Portfolio templates and styles rebuilt
+- Support post formats in portfolio layout
+- Icon font
+- Single column is now 980px
+- Support Jetpack Carousel Module
+- Update gallery shortcode to HTML5 markup
+
 Portfolio+ 2.0
 
 - Show larger thumbnails on one-column layouts

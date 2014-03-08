@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @package Portfolio Plus
+ * @package Portfolio+
  *
  * Theme updater class from Easy Digital Downloads
  */
@@ -159,7 +158,7 @@ $license = trim( get_option( 'portfolioplus_license_key' ) );
 
 $edd_updater = new EDD_SL_Theme_Updater( array(
 		'remote_api_url' 	=> PORTFOLIOPLUS_URL,  		// Website to check for updates
-		'version' 			=> '2.0', 					// Current version
+		'version' 			=> '3.0.0', 					// Current version
 		'license' 			=> $license, 				// License key
 		'item_name' 		=> PORTFOLIOPLUS_DOWNLOAD,	// Theme name
 		'author'			=> 'Devin Price'			// Author Name

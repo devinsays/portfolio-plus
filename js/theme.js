@@ -1,57 +1,87 @@
-function portfolioplus_bind(elements) {
-	$ = jQuery;
-	$(elements).each( function() {
-		if ( $(this).hasClass('format-image') ) {
-			portfolioplus_imageformat($(this));
-		}
-		if ( $(this).hasClass('portfolio-item') ) {
-			portfolioplus_portfolio($(this));
-		}
-	});
-}
+jQuery(document).ready(function ($) {
 
-function portfolioplus_imageformat(imageformat) {
-	var image = imageformat.find('img:first');
-	if (image.width() > 200 ) {
-		var link = imageformat.find('.entry-title').children();
-		var title = link.text();
-		image.unwrap('a');
-		image.wrap('<div class="image-wrap" />');
-		image.wrap(link.text(''));
-		image.parent().append('<h3/>');
-		imageformat.find('h3').text(title);
+	var PortfolioPressJS = {
+		'nav' : $('#navigation'),
+		'menu' : $('#navigation .nav-menu'),
+		'submenu' : false,
+	};
+
+	// Enable menu toggle for small screens
+	(function() {
+		if ( ! PortfolioPressJS.nav ) {
+			return;
+		}
+
+		button = PortfolioPressJS.nav.find('.menu-toggle');
+		if ( ! button ) {
+			return;
+		}
+
+		// Hide button if menu is missing or empty.
+		if ( ! PortfolioPressJS.menu || ! PortfolioPressJS.menu.children().length ) {
+			button.hide();
+			return;
+		}
+
+		button.on( 'click', function() {
+			PortfolioPressJS.nav.toggleClass('toggled-on');
+			PortfolioPressJS.menu.slideToggle( '200' );
+		} );
+	})();
+
+	// Centers the submenus directly under the top menu
+    function portfolio_desktop_submenus() {
+		if ( document.body.clientWidth > 780 && !PortfolioPressJS.submenu ) {
+			PortfolioPressJS.menu.attr('style','');
+			PortfolioPressJS.nav.find('li').each( function() {
+				var ul = $(this).find("ul");
+			    if ( ul.length > 0 ) {
+			        var parent_width = $(this).outerWidth( true );
+			        var child_width = ul.outerWidth( true );
+			        var new_width = parseInt((child_width - parent_width)/2);
+			        ul.css('margin-left', -new_width+"px");
+			    }
+			});
+			PortfolioPressJS.submenu = true;
+		}
 	}
-	imageformat.find('.image-wrap a').hover( function() {
-	    var img_width  = $(this).children('img').width();
-	    $(this).children('h3').width(img_width-20).slideDown(100);
-	}, function(){
-	    $(this).children('h3').slideUp(200);
-	});
-}
 
-function portfolioplus_portfolio(portfolio) {
-	// Portfolio Archive
-    portfolio.hover(function(){
-    	if ( !$(this).hasClass('no-thumb') ) {
-        $(this).children(".title-overlay").stop(true).fadeTo(300, 1.0); // Sets 100% on hover
-		$(this).children(".thumb").stop(true).fadeTo(300, .5); // Sets 20% on hover
+	// Clears submenu alignment for the mobile menu
+	function portfolio_mobile_submenus() {
+		if ( document.body.clientWidth <= 780 && PortfolioPressJS.submenu ) {
+			PortfolioPressJS.nav.find('ul').css('margin-left', '');
+			PortfolioPressJS.submenu = false;
 		}
-    },function(){
-    	if ( !$(this).hasClass('no-thumb') ) {
-        $(this).children(".title-overlay").stop(true).fadeTo(400, 0.0); // Sets opacity back to 0% on mouseout
-		$(this).children(".thumb").stop(true).fadeTo(1000, 1.0); // Sets opacity back to 100% on mouseout
-		}
-    });
-}
+	}
 
-jQuery(window).load( function(){
-	$ = jQuery;
-	// Image Post Format
-	$('#content .format-image').each( function() {
-	    portfolioplus_imageformat($(this));
-	});
-	// Portfolio
-	$('#portfolio .portfolio-item').each( function() {
-	    portfolioplus_portfolio($(this));
-	});
+	// Fired by the resize event
+	function menu_alignment() {
+		portfolio_desktop_submenus();
+		portfolio_mobile_submenus();
+	}
+
+	// Debounce function
+	// http://remysharp.com/2010/07/21/throttling-function-calls/
+	function debounce(fn, delay) {
+		var timer = null;
+			return function () {
+			var context = this, args = arguments;
+			clearTimeout(timer);
+			timer = setTimeout(function () {
+			  fn.apply(context, args);
+			}, delay);
+		};
+	}
+
+	// If the site title and menu don't fit on the same line, clear the menu
+	if ( $('#branding .col-width').width() < ( $('#logo').width() + PortfolioPressJS.nav.width() ) ) {
+		$('body').addClass('clear-menu');
+	}
+
+	// Menu Alignment
+    portfolio_desktop_submenus();
+
+    // Recheck menu alignment on resize
+    $(window).on( 'resize', debounce( menu_alignment, 100) );
+
 });

@@ -2,7 +2,7 @@
 /**
  * Template for displaying a portfolio post
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
 get_header(); ?>
@@ -22,59 +22,16 @@ get_header(); ?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-                
-                <?php
-                // If the hide_featured_image field is checked, we won't display the image
-                $display_thumbnail = get_post_meta( $post->ID, 'hide_featured_image', true );
-                if ( $display_thumbnail ) {
-	                $display_thumbnail = false;
-	            } else {
-		            $display_thumbnail = true;
-                } ?>
-                
-                <?php if ( has_post_thumbnail() && of_get_option('portfolio_images', "1") &&$display_thumbnail ) {
-                	if ( of_get_option( 'layout') == 'layout-1col' ) {
-	                	the_post_thumbnail( 'portfolio-fullwidth' );
-                	} else {
-	                	the_post_thumbnail( 'portfolio-large' );
-                	}
-				}
-				?>
-
-                
+					<?php portfolioplus_display_image(); ?>
 					<?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
 				</div><!-- .entry-content -->
 
-				<footer class="entry-meta">
-					<?php
-						$cat_list = get_the_term_list( $post->ID, 'portfolio_category', '', ', ', '' );
-						$tag_list = get_the_term_list( $post->ID, 'portfolio_tag', '', ', ', '' );
-						$utility_text = '';
-						if ( ( $cat_list ) && ( '' ==  $tag_list ) )
-							$utility_text = __( 'This entry was posted in %1$s.', 'portfolioplus' );
-						if ( ( '' != $tag_list ) && ( '' ==  $cat_list ) )
-							$utility_text = __( 'This entry was tagged %2$s.', 'portfolioplus' );
-						if ( ( '' != $cat_list ) && ( '' !=  $tag_list ) )
-							$utility_text = __( 'This entry was posted in %1$s and tagged %2$s.', 'portfolioplus' );
-						printf(
-							$utility_text,
-							$cat_list,
-							$tag_list
-						);
-					?>
+				<?php portfolioplus_footer_meta( $post ); ?>
 
-					<?php edit_post_link( __( 'Edit', 'portfolioplus' ), '<span class="edit-link">', '</span>' ); ?>
-				</footer><!-- .entry-meta -->
 			</article><!-- #post-<?php the_ID(); ?> -->
-			
-			<?php if ( of_get_option('portfolio_navigation', false) ) :?>
-			<nav id="nav-below">
-				<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'portfolioplus' ); ?></h1>
-				<div class="nav-previous"><?php previous_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Previous post link', 'portfolioplus' ) . '</span>' ); ?></div>
-				<div class="nav-next"><?php next_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Next post link', 'portfolioplus' ) . '</span> %title' ); ?></div>
-			</nav><!-- #nav-below -->
-			<?php endif; ?>
+
+			<?php portfolioplus_post_nav(); ?>
 
 			<?php if ( comments_open() ) {
 				comments_template( '', true );

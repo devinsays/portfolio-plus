@@ -3,7 +3,7 @@
  * Template Name: Full-width Page
  * Description: A full-width template with no sidebar
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
 
 global $content_width;
