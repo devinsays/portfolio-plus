@@ -35,7 +35,7 @@
 				}?>
                 </a>
                 </<?php echo $heading_tag; ?>>
-				<?php if ( !of_get_option( 'logo', false ) ) { ?>
+				<?php if ( !of_get_option( 'logo', false ) &&  of_get_option( 'tagline', true ) ) { ?>
                 	<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
                 <?php } ?>
 			</hgroup>

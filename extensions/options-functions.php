@@ -123,24 +123,24 @@ function portfolioplus_infinite_scroll_js() {
 	    <script>
 	    var infinite_scroll = {
 	        loading: {
-	            img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-	            msgText: "<?php _e( 'Loading more...', 'portfolioplus' ); ?>",
+	            img: "<?php echo get_template_directory_uri(); ?>/images/spinner.gif",
+	            msgText: "",
 	            finishedMsg: "<?php _e( 'All items have loaded.', 'portfolioplus' ); ?>",
 	            speed: 'slow'
 	        },
-	        "nextSelector":"#nav-below .nav-previous a",
+	        "nextSelector":".nav-previous a",
 	        "navSelector":"#nav-below",
-	        "itemSelector":"article, .portfolio-item",
-	        "contentSelector":"#content, #portfolio"
+	        "itemSelector":"article",
+	        "contentSelector":"#content"
 	    };
-	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function(elements) {
-		    portfolioplus_bind( elements );
+	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function( elements ) {
+		    // Empty callback
 	    });
 	    </script>
 	    <?php
     }
 }
-//add_action( 'wp_footer', 'portfolioplus_infinite_scroll_js', 100 );
+add_action( 'wp_footer', 'portfolioplus_infinite_scroll_js', 100 );
 
 /**
  * Front End Customizer

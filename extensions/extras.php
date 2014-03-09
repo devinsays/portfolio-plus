@@ -130,7 +130,7 @@ function portfolioplus_upgrade_notice() {
 		if ( !empty( $options['upgrade'] ) ) {
 			echo '<div class="updated"><p>';
 				printf( __(
-					'Thanks for updating Portfolio+.  Please <b><a href="%1$s">read about important changes</a></b> in this version. <a href="%2$s">Dismiss notice</b>.' ),
+					'Thanks for updating Portfolio+.  Please <a href="%1$s">read about important changes</a> in this version. <a href="%2$s">Dismiss notice</a>.' ),
 					'http://wptheming.com',
 					'?portfolio_upgrade_notice_ignore=1' );
 			echo '</p></div>';
