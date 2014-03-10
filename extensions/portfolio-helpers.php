@@ -169,7 +169,9 @@ function portfolioplus_display_image() {
 }
 
 /**
- * Helper function to display a gallery
+ * Helper function to display a gallery.
+ *
+ * @param object $post
  */
 function portfolioplus_display_gallery( $post ) {
 	$pattern = get_shortcode_regex();

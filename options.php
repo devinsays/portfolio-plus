@@ -88,6 +88,14 @@ function optionsframework_options() {
 		)
 	);
 
+	$options['display_dates'] = array(
+		'name' => __( 'Display dates', 'portfolioplus' ),
+		'desc' => __( 'Display dates on posts', 'portfolioplus' ),
+		'id' => 'display_dates',
+		'std' => '1',
+		'type' => 'checkbox'
+	);
+
 	$options['menu_position'] = array(
 		'name' => __( 'Menu Position','portfolioplus' ),
 		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolioplus' ),

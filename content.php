@@ -20,7 +20,7 @@
 	<?php // Display excerpts for archives and search ?>
 	<?php if ( is_archive() || is_search() || is_author() ) :?>
 	<div class="entry-summary">
-		<?php
+	<?php
 		// Display an image if post format image
 		portfolioplus_display_image();
 
