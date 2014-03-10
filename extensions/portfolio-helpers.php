@@ -94,6 +94,7 @@ function portfolioplus_body_class( $classes ) {
 		is_page_template( 'templates/portfolio.php' ) ||
 		is_page_template( 'templates/full-width-portfolio.php' ) ||
 		is_page_template( 'templates/post-format-gallery-image.php' ) ||
+		is_page_template( 'templates/portfolio-categories.php' ) ||
 		get_query_var( 'portfolio_view' )
 	) {
 		$classes[] = 'portfolio-view';
@@ -105,6 +106,30 @@ function portfolioplus_body_class( $classes ) {
 	if ( !of_get_option( 'portfolio_sidebar', false ) ) {
 		if ( is_page_template( 'templates/full-width-portfolio.php' ) ) {
 			$classes[] = 'full-width-portfolio';
+		}
+	}
+
+	// Remove the term "templates" from the page template body class
+	// Primarily for backwards compatibility
+	if (
+		is_page_template( 'templates/portfolio.php' ) ||
+		is_page_template( 'templates/full-width-portfolio.php' ) ||
+		is_page_template( 'templates/post-format-gallery-image.php' ) ||
+		is_page_template( 'templates/portfolio-categories.php' )
+	) {
+		foreach( $classes as $key => $value) {
+			if ( $value == 'page-template-templatesportfolio-php') {
+				$classes[$key] = 'page-template-portfolio-php';
+			}
+			if ( $value == 'page-template-templatesfull-width-portfolio-php') {
+				$classes[$key] = 'page-template-full-width-portfolio-php';
+			}
+			if ( $value == 'page-template-templatespost-format-gallery-image-php') {
+				$classes[$key] = 'page-template-post-format-gallery-image-php';
+			}
+			if ( $value == 'page-template-templatesportfolio-categories-php') {
+				$classes[$key] = 'page-template-portfolio-categories-php';
+			}
 		}
 	}
 

@@ -108,7 +108,7 @@ function portfolioplus_update_page_templates() {
 					$new_template = 'templates/full-width-portfolio.php';
 					break;
 				case 'portfolio-category-template.php':
-					$new_template = 'templates/portfolio-category-template.php';
+					$new_template = 'templates/portfolio-categories.php';
 					break;
 			}
 			if ( $new_template ) {
@@ -188,7 +188,7 @@ function portfolioplus_page_templates_mod( $templates ) {
 	}
 	return $templates;
 }
-add_filter( 'page_templates', 'portfolioplus_page_templates_mod' );
+add_filter( 'theme_page_templates', 'portfolioplus_page_templates_mod' );
 
 /**
  * WP PageNavi Support

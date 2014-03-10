@@ -24,12 +24,11 @@ $portfolio = new WP_Query( $args );
 $fullwidth = of_get_option( 'portfolio_sidebar', false );
 
 // If portfolio is a 1-column layout
-if ( of_get_option( 'layout','layout-2cr' ) ==  'layout-1col' ) {
+if ( of_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
 	$fullwidth = true;
 }
 
 $thumbnail = 'thumbnail';
-
 if ( $fullwidth ) {
 	$thumbnail = 'thumbnail-fullwidth';
 }
