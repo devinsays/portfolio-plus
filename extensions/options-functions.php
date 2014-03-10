@@ -324,6 +324,9 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'settings'   => 'portfolioplus[header_bg][color]'
 	) ) );
 
+	/* PostMessage Support */
+	$wp_customize->get_setting( 'portfolioplus[header_bg][color]' )->transport = 'postMessage';
+
 	$wp_customize->add_setting( 'portfolioplus[site_title_color]', array(
 		'default' => '#ffffff',
 		'type' => 'option'
@@ -334,6 +337,9 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'section' => 'portfolioplus_header_styles',
 		'settings' => 'portfolioplus[site_title_color]'
 	) ) );
+
+	/* PostMessage Support */
+	$wp_customize->get_setting( 'portfolioplus[site_title_color]' )->transport = 'postMessage';
 
 	$wp_customize->add_setting( 'portfolioplus[tagline_color]', array(
 		'default' => '#dddddd',
@@ -346,6 +352,9 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'settings' => 'portfolioplus[tagline_color]'
 	) ) );
 
+	/* PostMessage Support */
+	$wp_customize->get_setting( 'portfolioplus[tagline_color]' )->transport = 'postMessage';
+
 	$wp_customize->add_setting( 'portfolioplus[menu_color]', array(
 		'default' => '#ffffff',
 		'type' => 'option'
@@ -356,6 +365,9 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'section' => 'portfolioplus_header_styles',
 		'settings' => 'portfolioplus[menu_color]'
 	) ) );
+
+	/* PostMessage Support */
+	$wp_customize->get_setting( 'portfolioplus[menu_color]' )->transport = 'postMessage';
 
 	/* Body Styles */
 
@@ -471,11 +483,6 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'settings' => 'portfolioplus[footer_color]'
 	) ) );
 
-	/* PostMessage Support */
-
-	/* @Todo - Send values for all the options with a loop */
-
-	$wp_customize->get_setting( 'portfolioplus[header_color]' )->transport = 'postMessage';
 }
 
 /**
