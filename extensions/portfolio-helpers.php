@@ -21,7 +21,8 @@ function portfolioplus_template_chooser( $template ) {
 add_filter( 'template_include', 'portfolioplus_template_chooser' );
 
 /**
- * Sets posts displayed per portfolio to 9
+ * Changes number of items displayed on portfolio page.
+ * Defaults to 9 but can be changed in options.
  *
  * @param object query
  */

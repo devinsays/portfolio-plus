@@ -10,6 +10,16 @@ get_header(); ?>
 	<div id="primary">
 		<div id="content" role="main">
 
+			<?php if ( is_tax() ): ?>
+			<header class="entry-header">
+				<h1 class="entry-title"><?php echo single_cat_title( '', false ); ?></h1>
+				<?php $categorydesc = category_description();
+					if ( ! empty( $categorydesc ) ) {
+						echo apply_filters( 'archive_meta', '<div class="entry-meta">' . $categorydesc . '</div>' );
+				} ?>
+			</header>
+			<?php endif; ?>
+
 			<?php if ( have_posts() ) : ?>
 
 				<?php /* Start the Loop */ ?>

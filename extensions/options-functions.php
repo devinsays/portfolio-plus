@@ -71,24 +71,112 @@ function portfolio_favicon() {
 add_action( 'wp_head', 'portfolio_favicon' );
 
 /**
- * Menu Position Option
+ * Output the inline css used for theme options
  */
-function portfolio_head_css() {
+function portfolioplus_inline_css() {
 
-		$output = '';
+	// If custom styles are turned off, return early
+	if ( of_get_option( 'disable_styles', false ) ) {
+		return;
+	}
 
-		if ( of_get_option( 'header_color' ) != "#000000") {
-			$output .= "#branding {background:" . of_get_option('header_color') . "}\n";
+	$output = '';
+
+	if ( of_get_option( 'body_color' ) ) {
+		$output .= 'body, #content blockquote, #commentform .form-allowed-tags { color:' . of_get_option('body_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'link_color' ) ) {
+		$output .= 'a:link, a:visited { color:' . of_get_option('link_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'link_hover_color' ) ) {
+		$output .= 'a:hover { color:' . of_get_option('link_hover_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'site_title_color' ) ) {
+		$output .= '#logo #site-title a { color:' . of_get_option('site_title_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'tagline_color' ) ) {
+		$output .= '#logo #site-description { color:' . of_get_option('tagline_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'menu_color' ) ) {
+		$output .= '#navigation ul a { color:' . of_get_option('menu_color') . "; }\n";
+		$output .= '#navigation .menu-toggle { color:' . of_get_option('menu_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'header_color' ) ) {
+		$output .= 'h1, h2, h3, h4, h5, h6, #comments h3 { color:' . of_get_option('header_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'widget_header_color' ) ) {
+		$output .= '.widget-container h3 { color:' . of_get_option('widget_header_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'border_color' ) != '#dddddd' ) {
+		$output .= '#content .entry-header, .widget-container h3 { border-bottom-color:' . of_get_option('border_color') . "; box-shadow:none; }\n";
+		$output .= '.archive-title:after, .archive-meta:after, footer.entry-meta:before, footer.entry-meta:after, #comments:before { background:' . of_get_option('border_color') . "; box-shadow:none; }\n";
+
+	}
+
+	if ( of_get_option( 'footer_color' ) ) {
+		$output .= '#colophon #site-generator p { color:' . of_get_option('footer_color') . "; }\n";
+	}
+
+	if ( of_get_option( 'header_bg' ) ) {
+		$output .= portfolioplus_output_bg( '#branding', of_get_option('header_bg'), array('color'=>'#000000') );
+	}
+
+	$main_bg = of_get_option( 'main_bg' );
+	if ( $main_bg ) {
+		$output .= portfolioplus_output_bg( '#main', of_get_option('main_bg'), array('color'=>'#f3f3f3') );
+		if ( $main_bg['color'] != '#f3f3f3' ) {
+			$output .= "#content .entry-title, .widget-container h3, #nav-below { text-shadow: none; }\n";
 		}
+	}
 
-		// Output styles
-		if ($output <> '') {
-			$output = "<!-- Custom Styling -->\n<style type=\"text/css\">\n" . $output . "</style>\n";
-			echo $output;
-		}
+	if ( of_get_option( 'footer_bg' ) ) {
+		$output .= portfolioplus_output_bg( 'body', of_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
+	}
+
+	if ( of_get_option( 'menu_position' ) == "clear") {
+		$output .= "#navigation { clear:both; float:none; margin-left:-10px; }\n";
+		$output .= "#navigation ul li { margin-left:0; margin-right:10px; }\n";
+	}
+
+	// Output styles
+	if ( $output <> '' ) {
+		$output = "\n<!-- Portfolio+ Styling -->\n<style type=\"text/css\">\n" . $output . "</style>\n";
+		echo $output;
+	}
 }
+add_action('wp_head', 'portfolioplus_inline_css');
 
-add_action( 'wp_head', 'portfolio_head_css' );
+/**
+ * Helper function for outputting background CSS
+ *
+ * @param string selector
+ * @param array option
+ * @param array default
+ */
+function portfolioplus_output_bg( $selector, $option, $default ) {
+	$output = '';
+	if ( $option['color'] != $default['color'] ) {
+		$output .= 'background:' . $option['color'] . '; ';
+	}
+	if ( isset( $option['image'] ) && $option['image'] != '' ) {
+		$output .= 'background-image: url("' . $option['image'] . '"); ';
+		$output .= 'background-repeat:' . $option['repeat'] . '; ';
+		$output .= 'background-position:' . $option['position'] . '; ';
+		$output .= 'background-attachment:' . $option['attachment'] . '; ';
+	}
+	if ( $output != '' ) {
+		$output = $selector . " { " .$output . "}\n";
+	}
+	return $output;
+}
 
 /**
  * Removes image and gallery post formats from is_home if option is set

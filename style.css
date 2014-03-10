@@ -337,7 +337,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 	display:block;
 	padding: 30px 0;
 	border-top: 1px solid #ddd;
-	background:#fff;
 }
 #footer-widgets {
 	border-bottom:1px dotted #ddd;

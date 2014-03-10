@@ -264,8 +264,8 @@ function optionsframework_options() {
 	);
 
 	$options['portfolio_navigation'] = array(
-		'name' => __( 'Display portfolio navigation','portfolioplus' ),
-		'desc' => __( 'Show prev/next links to appear on portfolio posts.','portfolioplus' ),
+		'name' => __( 'Display portfolio navigation', 'portfolioplus' ),
+		'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolioplus' ),
 		'id' => 'portfolio_navigation',
 		'std' => '1',
 		'type' => 'checkbox'

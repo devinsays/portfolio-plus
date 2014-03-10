@@ -31,7 +31,9 @@ get_header(); ?>
 
 			</article><!-- #post-<?php the_ID(); ?> -->
 
-			<?php portfolioplus_post_nav(); ?>
+			<?php if ( of_get_option('portfolio_navigation', false ) ) {
+				portfolioplus_post_nav();
+			} ?>
 
 			<?php if ( comments_open() ) {
 				comments_template( '', true );
