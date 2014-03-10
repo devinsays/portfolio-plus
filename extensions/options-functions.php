@@ -256,6 +256,20 @@ function portfolioplus_customize_register( $wp_customize ) {
 		'settings' => 'portfolioplus[logo]'
 	) ) );
 
+	$wp_customize->add_setting( 'portfolioplus[tagline]', array(
+		'default' => '1',
+		'type' => 'option'
+	) );
+
+	if ( !of_get_option('logo') ) {
+		$wp_customize->add_control( 'portfolioplus_tagline', array(
+			'label' => $options['tagline']['name'],
+			'section' => 'title_tagline',
+			'settings' => 'portfolioplus[tagline]',
+			'type' => 'checkbox'
+		) );
+	}
+
 	/* Layout */
 
 	$wp_customize->add_section( 'portfolioplus_layout', array(
@@ -295,22 +309,172 @@ function portfolioplus_customize_register( $wp_customize ) {
 	/* Header Styles */
 
 	$wp_customize->add_section( 'portfolioplus_header_styles', array(
-		'title' => __( 'Header Style', 'portfolioplus' ),
+		'title' => __( 'Header Styles', 'portfolioplus' ),
 		'priority' => 105,
 	) );
 
-	$wp_customize->add_setting( 'portfolioplus[header_color]', array(
+	$wp_customize->add_setting( 'portfolioplus[header_bg][color]', array(
 		'default' => '#000000',
 		'type' => 'option'
 	) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
 		'label' => __( 'Background Color', 'portfolioplus' ),
 		'section' => 'portfolioplus_header_styles',
+		'settings'   => 'portfolioplus[header_bg][color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[site_title_color]', array(
+		'default' => '#ffffff',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'site_title_color', array(
+		'label' => $options['site_title_color']['desc'],
+		'section' => 'portfolioplus_header_styles',
+		'settings' => 'portfolioplus[site_title_color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[tagline_color]', array(
+		'default' => '#dddddd',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'tagline_color', array(
+		'label' => $options['tagline_color']['desc'],
+		'section' => 'portfolioplus_header_styles',
+		'settings' => 'portfolioplus[tagline_color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[menu_color]', array(
+		'default' => '#ffffff',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'menu_color', array(
+		'label' => $options['menu_color']['desc'],
+		'section' => 'portfolioplus_header_styles',
+		'settings' => 'portfolioplus[menu_color]'
+	) ) );
+
+	/* Body Styles */
+
+	$wp_customize->add_section( 'portfolioplus_body_styles', array(
+		'title' => __( 'Body Styles', 'portfolioplus' ),
+		'priority' => 110,
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[main_bg][color]', array(
+		'default' => '#f3f3f3',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_bg_color', array(
+		'label' => $options['main_bg']['name'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[main_bg][color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[body_color]', array(
+		'default' => '#555555',
+		'type' => 'option',
+		'sanitize_callback' => 'sanitize_hex_color'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_color', array(
+		'label' => $options['body_color']['name'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[body_color]',
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[link_color]', array(
+		'default' => '#106177',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+		'label' => $options['link_color']['desc'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[link_color]',
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[link_hover_color]', array(
+		'default' => '#106177',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
+		'label' => $options['link_hover_color']['desc'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[link_hover_color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[header_color]', array(
+		'default' => '#111111',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
+		'label' => $options['header_color']['name'],
+		'section' => 'portfolioplus_body_styles',
 		'settings' => 'portfolioplus[header_color]'
 	) ) );
 
+	$wp_customize->add_setting( 'portfolioplus[widget_header_color]', array(
+		'default' => '#555555',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'widget_header_color', array(
+		'label' => $options['widget_header_color']['name'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[widget_header_color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[border_color]', array(
+		'default' => '#dddddd',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'border_color', array(
+		'label' => $options['border_color']['name'],
+		'section' => 'portfolioplus_body_styles',
+		'settings' => 'portfolioplus[border_color]'
+	) ) );
+
+	/* Footer Styles */
+
+	$wp_customize->add_section( 'portfolioplus_footer_styles', array(
+		'title' => __( 'Footer Styles', 'portfolioplus' ),
+		'priority' => 115
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][color]', array(
+		'default' => '#ffffff',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
+		'label' => __( 'Footer Background Color', 'portfolioplus' ),
+		'section' => 'portfolioplus_footer_styles',
+		'settings' => 'portfolioplus[footer_bg][color]'
+	) ) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_color]', array(
+		'default' => '#333333',
+		'type' => 'option'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
+		'label' => $options['footer_color']['name'],
+		'section' => 'portfolioplus_footer_styles',
+		'settings' => 'portfolioplus[footer_color]'
+	) ) );
+
 	/* PostMessage Support */
+
+	/* @Todo - Send values for all the options with a loop */
+
 	$wp_customize->get_setting( 'portfolioplus[header_color]' )->transport = 'postMessage';
 }
 
