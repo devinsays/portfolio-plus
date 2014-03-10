@@ -5,35 +5,35 @@
  * @package Portfolio+
  */
 ?>
-	</div>
+		</div><!-- .col-width -->
 	</div><!-- #main -->
 
 	<footer id="colophon">
 		<div class="col-width">
-    
+
 	    <?php if ( is_active_sidebar('footer-1') ||
-			is_active_sidebar('footer-2') || 
-			is_active_sidebar('footer-3') || 
+			is_active_sidebar('footer-2') ||
+			is_active_sidebar('footer-3') ||
 			is_active_sidebar('footer-4') ) : ?>
-	                
+
 			<div id="footer-widgets">
-		
-				<?php $i = 0; while ( $i <= 4 ) : $i++; ?>			
+
+				<?php $i = 0; while ( $i <= 4 ) : $i++; ?>
 					<?php if ( is_active_sidebar('footer-'.$i) ) { ?>
-		
+
 				<div class="block footer-widget-<?php echo $i; ?>">
-		        	<?php dynamic_sidebar('footer-'.$i); ?>    
+		        	<?php dynamic_sidebar('footer-'.$i); ?>
 				</div>
-				        
+
 			        <?php } ?>
 				<?php endwhile; ?>
-		        		        
+
 				<div class="clear"></div>
-		
+
 			</div><!-- /#footer-widgets  -->
-	    
+
 	    <?php endif; ?>
-	        
+
 			<div id="site-generator">
 				<p><?php if (!$footer = of_get_option('footer_text', false) ) { ?>
 					<?php _e('Powered by', 'portfolioplus'); ?> <a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'portfolioplus' ); ?>" rel="generator"><?php printf( __( 'WordPress', 'portfolioplus' ) ); ?></a> &amp; <a href="http://wptheming.com/2010/07/portfolio-theme/"><?php _e('Portfolio', 'portfolioplus'); ?>.</a>
