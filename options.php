@@ -44,22 +44,18 @@ function optionsframework_options() {
 		'type' => 'heading'
 	);
 
-	$options['logo'] = array(
-		'name' => __( 'Custom Logo','portfolioplus' ),
-		'desc' => __( 'Upload a logo (optional)','portfolioplus' ),
-		'id' => 'logo',
-		'type' => 'upload'
+	$options['layout'] = array(
+		'name' => __( 'Main Layout','portfolioplus' ),
+		'desc' => __( 'Select main content and sidebar alignment.','portfolioplus' ),
+		'id' => 'layout',
+		'std' => 'layout-2cr',
+		'type' => 'images',
+		'options' => array(
+			'layout-2cr' => $imagepath . '2cr.png',
+			'layout-2cl' => $imagepath . '2cl.png',
+			'layout-1col' => $imagepath . '1cl.png'
+		)
 	);
-
-	if ( !of_get_option('logo' ) ) {
-		$options['tagline'] = array(
-			'name' => __( 'Display Site Tagline', 'portfolioplus' ),
-			'desc' => __( 'Display tagline under site title', 'portfolioplus' ),
-			'id' => 'tagline',
-			'std' => '1',
-			'type' => 'checkbox'
-		);
-	}
 
 	$options['custom_favicon'] = array(
 		'name' => __( 'Custom Favicon','portfolioplus' ),
@@ -75,37 +71,12 @@ function optionsframework_options() {
 		'type' => 'checkbox'
 	);
 
-	$options['layout'] = array(
-		'name' => __( 'Main Layout','portfolioplus' ),
-		'desc' => __( 'Select main content and sidebar alignment.','portfolioplus' ),
-		'id' => 'layout',
-		'std' => 'layout-2cr',
-		'type' => 'images',
-		'options' => array(
-			'layout-2cr' => $imagepath . '2cr.png',
-			'layout-2cl' => $imagepath . '2cl.png',
-			'layout-1col' => $imagepath . '1cl.png'
-		)
-	);
-
 	$options['display_dates'] = array(
 		'name' => __( 'Display dates', 'portfolioplus' ),
 		'desc' => __( 'Display dates on posts', 'portfolioplus' ),
 		'id' => 'display_dates',
 		'std' => '1',
 		'type' => 'checkbox'
-	);
-
-	$options['menu_position'] = array(
-		'name' => __( 'Menu Position','portfolioplus' ),
-		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolioplus' ),
-		'id' => 'menu_position',
-		'std' => 'right',
-		'type' => 'radio',
-		'options' => array(
-			'right' => 'Right of logo',
-			'clear' => 'Underneath logo'
-		)
 	);
 
 	$options['footer_text'] = array(
@@ -124,39 +95,36 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
-		'name' => __( 'Colors','portfolioplus' ),
+		'name' => __( 'Header','portfolioplus' ),
 		'type' => 'heading'
 	);
 
-	$options['body_color'] = array(
-		'name' => __( 'Body Font Color','portfolioplus' ),
-		'id' => 'body_color',
-		'std' => '#555555',
-		'type' => 'color'
+	$options['logo'] = array(
+		'name' => __( 'Custom Logo','portfolioplus' ),
+		'desc' => __( 'Upload a logo (optional)','portfolioplus' ),
+		'id' => 'logo',
+		'type' => 'upload'
+	);
+
+	if ( !of_get_option('logo' ) ) {
+		$options['tagline'] = array(
+			'name' => __( 'Display Site Tagline', 'portfolioplus' ),
+			'desc' => __( 'Display tagline under site title', 'portfolioplus' ),
+			'id' => 'tagline',
+			'std' => '1',
+			'type' => 'checkbox'
+		);
+	}
+
+	$options['header_bg'] = array(
+		'name' =>  __( 'Header Background', 'portfolioplus' ),
+		'id' => 'header_bg',
+		'std' => array_merge( $background_defaults, array( 'color' => '#000000' ) ),
+		'type' =>'background'
 	);
 
 	$options[] = array(
-		'name' => __( 'Link Colors','portfolioplus' ),
-		'desc' => '',
-		'type' => 'info'
-	);
-
-	$options['link_color'] = array(
-		'desc' => __( 'Link color','portfolioplus' ),
-		"id" => 'link_color',
-		"std" => '#106177',
-		"type" => 'color'
-	);
-
-	$options['link_hover_color'] = array(
-		'desc' => __( 'Hover color','portfolioplus' ),
-		'id' => 'link_hover_color',
-		'std' => '#106177',
-		'type' => 'color'
-	);
-
-	$options[] = array(
-		'name' => 'Header Section',
+		'name' => __( 'Header Text Colors', 'portfolioplus' ),
 		'desc' => '',
 		'type' => 'info'
 	);
@@ -183,10 +151,61 @@ function optionsframework_options() {
 		'type' => 'color'
 	);
 
+	$options['menu_position'] = array(
+		'name' => __( 'Menu Position','portfolioplus' ),
+		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolioplus' ),
+		'id' => 'menu_position',
+		'std' => 'right',
+		'type' => 'radio',
+		'options' => array(
+			'right' => 'Right of logo',
+			'clear' => 'Underneath logo'
+		)
+	);
+
+	$options[] = array(
+		'name' => __( 'Styles','portfolioplus' ),
+		'type' => 'heading'
+	);
+
+	$options['main_bg'] = array(
+		'name' =>  __( 'Body Background', 'portfolioplus' ),
+		'id' => 'main_bg',
+		'std' => array_merge( $background_defaults, array( 'color' => '#f3f3f3' ) ),
+		'type' =>'background'
+	);
+
+	$options['body_color'] = array(
+		'name' => __( 'Body Font Color','portfolioplus' ),
+		'id' => 'body_color',
+		'std' => '#555555',
+		'type' => 'color'
+	);
+
 	$options['header_color'] = array(
 		'name' => __( 'Heading/Title Colors (H1, H2, H3)','portfolioplus' ),
 		'id' => 'header_color',
 		'std' => '#111111',
+		'type' => 'color'
+	);
+
+	$options[] = array(
+		'name' => __( 'Link Colors','portfolioplus' ),
+		'desc' => '',
+		'type' => 'info'
+	);
+
+	$options['link_color'] = array(
+		'desc' => __( 'Link color','portfolioplus' ),
+		"id" => 'link_color',
+		"std" => '#106177',
+		"type" => 'color'
+	);
+
+	$options['link_hover_color'] = array(
+		'desc' => __( 'Hover color','portfolioplus' ),
+		'id' => 'link_hover_color',
+		'std' => '#106177',
 		'type' => 'color'
 	);
 
@@ -209,24 +228,6 @@ function optionsframework_options() {
 		'id' => 'footer_color',
 		'std' => '#333333',
 		'type' => 'color'
-	);
-
-	$options[] = array(
-		'name' => __( 'Backgrounds','portfolioplus' ),
-		'type' => 'heading' );
-
-	$options['header_bg'] = array(
-		'name' =>  __( 'Header Background', 'portfolioplus' ),
-		'id' => 'header_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#000000' ) ),
-		'type' =>'background'
-	);
-
-	$options['main_bg'] = array(
-		'name' =>  __( 'Body Background', 'portfolioplus' ),
-		'id' => 'main_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#f3f3f3' ) ),
-		'type' =>'background'
 	);
 
 	$options['footer_bg'] = array(

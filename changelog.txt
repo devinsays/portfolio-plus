@@ -1,4 +1,4 @@
-Portfolio+ 3.0.0
+Portfolio+ 3.0
 
 - New menu styling
 - Portfolio templates and styles rebuilt
@@ -8,6 +8,7 @@ Portfolio+ 3.0.0
 - Support Jetpack Carousel Module
 - Update gallery shortcode to HTML5 markup
 - Option to hide post dates
+- Better support for theme customizer
 
 Portfolio+ 2.0
 
