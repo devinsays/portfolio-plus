@@ -112,12 +112,16 @@ function portfolioplus_body_class( $classes ) {
 	// Remove the term "templates" from the page template body class
 	// Primarily for backwards compatibility
 	if (
+		is_page_template( 'templates/full-width-page.php' ) ||
 		is_page_template( 'templates/portfolio.php' ) ||
 		is_page_template( 'templates/full-width-portfolio.php' ) ||
 		is_page_template( 'templates/post-format-gallery-image.php' ) ||
 		is_page_template( 'templates/portfolio-categories.php' )
 	) {
 		foreach( $classes as $key => $value) {
+			if ( $value == 'page-template-templatesfull-width-php') {
+				$classes[$key] = 'page-template-full-width-php';
+			}
 			if ( $value == 'page-template-templatesportfolio-php') {
 				$classes[$key] = 'page-template-portfolio-php';
 			}
