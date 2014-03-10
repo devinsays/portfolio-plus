@@ -55,7 +55,7 @@ function portfolioplus_portfolio_posts( $query ) {
 	}
 
 	// Check if the taxonomy query contains only image or gallery post formats
-	if ( is_category() || is_tag() ) {
+	if ( is_category() || is_tag() || is_home() ) {
 		$portfolio_view = true;
 		global $wp_query;
 		if ( $wp_query->have_posts() ) :
@@ -90,12 +90,13 @@ add_action( 'pre_get_posts', 'portfolioplus_portfolio_posts' );
  */
 function portfolioplus_body_class( $classes ) {
 
-	if (
+	if ( isset( $post) && (
 		is_page_template( 'templates/portfolio.php' ) ||
 		is_page_template( 'templates/full-width-portfolio.php' ) ||
 		is_page_template( 'templates/post-format-gallery-image.php' ) ||
 		is_page_template( 'templates/portfolio-categories.php' ) ||
 		get_query_var( 'portfolio_view' )
+		)
 	) {
 		$classes[] = 'portfolio-view';
 		if ( of_get_option( 'portfolio_sidebar', false ) ) {
