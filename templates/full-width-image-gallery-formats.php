@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name: Image and Gallery Posts
+ * Template Name: Full Width Image and Gallery Posts
  * Descriptions: Displays all image and gallery post formats.
  *
- * @package Portfolio+
+ * @package Portfolio Press
  */
 
 get_header(); ?>
@@ -16,7 +16,7 @@ if ( get_query_var('paged') ) {
 } else {
   $paged = 1;
 }
-$posts_per_page = apply_filters( 'portfolioplus_posts_per_page', of_get_option( 'portfolio_num', '9' ) );
+$posts_per_page = apply_filters( 'portfoliopress_posts_per_page', '9' );
 $args = array(
 	'tax_query' => array(
 		array(
@@ -47,7 +47,7 @@ query_posts( $args );
 
 				<?php endwhile; ?>
 
-				<?php portfolioplus_paging_nav(); ?>
+				<?php portfoliopress_paging_nav(); ?>
 
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
@@ -58,5 +58,4 @@ query_posts( $args );
 
 <?php wp_reset_query(); ?>
 
-<?php if ( !of_get_option( 'portfolio_sidebar', false ) ) { get_sidebar(); } ?>
 <?php get_footer(); ?>

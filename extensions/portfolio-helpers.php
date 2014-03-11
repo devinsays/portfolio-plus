@@ -48,7 +48,8 @@ function portfolioplus_portfolio_posts( $query ) {
 	if ( isset( $post) && (
 			is_page_template( 'templates/portfolio.php' ) ||
 			is_page_template( 'templates/full-width-portfolio.php' ) ||
-			is_page_template( 'templates/image-gallery-formats.php' )
+			is_page_template( 'templates/image-gallery-formats.php' ) ||
+			is_page_template( 'templates/full-width-image-gallery-formats.php' )
 		)
 	) {
 		$portfolio = true;
@@ -94,6 +95,7 @@ function portfolioplus_body_class( $classes ) {
 		is_page_template( 'templates/portfolio.php' ) ||
 		is_page_template( 'templates/full-width-portfolio.php' ) ||
 		is_page_template( 'templates/image-gallery-formats.php' ) ||
+		is_page_template( 'templates/full-width-image-gallery-formats.php' ) ||
 		is_page_template( 'templates/portfolio-categories.php' ) ||
 		get_query_var( 'portfolio_view' )
 	) {
@@ -104,7 +106,10 @@ function portfolioplus_body_class( $classes ) {
 	}
 
 	if ( !of_get_option( 'portfolio_sidebar', false ) ) {
-		if ( is_page_template( 'templates/full-width-portfolio.php' ) ) {
+		if (
+			is_page_template( 'templates/full-width-portfolio.php' ) ||
+			is_page_template( 'templates/full-width-image-gallery-formats.php' )
+		) {
 			$classes[] = 'full-width-portfolio';
 		}
 	}
@@ -116,6 +121,7 @@ function portfolioplus_body_class( $classes ) {
 			is_page_template( 'templates/portfolio.php' ) ||
 			is_page_template( 'templates/full-width-portfolio.php' ) ||
 			is_page_template( 'templates/image-gallery-formats.php' ) ||
+			is_page_template( 'templates/full-width-image-gallery-formats.php' ) ||
 			is_page_template( 'templates/portfolio-categories.php' )
 		)
 	) {
@@ -131,6 +137,9 @@ function portfolioplus_body_class( $classes ) {
 			}
 			if ( $value == 'page-template-templatesimage-gallery-formats-php') {
 				$classes[$key] = 'page-template-image-gallery-formats-php';
+			}
+			if ( $value == 'page-template-templatesfull-width-image-gallery-formats-php') {
+				$classes[$key] = 'page-template-full-width-image-gallery-formats-php';
 			}
 			if ( $value == 'page-template-templatesportfolio-categories-php') {
 				$classes[$key] = 'page-template-portfolio-categories-php';

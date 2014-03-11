@@ -242,24 +242,60 @@ function optionsframework_options() {
 		'type' => 'heading'
 	);
 
-    $options['portfolio_images'] = array(
-    	'name' => __( 'Display Images on Portfolio Posts','portfolioplus' ),
-		'desc' => __( 'Display images automatically on portfolio posts','portfolioplus' ),
-		'id' => 'portfolio_images',
-		'std' => '1',
-		'type' => 'checkbox'
-	);
+		if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
-	$options['portfolio_sidebar'] = array(
-		'name' => __( 'Display Portfolio Archives Full Width','portfolioplus' ),
-		'desc' => __( 'Display all portfolio archives full width.','portfolioplus' ),
-		'id' => 'portfolio_sidebar',
-		'std' => '0',
-		'type' => 'checkbox'
+		$options[] = array(
+			"name" => __( 'Display Images on Portfolio / Image Posts', 'portfolioplus' ),
+			"desc" => __( 'Uncheck this if you wish to manually display images on single posts.', 'portfolioplus' ),
+			"id" => "portfolio_images",
+			"std" => "1",
+			"type" => "checkbox"
+		);
+
+	} else {
+
+		$options[] = array(
+			"name" => __( 'Display Images Automatically on Image Post Formats', 'portfolioplus' ),
+			"desc" => __( 'Uncheck this if you wish to manually control images on image format single posts.', 'portfolioplus' ),
+			"id" => "portfolio_images",
+			"std" => "1",
+			"type" => "checkbox"
+		);
+
+	}
+
+	if ( class_exists( 'Portfolio_Post_Type' ) ) {
+
+		$options[] = array(
+			"name" => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolioplus' ),
+			"desc" => __( 'Check this to display all image based archives full width.', 'portfolioplus' ),
+			"id" => "portfolio_sidebar",
+			"std" => "0",
+			"type" => "checkbox"
+		);
+
+	} else {
+
+		$options[] = array(
+			"name" => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolioplus' ),
+			"desc" => __( 'Check this to display all image/gallery archives full width.', 'portfolioplus' ),
+			"id" => "portfolio_sidebar",
+			"std" => "0",
+			"type" => "checkbox"
+		);
+
+	}
+
+	$options[] = array(
+		"name" => __( 'Display Image and Gallery Formats on Posts Page', 'portfolioplus' ),
+		"desc" => __( 'Check this to remove image and gallery posts from your standard posts page.' ),
+		"id" => "display_image_gallery_post_formats",
+		"std" => "1",
+		"type" => "checkbox"
 	);
 
 	$options['portfolio_num'] = array(
-		'name' => __( 'Number of Portfolio Items','portfolioplus' ),
+		'name' => __( 'Number of Portfolio / Image Formats Per Page', 'portfolioplus' ),
 		'desc' => __( 'Select the number of portfolio items to show per page.','portfolioplus' ),
 		'id' => 'portfolio_num',
 		'class' => 'mini',
@@ -272,13 +308,17 @@ function optionsframework_options() {
 		)
 	);
 
-	$options['portfolio_navigation'] = array(
-		'name' => __( 'Display portfolio navigation', 'portfolioplus' ),
-		'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolioplus' ),
-		'id' => 'portfolio_navigation',
-		'std' => '1',
-		'type' => 'checkbox'
-	);
+	if ( class_exists( 'Portfolio_Post_Type' ) ) {
+
+		$options['portfolio_navigation'] = array(
+			'name' => __( 'Display portfolio navigation', 'portfolioplus' ),
+			'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolioplus' ),
+			'id' => 'portfolio_navigation',
+			'std' => '1',
+			'type' => 'checkbox'
+		);
+
+	}
 
 	$options['archive_titles'] = array(
 		'name' => __( 'Archive Titles','portfolioplus' ),
