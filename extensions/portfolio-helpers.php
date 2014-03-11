@@ -48,7 +48,7 @@ function portfolioplus_portfolio_posts( $query ) {
 	if ( isset( $post) && (
 			is_page_template( 'templates/portfolio.php' ) ||
 			is_page_template( 'templates/full-width-portfolio.php' ) ||
-			is_page_template( 'templates/post-format-gallery-image.php' )
+			is_page_template( 'templates/image-gallery-formats.php' )
 		)
 	) {
 		$portfolio = true;
@@ -67,7 +67,7 @@ function portfolioplus_portfolio_posts( $query ) {
 			endwhile;
 		endif;
 		// If $portfolio_view false, not all posts were image or gallery
-		if ( ! $portfolio_view ) {
+		if ( $portfolio_view ) {
 			$portfolio = true;
 			$query->set( 'portfolio_view', true );
 		}
@@ -90,13 +90,12 @@ add_action( 'pre_get_posts', 'portfolioplus_portfolio_posts' );
  */
 function portfolioplus_body_class( $classes ) {
 
-	if ( isset( $post) && (
+	if (
 		is_page_template( 'templates/portfolio.php' ) ||
 		is_page_template( 'templates/full-width-portfolio.php' ) ||
-		is_page_template( 'templates/post-format-gallery-image.php' ) ||
+		is_page_template( 'templates/image-gallery-formats.php' ) ||
 		is_page_template( 'templates/portfolio-categories.php' ) ||
 		get_query_var( 'portfolio_view' )
-		)
 	) {
 		$classes[] = 'portfolio-view';
 		if ( of_get_option( 'portfolio_sidebar', false ) ) {
@@ -112,12 +111,13 @@ function portfolioplus_body_class( $classes ) {
 
 	// Remove the term "templates" from the page template body class
 	// Primarily for backwards compatibility
-	if (
-		is_page_template( 'templates/full-width-page.php' ) ||
-		is_page_template( 'templates/portfolio.php' ) ||
-		is_page_template( 'templates/full-width-portfolio.php' ) ||
-		is_page_template( 'templates/post-format-gallery-image.php' ) ||
-		is_page_template( 'templates/portfolio-categories.php' )
+	if ( isset( $post) && (
+			is_page_template( 'templates/full-width-page.php' ) ||
+			is_page_template( 'templates/portfolio.php' ) ||
+			is_page_template( 'templates/full-width-portfolio.php' ) ||
+			is_page_template( 'templates/image-gallery-formats.php' ) ||
+			is_page_template( 'templates/portfolio-categories.php' )
+		)
 	) {
 		foreach( $classes as $key => $value) {
 			if ( $value == 'page-template-templatesfull-width-php') {
@@ -129,8 +129,8 @@ function portfolioplus_body_class( $classes ) {
 			if ( $value == 'page-template-templatesfull-width-portfolio-php') {
 				$classes[$key] = 'page-template-full-width-portfolio-php';
 			}
-			if ( $value == 'page-template-templatespost-format-gallery-image-php') {
-				$classes[$key] = 'page-template-post-format-gallery-image-php';
+			if ( $value == 'page-template-templatesimage-gallery-formats-php') {
+				$classes[$key] = 'page-template-image-gallery-formats-php';
 			}
 			if ( $value == 'page-template-templatesportfolio-categories-php') {
 				$classes[$key] = 'page-template-portfolio-categories-php';
