@@ -16,7 +16,7 @@ if ( get_query_var('paged') ) {
 } else {
   $paged = 1;
 }
-$posts_per_page = apply_filters( 'portfoliopress_posts_per_page', '9' );
+$posts_per_page = apply_filters( 'portfolioplus_posts_per_page', '9' );
 $args = array(
 	'tax_query' => array(
 		array(
@@ -47,7 +47,7 @@ query_posts( $args );
 
 				<?php endwhile; ?>
 
-				<?php portfoliopress_paging_nav(); ?>
+				<?php portfolioplus_paging_nav(); ?>
 
 			<?php else : ?>
 				<?php get_template_part( 'content', 'none' ); ?>
