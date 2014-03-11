@@ -294,20 +294,6 @@ function optionsframework_options() {
 		"type" => "checkbox"
 	);
 
-	$options['portfolio_num'] = array(
-		'name' => __( 'Number of Portfolio / Image Formats Per Page', 'portfolioplus' ),
-		'desc' => __( 'Select the number of portfolio items to show per page.','portfolioplus' ),
-		'id' => 'portfolio_num',
-		'class' => 'mini',
-		'std' => '9',
-		'type' => 'select',
-		'options' => array(
-			'9' => '9',
-			'12' => '12',
-			'15' => '15'
-		)
-	);
-
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options['portfolio_navigation'] = array(
@@ -326,6 +312,17 @@ function optionsframework_options() {
 		'id' => 'archive_titles',
 		'std' => '1',
 		'type' => 'checkbox'
+	);
+
+	$options[] = array(
+		'name' => __( 'Posts Per Page', 'portfoliopress' ),
+		'desc' => sprintf( '<p>%s</p>',
+			sprintf(
+				__( 'Posts per page can be set in the <a href="%s">reading options</a>.', 'portfolioplus' ),
+				admin_url( 'options-reading.php', false )
+				)
+			),
+		'type' => 'info'
 	);
 
 	return $options;
