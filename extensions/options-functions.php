@@ -223,7 +223,7 @@ function portfolioplus_infinite_scroll_js() {
 	    };
 	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function( elements ) {
 	    	// Jetpack Infinite Scroll also uses this callback
-		    this.body.trigger( 'post-load' );
+		    jQuery('body').trigger( 'post-load' );
 	    });
 	    </script>
 	    <?php
