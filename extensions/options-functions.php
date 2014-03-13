@@ -183,7 +183,7 @@ function portfolioplus_output_bg( $selector, $option, $default ) {
  */
 function portfolioplus_exclude_post_formats( $query ) {
 	if (
-		of_get_option( 'display_image_gallery_post_formats', false ) &&
+		! of_get_option( 'display_image_gallery_post_formats', true ) &&
 		$query->is_main_query() &&
 		$query->is_home()
 	) {

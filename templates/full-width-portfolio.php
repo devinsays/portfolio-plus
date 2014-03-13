@@ -9,17 +9,15 @@
 get_header(); ?>
 
 <?php
-if ( get_query_var('paged') ) {
-  $paged = get_query_var('paged');
-} elseif ( get_query_var('page') ) {
-  $paged = get_query_var('page');
+if ( get_query_var( 'paged' ) ) {
+	$paged = get_query_var( 'paged' );
+} elseif ( get_query_var( 'page' ) ) {
+	$paged = get_query_var( 'page' );
 } else {
-  $paged = 1;
+	$paged = 1;
 }
-$posts_per_page = apply_filters( 'portfolioplus_posts_per_page', of_get_option( 'portfolio_num', '9' ) );
 $args = array(
 	'post_type' => 'portfolio',
-	'posts_per_page' => $posts_per_page,
 	'paged' => $paged
 );
 $portfolio = new WP_Query( $args );
