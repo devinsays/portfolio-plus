@@ -218,11 +218,12 @@ function portfolioplus_infinite_scroll_js() {
 	        },
 	        "nextSelector":".nav-previous a",
 	        "navSelector":"#nav-below",
-	        "itemSelector":"article",
+	        "itemSelector":".hentry",
 	        "contentSelector":"#content"
 	    };
 	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function( elements ) {
-		    // Empty callback
+	    	// Jetpack Infinite Scroll also uses this callback
+		    this.body.trigger( 'post-load' );
 	    });
 	    </script>
 	    <?php

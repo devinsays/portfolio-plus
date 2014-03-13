@@ -695,6 +695,9 @@ img#wpstats {
 	display: block;
 	margin: 0 auto 15px;
 }
+#infscr-loading {
+	clear:both;
+}
 
 /* Make sure embeds and iframes fit their containers */
 
