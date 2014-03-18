@@ -65,7 +65,7 @@ function optionsframework_options() {
 
 	$options['infinite_scroll'] = array(
 		'name' => __( 'Infinite Scroll','portfolioplus' ),
-		'desc' => __( 'Load new posts and portfolio items as the user scrolls down','portfolioplus' ),
+		'desc' => __( 'Load new posts as the user scrolls down.  ("Display Image and Gallery Formats on Posts Page" should be unchecked under the "Portfolio" tab for infinite scroll to work best.)','portfolioplus' ),
 		'id' => 'infinite_scroll',
 		'std' => '1',
 		'type' => 'checkbox'
