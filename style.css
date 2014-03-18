@@ -344,7 +344,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 #footer-widgets .block {
 	padding:0 2% 0 0;
-	width:23%;
+	width:25%;
 	float:left;
 }
 #footer-widgets .footer-widget-4 {
@@ -828,15 +828,7 @@ object {
 	padding: 0 0 0 15px;
 	border-top: none;
 }
-#colophon-widgets {
-	border-top:1px solid #ddd;
-	padding:10px 0;
-}
-#colophon-widgets .block {
-	padding:20px 0 0 20px;
-	width:210px;
-	float:left;
-}
+
 /* Calendar */
 
 #wp-calendar {
