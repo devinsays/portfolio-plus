@@ -7,6 +7,7 @@ Portfolio+ 3.0
 - Single column is now 980px
 - Support Jetpack Carousel Module
 - Update gallery shortcode to HTML5 markup
+- Update styling for image captions
 - Option to hide post dates
 - Better support for theme customizer
 
