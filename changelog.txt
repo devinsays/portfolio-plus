@@ -10,6 +10,7 @@ Portfolio+ 3.0
 - Update styling for image captions
 - Option to hide post dates
 - Better support for theme customizer
+- Add options for header/footer border colors
 
 Portfolio+ 2.0
 

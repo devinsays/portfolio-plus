@@ -32,9 +32,9 @@ endif;
 function portfolioplus_panel_info() { ?>
     <p style="color: #777;">
     <?php printf(
-    	'Theme <a href="%s">documentation</a>.  For additional options, see <a href="%s">Portfolio+</a>.',
-    	esc_url( 'http://wptheming.com/portfolio-theme' ),
-    	esc_url( 'http://wptheming.com/portfolio-plus' )
+    	'Theme <a href="%s">documentation</a>.  For support <a href="%s">contact me</a>.',
+    	esc_url( 'http://wptheming.com/portfolio-press' ),
+    	esc_url( 'http://wptheming.com/contact' )
     );
     ?>
     </p>
@@ -102,6 +102,10 @@ function portfolioplus_inline_css() {
 		$output .= '#logo #site-description { color:' . of_get_option('tagline_color') . "; }\n";
 	}
 
+	if ( of_get_option( 'header_border_color' ) ) {
+		$output .= '#branding { border-bottom-color:' . of_get_option('header_border_color') . "; }\n";
+	}
+
 	if ( of_get_option( 'menu_color' ) ) {
 		$output .= '#navigation ul a { color:' . of_get_option('menu_color') . "; }\n";
 		$output .= '#navigation .menu-toggle { color:' . of_get_option('menu_color') . "; }\n";
@@ -119,6 +123,10 @@ function portfolioplus_inline_css() {
 		$output .= '#content .entry-header, .widget-container h3 { border-bottom-color:' . of_get_option('border_color') . "; box-shadow:none; }\n";
 		$output .= '.archive-title:after, .archive-meta:after, footer.entry-meta:before, footer.entry-meta:after, #comments:before { background:' . of_get_option('border_color') . "; box-shadow:none; }\n";
 
+	}
+
+	if ( of_get_option( 'footer_border_color' ) ) {
+		$output .= '#colophon { border-top-color:' . of_get_option('footer_border_color') . "; }\n";
 	}
 
 	if ( of_get_option( 'footer_color' ) ) {

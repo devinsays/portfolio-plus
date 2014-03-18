@@ -151,6 +151,13 @@ function optionsframework_options() {
 		'type' => 'color'
 	);
 
+	$options['header_border_color'] = array(
+		'name' =>  __( 'Header Bottom Border Color', 'portfolioplus' ),
+		'id' => 'header_border_color',
+		'std' => '#000',
+		'type' => 'color'
+	);
+
 	$options['menu_position'] = array(
 		'name' => __( 'Menu Position','portfolioplus' ),
 		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolioplus' ),
@@ -227,6 +234,13 @@ function optionsframework_options() {
 		'name' => __( 'Footer Text Color','portfolioplus' ),
 		'id' => 'footer_color',
 		'std' => '#333333',
+		'type' => 'color'
+	);
+
+	$options['footer_border_color'] = array(
+		'name' =>  __( 'Footer Top Border Color', 'portfolioplus' ),
+		'id' => 'footer_border_color',
+		'std' => '#dddddd',
 		'type' => 'color'
 	);
 
