@@ -149,9 +149,15 @@ function portfolioplus_post_nav() {
 		<div class="nav-links">
 			<?php
 			if ( 'portfolio' ==  get_post_type() ) {
-				// Links reversed for portfolio posts
-				previous_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'portfolioplus' ) );
+				// Links are reversed for portfolio posts
+				if ( function_exists( 'CPTO_activated' ) && function_exists( 'previous_post_type_link' ) && function_exists( 'next_post_type_link' ) ) {
+					// Support for Post Type Order Advanced Plugin
+					previous_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'portfolioplus' ) );
+					next_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
+				} else {
+					previous_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'portfolioplus' ) );
 				next_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
+				}
 			} else {
 				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
 				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'portfolioplus' ) );
