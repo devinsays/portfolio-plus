@@ -676,6 +676,9 @@ object {
 	margin:0 2% 2% 0;
 	overflow: hidden;
 }
+.portfolio-view #content .hentry {
+	margin-bottom:2%;
+}
 .portfolio-view .hentry:nth-of-type(3n) {
 	margin-right:0;
 }
@@ -1224,6 +1227,9 @@ h3#pings {
 }
 
 @media (max-width: 680px) {
+	#main {
+		padding-top:35px;
+	}
 	#respond input[type=text] {
 		width: 90%;
 	}
@@ -1246,6 +1252,9 @@ h3#pings {
         min-width:46%;
 		width:46%;
 		margin-right:4%;
+	}
+	.portfolio-view #content .hentry {
+		margin-bottom:35px;
 	}
 	.portfolio-view .hentry:nth-of-type(odd) {
 		clear:both;
@@ -1276,7 +1285,9 @@ h3#pings {
 		float:none;
 		min-width:46%;
 		width:auto;
-		margin:0 0 20px;
+	}
+	.portfolio-view #content .hentry {
+		margin-bottom:20px;
 	}
 	.portfolio-view .hentry:nth-of-type(1n) {
 		float:none;
