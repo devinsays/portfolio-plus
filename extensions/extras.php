@@ -62,10 +62,8 @@ function portfolioplus_upgrade_routine() {
 		delete_user_meta( $current_user->ID, 'portfolio_ignore_notice' );
 	}
 
-	// Page template paths need to be updated
-	if ( isset( $options['upgrade-3-0'] ) && $options['upgrade-3-0'] ) {
-		portfolioplus_update_page_templates();
-	}
+	// Update page templates
+	portfolioplus_update_page_templates();
 
 	// New version number
 	$options['version'] = '3.0';
@@ -130,7 +128,7 @@ function portfolioplus_upgrade_notice() {
 		if ( !empty( $options['upgrade-3-0'] ) && $options['upgrade-3-0'] ) {
 			echo '<div class="updated"><p>';
 				printf( __(
-					'Thanks for updating Portfolio+.  Please <a href="%1$s">read about important changes</a> in this version.  <br>You may need to re-save pages that have page templates set.  Give your site a quick check!  <br><a href="%2$s">Dismiss notice</a>' ),
+					'Thanks for updating Portfolio+.  Please <a href="%1$s">read about important changes</a> in this version and give your site a quick check.  <a href="%2$s">Dismiss notice</a>' ),
 					'http://wptheming.com/2014/03/portfolio-theme-updates/',
 					'?portfolio_upgrade_notice_ignore=1' );
 			echo '</p></div>';
