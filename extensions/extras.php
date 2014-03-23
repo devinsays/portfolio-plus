@@ -112,7 +112,7 @@ function portfolioplus_update_page_templates() {
 					break;
 			}
 			if ( $new_template ) {
-				update_post_meta( get_the_ID(), '_wp_page_template', true );
+				update_post_meta( get_the_ID(), '_wp_page_template', $new_template );
 			}
 		endwhile;
 	endif;
