@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-	var PortfolioPressJS = {
+	var PortfolioPlusJS = {
 		'nav' : $('#navigation'),
 		'menu' : $('#navigation .nav-menu'),
 		'submenu' : false,
@@ -8,49 +8,49 @@ jQuery(document).ready(function ($) {
 
 	// Enable menu toggle for small screens
 	(function() {
-		if ( ! PortfolioPressJS.nav ) {
+		if ( ! PortfolioPlusJS.nav ) {
 			return;
 		}
 
-		button = PortfolioPressJS.nav.find('.menu-toggle');
+		button = PortfolioPlusJS.nav.find('.menu-toggle');
 		if ( ! button ) {
 			return;
 		}
 
 		// Hide button if menu is missing or empty.
-		if ( ! PortfolioPressJS.menu || ! PortfolioPressJS.menu.children().length ) {
+		if ( ! PortfolioPlusJS.menu || ! PortfolioPlusJS.menu.children().length ) {
 			button.hide();
 			return;
 		}
 
 		button.on( 'click', function() {
-			PortfolioPressJS.nav.toggleClass('toggled-on');
-			PortfolioPressJS.menu.slideToggle( '200' );
+			PortfolioPlusJS.nav.toggleClass('toggled-on');
+			PortfolioPlusJS.menu.slideToggle( '200' );
 		} );
 	})();
 
 	// Centers the submenus directly under the top menu
     function portfolio_desktop_submenus() {
-		if ( document.body.clientWidth > 780 && !PortfolioPressJS.submenu ) {
-			PortfolioPressJS.menu.attr('style','');
-			PortfolioPressJS.nav.find('li').each( function() {
-				var ul = $(this).find("ul");
+		if ( document.body.clientWidth > 780 && !PortfolioPlusJS.submenu ) {
+			PortfolioPlusJS.menu.attr('style','');
+			PortfolioPlusJS.nav.find('div > ul > li').each( function() {
+				var ul = $(this).find('> ul');
 			    if ( ul.length > 0 ) {
 			        var parent_width = $(this).outerWidth( true );
 			        var child_width = ul.outerWidth( true );
 			        var new_width = parseInt((child_width - parent_width)/2);
-			        ul.css('margin-left', -new_width+"px");
+			        ul.css('margin-left', -new_width + "px");
 			    }
 			});
-			PortfolioPressJS.submenu = true;
+			PortfolioPlusJS.submenu = true;
 		}
 	}
 
 	// Clears submenu alignment for the mobile menu
 	function portfolio_mobile_submenus() {
-		if ( document.body.clientWidth <= 780 && PortfolioPressJS.submenu ) {
-			PortfolioPressJS.nav.find('ul').css('margin-left', '');
-			PortfolioPressJS.submenu = false;
+		if ( document.body.clientWidth <= 780 && PortfolioPlusJS.submenu ) {
+			PortfolioPlusJS.nav.find('ul').css('margin-left', '');
+			PortfolioPlusJS.submenu = false;
 		}
 	}
 
@@ -74,7 +74,7 @@ jQuery(document).ready(function ($) {
 	}
 
 	// If the site title and menu don't fit on the same line, clear the menu
-	if ( $('#branding .col-width').width() < ( $('#logo').outerWidth() + PortfolioPressJS.nav.outerWidth() ) ) {
+	if ( $('#branding .col-width').width() < ( $('#logo').outerWidth() + PortfolioPlusJS.nav.outerWidth() ) ) {
 		$('body').addClass('clear-menu');
 	}
 
