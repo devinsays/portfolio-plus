@@ -70,7 +70,7 @@ add_action( 'after_setup_theme', 'portfolioplus_setup' );
  * Loads required javascript for the theme
  */
 function portfolioplus_scripts() {
-	wp_enqueue_script( 'themejs', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'themejs', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ), '3.1.0', true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     	wp_enqueue_script( 'comment-reply' );
 	}
@@ -85,11 +85,11 @@ add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );
  * Loads webfonts from Google
  */
 function portfolioplus_fonts() {
-	wp_register_style( 'portfolioplus_open_sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', '', null, 'screen' );
-	wp_register_style( 'portfolioplus_rokkitt', 'http://fonts.googleapis.com/css?family=Rokkitt:400,700', '', null, 'screen' );
+	wp_register_style( 'portfolioplus_open_sans', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', '', null, 'screen' );
+	wp_register_style( 'portfolioplus_rokkitt', '//fonts.googleapis.com/css?family=Rokkitt:400,700', '', null, 'screen' );
 	wp_enqueue_style( 'portfolioplus_open_sans' );
 	wp_enqueue_style( 'portfolioplus_rokkitt' );
-	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), '1.0.0' );
+	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), '3.1.0' );
 }
 
 add_action( 'wp_enqueue_scripts', 'portfolioplus_fonts', 10 );
