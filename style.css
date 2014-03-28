@@ -210,9 +210,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 #logo {
 	float:left;
+	padding-right:75px;
 	max-width: 100%;
 	line-height:1;
-	padding-right:75px;
 	word-wrap: break-word;
 }
 #logo #site-title {
@@ -1094,6 +1094,9 @@ h3#pings {
 ----------------------------------------------- */
 
 @media screen and (min-width: 780px) {
+	.clear-menu #logo {
+		padding-right:0;
+	}
 	.primary-navigation {
 		float: right;
 		clear:none;
@@ -1276,6 +1279,14 @@ h3#pings {
 }
 
 @media (max-width: 380px) {
+	.menu-toggle {
+		position: relative;
+		top:10px;
+		right:auto;
+	}
+	#logo {
+		padding-right:0;
+	}
 	.portfolio-view .hentry {
 		float:none;
 		width:100%;

@@ -2,6 +2,7 @@ Portfolio+ 3.1
 
 - Fix for three tier menu styling
 - Fix for Google font loading from https
+- Remove padding on logo for small screen
 
 Portfolio+ 3.0
 
