@@ -3,6 +3,7 @@ Portfolio+ 3.1
 - Fix for three tier menu styling
 - Fix for Google font loading from https
 - Remove padding on logo for small screen
+- Hide featured images in blog layout if option is unchecked
 
 Portfolio+ 3.0
 
