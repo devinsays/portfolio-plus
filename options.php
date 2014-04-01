@@ -73,7 +73,7 @@ function optionsframework_options() {
 
 	$options['display_dates'] = array(
 		'name' => __( 'Display dates', 'portfolioplus' ),
-		'desc' => __( 'Display dates on posts', 'portfolioplus' ),
+		'desc' => __( 'Display dates on posts.', 'portfolioplus' ),
 		'id' => 'display_dates',
 		'std' => '1',
 		'type' => 'checkbox'
@@ -117,7 +117,7 @@ function optionsframework_options() {
 	if ( !of_get_option('logo' ) ) {
 		$options['tagline'] = array(
 			'name' => __( 'Display Site Tagline', 'portfolioplus' ),
-			'desc' => __( 'Display tagline under site title', 'portfolioplus' ),
+			'desc' => __( 'Display tagline under site title.', 'portfolioplus' ),
 			'id' => 'tagline',
 			'std' => '1',
 			'type' => 'checkbox'
@@ -264,11 +264,11 @@ function optionsframework_options() {
 		'type' => 'heading'
 	);
 
-		if ( class_exists( 'Portfolio_Post_Type' ) ) {
+	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options[] = array(
 			"name" => __( 'Display Images on Portfolio / Image Posts', 'portfolioplus' ),
-			"desc" => __( 'Uncheck this if you wish to manually display featured images.', 'portfolioplus' ),
+			"desc" => __( 'Display featured images automatically on posts.', 'portfolioplus' ),
 			"id" => "portfolio_images",
 			"std" => "1",
 			"type" => "checkbox"
@@ -278,7 +278,7 @@ function optionsframework_options() {
 
 		$options[] = array(
 			"name" => __( 'Display Images Automatically on Image Post Formats', 'portfolioplus' ),
-			"desc" => __( 'Uncheck this if you wish to manually display featured images.', 'portfolioplus' ),
+			"desc" => __( 'Display featured images automatically on posts.', 'portfolioplus' ),
 			"id" => "portfolio_images",
 			"std" => "1",
 			"type" => "checkbox"
@@ -290,7 +290,7 @@ function optionsframework_options() {
 
 		$options[] = array(
 			"name" => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolioplus' ),
-			"desc" => __( 'Check this to display all image based archives full width.', 'portfolioplus' ),
+			"desc" => __( 'Display all image based archives full width.', 'portfolioplus' ),
 			"id" => "portfolio_sidebar",
 			"std" => "0",
 			"type" => "checkbox"
@@ -300,7 +300,7 @@ function optionsframework_options() {
 
 		$options[] = array(
 			"name" => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolioplus' ),
-			"desc" => __( 'Check this to display all image/gallery archives full width.', 'portfolioplus' ),
+			"desc" => __( 'Display all image/gallery archives full width.', 'portfolioplus' ),
 			"id" => "portfolio_sidebar",
 			"std" => "0",
 			"type" => "checkbox"
@@ -310,7 +310,7 @@ function optionsframework_options() {
 
 	$options[] = array(
 		"name" => __( 'Display Image and Gallery Formats on Posts Page', 'portfolioplus' ),
-		"desc" => __( 'Uncheck this to remove image and gallery posts from your standard posts page.', 'portfolioplus' ),
+		"desc" => __( 'Display all post formats on posts page.', 'portfolioplus' ),
 		"id" => "display_image_gallery_post_formats",
 		"std" => "1",
 		"type" => "checkbox"
