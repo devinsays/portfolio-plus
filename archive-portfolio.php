@@ -10,15 +10,18 @@ get_header(); ?>
 	<div id="primary">
 		<div id="content" role="main">
 
-			<?php if ( is_tax() ): ?>
-			<header class="archive-header">
-				<h1 class="archive-title"><?php echo single_cat_title( '', false ); ?></h1>
-				<?php $categorydesc = category_description();
-					if ( ! empty( $categorydesc ) ) {
-						echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $categorydesc . '</div>' );
-				} ?>
-			</header>
-			<?php endif; ?>
+			<?php if ( is_tax() || is_category() || is_tag() ) :
+				if ( of_get_option( 'archive_titles', true ) ) : ?>
+					<header class="archive-header">
+						<h1 class="archive-title"><?php echo single_term_title( '', false ); ?></h1>
+						<?php $description = term_description();
+							if ( ! empty( $description ) ) {
+								echo apply_filters( 'archive_meta', '<div class="archive-meta">' . $description . '</div>' );
+						} ?>
+					</header>
+				<?php endif;
+			endif;
+			?>
 
 			<?php if ( have_posts() ) : ?>
 

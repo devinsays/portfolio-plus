@@ -79,6 +79,14 @@ function optionsframework_options() {
 		'type' => 'checkbox'
 	);
 
+	$options['archive_titles'] = array(
+		'name' => __( 'Archive Titles','portfolioplus' ),
+		'desc' => __( 'Display archive titles and descriptions.','portfolioplus' ),
+		'id' => 'archive_titles',
+		'std' => '1',
+		'type' => 'checkbox'
+	);
+
 	$options['footer_text'] = array(
 		'name' => __( 'Custom Footer Text','portfolioplus' ),
 		'desc' => __( 'Custom text that will appear in the footer of your theme.','portfolioplus' ),
@@ -319,14 +327,6 @@ function optionsframework_options() {
 		);
 
 	}
-
-	$options['archive_titles'] = array(
-		'name' => __( 'Archive Titles','portfolioplus' ),
-		'desc' => 'Display titles and descriptions on portfolio category/tag pages.',
-		'id' => 'archive_titles',
-		'std' => '1',
-		'type' => 'checkbox'
-	);
 
 	$options[] = array(
 		'name' => __( 'Posts Per Page', 'portfolioplus' ),
