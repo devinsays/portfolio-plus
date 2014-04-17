@@ -174,3 +174,8 @@ require_once( TEMPLATEPATH . '/extensions/extras.php' );
  * Displays notices for recommended plugins
  */
 require_once( TEMPLATEPATH . '/extensions/recommended-plugins.php' );
+
+/**
+ * Includes theme update feature
+ */
+require_once( TEMPLATEPATH . '/extensions/theme-updater.php' );
