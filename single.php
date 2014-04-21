@@ -24,7 +24,7 @@ get_header(); ?>
 					<div class="entry-content">
 						<?php portfolioplus_display_image(); ?>
 						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
+						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolio-plus' ), 'after' => '</div>' ) ); ?>
 					</div><!-- .entry-content -->
 
 					<?php portfolioplus_footer_meta( $post ); ?>

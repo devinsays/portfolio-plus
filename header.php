@@ -41,8 +41,8 @@
 			</hgroup>
 
 			<nav id="navigation" class="site-navigation primary-navigation" role="navigation">
-				<h1 class="menu-toggle"><?php _e( 'Menu', 'portfolioplus' ); ?></h1>
-				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'portfolioplus' ); ?></a>
+				<h1 class="menu-toggle"><?php _e( 'Menu', 'portfolio-plus' ); ?></h1>
+				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'portfolio-plus' ); ?></a>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 			</nav>
 		</div>

@@ -221,7 +221,7 @@ function portfolioplus_infinite_scroll_js() {
 	        loading: {
 	            img: "<?php echo get_template_directory_uri(); ?>/images/spinner.gif",
 	            msgText: "",
-	            finishedMsg: "<?php _e( 'All items have loaded.', 'portfolioplus' ); ?>",
+	            finishedMsg: "<?php _e( 'All items have loaded.', 'portfolio-plus' ); ?>",
 	            speed: 'slow'
 	        },
 	        "nextSelector":".nav-previous a",
@@ -282,7 +282,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	/* Layout */
 
 	$wp_customize->add_section( 'portfolioplus_layout', array(
-		'title' => __( 'Layout', 'portfolioplus' ),
+		'title' => __( 'Layout', 'portfolio-plus' ),
 		'priority' => 100,
 	) );
 
@@ -318,7 +318,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	/* Header Styles */
 
 	$wp_customize->add_section( 'portfolioplus_header_styles', array(
-		'title' => __( 'Header Styles', 'portfolioplus' ),
+		'title' => __( 'Header Styles', 'portfolio-plus' ),
 		'priority' => 105,
 	) );
 
@@ -328,7 +328,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
-		'label' => __( 'Background Color', 'portfolioplus' ),
+		'label' => __( 'Background Color', 'portfolio-plus' ),
 		'section' => 'portfolioplus_header_styles',
 		'settings'   => 'portfolioplus[header_bg][color]'
 	) ) );
@@ -381,7 +381,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	/* Body Styles */
 
 	$wp_customize->add_section( 'portfolioplus_body_styles', array(
-		'title' => __( 'Body Styles', 'portfolioplus' ),
+		'title' => __( 'Body Styles', 'portfolio-plus' ),
 		'priority' => 110,
 	) );
 
@@ -466,7 +466,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	/* Footer Styles */
 
 	$wp_customize->add_section( 'portfolioplus_footer_styles', array(
-		'title' => __( 'Footer Styles', 'portfolioplus' ),
+		'title' => __( 'Footer Styles', 'portfolio-plus' ),
 		'priority' => 115
 	) );
 
@@ -476,7 +476,7 @@ function portfolioplus_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
-		'label' => __( 'Footer Background Color', 'portfolioplus' ),
+		'label' => __( 'Footer Background Color', 'portfolio-plus' ),
 		'section' => 'portfolioplus_footer_styles',
 		'settings' => 'portfolioplus[footer_bg][color]'
 	) ) );

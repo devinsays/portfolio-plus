@@ -28,7 +28,7 @@ function portfolioplus_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'portfolioplus' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( __( 'Page %s', 'portfolio-plus' ), max( $paged, $page ) );
 	}
 
 	return $title;
@@ -162,7 +162,7 @@ function portfolioplus_posts_per_page_notice() {
 				'Portfolio Press recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.' ),
 				'?portfolio_update_posts_per_page=1',
 				'?portfolio_post_per_page_ignore=1',
-				admin_url( 'options-reading.php', false ) );
+				admin_url( 'options-reading.php', false ), 'portfolio-plus' );
 		echo '</p></div>';
 	}
 }
@@ -173,16 +173,16 @@ add_action( 'admin_notices', 'portfolioplus_posts_per_page_notice', 120 );
  */
 function portfolioplus_notice_ignores() {
 
-	$options = get_option( 'portfolioplus' );
+	$options = get_option( 'portfolio-plus' );
 
 	if ( isset( $_GET['portfolio_upgrade_notice_ignore'] ) && '1' == $_GET['portfolio_upgrade_notice_ignore'] ) {
 		$options['upgrade-3-0'] = false;
-		update_option( 'portfolioplus', $options );
+		update_option( 'portfolio-plus', $options );
 	}
 
 	if ( isset( $_GET['portfolio_post_per_page_ignore'] ) && '1' == $_GET['portfolio_post_per_page_ignore'] ) {
 		$options['post_per_page_ignore'] = false;
-		update_option( 'portfolioplus', $options );
+		update_option( 'portfolio-plus', $options );
 	}
 
 	if ( isset( $_GET['portfolio_update_posts_per_page'] ) && '1' == $_GET['portfolio_update_posts_per_page'] ) {

@@ -40,13 +40,13 @@ function optionsframework_options() {
 	$options = array();
 
 	$options[] = array(
-		'name' => __( 'General','portfolioplus' ),
+		'name' => __( 'General','portfolio-plus' ),
 		'type' => 'heading'
 	);
 
 	$options['layout'] = array(
-		'name' => __( 'Main Layout','portfolioplus' ),
-		'desc' => __( 'Select main content and sidebar alignment.','portfolioplus' ),
+		'name' => __( 'Main Layout','portfolio-plus' ),
+		'desc' => __( 'Select main content and sidebar alignment.','portfolio-plus' ),
 		'id' => 'layout',
 		'std' => 'layout-2cr',
 		'type' => 'images',
@@ -58,38 +58,38 @@ function optionsframework_options() {
 	);
 
 	$options['custom_favicon'] = array(
-		'name' => __( 'Custom Favicon','portfolioplus' ),
-		'desc' => __( 'Upload a favicon (16px)','portfolioplus' ),
+		'name' => __( 'Custom Favicon','portfolio-plus' ),
+		'desc' => __( 'Upload a favicon (16px)','portfolio-plus' ),
 		'id' => 'custom_favicon',
 		'type' => 'upload' );
 
 	$options['infinite_scroll'] = array(
-		'name' => __( 'Infinite Scroll','portfolioplus' ),
-		'desc' => __( 'Load new posts as the user scrolls down.  ("Display Image and Gallery Formats on Posts Page" should be unchecked under the "Portfolio" tab for infinite scroll to work best.)','portfolioplus' ),
+		'name' => __( 'Infinite Scroll','portfolio-plus' ),
+		'desc' => __( 'Load new posts as the user scrolls down.  ("Display Image and Gallery Formats on Posts Page" should be unchecked under the "Portfolio" tab for infinite scroll to work best.)','portfolio-plus' ),
 		'id' => 'infinite_scroll',
 		'std' => '1',
 		'type' => 'checkbox'
 	);
 
 	$options['display_dates'] = array(
-		'name' => __( 'Display dates', 'portfolioplus' ),
-		'desc' => __( 'Display dates on posts.', 'portfolioplus' ),
+		'name' => __( 'Display dates', 'portfolio-plus' ),
+		'desc' => __( 'Display dates on posts.', 'portfolio-plus' ),
 		'id' => 'display_dates',
 		'std' => '1',
 		'type' => 'checkbox'
 	);
 
 	$options['archive_titles'] = array(
-		'name' => __( 'Archive Titles','portfolioplus' ),
-		'desc' => __( 'Display archive titles and descriptions.','portfolioplus' ),
+		'name' => __( 'Archive Titles','portfolio-plus' ),
+		'desc' => __( 'Display archive titles and descriptions.','portfolio-plus' ),
 		'id' => 'archive_titles',
 		'std' => '1',
 		'type' => 'checkbox'
 	);
 
 	$options['footer_text'] = array(
-		'name' => __( 'Custom Footer Text','portfolioplus' ),
-		'desc' => __( 'Custom text that will appear in the footer of your theme.','portfolioplus' ),
+		'name' => __( 'Custom Footer Text','portfolio-plus' ),
+		'desc' => __( 'Custom text that will appear in the footer of your theme.','portfolio-plus' ),
 		'id' => 'footer_text',
 		'type' => 'textarea'
 	);
@@ -103,21 +103,21 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
-		'name' => __( 'Header','portfolioplus' ),
+		'name' => __( 'Header','portfolio-plus' ),
 		'type' => 'heading'
 	);
 
 	$options['logo'] = array(
-		'name' => __( 'Custom Logo','portfolioplus' ),
-		'desc' => __( 'Upload a logo (optional)','portfolioplus' ),
+		'name' => __( 'Custom Logo','portfolio-plus' ),
+		'desc' => __( 'Upload a logo (optional)','portfolio-plus' ),
 		'id' => 'logo',
 		'type' => 'upload'
 	);
 
 	if ( !of_get_option('logo' ) ) {
 		$options['tagline'] = array(
-			'name' => __( 'Display Site Tagline', 'portfolioplus' ),
-			'desc' => __( 'Display tagline under site title.', 'portfolioplus' ),
+			'name' => __( 'Display Site Tagline', 'portfolio-plus' ),
+			'desc' => __( 'Display tagline under site title.', 'portfolio-plus' ),
 			'id' => 'tagline',
 			'std' => '1',
 			'type' => 'checkbox'
@@ -125,27 +125,27 @@ function optionsframework_options() {
 	}
 
 	$options['header_bg'] = array(
-		'name' =>  __( 'Header Background', 'portfolioplus' ),
+		'name' =>  __( 'Header Background', 'portfolio-plus' ),
 		'id' => 'header_bg',
 		'std' => array_merge( $background_defaults, array( 'color' => '#000000' ) ),
 		'type' =>'background'
 	);
 
 	$options[] = array(
-		'name' => __( 'Header Text Colors', 'portfolioplus' ),
+		'name' => __( 'Header Text Colors', 'portfolio-plus' ),
 		'desc' => '',
 		'type' => 'info'
 	);
 
 	$options['site_title_color'] = array(
-		'desc' => __( 'Site Title Color','portfolioplus' ),
+		'desc' => __( 'Site Title Color','portfolio-plus' ),
 		'id' => 'site_title_color',
 		'std' => '#ffffff',
 		'type' => 'color' );
 
 	if ( of_get_option( 'tagline', true ) ) {
 		$options['tagline_color'] = array(
-			'desc' => __( 'Tagline Color','portfolioplus' ),
+			'desc' => __( 'Tagline Color','portfolio-plus' ),
 			'id' => 'tagline_color',
 			'std' => '#dddddd',
 			'type' => 'color'
@@ -153,22 +153,22 @@ function optionsframework_options() {
 	}
 
 	$options['menu_color'] = array(
-		'desc' => __( 'Menu Link Color','portfolioplus' ),
+		'desc' => __( 'Menu Link Color','portfolio-plus' ),
 		'id' => 'menu_color',
 		'std' => '#ffffff',
 		'type' => 'color'
 	);
 
 	$options['header_border_color'] = array(
-		'name' =>  __( 'Header Bottom Border Color', 'portfolioplus' ),
+		'name' =>  __( 'Header Bottom Border Color', 'portfolio-plus' ),
 		'id' => 'header_border_color',
 		'std' => '#000',
 		'type' => 'color'
 	);
 
 	$options['menu_position'] = array(
-		'name' => __( 'Menu Position','portfolioplus' ),
-		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolioplus' ),
+		'name' => __( 'Menu Position','portfolio-plus' ),
+		'desc' => __( 'Select where the main menu should go in the header.  Long menus should go underneath.','portfolio-plus' ),
 		'id' => 'menu_position',
 		'std' => 'right',
 		'type' => 'radio',
@@ -179,96 +179,96 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
-		'name' => __( 'Styles','portfolioplus' ),
+		'name' => __( 'Styles','portfolio-plus' ),
 		'type' => 'heading'
 	);
 
 	$options['main_bg'] = array(
-		'name' =>  __( 'Body Background', 'portfolioplus' ),
+		'name' =>  __( 'Body Background', 'portfolio-plus' ),
 		'id' => 'main_bg',
 		'std' => array_merge( $background_defaults, array( 'color' => '#f3f3f3' ) ),
 		'type' =>'background'
 	);
 
 	$options['body_color'] = array(
-		'name' => __( 'Body Font Color','portfolioplus' ),
+		'name' => __( 'Body Font Color','portfolio-plus' ),
 		'id' => 'body_color',
 		'std' => '#555555',
 		'type' => 'color'
 	);
 
 	$options['header_color'] = array(
-		'name' => __( 'Heading/Title Colors (H1, H2, H3)','portfolioplus' ),
+		'name' => __( 'Heading/Title Colors (H1, H2, H3)','portfolio-plus' ),
 		'id' => 'header_color',
 		'std' => '#111111',
 		'type' => 'color'
 	);
 
 	$options[] = array(
-		'name' => __( 'Link Colors','portfolioplus' ),
+		'name' => __( 'Link Colors','portfolio-plus' ),
 		'desc' => '',
 		'type' => 'info'
 	);
 
 	$options['link_color'] = array(
-		'desc' => __( 'Link color','portfolioplus' ),
+		'desc' => __( 'Link color','portfolio-plus' ),
 		"id" => 'link_color',
 		"std" => '#106177',
 		"type" => 'color'
 	);
 
 	$options['link_hover_color'] = array(
-		'desc' => __( 'Hover color','portfolioplus' ),
+		'desc' => __( 'Hover color','portfolio-plus' ),
 		'id' => 'link_hover_color',
 		'std' => '#106177',
 		'type' => 'color'
 	);
 
 	$options['widget_header_color'] = array(
-		'name' => __( 'Sidebar Heading/Title Colors (Widgets)','portfolioplus' ),
+		'name' => __( 'Sidebar Heading/Title Colors (Widgets)','portfolio-plus' ),
 		'id' => 'widget_header_color',
 		'std' => '#555555',
 		'type' => 'color'
 	);
 
 	$options['border_color'] = array(
-		'name' => __( 'Border Colors','portfolioplus' ),
+		'name' => __( 'Border Colors','portfolio-plus' ),
 		'id' => 'border_color',
 		'std' => '#dddddd',
 		'type' => 'color'
 	);
 
 	$options['footer_color'] = array(
-		'name' => __( 'Footer Text Color','portfolioplus' ),
+		'name' => __( 'Footer Text Color','portfolio-plus' ),
 		'id' => 'footer_color',
 		'std' => '#333333',
 		'type' => 'color'
 	);
 
 	$options['footer_border_color'] = array(
-		'name' =>  __( 'Footer Top Border Color', 'portfolioplus' ),
+		'name' =>  __( 'Footer Top Border Color', 'portfolio-plus' ),
 		'id' => 'footer_border_color',
 		'std' => '#dddddd',
 		'type' => 'color'
 	);
 
 	$options['footer_bg'] = array(
-		'name' =>  __( 'Footer Background', 'portfolioplus' ),
+		'name' =>  __( 'Footer Background', 'portfolio-plus' ),
 		'id' => 'footer_bg',
 		'std' => array_merge( $background_defaults, array( 'color' => '#ffffff' ) ),
 		'type' =>'background'
 	);
 
 	$options[] = array(
-		'name' => __( 'Portfolio','portfolioplus' ),
+		'name' => __( 'Portfolio','portfolio-plus' ),
 		'type' => 'heading'
 	);
 
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options[] = array(
-			"name" => __( 'Display Images on Portfolio / Image Posts', 'portfolioplus' ),
-			"desc" => __( 'Display featured images automatically on posts.', 'portfolioplus' ),
+			"name" => __( 'Display Images on Portfolio / Image Posts', 'portfolio-plus' ),
+			"desc" => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
 			"id" => "portfolio_images",
 			"std" => "1",
 			"type" => "checkbox"
@@ -277,8 +277,8 @@ function optionsframework_options() {
 	} else {
 
 		$options[] = array(
-			"name" => __( 'Display Images Automatically on Image Post Formats', 'portfolioplus' ),
-			"desc" => __( 'Display featured images automatically on posts.', 'portfolioplus' ),
+			"name" => __( 'Display Images Automatically on Image Post Formats', 'portfolio-plus' ),
+			"desc" => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
 			"id" => "portfolio_images",
 			"std" => "1",
 			"type" => "checkbox"
@@ -289,8 +289,8 @@ function optionsframework_options() {
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options[] = array(
-			"name" => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolioplus' ),
-			"desc" => __( 'Display all image based archives full width.', 'portfolioplus' ),
+			"name" => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolio-plus' ),
+			"desc" => __( 'Display all image based archives full width.', 'portfolio-plus' ),
 			"id" => "portfolio_sidebar",
 			"std" => "0",
 			"type" => "checkbox"
@@ -299,8 +299,8 @@ function optionsframework_options() {
 	} else {
 
 		$options[] = array(
-			"name" => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolioplus' ),
-			"desc" => __( 'Display all image/gallery archives full width.', 'portfolioplus' ),
+			"name" => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolio-plus' ),
+			"desc" => __( 'Display all image/gallery archives full width.', 'portfolio-plus' ),
 			"id" => "portfolio_sidebar",
 			"std" => "0",
 			"type" => "checkbox"
@@ -309,8 +309,8 @@ function optionsframework_options() {
 	}
 
 	$options[] = array(
-		"name" => __( 'Display Image and Gallery Formats on Posts Page', 'portfolioplus' ),
-		"desc" => __( 'Display all post formats on posts page.', 'portfolioplus' ),
+		"name" => __( 'Display Image and Gallery Formats on Posts Page', 'portfolio-plus' ),
+		"desc" => __( 'Display all post formats on posts page.', 'portfolio-plus' ),
 		"id" => "display_image_gallery_post_formats",
 		"std" => "1",
 		"type" => "checkbox"
@@ -319,8 +319,8 @@ function optionsframework_options() {
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options['portfolio_navigation'] = array(
-			'name' => __( 'Display portfolio navigation', 'portfolioplus' ),
-			'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolioplus' ),
+			'name' => __( 'Display portfolio navigation', 'portfolio-plus' ),
+			'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolio-plus' ),
 			'id' => 'portfolio_navigation',
 			'std' => '1',
 			'type' => 'checkbox'
@@ -329,10 +329,10 @@ function optionsframework_options() {
 	}
 
 	$options[] = array(
-		'name' => __( 'Posts Per Page', 'portfolioplus' ),
+		'name' => __( 'Posts Per Page', 'portfolio-plus' ),
 		'desc' => sprintf( '<p>%s</p>',
 			sprintf(
-				__( 'Posts per page can be set in the <a href="%s">reading options</a>.', 'portfolioplus' ),
+				__( 'Posts per page can be set in the <a href="%s">reading options</a>.', 'portfolio-plus' ),
 				admin_url( 'options-reading.php', false )
 				)
 			),

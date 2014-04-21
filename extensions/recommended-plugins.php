@@ -59,7 +59,7 @@ function portfolioplus_recommended_plugins() {
 	);
 
 	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'portfolioplus';
+	$theme_text_domain = 'portfolio-plus';
 
 	/**
 	 * Array of configuration settings. Amend each line as needed.

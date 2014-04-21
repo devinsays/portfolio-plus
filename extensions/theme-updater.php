@@ -167,7 +167,7 @@ $edd_updater = new EDD_SL_Theme_Updater( array(
 
 function portfolioplus_license_menu() {
 
-	add_theme_page( __('Theme License', 'portfolioplus'), __('Theme License', 'portfolioplus'), 'manage_options', 'portfolioplus-license', 'portfolioplus_license_page' );
+	add_theme_page( __('Theme License', 'portfolio-plus'), __('Theme License', 'portfolio-plus'), 'manage_options', 'portfolioplus-license', 'portfolioplus_license_page' );
 }
 add_action( 'admin_menu', 'portfolioplus_license_menu', 100);
 
@@ -186,7 +186,7 @@ function portfolioplus_license_page() {
 				<tbody>
 					<tr valign="top">
 						<th scope="row" valign="top">
-							<?php _e( 'Enter Your License Key', 'portfolioplus' ); ?>
+							<?php _e( 'Enter Your License Key', 'portfolio-plus' ); ?>
 						</th>
 						<td>
 							<input id="portfolioplus_license_key" name="portfolioplus_license_key" type="text" class="regular-text" value="<?php esc_attr_e( $license ); ?>" />
@@ -195,14 +195,14 @@ function portfolioplus_license_page() {
 					<?php if( false !== $license ) { ?>
 						<tr valign="top">
 							<th scope="row" valign="top">
-								<?php _e( 'Activate License', 'portfolioplus' ); ?>
+								<?php _e( 'Activate License', 'portfolio-plus' ); ?>
 							</th>
 							<td>
 								<?php if( $status !== false && $status == 'valid' ) { ?>
 									<span style="color:green;"><?php _e('active'); ?></span>
 								<?php } else {
 									wp_nonce_field( 'portfolioplus_license_nonce', 'portfolioplus_license_nonce' ); ?>
-									<input type="submit" class="button-secondary" name="portfolioplus_license_activate" value="<?php _e( 'Activate License', 'portfolioplus' ); ?>"/>
+									<input type="submit" class="button-secondary" name="portfolioplus_license_activate" value="<?php _e( 'Activate License', 'portfolio-plus' ); ?>"/>
 								<?php } ?>
 							</td>
 						</tr>

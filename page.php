@@ -19,8 +19,8 @@ get_header(); ?>
 
 				<div class="entry-content clearfix">
 					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolioplus' ), 'after' => '</div>' ) ); ?>
-					<?php edit_post_link( __( 'Edit', 'portfolioplus' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'portfolio-plus' ), 'after' => '</div>' ) ); ?>
+					<?php edit_post_link( __( 'Edit', 'portfolio-plus' ), '<span class="edit-link">', '</span>' ); ?>
 				</div><!-- .entry-content -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 
