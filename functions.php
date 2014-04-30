@@ -67,17 +67,23 @@ endif; // portfolioplus_setup
 add_action( 'after_setup_theme', 'portfolioplus_setup' );
 
 /**
- * Loads required javascript for the theme
+ * Enqueue scripts and styles.
  */
 function portfolioplus_scripts() {
+
+	wp_enqueue_style( 'portfolio-plus-style', get_stylesheet_uri(), '', '3.1.0' );
+
 	wp_enqueue_script( 'themejs', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ), '3.1.0', true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     	wp_enqueue_script( 'comment-reply' );
 	}
+
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), null, true );
 	if ( !is_single() && of_get_option( 'infinite_scroll', true ) ) {
 		wp_enqueue_script( 'infinite_scroll' );
 	}
+
 }
 add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );
 

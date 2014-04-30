@@ -1,6 +1,6 @@
 {
 	"name": "portfolio-plus",
-	"version": "3.1.0",
+	"version": "3.2.0",
 	"devDependencies": {
 		"grunt": "~0.4.2",
 		"grunt-wp-i18n": "0.4.3"

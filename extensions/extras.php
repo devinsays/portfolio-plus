@@ -66,7 +66,7 @@ function portfolioplus_upgrade_routine() {
 	portfolioplus_update_page_templates();
 
 	// New version number
-	$options['version'] = '3.0';
+	$options['version'] = '3.1';
 
 	update_option( 'portfolioplus', $options );
 }
@@ -193,28 +193,6 @@ function portfolioplus_notice_ignores() {
 add_action( 'admin_init', 'portfolioplus_notice_ignores' );
 
 /**
- * Removes page templates that require the Portfolio Post Type.
- *
- * This is a backwards compatible hack for removing un-necessary
- * page templates.  Will be removed in next version of theme.
- * See: https://core.trac.wordpress.org/ticket/13265
- *
- * @param string $hook
- */
-function portfolioplus_page_template_mod( $hook ) {
-	global $wp_version;
-	if ( class_exists( 'Portfolio_Post_Type' ) )
-        return;
-    if ( version_compare( $wp_version, '3.8.2', '>' ) ) {
-    	return;
-    }
-    if ( 'post.php' != $hook )
-        return;
-    wp_enqueue_script( 'portfolioplus_page_template_mod', esc_url( get_template_directory_uri() . '/js/admin-page-template-mod.js' ) );
-}
-add_action( 'admin_enqueue_scripts', 'portfolioplus_page_template_mod' );
-
-/**
  * Filter Page Templates if Portfolio Post Type Plugin
  * is not active.
  *
@@ -266,7 +244,7 @@ add_filter( 'use_default_gallery_style', '__return_false' );
  * @param int $width Default WP .wp-caption width (image width + 10px)
  * @return int Updated width to remove 10px padding
  */
-function portfoliopress_remove_caption_padding( $width ) {
+function portfolioplus_remove_caption_padding( $width ) {
     return $width - 10;
 }
-add_filter( 'img_caption_shortcode_width', 'portfoliopress_remove_caption_padding' );
+add_filter( 'img_caption_shortcode_width', 'portfolioplus_remove_caption_padding' );
