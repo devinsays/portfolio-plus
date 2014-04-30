@@ -125,7 +125,7 @@ function portfolioplus_upgrade_notice() {
 
 		$options = get_option( 'portfolioplus', false );
 
-		if ( !empty( $options['upgrade-3-0'] ) && $options['upgrade-3-0'] ) {
+		if ( !empty( $options['upgrade-3-0'] ) && ! $options['upgrade-3-0'] ) {
 			echo '<div class="updated"><p>';
 				printf( __(
 					'Thanks for updating Portfolio+.  Please <a href="%1$s">read about important changes</a> in this version and give your site a quick check.  <a href="%2$s">Dismiss notice</a>' ),
@@ -176,7 +176,7 @@ function portfolioplus_notice_ignores() {
 	$options = get_option( 'portfolio-plus' );
 
 	if ( isset( $_GET['portfolio_upgrade_notice_ignore'] ) && '1' == $_GET['portfolio_upgrade_notice_ignore'] ) {
-		$options['upgrade-3-0'] = false;
+		$options['upgrade-3-0'] = true;
 		update_option( 'portfolio-plus', $options );
 	}
 

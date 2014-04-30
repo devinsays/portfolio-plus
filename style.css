@@ -168,6 +168,9 @@ ins {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-width: 1px 0 0 1px;
+	text-align: left;
 }
 th {
 	font-weight: bold;

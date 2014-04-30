@@ -8,6 +8,7 @@ Portfolio+ 3.2
 - Enhancements for input styles (props @TomLany)
 - Update to enqueue base stylesheet
 - Remove javascript mod to hide page templates
+- Fix update notice
 
 
 Portfolio+ 3.1
