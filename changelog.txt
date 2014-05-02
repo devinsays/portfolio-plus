@@ -1,3 +1,7 @@
+Portfolio+ 3.3
+
+- Minor style update for portfolio title overlays
+
 Portfolio+ 3.2
 
 - Re-enable theme updates
