@@ -169,7 +169,7 @@ require_once( TEMPLATEPATH . '/extensions/template-helpers.php' );
 /**
  * Adds general portfolio functions
  */
-require_once( TEMPLATEPATH . '/extensions/portfolio-helpers.php' );
+require_once( TEMPLATEPATH . '/extensions/portfolio-functions.php' );
 
 /**
  * Custom functions that act independently of the theme templates.

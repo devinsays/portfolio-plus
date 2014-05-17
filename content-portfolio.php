@@ -23,7 +23,14 @@ if ( $fullwidth )
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content">
-		<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb">
+		<?php
+		$link = get_the_permalink();
+		$target = '';
+		if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
+			$link = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+			$target = ' target="_blank"';
+		} ?>
+		<a href="<?php echo $link; ?>" <?php echo $target; ?> rel="bookmark" class="thumb">
 			<h3><?php the_title() ?></h3>
 			<?php
 			if ( has_post_format( array( 'gallery', 'image' ) ) ) :
