@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio+ 3.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2014-05-17 20:35:05+00:00\n"
+"POT-Creation-Date: 2014-05-19 03:57:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -379,32 +379,66 @@ msgid ""
 "href=\"%1$s\">Update It</a> | <a href=\"%2$s\">Dismiss Notice</a>."
 msgstr ""
 
-#: extensions/options-functions.php:224
+#: extensions/options-functions.php:245
 msgid "All items have loaded."
 msgstr ""
 
-#: extensions/options-functions.php:285
+#: extensions/options-functions.php:306
 msgid "Layout"
 msgstr ""
 
-#: extensions/options-functions.php:321
+#: extensions/options-functions.php:342
 msgid "Header Styles"
 msgstr ""
 
-#: extensions/options-functions.php:331
+#: extensions/options-functions.php:352
 msgid "Background Color"
 msgstr ""
 
-#: extensions/options-functions.php:384
+#: extensions/options-functions.php:405
 msgid "Body Styles"
 msgstr ""
 
-#: extensions/options-functions.php:469
+#: extensions/options-functions.php:490
 msgid "Footer Styles"
 msgstr ""
 
-#: extensions/options-functions.php:479
+#: extensions/options-functions.php:500
 msgid "Footer Background Color"
+msgstr ""
+
+#: extensions/portfolio-functions.php:189
+msgid "Don't display image in post."
+msgstr ""
+
+#: extensions/portfolio-functions.php:229
+msgid "Portfolio Link"
+msgstr ""
+
+#: extensions/portfolio-functions.php:239
+msgid "Post Attributes"
+msgstr ""
+
+#: extensions/portfolio-functions.php:257
+msgid ""
+"If you enter a url below, your image, gallery, or portfolio item will link "
+"to it from the archive:"
+msgstr ""
+
+#: extensions/portfolio-functions.php:270
+msgid "Template"
+msgstr ""
+
+#: extensions/portfolio-functions.php:271
+msgid "Post Template"
+msgstr ""
+
+#: extensions/portfolio-functions.php:273
+msgid "Default Template"
+msgstr ""
+
+#: extensions/portfolio-functions.php:274
+msgid "Full Width"
 msgstr ""
 
 #: extensions/recommended-plugins.php:81
@@ -452,7 +486,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: extensions/template-helpers.php:85 page.php:23
+#: extensions/template-helpers.php:85 image.php:48 page.php:23
 #: templates/full-width-page.php:24
 msgid "Edit"
 msgstr ""
@@ -471,6 +505,14 @@ msgstr ""
 
 #: extensions/template-helpers.php:152
 msgid "Post navigation"
+msgstr ""
+
+#: extensions/template-helpers.php:166
+msgid "&larr; Previous"
+msgstr ""
+
+#: extensions/template-helpers.php:167
+msgid "Next &rarr;"
 msgstr ""
 
 #: extensions/theme-updater.php:60
@@ -549,6 +591,15 @@ msgstr ""
 
 #: header.php:44
 msgid "Skip to content"
+msgstr ""
+
+#: image.php:37
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span "
+"class=\"entry-date\"><time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\" title=\"Link to "
+"full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return "
+"to %7$s\" rel=\"gallery\">%8$s</a>."
 msgstr ""
 
 #: options.php:43
@@ -770,11 +821,11 @@ msgid ""
 "different keywords."
 msgstr ""
 
-#: sidebar.php:18
+#: sidebar.php:20
 msgid "Archives"
 msgstr ""
 
-#: sidebar.php:25
+#: sidebar.php:27
 msgid "Meta"
 msgstr ""
 
@@ -823,13 +874,13 @@ msgid "Portfolio Categories"
 msgstr ""
 
 #: extensions/template-helpers.php:159 extensions/template-helpers.php:162
-#: extensions/template-helpers.php:167
+#: extensions/template-helpers.php:170
 msgctxt "Next post link"
 msgid "%title <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
 #: extensions/template-helpers.php:160 extensions/template-helpers.php:163
-#: extensions/template-helpers.php:166
+#: extensions/template-helpers.php:169
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span> %title"
 msgstr ""

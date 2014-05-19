@@ -160,12 +160,16 @@ function portfolioplus_post_nav() {
 					next_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
 				} else {
 					previous_post_link( '<div class="nav-next">%link</div>', _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'portfolioplus' ) );
-				next_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
+					next_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
 				}
+			} elseif ( is_attachment() ) { ?>
+				<div class="nav-previous"><?php previous_image_link( false, __( '&larr; Previous', 'portfolioplus' ) ); ?></div>
+				<div class="nav-next"><?php next_image_link( false, __( 'Next &rarr;', 'portfolioplus' ) ); ?></div><?php
 			} else {
 				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'portfolioplus' ) );
 				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'portfolioplus' ) );
-			} ?>
+			}
+			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php

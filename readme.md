@@ -14,9 +14,11 @@ Portfolio+ 3.3
 
 * Minor style update for portfolio title overlays
 * Update z-index for drop down menus
+* Better support for 3 level menus
 * Restore post option to hide images
 * Restore post option to link to external url
 * Add "full-width" option for individual posts
+* New template for images
 
 ### Portfolio+ 3.2
 
