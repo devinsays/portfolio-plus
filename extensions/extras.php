@@ -66,7 +66,7 @@ function portfolioplus_upgrade_routine() {
 	portfolioplus_update_page_templates();
 
 	// New version number
-	$options['version'] = '3.1';
+	$options['version'] = '3.3';
 
 	update_option( 'portfolioplus', $options );
 }
