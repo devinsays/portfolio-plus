@@ -16,6 +16,7 @@ Portfolio+ 3.3
 * Update z-index for drop down menus
 * Restore post option to hide images
 * Restore post option to link to external url
+* Add "full-width" option for individual posts
 
 ### Portfolio+ 3.2
 

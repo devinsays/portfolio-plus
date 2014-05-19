@@ -74,7 +74,7 @@ function portfolioplus_body_class( $classes ) {
 
 	// Remove the term "templates" from the page template body class
 	// Primarily for backwards compatibility
-	if ( isset( $post) && (
+	if ( isset( $post ) && (
 			is_page_template( 'templates/full-width-page.php' ) ||
 			is_page_template( 'templates/portfolio.php' ) ||
 			is_page_template( 'templates/full-width-portfolio.php' ) ||
@@ -146,7 +146,7 @@ function portfolioplus_display_image() {
 		<?php if ( !is_single() ) { ?>
 			<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb">
 		<?php } ?>
-		<?php if ( of_get_option( 'layout' ) == 'layout-1col' ) {
+		<?php if ( ( of_get_option( 'layout' ) == 'layout-1col' ) || portfolioplus_post_template() ) {
 			the_post_thumbnail( 'portfolio-fullwidth' );
 		} else {
 			the_post_thumbnail( 'portfolio-large' );
@@ -175,10 +175,15 @@ function portfolioplus_display_gallery( $post ) {
 /**
  * Add a checkbox to the featured image metabox
  */
-if ( of_get_option( 'portfolio_images', "1" ) ) {
+if ( of_get_option( 'portfolio_images', '1' ) ) {
 	add_filter( 'admin_post_thumbnail_html', 'portfolioplus_featured_image_meta');
 }
 
+/**
+ * Adds a checkbox to the featured image metabox.
+ *
+ * @param string $content
+ */
 function portfolioplus_featured_image_meta( $content ) {
 	global $post;
 	$text = __( "Don't display image in post.", 'portfolioplus' );
@@ -188,7 +193,9 @@ function portfolioplus_featured_image_meta( $content ) {
     return $content .= $label;
 }
 
-/* Fire our meta box setup function on the post editor screen. */
+/**
+ * Action hooks for metaboxes.
+ */
 add_action( 'load-post.php', 'portfolioplus_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'portfolioplus_meta_boxes_setup' );
 
@@ -205,10 +212,12 @@ function portfolioplus_meta_boxes_setup() {
 	add_action( 'save_post', 'portfolioplus_verify_meta', 10, 2 );
 }
 
-/*	Create one or more meta boxes to be displayed on the post editor screen.
- *	http://codex.wordpress.org/Function_Reference/add_meta_box
+/**
+ * Create metaboxes to be displayed on the post editor screen.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/add_meta_box
+ * @param string $post_type
  */
-
 function portfolioplus_add_post_meta_boxes( $post_type ) {
 
 	$types = array( 'post', 'portfolio' );
@@ -223,50 +232,98 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 			'normal',	// Context
 			'high'	// Priority
 		);
+
+		if ( of_get_option( 'layout' ) != 'layout-1col' ) :
+		add_meta_box(
+			'portfolioplus-post-atrributes',	// Unique ID
+			esc_html__( 'Post Attributes', 'portfolioplus' ),	// Title
+			'portfolioplus_post_template_meta_box',	// Callback
+			$post_type,	// Post type
+			'side',	// Context
+			'low'	// Priority
+		);
+		endif;
 	}
 }
 
-/* Display the post meta box. */
-function portfolioplus_url_meta_box( $object, $box ) { ?>
+/**
+ * Display the portfolio url metabox.
+ *
+ * @param object $post
+ */
+function portfolioplus_url_meta_box( $post ) { ?>
 	<?php wp_nonce_field( basename( __FILE__ ), 'portfolioplus_nonce' ); ?>
 	<p>
 		<label for="portfolioplus-portfolio-url"><?php _e( "If you enter a url below, your image, gallery, or portfolio item will link to it from the archive:", 'portfolioplus' ); ?></label>
 		<br><br>
-		<input class="widefat" type="text" name="portfolioplus-portfolio-url" id="portfolioplus-portfolio-url" value="<?php echo esc_attr( get_post_meta( $object->ID, 'portfolioplus_url', true ) ); ?>" size="30" />
+		<input class="widefat" type="text" name="portfolioplus-portfolio-url" id="portfolioplus-portfolio-url" value="<?php echo esc_attr( get_post_meta( $post->ID, 'portfolioplus_url', true ) ); ?>" size="30" />
 	</p>
 <?php }
 
-/* Verify that the meta data can be saved */
+/**
+ * Display the post template metabox
+ *
+ * @param object $post
+ */
+function portfolioplus_post_template_meta_box( $post ) { ?>
+	<?php $value = get_post_meta( $post->ID, 'portfolioplus_post_template', true ); ?>
+	<p><strong><?php _e( 'Template', 'portfolioplus' ); ?></strong></p>
+	<label class="screen-reader-text" for="portfolioplus-post-template"><?php _e( 'Post Template', 'portfolioplus' ); ?></label>
+	<select name="portfolioplus-post-template" id="portfolioplus-post-template">
+		<option value="default" <?php selected( $value, 'default' ); ?>><?php _e( 'Default Template', 'portfolioplus' ); ?></option>
+		<option value="full-width" <?php selected( $value, 'full-width' ); ?>><?php _e( 'Full Width', 'portfolioplus' ); ?></option>
+	</select>
+	<p>
+<?php }
+
+/**
+ * Verify that the meta data can be saved.
+ *
+ * @param numeric $post_id
+ * @param object $post
+ */
 function portfolioplus_verify_meta( $post_id, $post ) {
 
-	/* Verify the nonce before proceeding. */
+	// Verify the nonce before proceeding.
 	if ( !isset( $_POST['portfolioplus_nonce'] ) || !wp_verify_nonce( $_POST['portfolioplus_nonce'], basename( __FILE__ ) ) )
 		return $post_id;
 
-	/* Get the post type object. */
+	// Get the post type object.
 	$post_type = get_post_type_object( $post->post_type );
 
-	/* Check if the current user has permission to edit the post. */
+	// Check if the current user has permission to edit the post.
 	if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
 		return $post_id;
 
-	/* Get the posted data and sanitize it for a url */
+	// Get the posted data for url and sanitize it.
 	$url_meta_value = ( isset( $_POST['portfolioplus-portfolio-url'] ) ? esc_url( $_POST['portfolioplus-portfolio-url'] ) : '' );
-	$url_meta_key = 'portfolioplus_url';
 
-	// Update the url meta
-	portfoliolus_update_meta( $post_id, $url_meta_value, $url_meta_key );
+	// Update the url meta.
+	portfoliolus_update_meta( $post_id, $url_meta_value, 'portfolioplus_url' );
 
+	// Get the posted data for post template.
+	$post_template = ( isset( $_POST['portfolioplus-post-template'] ) ? sanitize_text_field( $_POST['portfolioplus-post-template'] ) : '' );
+
+	// Update the post template meta.
+	portfoliolus_update_meta( $post_id, $post_template, 'portfolioplus_post_template' );
+
+	// Hide feature image value
 	$image_meta_value = isset( $_POST['hide_featured_image'] );
-	if ( $image_meta_value )
+	if ( $image_meta_value ) {
 		$image_meta_value = 1;
-	$image_meta_key = 'hide_featured_image';
+	}
 
 	// Update the featured image meta
-	portfoliolus_update_meta( $post_id, $image_meta_value, $image_meta_key );
+	portfoliolus_update_meta( $post_id, $image_meta_value, 'hide_featured_image' );
 }
 
-/* Update post meta */
+/**
+ * Update post meta.
+ *
+ * @param numeric $post_id
+ * @param string $new_meta_value
+ * @param numeric $meta_key
+ */
 function portfoliolus_update_meta( $post_id, $new_meta_value, $meta_key ) {
 
 	/* Get the meta value of the custom field key. */

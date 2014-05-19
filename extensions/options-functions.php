@@ -55,6 +55,10 @@ function portfolioplus_body_class_options( $classes ) {
 		$classes[] = 'clear-menu';
 	}
 
+	if ( portfolioplus_post_template() ) {
+		$classes[] = 'full-width';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'portfolioplus_body_class_options' );
@@ -70,6 +74,23 @@ function portfolio_favicon() {
 }
 add_action( 'wp_head', 'portfolio_favicon' );
 
+/**
+ * Determine if post template is set to full width.
+ */
+function portfolioplus_post_template() {
+
+	if ( of_get_option( 'layout' ) == 'layout-1col' ) {
+		return false;
+	}
+
+	if ( is_singular() ) {
+		$post_template = get_post_meta( get_the_ID(), 'portfolioplus_post_template', true );
+		if ( 'full-width' == $post_template ) {
+			return true;
+		}
+	}
+	return false;
+}
 /**
  * Output the inline css used for theme options
  */

@@ -5,7 +5,9 @@
  * @package Portfolio+
  */
 
- 	if ( of_get_option('layout') != 'layout-1col' ) : ?>
+if ( of_get_option( 'layout' ) != 'layout-1col' ) :
+
+	if ( ! portfolioplus_post_template() ) { ?>
 	<div id="sidebar" role="complementary">
 		<ul class="xoxo">
 		<?php if ( ! dynamic_sidebar( 'sidebar' ) ) : ?>
@@ -33,4 +35,5 @@
 		<?php endif; // end sidebar widget area ?>
 		</ul>
 	</div><!-- #secondary .widget-area -->
-	<?php endif; ?>
+	<?php }
+endif; ?>
