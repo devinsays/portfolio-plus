@@ -8,6 +8,11 @@
  */
 
 /**
+ * Set constant for version
+ */
+define( 'PORTFOLIO_VERSION', '3.4' );
+
+/**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
@@ -71,33 +76,39 @@ add_action( 'after_setup_theme', 'portfolioplus_setup' );
  */
 function portfolioplus_scripts() {
 
-	wp_enqueue_style( 'portfolio-plus-style', get_stylesheet_uri(), '', '3.1.0' );
+	wp_enqueue_style( 'portfolio-plus-style', get_stylesheet_uri(), '', PORTFOLIO_VERSION );
 
-	wp_enqueue_script( 'themejs', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ), '3.1.0', true );
+	if ( SCRIPT_DEBUG || WP_DEBUG ) :
+
+		wp_enqueue_script( 'portfolioplus-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+
+		wp_enqueue_script( 'portfolioplus-fit-vids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+
+	else :
+
+		wp_enqueue_script( 'portfolioplus-combined', get_template_directory_uri() . '/js/combined-min.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+
+	endif;
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
     	wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), null, true );
 	if ( !is_single() && of_get_option( 'infinite_scroll', true ) ) {
-		wp_enqueue_script( 'infinite_scroll' );
+		wp_enqueue_script( 'portfolioplus-infinite-scroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
 	}
-
 }
 add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );
 
 /**
- * Loads webfonts from Google
+ * Enqueues fonts
  */
 function portfolioplus_fonts() {
-	wp_register_style( 'portfolioplus_open_sans', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600', '', null, 'screen' );
-	wp_register_style( 'portfolioplus_rokkitt', '//fonts.googleapis.com/css?family=Rokkitt:400,700', '', null, 'screen' );
-	wp_enqueue_style( 'portfolioplus_open_sans' );
-	wp_enqueue_style( 'portfolioplus_rokkitt' );
-	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), '3.1.0' );
-}
 
+	wp_enqueue_style( 'portfolioplus_fonts', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700', '', null, 'screen' );
+	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), PORTFOLIO_VERSION );
+
+}
 add_action( 'wp_enqueue_scripts', 'portfolioplus_fonts', 10 );
 
 /**
@@ -117,7 +128,7 @@ function portfolioplus_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer 1', 'portfolio-plus' ),
 		'id' => 'footer-1',
-		'description' => __( "Widetized footer", 'portfolio-plus' ),
+		'description' => __( "Widgetized footer", 'portfolio-plus' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
@@ -127,7 +138,7 @@ function portfolioplus_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer 2', 'portfolio-plus' ),
 		'id' => 'footer-2',
-		'description' => __( "Widetized footer", 'portfolio-plus' ),
+		'description' => __( "Widgetized footer", 'portfolio-plus' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
@@ -137,7 +148,7 @@ function portfolioplus_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer 3', 'portfolio-plus' ),
 		'id' => 'footer-3',
-		'description' => __( "Widetized footer", 'portfolio-plus' ),
+		'description' => __( "Widgetized footer", 'portfolio-plus' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
@@ -147,7 +158,7 @@ function portfolioplus_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Footer 4', 'portfolio-plus' ),
 		'id' => 'footer-4',
-		'description' => __( "Widetized footer", 'portfolio-plus' ),
+		'description' => __( "Widgetized footer", 'portfolio-plus' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',

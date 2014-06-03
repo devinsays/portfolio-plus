@@ -10,6 +10,12 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
+Portfolio+ 3.4
+
+* Add FitVids for better support of responsive video
+* More efficient font loading
+* Minor updates to comment-author and caption styling (props @TomLany)
+
 Portfolio+ 3.3
 
 * Minor style update for portfolio title overlays
