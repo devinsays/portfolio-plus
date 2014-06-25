@@ -105,7 +105,10 @@ add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );
  */
 function portfolioplus_fonts() {
 
+	// Google Font
 	wp_enqueue_style( 'portfolioplus_fonts', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700', '', null, 'screen' );
+
+	// Icon font
 	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), PORTFOLIO_VERSION );
 
 }
@@ -170,29 +173,34 @@ add_action( 'init', 'portfolioplus_widgets_init' );
 /**
  * Sets up the options panel and default functions
  */
-require_once( TEMPLATEPATH . '/extensions/options-functions.php' );
+require_once( get_template_directory() . '/extensions/options-functions.php' );
 
 /**
  * Adds general template functions
  */
-require_once( TEMPLATEPATH . '/extensions/template-helpers.php' );
+require_once( get_template_directory() . '/extensions/template-helpers.php' );
 
 /**
  * Adds general portfolio functions
  */
-require_once( TEMPLATEPATH . '/extensions/portfolio-functions.php' );
+require_once( get_template_directory() . '/extensions/portfolio-functions.php' );
 
 /**
  * Custom functions that act independently of the theme templates.
  */
-require_once( TEMPLATEPATH . '/extensions/extras.php' );
+require_once( get_template_directory() . '/extensions/extras.php' );
 
 /**
  * Displays notices for recommended plugins
  */
-require_once( TEMPLATEPATH . '/extensions/recommended-plugins.php' );
+require_once( get_template_directory() . '/extensions/recommended-plugins.php' );
 
 /**
- * Includes theme update feature
+ * Theme updater.
+ *
+ * @since 3.4.0
  */
-require_once( TEMPLATEPATH . '/extensions/theme-updater.php' );
+function portfolioplus_theme_updater() {
+	require( get_template_directory() . '/extensions/updater/theme-updater.php' );
+}
+add_action( 'after_setup_theme', 'portfolioplus_theme_updater' );

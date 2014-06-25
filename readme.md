@@ -15,6 +15,7 @@ Portfolio+ 3.4
 * Add FitVids for better support of responsive video
 * More efficient font loading
 * Minor updates to comment-author and caption styling (props @TomLany)
+* Update for license functions
 
 Portfolio+ 3.3
 
