@@ -3,11 +3,8 @@
  * Template Name: Portfolio Categories
  * Description: Displays all the portfolio categories
  *
- * @package Portfolio Plus
+ * @package Portfolio+
  */
-
-// This template requires some additional functions to work properly
-require_once( get_template_directory() . '/extensions/portfolio-category-functions.php' );
 
 get_header();
 

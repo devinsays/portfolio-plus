@@ -166,7 +166,7 @@ function portfolioplus_display_image() {
 function portfolioplus_display_gallery( $post ) {
 	$pattern = get_shortcode_regex();
 	preg_match('/'.$pattern.'/s', $post->post_content, $matches);
-	if ( is_array( $matches ) && $matches[2] == 'gallery' ) {
+	if ( is_array( $matches ) && isset( $matches[2] ) && $matches[2] == 'gallery' ) {
 		$shortcode = $matches[0];
 		echo do_shortcode( $shortcode );
 	}

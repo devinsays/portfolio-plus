@@ -10,7 +10,7 @@
 /**
  * Set constant for version
  */
-define( 'PORTFOLIO_VERSION', '3.4.0' );
+define( 'PORTFOLIO_VERSION', '3.4.1' );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -194,6 +194,13 @@ require_once( get_template_directory() . '/extensions/extras.php' );
  * Displays notices for recommended plugins
  */
 require_once( get_template_directory() . '/extensions/recommended-plugins.php' );
+
+/**
+ * Required functions for the portfolio category template
+ */
+if ( class_exists( 'Portfolio_Post_Type' ) ) {
+	require_once( get_template_directory() . '/extensions/portfolio-category-functions.php' );
+}
 
 /**
  * Theme updater.
