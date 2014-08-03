@@ -10,7 +10,11 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
-Portfolio+ 3.5.1
+Portfolio+ 3.4.2
+
+* Add descriptions to image attachment page
+
+Portfolio+ 3.4.1
 
 * Fix for "Portfolio Categories" data caching
 
