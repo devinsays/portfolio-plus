@@ -10,22 +10,26 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
-Portfolio+ 3.4.2
+### Development
+
+* Add captions to image attachment page
+
+### Portfolio+ 3.4.2
 
 * Add descriptions to image attachment page
 
-Portfolio+ 3.4.1
+### Portfolio+ 3.4.1
 
 * Fix for "Portfolio Categories" data caching
 
-Portfolio+ 3.4
+### Portfolio+ 3.4
 
 * Add FitVids for better support of responsive video
 * More efficient font loading
 * Minor updates to comment-author and caption styling (props @TomLany)
 * Update for license functions
 
-Portfolio+ 3.3
+### Portfolio+ 3.3
 
 * Minor style update for portfolio title overlays
 * Update z-index for drop down menus
