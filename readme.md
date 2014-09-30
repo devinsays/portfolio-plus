@@ -13,6 +13,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 ### Development
 
 * Add captions to image attachment page
+* Posts per page notice fix
 
 ### Portfolio+ 3.4.2
 

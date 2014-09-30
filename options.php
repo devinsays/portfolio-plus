@@ -339,5 +339,14 @@ function optionsframework_options() {
 		'type' => 'info'
 	);
 
+	/* Utility Options (Not Displayed) */
+
+	$options[] = array(
+		"id" => "post_per_page_ignore",
+		"std" => 0,
+		"class" => "hidden",
+		"type" => "text"
+	);
+
 	return $options;
 }
