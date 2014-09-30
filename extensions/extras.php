@@ -92,6 +92,10 @@ function portfolioplus_posts_per_page_notice() {
 
 	$options = get_option( 'portfolioplus', false );
 
+	if ( isset( $options['post_per_page_ignore'] ) && $options['post_per_page_ignore'] == 1 ) {
+		return;
+	}
+
 	if ( current_user_can( 'manage_options' ) ) {
 		echo '<div class="updated"><p>';
 			printf( __(
