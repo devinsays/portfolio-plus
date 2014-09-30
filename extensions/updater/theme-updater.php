@@ -1,17 +1,17 @@
 <?php
 /**
- * One-click updater for Portfolio+.
+ * One-click updater for theme
  *
  * @package Portfolio+
  */
 
 // Includes the files needed for the theme updater
-if ( !class_exists( 'PortfolioPlus_Theme_Updater_Admin' ) ) {
+if ( !class_exists( 'EDD_Theme_Updater_Admin' ) ) {
 	include( dirname( __FILE__ ) . '/theme-updater-admin.php' );
 }
 
 // Loads the updater classes
-$updater = new PortfolioPlus_Theme_Updater_Admin(
+$updater = new EDD_Theme_Updater_Admin(
 
 	array(
 		'remote_api_url' => 'http://wptheming.com', // Site where EDD is hosted

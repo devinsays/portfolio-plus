@@ -5,7 +5,7 @@
  * @package Portfolio+
  */
 
-class PortfolioPlus_Theme_Updater_Admin {
+class EDD_Theme_Updater_Admin {
 
 	/**
 	 * Variables required for the theme updater
@@ -53,7 +53,27 @@ class PortfolioPlus_Theme_Updater_Admin {
 		add_action( 'admin_init', array( $this, 'license_action' ) );
 		add_action( 'admin_menu', array( $this, 'license_menu' ) );
 		add_action( 'update_option_' . $this->theme_slug . '_license_key', array( $this, 'activate_license' ), 10, 2 );
+		add_filter( 'http_request_args', array( $this, 'disable_wporg_request' ), 5, 2 );
 
+	}
+
+	/**
+	 * Define strings
+	 *
+	 * @since 1.0.0
+	 */
+	protected function default_strings() {
+
+		$strings = array(
+			'title' => __( 'Theme License', 'portfolio-plus' ),
+			'enter-key' => __( 'Enter your theme license key.', 'portfolio-plus' ),
+			'license-key' => __( 'License Key', 'portfolio-plus' ),
+			'license-action' => __( 'License Action', 'portfolio-plus' ),
+			'deactivate-license' => __( 'Deactivate License', 'portfolio-plus' ),
+			'activate-license' => __( 'Activate License', 'portfolio-plus' )
+		);
+
+		return apply_filters( 'edd-theme-updater-strings', $strings );
 	}
 
 	/**
@@ -68,12 +88,12 @@ class PortfolioPlus_Theme_Updater_Admin {
 			return;
 		}
 
-		if ( !class_exists( 'PortfolioPlus_Theme_Updater' ) ) {
+		if ( !class_exists( 'EDD_Theme_Updater' ) ) {
 			// Load our custom theme updater
 			include( dirname( __FILE__ ) . '/theme-updater-class.php' );
 		}
 
-		new PortfolioPlus_Theme_Updater( array(
+		new EDD_Theme_Updater( array(
 				'remote_api_url' 	=> $this->remote_api_url,
 				'version' 			=> $this->version,
 				'license' 			=> trim( get_option( $this->theme_slug . '_license_key' ) ),
@@ -89,9 +109,12 @@ class PortfolioPlus_Theme_Updater_Admin {
 	 * since 1.0.0
 	 */
 	function license_menu() {
+
+		$strings = $this->default_strings();
+
 		add_theme_page(
-			__( 'Theme License', 'portfolioplus' ),
-			__( 'Theme License', 'portfolioplus' ),
+			$strings['title'],
+			$strings['title'],
 			'manage_options',
 			$this->theme_slug . '-license',
 			array( $this, 'license_page' )
@@ -105,12 +128,14 @@ class PortfolioPlus_Theme_Updater_Admin {
 	 */
 	function license_page() {
 
+		$strings = $this->default_strings();
+
 		$license = trim( get_option( $this->theme_slug . '_license_key' ) );
 		$status = get_option( $this->theme_slug . '_license_key_status', false );
 
 		// Checks license status to display under license key
 		if ( ! $license ) {
-			$message    = __( 'Enter your theme license key.', 'portfolioplus' );
+			$message    = $strings['enter-key'];
 		} else {
 			// delete_transient( $this->theme_slug . '_license_message' );
 			if ( ! get_transient( $this->theme_slug . '_license_message', false ) ) {
@@ -120,7 +145,7 @@ class PortfolioPlus_Theme_Updater_Admin {
 		}
 		?>
 		<div class="wrap">
-			<h2><?php _e( 'Theme License', 'portfolioplus' ); ?></h2>
+			<h2><?php echo $strings['title'] ?></h2>
 			<form method="post" action="options.php">
 
 				<?php settings_fields( $this->theme_slug . '-license' ); ?>
@@ -130,7 +155,7 @@ class PortfolioPlus_Theme_Updater_Admin {
 
 						<tr valign="top">
 							<th scope="row" valign="top">
-								<?php _e( 'License Key', 'portfolioplus' ); ?>
+								<?php echo $strings['license-key']; ?>
 							</th>
 							<td>
 								<input id="<?php echo $this->theme_slug; ?>_license_key" name="<?php echo $this->theme_slug; ?>_license_key" type="text" class="regular-text" value="<?php echo esc_attr( $license ); ?>" />
@@ -143,15 +168,15 @@ class PortfolioPlus_Theme_Updater_Admin {
 						<?php if ( $license ) { ?>
 						<tr valign="top">
 							<th scope="row" valign="top">
-								<?php _e( 'License Action', 'portfolioplus' ); ?>
+								<?php echo $strings['license-action']; ?>
 							</th>
 							<td>
 								<?php
 								wp_nonce_field( $this->theme_slug . '_nonce', $this->theme_slug . '_nonce' );
 								if ( 'valid' == $status ) { ?>
-									<input type="submit" class="button-secondary" name="<?php echo $this->theme_slug; ?>_license_deactivate" value="<?php esc_attr_e( 'Deactivate License', 'portfolioplus' ); ?>"/>
+									<input type="submit" class="button-secondary" name="<?php echo $this->theme_slug; ?>_license_deactivate" value="<?php esc_attr_e( $strings['deactivate-license'] ); ?>"/>
 								<?php } else { ?>
-									<input type="submit" class="button-secondary" name="<?php echo $this->theme_slug; ?>_license_activate" value="<?php esc_attr_e( 'Activate License', 'portfolioplus' ); ?>"/>
+									<input type="submit" class="button-secondary" name="<?php echo $this->theme_slug; ?>_license_activate" value="<?php esc_attr_e( $strings['activate-license'] ); ?>"/>
 								<?php }
 								?>
 							</td>
@@ -319,7 +344,7 @@ class PortfolioPlus_Theme_Updater_Admin {
 
 		// If response doesn't include license data, return
 		if ( !isset( $license_data->license ) ) {
-			$message = __( 'License status is unknown.', 'portfolioplus' );
+			$message = __( 'License status is unknown.', 'portfolio-plus' );
 			return $message;
 		}
 
@@ -327,7 +352,7 @@ class PortfolioPlus_Theme_Updater_Admin {
 		$expires = false;
 		if ( isset( $license_data->expires ) ) {
 			$expires = date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) );
-			$renew_link = '<a href="' . esc_url( $this->remote_api_url) . '">' . __( 'Renew?', 'portfolioplus' ) . '</a>';
+			$renew_link = '<a href="' . esc_url( $this->remote_api_url) . '">' . __( 'Renew?', 'portfolio-plus' ) . '</a>';
 		}
 
 		// Get site counts
@@ -336,40 +361,67 @@ class PortfolioPlus_Theme_Updater_Admin {
 
 		// If unlimited
 		if ( 0 == $license_limit ) {
-			$license_limit = __( 'unlimited', 'portfolioplus' );
+			$license_limit = __( 'unlimited', 'portfolio-plus' );
 		}
 
 		if ( $license_data->license == 'valid' ) {
-			$message = __( 'License key is active.', 'portfolioplus' ) . ' ';
+			$message = __( 'License key is active.', 'portfolio-plus' ) . ' ';
 			if ( $expires ) {
-				$message .= sprintf( __( 'Expires %s.', 'portfolioplus' ), $expires ) . ' ';
+				$message .= sprintf( __( 'Expires %s.', 'portfolio-plus' ), $expires ) . ' ';
 			}
 			if ( $site_count && $license_limit ) {
-				$message .= sprintf( __( 'You have %1$s / %2$s sites activated.', 'portfolioplus' ), $site_count, $license_limit );
+				$message .= sprintf( __( 'You have %1$s / %2$s sites activated.', 'portfolio-plus' ), $site_count, $license_limit );
 			}
 		} else if ( $license_data->license == 'expired' ) {
 			if ( $expires ) {
-				$message = sprintf( __( 'License key expired %s.', 'portfolioplus' ), $expires );
+				$message = sprintf( __( 'License key expired %s.', 'portfolio-plus' ), $expires );
 			} else {
-				$message = __( 'License key has expired.', 'portfolioplus' );
+				$message = __( 'License key has expired.', 'portfolio-plus' );
 			}
 			if ( $renew_link ) {
 				$message .= ' ' . $renew_link;
 			}
 		} else if ( $license_data->license == 'invalid' ) {
-			$message = __( 'License keys do not match.', 'portfolioplus' );
+			$message = __( 'License keys do not match.', 'portfolio-plus' );
 		} else if ( $license_data->license == 'inactive' ) {
-			$message = __( 'License is inactive.', 'portfolioplus' );
+			$message = __( 'License is inactive.', 'portfolio-plus' );
 		} else if ( $license_data->license == 'disabled' ) {
-			$message = __( 'License key is disabled.', 'portfolioplus' );
+			$message = __( 'License key is disabled.', 'portfolio-plus' );
 		} else if ( $license_data->license == 'site_inactive' ) {
 			// Site is inactive
-			$message = __( 'Site is inactive.', 'portfolioplus' );
+			$message = __( 'Site is inactive.', 'portfolio-plus' );
 		} else {
-			$message = __( 'License status is unknown.', 'portfolioplus' );
+			$message = __( 'License status is unknown.', 'portfolio-plus' );
 		}
 
 		return $message;
+	}
+
+	/**
+	 * Disable requests to wp.org repository for this theme.
+	 *
+	 * @since 1.0.0
+	 */
+	function disable_wporg_request( $r, $url ) {
+
+		// If it's not a theme update request, bail.
+		if ( 0 !== strpos( $url, 'https://api.wordpress.org/themes/update-check/1.1/' ) ) {
+ 			return $r;
+ 		}
+
+ 		// Decode the JSON response
+ 		$themes = json_decode( $r['body']['themes'] );
+
+ 		// Remove the active parent and child themes from the check
+ 		$parent = get_option( 'template' );
+ 		$child = get_option( 'stylesheet' );
+ 		unset( $themes->themes->$parent );
+ 		unset( $themes->themes->$child );
+
+ 		// Encode the updated JSON response
+ 		$r['body']['themes'] = json_encode( $themes );
+
+ 		return $r;
 	}
 
 }

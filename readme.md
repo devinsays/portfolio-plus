@@ -16,6 +16,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 * Add captions to image attachment page
 * Posts per page notice fix
 * Remove upgrade notices
+* Change fullwidth image size to 940
 
 Portfolio+ 3.4.2
 ===
