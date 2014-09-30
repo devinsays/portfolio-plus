@@ -35,43 +35,6 @@ function portfolioplus_wp_title( $title, $sep ) {
 }
 add_filter( 'wp_title', 'portfolioplus_wp_title', 10, 2 );
 
-
-/**
- * Upgrade routine for Portfolio Press.
- * Sets $options['upgrade-3-0'] to true if user is updating
- */
-function portfolioplus_upgrade_routine() {
-
-	$options = get_option( 'portfolioplus', false );
-
-	// If version is set, upgrade routine has already run
-	if ( !empty( $options['version'] ) ) {
-		return;
-	}
-
-	// If $options exist, user is upgrading
-	if ( $options ) {
-		$options['upgrade-3-0'] = true;
-	}
-
-	// If 'portfolio_ignore_notice' exists, user is upgrading
-	// We'll also delete that data since it's no longer used
-	global $current_user;
-	if ( get_user_meta( $current_user->ID, 'portfolio_ignore_notice' ) ) {
-		$options['upgrade-3-0'] = true;
-		delete_user_meta( $current_user->ID, 'portfolio_ignore_notice' );
-	}
-
-	// Update page templates
-	portfolioplus_update_page_templates();
-
-	// New version number
-	$options['version'] = '3.3';
-
-	update_option( 'portfolioplus', $options );
-}
-add_action( 'admin_init', 'portfolioplus_upgrade_routine' );
-
 /**
  * Part of the Portfolio+ upgrade routine.
  * The page template paths have changed, so let's update the template meta for the user.
@@ -117,29 +80,6 @@ function portfolioplus_update_page_templates() {
 }
 
 /**
- * Displays notice if user has upgraded theme
- */
-function portfolioplus_upgrade_notice() {
-
-	if ( current_user_can( 'edit_theme_options' ) ) {
-
-		$options = get_option( 'portfolioplus', false );
-
-		if ( !empty( $options['upgrade-3-0'] ) && ! $options['upgrade-3-0'] ) {
-			echo '<div class="updated"><p>';
-				printf( __(
-					'Thanks for updating Portfolio+.  Please <a href="%1$s">read about important changes</a> in this version and give your site a quick check.  <a href="%2$s">Dismiss notice</a>' ),
-					'http://wptheming.com/2014/03/portfolio-theme-updates/',
-					'?portfolio_upgrade_notice_ignore=1' );
-			echo '</p></div>';
-		}
-
-	}
-}
-
-add_action( 'admin_notices', 'portfolioplus_upgrade_notice', 100 );
-
-/**
  * Displays notice if post_per_page is not divisible by 3
  */
 function portfolioplus_posts_per_page_notice() {
@@ -152,17 +92,10 @@ function portfolioplus_posts_per_page_notice() {
 
 	$options = get_option( 'portfolioplus', false );
 
-	update_option( 'portfolioplus', $options );
-
-	if ( isset( $options['post_per_page_ignore'] ) && $options['post_per_page_ignore'] == 1 ) {
-		return;
-	}
-
-
 	if ( current_user_can( 'manage_options' ) ) {
 		echo '<div class="updated"><p>';
 			printf( __(
-				'Portfolio Press recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.' ),
+				'Portfolio+ recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.' ),
 				'?portfolio_update_posts_per_page=1',
 				'?portfolio_post_per_page_ignore=1',
 				admin_url( 'options-reading.php', false ), 'portfolio-plus' );
@@ -177,11 +110,6 @@ add_action( 'admin_notices', 'portfolioplus_posts_per_page_notice', 120 );
 function portfolioplus_notice_ignores() {
 
 	$options = get_option( 'portfolioplus' );
-
-	if ( isset( $_GET['portfolio_upgrade_notice_ignore'] ) && '1' == $_GET['portfolio_upgrade_notice_ignore'] ) {
-		$options['upgrade-3-0'] = true;
-		update_option( 'portfolioplus', $options );
-	}
 
 	if ( isset( $_GET['portfolio_post_per_page_ignore'] ) && '1' == $_GET['portfolio_post_per_page_ignore'] ) {
 		$options['post_per_page_ignore'] = 1;
