@@ -152,6 +152,8 @@ function portfolioplus_posts_per_page_notice() {
 
 	$options = get_option( 'portfolioplus', false );
 
+	update_option( 'portfolioplus', $options );
+
 	if ( isset( $options['post_per_page_ignore'] ) && $options['post_per_page_ignore'] == 1 ) {
 		return;
 	}
@@ -174,16 +176,16 @@ add_action( 'admin_notices', 'portfolioplus_posts_per_page_notice', 120 );
  */
 function portfolioplus_notice_ignores() {
 
-	$options = get_option( 'portfolio-plus' );
+	$options = get_option( 'portfolioplus' );
 
 	if ( isset( $_GET['portfolio_upgrade_notice_ignore'] ) && '1' == $_GET['portfolio_upgrade_notice_ignore'] ) {
 		$options['upgrade-3-0'] = true;
-		update_option( 'portfolio-plus', $options );
+		update_option( 'portfolioplus', $options );
 	}
 
 	if ( isset( $_GET['portfolio_post_per_page_ignore'] ) && '1' == $_GET['portfolio_post_per_page_ignore'] ) {
 		$options['post_per_page_ignore'] = 1;
-		update_option( 'portfolio-plus', $options );
+		update_option( 'portfolioplus', $options );
 	}
 
 	if ( isset( $_GET['portfolio_update_posts_per_page'] ) && '1' == $_GET['portfolio_update_posts_per_page'] ) {

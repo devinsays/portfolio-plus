@@ -19,7 +19,7 @@ function optionsframework_option_name() {
 
 /**
  * Defines an array of options that will be used to generate the settings page and be saved in the database.
- * When creating the "id" fields, make sure to use all lowercase and no spaces.
+ * When creating the 'id' fields, make sure to use all lowercase and no spaces.
  *
  * @returns array $options
  */
@@ -35,7 +35,8 @@ function optionsframework_options() {
 		'image' => '',
 		'repeat' => 'repeat',
 		'position' => 'top center',
-		'attachment'=>'scroll' );
+		'attachment'=>'scroll'
+	);
 
 	$options = array();
 
@@ -61,7 +62,8 @@ function optionsframework_options() {
 		'name' => __( 'Custom Favicon', 'portfolio-plus' ),
 		'desc' => __( 'Upload a favicon (16px)', 'portfolio-plus' ),
 		'id' => 'custom_favicon',
-		'type' => 'upload' );
+		'type' => 'upload'
+	);
 
 	$options['infinite_scroll'] = array(
 		'name' => __( 'Infinite Scroll', 'portfolio-plus' ),
@@ -212,9 +214,9 @@ function optionsframework_options() {
 
 	$options['link_color'] = array(
 		'desc' => __( 'Link color', 'portfolio-plus' ),
-		"id" => 'link_color',
-		"std" => '#106177',
-		"type" => 'color'
+		'id' => 'link_color',
+		'std' => '#106177',
+		'type' => 'color'
 	);
 
 	$options['link_hover_color'] = array(
@@ -267,21 +269,21 @@ function optionsframework_options() {
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options[] = array(
-			"name" => __( 'Display Images on Portfolio / Image Posts', 'portfolio-plus' ),
-			"desc" => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
-			"id" => "portfolio_images",
-			"std" => "1",
-			"type" => "checkbox"
+			'name' => __( 'Display Images on Portfolio / Image Posts', 'portfolio-plus' ),
+			'desc' => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
+			'id' => "portfolio_images",
+			'std' => "1",
+			'type' => "checkbox"
 		);
 
 	} else {
 
 		$options[] = array(
-			"name" => __( 'Display Images Automatically on Image Post Formats', 'portfolio-plus' ),
-			"desc" => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
-			"id" => "portfolio_images",
-			"std" => "1",
-			"type" => "checkbox"
+			'name' => __( 'Display Images Automatically on Image Post Formats', 'portfolio-plus' ),
+			'desc' => __( 'Display featured images automatically on posts.', 'portfolio-plus' ),
+			'id' => "portfolio_images",
+			'std' => "1",
+			'type' => "checkbox"
 		);
 
 	}
@@ -289,31 +291,31 @@ function optionsframework_options() {
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
 
 		$options[] = array(
-			"name" => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolio-plus' ),
-			"desc" => __( 'Display all image based archives full width.', 'portfolio-plus' ),
-			"id" => "portfolio_sidebar",
-			"std" => "0",
-			"type" => "checkbox"
+			'name' => __( 'Display Portfolio / Image / Galleries Full Width', 'portfolio-plus' ),
+			'desc' => __( 'Display all image based archives full width.', 'portfolio-plus' ),
+			'id' => "portfolio_sidebar",
+			'std' => "0",
+			'type' => "checkbox"
 		);
 
 	} else {
 
 		$options[] = array(
-			"name" => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolio-plus' ),
-			"desc" => __( 'Display all image/gallery archives full width.', 'portfolio-plus' ),
-			"id" => "portfolio_sidebar",
-			"std" => "0",
-			"type" => "checkbox"
+			'name' => __( 'Display Image and Gallery Post Format Archives Full Width', 'portfolio-plus' ),
+			'desc' => __( 'Display all image/gallery archives full width.', 'portfolio-plus' ),
+			'id' => "portfolio_sidebar",
+			'std' => "0",
+			'type' => "checkbox"
 		);
 
 	}
 
 	$options[] = array(
-		"name" => __( 'Display Image and Gallery Formats on Posts Page', 'portfolio-plus' ),
-		"desc" => __( 'Display all post formats on posts page.', 'portfolio-plus' ),
-		"id" => "display_image_gallery_post_formats",
-		"std" => "1",
-		"type" => "checkbox"
+		'name' => __( 'Display Image and Gallery Formats on Posts Page', 'portfolio-plus' ),
+		'desc' => __( 'Display all post formats on posts page.', 'portfolio-plus' ),
+		'id' => "display_image_gallery_post_formats",
+		'std' => "1",
+		'type' => "checkbox"
 	);
 
 	if ( class_exists( 'Portfolio_Post_Type' ) ) {
@@ -342,10 +344,10 @@ function optionsframework_options() {
 	/* Utility Options (Not Displayed) */
 
 	$options[] = array(
-		"id" => "post_per_page_ignore",
-		"std" => 0,
-		"class" => "hidden",
-		"type" => "text"
+		'id' => "post_per_page_ignore",
+		'std' => 0,
+		'class' => "hidden",
+		'type' => "text"
 	);
 
 	return $options;
