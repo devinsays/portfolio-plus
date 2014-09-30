@@ -17,6 +17,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 * Posts per page notice fix
 * Remove upgrade notices
 * Change fullwidth image size to 940
+* Fix fullwidth image sizes with full-width-image-gallery-formats template
 
 Portfolio+ 3.4.2
 ===
