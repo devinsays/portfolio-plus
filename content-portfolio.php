@@ -11,12 +11,9 @@ $thumbnail = 'thumbnail';
 // Set fullwidth thumbnail size
 if (
 	of_get_option( 'portfolio_sidebar', 0 ) ||
-	is_page_template( 'full-width-portfolio.php' ) ||
-	is_page_template( 'full-width-image-gallery-formats.php' ) ||
 	of_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
 	$thumbnail = 'thumbnail-fullwidth';
 }
-echo $thumbnail;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content">

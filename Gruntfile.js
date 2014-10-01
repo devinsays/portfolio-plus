@@ -36,8 +36,16 @@ module.exports = function(grunt) {
 		},
 		uglify: {
 		    release: {
-		        src: 'js/combined-min.js',
-		        dest: 'js/combined-min.js'
+		    	files: [
+					{
+						src: 'js/combined-min.js',
+						dest: 'js/combined-min.js'
+					},
+					{
+						src: 'js/jquery.infinitescroll.js',
+						dest: 'js/jquery.infinitescroll.min.js'
+					}
+				]
 		    }
 		},
     	// https://www.npmjs.org/package/grunt-wp-i18n
