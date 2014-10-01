@@ -10,27 +10,28 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
-### Development
-===
+Development
+---
 
 * Add captions to image attachment page
 * Posts per page notice fix
-* Remove upgrade notices
-* Change fullwidth image size to 940
+* Remove upgrade routine
+* Refactor RTL styles
+* Fix browser resizing of certain images
 * Fix fullwidth image sizes with full-width-image-gallery-formats template
 
 Portfolio+ 3.4.2
-===
+---
 
 * Add descriptions to image attachment page
 
 Portfolio+ 3.4.1
-===
+---
 
 * Fix for "Portfolio Categories" data caching
 
 Portfolio+ 3.4.0
-===
+---
 
 * Add FitVids for better support of responsive video
 * More efficient font loading
@@ -38,7 +39,7 @@ Portfolio+ 3.4.0
 * Update for license functions
 
 Portfolio+ 3.3.0
-===
+---
 
 * Minor style update for portfolio title overlays
 * Update z-index for drop down menus
@@ -49,7 +50,7 @@ Portfolio+ 3.3.0
 * New template for images
 
 Portfolio+ 3.2.0
-===
+---
 
 * Re-enable theme updates
 * Make post format icon a link
@@ -63,7 +64,7 @@ Portfolio+ 3.2.0
 
 
 Portfolio+ 3.1.0
-===
+---
 
 * Fix for three tier menu styling
 * Fix for Google font loading from https
@@ -72,7 +73,7 @@ Portfolio+ 3.1.0
 * Display archive titles and descriptions
 
 Portfolio+ 3.0.0
-===
+---
 
 * New menu styling
 * Portfolio templates and styles rebuilt
@@ -87,7 +88,7 @@ Portfolio+ 3.0.0
 * Add options for header/footer border colors
 
 Portfolio+ 2.0.0
-===
+---
 
 * Show larger thumbnails on one-column layouts
 * Increase thumbnail sizes on regular layouts
@@ -97,7 +98,7 @@ Portfolio+ 2.0.0
 * Compatibility update for Options Framework 1.7
 
 Portfolio+ 1.9.0
-===
+---
 
 * Toggle menu inherits menu color (if set by option)
 * Update $content_width on full page templates
@@ -106,7 +107,7 @@ Portfolio+ 1.9.0
 * New portfolioplus_posts_per_page filter
 
 Portfolio+ 1.8.0
-===
+---
 
 * Better responsive menu
 * Author page displays posts and author description
@@ -114,37 +115,37 @@ Portfolio+ 1.8.0
 * Add metabox on post for featured image display
 
 Portfolio+ 1.7.5
-===
+---
 
 * Add fullwidth portfolio thumnail size
 * Max-width for iframe,embeds and objects
 
 Portfolio+ 1.7.4
-===
+---
 
 * Fix so portfolio meta boxes work again
 * Put single portfolio navigation back due to multiple requests
 
 Portfolio+ 1.7.3
-===
+---
 
 * Fixed minor output error with inline styles
 * Fix styling for archive meta descriptions
 
 Portfolio+ 1.7.2
-===
+---
 
 * Fixed bug on portfolio page that caused an error
 * Updated version number for automatic updater
 
 Portfolio+ 1.7.1
-===
+---
 
 * Removes theme dependency on Options Framework plugin
 * Show taxonomy descriptions by default (option to turn off)
 
 Portfolio+ 1.7.0
-===
+---
 
 * Added box shadows to borders
 * Remove prev/next post navigation on single posts and portfolio items
@@ -156,51 +157,51 @@ Portfolio+ 1.7.0
 * Make "Turn Off Inline Styles" option work correctly
 
 Portfolio+ 1.6.0
-===
+---
 
 * Allow licensing screen to be translatable
 * Enqueue infinite scroll on single rather than singular
 
 Portfolio+ 1.5.0
-===
+---
 
 * Max-width for logo image
 * Bugfix for portfolio category template
 * Theme supports automatic updates with license key
 
 Portfolio+ 1.4.0
-===
+---
 
 * Fix for number of items shown in portfolio taxonomies
 * Update thumbnail sizing (props @alexkunz)
 * Added option to display portfolio category/tag titles
 
 Portfolio+ 1.3.0
-===
+---
 
 * Fix for plugin notices
 * Display gallery images in archives
 * Fix for js binding on infinite scroll
 
 Portfolio+ 1.2.0
-===
+---
 
 * Fixed bug that caused an error when deleting a portfolio item
 * Updated the metabox function name
 
 Portfolio+ 1.1.0
-===
+---
 
 * Bugfix for portfolios with single column layout
 * Template for displaying Portfolio Categories
 * Metabox for portfolio item url
 
 Portfolio+ 1.0.1
-===
+---
 
 * Image alignment bug fixes
 
 Portfolio+ 1.0.0
-===
+---
 
 * Initial Release

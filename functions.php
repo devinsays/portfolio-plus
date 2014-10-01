@@ -65,7 +65,7 @@ function portfolioplus_setup() {
 	add_image_size( 'portfolio-thumbnail', 280, 225, true );
 	add_image_size( 'portfolio-thumbnail-fullwidth', 314, 224, true );
 	add_image_size( 'portfolio-large', 690, 9999, false );
-	add_image_size( 'portfolio-fullwidth', 940, 9999, false );
+	add_image_size( 'portfolio-fullwidth', 980, 9999, false );
 
 }
 endif; // portfolioplus_setup
