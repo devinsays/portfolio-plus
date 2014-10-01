@@ -76,17 +76,47 @@ add_action( 'after_setup_theme', 'portfolioplus_setup' );
  */
 function portfolioplus_scripts() {
 
-	wp_enqueue_style( 'portfolio-plus-style', get_stylesheet_uri(), '', PORTFOLIO_VERSION );
+	wp_enqueue_style(
+		'portfolio-plus-style',
+		get_stylesheet_uri(),
+		array(),
+		PORTFOLIO_VERSION
+	);
+
+	// Use style-rtl.css for RTL layouts
+	wp_style_add_data(
+		'portfolio-plus-style',
+		'rtl',
+		'replace'
+	);
 
 	if ( SCRIPT_DEBUG || WP_DEBUG ) :
 
-		wp_enqueue_script( 'portfolioplus-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+		wp_enqueue_script(
+			'portfolioplus-navigation',
+			get_template_directory_uri() . '/js/navigation.js',
+			array( 'jquery' ),
+			PORTFOLIO_VERSION,
+			true
+		);
 
-		wp_enqueue_script( 'portfolioplus-fit-vids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+		wp_enqueue_script(
+			'portfolioplus-fit-vids',
+			get_template_directory_uri() . '/js/jquery.fitvids.js',
+			array( 'jquery' ),
+			PORTFOLIO_VERSION,
+			true
+		);
 
 	else :
 
-		wp_enqueue_script( 'portfolioplus-combined', get_template_directory_uri() . '/js/combined-min.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+		wp_enqueue_script(
+			'portfolioplus-combined',
+			get_template_directory_uri() . '/js/combined-min.js',
+			array( 'jquery' ),
+			PORTFOLIO_VERSION,
+			true
+		);
 
 	endif;
 
@@ -95,7 +125,13 @@ function portfolioplus_scripts() {
 	}
 
 	if ( !is_single() && of_get_option( 'infinite_scroll', true ) ) {
-		wp_enqueue_script( 'portfolioplus-infinite-scroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery' ), PORTFOLIO_VERSION, true );
+		wp_enqueue_script(
+			'portfolioplus-infinite-scroll',
+			get_template_directory_uri() . '/js/jquery.infinitescroll.min.js',
+			array( 'jquery' ),
+			PORTFOLIO_VERSION,
+			true
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );

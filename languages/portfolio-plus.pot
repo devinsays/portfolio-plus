@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio+ 3.4.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2014-07-13 00:58:47+00:00\n"
+"POT-Creation-Date: 2014-10-01 14:57:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -365,16 +365,9 @@ msgstr ""
 msgid "Page %s"
 msgstr ""
 
-#: extensions/extras.php:130
+#: extensions/extras.php:101
 msgid ""
-"Thanks for updating Portfolio+.  Please <a href=\"%1$s\">read about "
-"important changes</a> in this version and give your site a quick check.  <a "
-"href=\"%2$s\">Dismiss notice</a>"
-msgstr ""
-
-#: extensions/extras.php:161
-msgid ""
-"Portfolio Press recommends setting posts per page to 9. This can be changed "
+"Portfolio+ recommends setting posts per page to 9. This can be changed "
 "under <a href=\"%3$s\">Settings > Reading Options</a>.<br><a "
 "href=\"%1$s\">Update It</a> | <a href=\"%2$s\">Dismiss Notice</a>."
 msgstr ""
@@ -486,7 +479,7 @@ msgstr ""
 msgid "% Comments"
 msgstr ""
 
-#: extensions/template-helpers.php:85 image.php:48 page.php:23
+#: extensions/template-helpers.php:85 image.php:57 page.php:23
 #: templates/full-width-page.php:24
 msgid "Edit"
 msgstr ""
@@ -515,78 +508,76 @@ msgstr ""
 msgid "Next &rarr;"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:93
-#: extensions/updater/theme-updater-admin.php:94
-#: extensions/updater/theme-updater-admin.php:123
+#: extensions/updater/theme-updater-admin.php:68
 msgid "Theme License"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:113
+#: extensions/updater/theme-updater-admin.php:69
 msgid "Enter your theme license key."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:133
+#: extensions/updater/theme-updater-admin.php:70
 msgid "License Key"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:146
+#: extensions/updater/theme-updater-admin.php:71
 msgid "License Action"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:152
+#: extensions/updater/theme-updater-admin.php:72
 msgid "Deactivate License"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:154
+#: extensions/updater/theme-updater-admin.php:73
 msgid "Activate License"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:322
-#: extensions/updater/theme-updater-admin.php:369
+#: extensions/updater/theme-updater-admin.php:347
+#: extensions/updater/theme-updater-admin.php:394
 msgid "License status is unknown."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:330
+#: extensions/updater/theme-updater-admin.php:355
 msgid "Renew?"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:339
+#: extensions/updater/theme-updater-admin.php:364
 msgid "unlimited"
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:343
+#: extensions/updater/theme-updater-admin.php:368
 msgid "License key is active."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:345
+#: extensions/updater/theme-updater-admin.php:370
 msgid "Expires %s."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:348
+#: extensions/updater/theme-updater-admin.php:373
 msgid "You have %1$s / %2$s sites activated."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:352
+#: extensions/updater/theme-updater-admin.php:377
 msgid "License key expired %s."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:354
+#: extensions/updater/theme-updater-admin.php:379
 msgid "License key has expired."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:360
+#: extensions/updater/theme-updater-admin.php:385
 msgid "License keys do not match."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:362
+#: extensions/updater/theme-updater-admin.php:387
 msgid "License is inactive."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:364
+#: extensions/updater/theme-updater-admin.php:389
 msgid "License key is disabled."
 msgstr ""
 
-#: extensions/updater/theme-updater-admin.php:367
+#: extensions/updater/theme-updater-admin.php:392
 msgid "Site is inactive."
 msgstr ""
 
@@ -623,27 +614,27 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:123
+#: functions.php:159
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:132
+#: functions.php:168
 msgid "Footer 1"
 msgstr ""
 
-#: functions.php:134 functions.php:144 functions.php:154 functions.php:164
+#: functions.php:170 functions.php:180 functions.php:190 functions.php:200
 msgid "Widgetized footer"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:178
 msgid "Footer 2"
 msgstr ""
 
-#: functions.php:152
+#: functions.php:188
 msgid "Footer 3"
 msgstr ""
 
-#: functions.php:162
+#: functions.php:198
 msgid "Footer 4"
 msgstr ""
 
@@ -655,7 +646,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: image.php:37
+#: image.php:46
 msgid ""
 "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span "
 "class=\"entry-date\"><time class=\"entry-date\" "
@@ -664,212 +655,212 @@ msgid ""
 "to %7$s\" rel=\"gallery\">%8$s</a>."
 msgstr ""
 
-#: options.php:43
+#: options.php:44
 msgid "General"
 msgstr ""
 
-#: options.php:48
+#: options.php:49
 msgid "Main Layout"
 msgstr ""
 
-#: options.php:49
+#: options.php:50
 msgid "Select main content and sidebar alignment."
 msgstr ""
 
-#: options.php:61
+#: options.php:62
 msgid "Custom Favicon"
 msgstr ""
 
-#: options.php:62
+#: options.php:63
 msgid "Upload a favicon (16px)"
 msgstr ""
 
-#: options.php:67
+#: options.php:69
 msgid "Infinite Scroll"
 msgstr ""
 
-#: options.php:68
+#: options.php:70
 msgid ""
 "Load new posts as the user scrolls down.  (\"Display Image and Gallery "
 "Formats on Posts Page\" should be unchecked under the \"Portfolio\" tab for "
 "infinite scroll to work best.)"
 msgstr ""
 
-#: options.php:75
+#: options.php:77
 msgid "Display dates"
 msgstr ""
 
-#: options.php:76
+#: options.php:78
 msgid "Display dates on posts."
 msgstr ""
 
-#: options.php:83
+#: options.php:85
 msgid "Archive Titles"
 msgstr ""
 
-#: options.php:84
+#: options.php:86
 msgid "Display archive titles and descriptions."
 msgstr ""
 
-#: options.php:91
+#: options.php:93
 msgid "Custom Footer Text"
 msgstr ""
 
-#: options.php:92
+#: options.php:94
 msgid "Custom text that will appear in the footer of your theme."
 msgstr ""
 
-#: options.php:106
+#: options.php:108
 msgid "Header"
 msgstr ""
 
-#: options.php:111
+#: options.php:113
 msgid "Custom Logo"
 msgstr ""
 
-#: options.php:112
+#: options.php:114
 msgid "Upload a logo (optional)"
 msgstr ""
 
-#: options.php:119
+#: options.php:121
 msgid "Display Site Tagline"
 msgstr ""
 
-#: options.php:120
+#: options.php:122
 msgid "Display tagline under site title."
 msgstr ""
 
-#: options.php:128
+#: options.php:130
 msgid "Header Background"
 msgstr ""
 
-#: options.php:135
+#: options.php:137
 msgid "Header Text Colors"
 msgstr ""
 
-#: options.php:141
+#: options.php:143
 msgid "Site Title Color"
 msgstr ""
 
-#: options.php:148
+#: options.php:150
 msgid "Tagline Color"
 msgstr ""
 
-#: options.php:156
+#: options.php:158
 msgid "Menu Link Color"
 msgstr ""
 
-#: options.php:163
+#: options.php:165
 msgid "Header Bottom Border Color"
 msgstr ""
 
-#: options.php:170
+#: options.php:172
 msgid "Menu Position"
 msgstr ""
 
-#: options.php:171
+#: options.php:173
 msgid ""
 "Select where the main menu should go in the header.  Long menus should go "
 "underneath."
 msgstr ""
 
-#: options.php:182
+#: options.php:184
 msgid "Styles"
 msgstr ""
 
-#: options.php:187
+#: options.php:189
 msgid "Body Background"
 msgstr ""
 
-#: options.php:194
+#: options.php:196
 msgid "Body Font Color"
 msgstr ""
 
-#: options.php:201
+#: options.php:203
 msgid "Heading/Title Colors (H1, H2, H3)"
 msgstr ""
 
-#: options.php:208
+#: options.php:210
 msgid "Link Colors"
 msgstr ""
 
-#: options.php:214
+#: options.php:216
 msgid "Link color"
 msgstr ""
 
-#: options.php:221
+#: options.php:223
 msgid "Hover color"
 msgstr ""
 
-#: options.php:228
+#: options.php:230
 msgid "Sidebar Heading/Title Colors (Widgets)"
 msgstr ""
 
-#: options.php:235
+#: options.php:237
 msgid "Border Colors"
 msgstr ""
 
-#: options.php:242
+#: options.php:244
 msgid "Footer Text Color"
 msgstr ""
 
-#: options.php:249
+#: options.php:251
 msgid "Footer Top Border Color"
 msgstr ""
 
-#: options.php:256
+#: options.php:258
 msgid "Footer Background"
 msgstr ""
 
-#: options.php:270
+#: options.php:272
 msgid "Display Images on Portfolio / Image Posts"
 msgstr ""
 
-#: options.php:271 options.php:281
+#: options.php:273 options.php:283
 msgid "Display featured images automatically on posts."
 msgstr ""
 
-#: options.php:280
+#: options.php:282
 msgid "Display Images Automatically on Image Post Formats"
 msgstr ""
 
-#: options.php:292
+#: options.php:294
 msgid "Display Portfolio / Image / Galleries Full Width"
 msgstr ""
 
-#: options.php:293
+#: options.php:295
 msgid "Display all image based archives full width."
 msgstr ""
 
-#: options.php:302
+#: options.php:304
 msgid "Display Image and Gallery Post Format Archives Full Width"
 msgstr ""
 
-#: options.php:303
+#: options.php:305
 msgid "Display all image/gallery archives full width."
 msgstr ""
 
-#: options.php:312
+#: options.php:314
 msgid "Display Image and Gallery Formats on Posts Page"
 msgstr ""
 
-#: options.php:313
+#: options.php:315
 msgid "Display all post formats on posts page."
 msgstr ""
 
-#: options.php:322
+#: options.php:324
 msgid "Display portfolio navigation"
 msgstr ""
 
-#: options.php:323
+#: options.php:325
 msgid "Show prev/next links on portfolio posts."
 msgstr ""
 
-#: options.php:332
+#: options.php:334
 msgid "Posts Per Page"
 msgstr ""
 
-#: options.php:335
+#: options.php:337
 msgid "Posts per page can be set in the <a href=\"%s\">reading options</a>."
 msgstr ""
 
