@@ -50,7 +50,7 @@
             isBeyondMaxPage: false,
             currPage: 1
         },
-        debug: true,
+        debug: false,
         behavior: undefined,
         binder: $(window), // used to cache the selector
         nextSelector: '.nav-previous a',
