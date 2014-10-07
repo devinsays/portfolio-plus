@@ -21,19 +21,14 @@ $args = array(
 	'paged' => $paged
 );
 $portfolio = new WP_Query( $args );
-?>
 
-<?php
-// Set the size of the thumbnails and content width
-$fullwidth = of_get_option( 'portfolio_sidebar', false );
-
-// If portfolio is a 1-column layout
-if ( of_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
-	$fullwidth = true;
-}
-
+// Set thumbnail size
 $thumbnail = 'thumbnail';
-if ( $fullwidth ) {
+
+// Set fullwidth thumbnail size
+if (
+	of_get_option( 'portfolio_sidebar' ) ||
+	of_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
 	$thumbnail = 'thumbnail-fullwidth';
 }
 ?>

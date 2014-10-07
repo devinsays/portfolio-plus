@@ -24,36 +24,35 @@ $args = array(
 		    'terms' => array( 'post-format-image', 'post-format-gallery' ),
 		)
 	),
-	'posts_per_page' => $posts_per_page,
 	'paged' => $paged
 );
 // Override the primary post loop
 query_posts( $args );
 ?>
 
-	<div id="primary">
-		<div id="content" role="main">
+<div id="primary">
+	<div id="content" role="main">
 
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
 
-					<?php
-						get_template_part( 'content', 'portfolio' );
-					?>
+				<?php
+					get_template_part( 'content', 'portfolio' );
+				?>
 
-				<?php endwhile; ?>
+			<?php endwhile; ?>
 
-				<?php portfolioplus_paging_nav(); ?>
+			<?php portfolioplus_paging_nav(); ?>
 
-			<?php else : ?>
-				<?php get_template_part( 'content', 'none' ); ?>
-			<?php endif; ?>
+		<?php else : ?>
+			<?php get_template_part( 'content', 'none' ); ?>
+		<?php endif; ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+		</div><!-- #content -->
+	</div><!-- #primary -->
 
 <?php wp_reset_query(); ?>
 

@@ -1,6 +1,6 @@
 {
 	"name": "portfolio-plus",
-	"version": "3.4.1",
+	"version": "3.5.0",
 	"devDependencies": {
 		"grunt": "~0.4.5",
 		"grunt-cli": "~0.1.13",
