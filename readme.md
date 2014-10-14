@@ -15,7 +15,7 @@ Version 3.5.0
 
 * Add captions to image attachment page
 * Posts per page notice fix
-* Remove upgrade routine
+* Remove upgrade routines
 * Refactor RTL styles
 * Fix browser resizing of certain images
 * Fix fullwidth image sizes with full-width-image-gallery-formats template
