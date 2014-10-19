@@ -160,8 +160,8 @@ function portfolioplus_inline_css() {
 
 	$main_bg = of_get_option( 'main_bg' );
 	if ( $main_bg ) {
-		$output .= portfolioplus_output_bg( '#main', of_get_option('main_bg'), array('color'=>'#f3f3f3') );
-		if ( $main_bg['color'] != '#f3f3f3' ) {
+		$output .= portfolioplus_output_bg( 'body', of_get_option('main_bg'), array('color'=>'#f6f6f6') );
+		if ( $main_bg['color'] != '#f6f6f6' ) {
 			$output .= "#content .entry-title, .widget-container h3, #nav-below { text-shadow: none; }\n";
 		}
 	}

@@ -10,6 +10,12 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
+Development
+---
+
+* Sticky footer
+* Update background color for options
+
 Version 3.5.0
 ---
 

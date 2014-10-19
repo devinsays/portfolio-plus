@@ -188,7 +188,7 @@ function optionsframework_options() {
 	$options['main_bg'] = array(
 		'name' =>  __( 'Body Background', 'portfolio-plus' ),
 		'id' => 'main_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#f3f3f3' ) ),
+		'std' => array_merge( $background_defaults, array( 'color' => '#f6f6f6' ) ),
 		'type' =>'background'
 	);
 
@@ -352,7 +352,7 @@ function optionsframework_options() {
 
 	$options[] = array(
 		'id' => "version",
-		'std' => "3.4.0",
+		'std' => "3.5.0",
 		'class' => "hidden",
 		'type' => "text"
 	);
