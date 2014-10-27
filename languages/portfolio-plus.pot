@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio+ 3.5.0\n"
+"Project-Id-Version: Portfolio+ 3.6.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2014-10-19 18:10:46+00:00\n"
+"POT-Creation-Date: 2014-10-27 20:50:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -611,11 +611,11 @@ msgstr ""
 msgid "Footer 4"
 msgstr ""
 
-#: header.php:46
+#: header.php:43
 msgid "Menu"
 msgstr ""
 
-#: header.php:47
+#: header.php:44
 msgid "Skip to content"
 msgstr ""
 

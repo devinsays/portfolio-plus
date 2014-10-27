@@ -10,13 +10,14 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
-Development
+3.6.0
 ---
 
 * Sticky footer
-* Update background color for options
+* Update background color selectors
+* Fix debug error
 
-Version 3.5.0
+3.5.0
 ---
 
 * Add captions to image attachment page
@@ -28,17 +29,17 @@ Version 3.5.0
 * Update class-tgm-plugin-activation library
 * CSS Support for JetPack Sharing
 
-Version 3.4.2
+3.4.2
 ---
 
 * Add descriptions to image attachment page
 
-Version 3.4.1
+3.4.1
 ---
 
 * Fix for "Portfolio Categories" data caching
 
-Version 3.4.0
+3.4.0
 ---
 
 * Add FitVids for better support of responsive video
@@ -46,7 +47,7 @@ Version 3.4.0
 * Minor updates to comment-author and caption styling (props @TomLany)
 * Update for license functions
 
-Version 3.3.0
+3.3.0
 ---
 
 * Minor style update for portfolio title overlays
@@ -57,7 +58,7 @@ Version 3.3.0
 * Add "full-width" option for individual posts
 * New template for images
 
-Version 3.2.0
+3.2.0
 ---
 
 * Re-enable theme updates
@@ -71,7 +72,7 @@ Version 3.2.0
 * Fix update notice
 
 
-Version 3.1.0
+3.1.0
 ---
 
 * Fix for three tier menu styling
@@ -80,7 +81,7 @@ Version 3.1.0
 * Hide featured images in blog layout if option is unchecked
 * Display archive titles and descriptions
 
-Version 3.0.0
+3.0.0
 ---
 
 * New menu styling
@@ -95,7 +96,7 @@ Version 3.0.0
 * Better support for theme customizer
 * Add options for header/footer border colors
 
-Version 2.0.0
+2.0.0
 ---
 
 * Show larger thumbnails on one-column layouts
@@ -105,7 +106,7 @@ Version 2.0.0
 * Larger screenshot for WordPress 3.8
 * Compatibility update for Options Framework 1.7
 
-Version 1.9.0
+1.9.0
 ---
 
 * Toggle menu inherits menu color (if set by option)
@@ -114,7 +115,7 @@ Version 1.9.0
 * Normalize post meta
 * New portfolioplus_posts_per_page filter
 
-Version 1.8.0
+1.8.0
 ---
 
 * Better responsive menu
@@ -122,37 +123,37 @@ Version 1.8.0
 * Option to include bottom navigation on portfolio posts
 * Add metabox on post for featured image display
 
-Version 1.7.5
+1.7.5
 ---
 
 * Add fullwidth portfolio thumnail size
 * Max-width for iframe,embeds and objects
 
-Version 1.7.4
+1.7.4
 ---
 
 * Fix so portfolio meta boxes work again
 * Put single portfolio navigation back due to multiple requests
 
-Version 1.7.3
+1.7.3
 ---
 
 * Fixed minor output error with inline styles
 * Fix styling for archive meta descriptions
 
-Version 1.7.2
+1.7.2
 ---
 
 * Fixed bug on portfolio page that caused an error
 * Updated version number for automatic updater
 
-Version 1.7.1
+1.7.1
 ---
 
 * Removes theme dependency on Options Framework plugin
 * Show taxonomy descriptions by default (option to turn off)
 
-Version 1.7.0
+1.7.0
 ---
 
 * Added box shadows to borders
@@ -164,52 +165,52 @@ Version 1.7.0
 * Increase width for full size posts to 640px
 * Make "Turn Off Inline Styles" option work correctly
 
-Version 1.6.0
+1.6.0
 ---
 
 * Allow licensing screen to be translatable
 * Enqueue infinite scroll on single rather than singular
 
-Version 1.5.0
+1.5.0
 ---
 
 * Max-width for logo image
 * Bugfix for portfolio category template
 * Theme supports automatic updates with license key
 
-Version 1.4.0
+1.4.0
 ---
 
 * Fix for number of items shown in portfolio taxonomies
 * Update thumbnail sizing (props @alexkunz)
 * Added option to display portfolio category/tag titles
 
-Version 1.3.0
+1.3.0
 ---
 
 * Fix for plugin notices
 * Display gallery images in archives
 * Fix for js binding on infinite scroll
 
-Version 1.2.0
+1.2.0
 ---
 
 * Fixed bug that caused an error when deleting a portfolio item
 * Updated the metabox function name
 
-Version 1.1.0
+1.1.0
 ---
 
 * Bugfix for portfolios with single column layout
 * Template for displaying Portfolio Categories
 * Metabox for portfolio item url
 
-Version 1.0.1
+1.0.1
 ---
 
 * Image alignment bug fixes
 
-Version 1.0.0
+1.0.0
 ---
 
 * Initial Release

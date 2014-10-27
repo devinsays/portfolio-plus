@@ -352,7 +352,7 @@ function optionsframework_options() {
 
 	$options[] = array(
 		'id' => "version",
-		'std' => "3.5.0",
+		'std' => "3.6.0",
 		'class' => "hidden",
 		'type' => "text"
 	);

@@ -4,9 +4,6 @@
  *
  * @package Portfolio+
  */
-
- echo of_get_option( 'portfolio_sidebar' );
-
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>

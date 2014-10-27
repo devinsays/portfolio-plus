@@ -167,7 +167,7 @@ function portfolioplus_inline_css() {
 	}
 
 	if ( of_get_option( 'footer_bg' ) ) {
-		$output .= portfolioplus_output_bg( 'body', of_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
+		$output .= portfolioplus_output_bg( '#colophon', of_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
 	}
 
 	if ( of_get_option( 'menu_position' ) == "clear") {
