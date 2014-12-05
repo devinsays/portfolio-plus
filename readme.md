@@ -10,6 +10,11 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
+3.6.1
+---
+
+* Fix: IE11 Footer Display
+
 3.6.0
 ---
 

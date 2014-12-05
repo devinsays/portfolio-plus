@@ -101,34 +101,21 @@ table {
 /* =Base Styles
 ----------------------------------------------- */
 
+html {
+	height: 100%;
+}
 body {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: 100%;
 	color: #555;
 	background: #f6f6f6;
 	font-family: "Open Sans", sans-serif;
 	font-size: 14px;
 	line-height: 1.5;
 
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 }
@@ -311,9 +298,9 @@ a:hover {
 ----------------------------------------------- */
 
 #page {
-	-webkit-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
+	-webkit-flex: 1 0 auto;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 #main {
 	padding: 40px 0 20px 0;

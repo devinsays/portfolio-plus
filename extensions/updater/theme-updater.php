@@ -17,7 +17,7 @@ $updater = new EDD_Theme_Updater_Admin(
 		'remote_api_url' => 'http://wptheming.com', // Site where EDD is hosted
 		'item_name' => 'portfolio-theme', // Name of theme
 		'theme_slug' => 'portfolioplus', // Theme slug
-		'version' => '3.6.0', // The current version of this theme
+		'version' => PORTFOLIO_VERSION, // The current version of this theme
 		'author' => 'Devin Price' // The author of this theme
 	)
 
