@@ -125,13 +125,13 @@ add_filter( 'body_class','portfolioplus_body_class' );
 function portfolioplus_display_image() {
 
 	// Exit if no featured image is set
-	if ( !has_post_thumbnail() || post_password_required() ) {
+	if ( ! has_post_thumbnail() || post_password_required() ) {
 		return;
 	}
 
 	// Don't display images on single post if the option is turned off
 	if ( is_single() ) {
-		if ( !of_get_option( 'portfolio_images', '1' ) ) {
+		if ( ! of_get_option( 'portfolio_images', '1' ) ) {
 			return;
 		}
 
@@ -254,9 +254,16 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 function portfolioplus_url_meta_box( $post ) { ?>
 	<?php wp_nonce_field( basename( __FILE__ ), 'portfolioplus_nonce' ); ?>
 	<p>
-		<label for="portfolioplus-portfolio-url"><?php _e( "If you enter a url below, your image, gallery, or portfolio item will link to it from the archive:", 'portfolioplus' ); ?></label>
-		<br><br>
-		<input class="widefat" type="text" name="portfolioplus-portfolio-url" id="portfolioplus-portfolio-url" value="<?php echo esc_attr( get_post_meta( $post->ID, 'portfolioplus_url', true ) ); ?>" size="30" />
+		<label for="portfolioplus-portfolio-url"><?php _e( 'If you enter a url below, your image, gallery, or portfolio item will link to it from the archive.', 'portfolioplus' ); ?></label>
+	</p>
+	<?php $value = esc_attr( get_post_meta( $post->ID, 'portfolioplus_url', true ) ); ?>
+	<p>
+		<input class="widefat" type="text" name="portfolioplus-portfolio-url" id="portfolioplus-portfolio-url" value="<?php echo $value; ?>" size="30" />
+	</p>
+	<?php $value = get_post_meta( $post->ID, 'portfolioplus_url_target', true ); ?>
+	<p>
+		<label for="portfolioplus-url-target" class="selectit">
+			<input name="portfolioplus_url_target" type="checkbox" id="portfolioplus-url-target" value="<?php echo $value; ?>" <?php echo checked( $value, 1, false); ?>><?php _e( 'Open link in new window', 'portfolioplus' ); ?></label>
 	</p>
 <?php }
 
@@ -285,36 +292,50 @@ function portfolioplus_post_template_meta_box( $post ) { ?>
 function portfolioplus_verify_meta( $post_id, $post ) {
 
 	// Verify the nonce before proceeding.
-	if ( !isset( $_POST['portfolioplus_nonce'] ) || !wp_verify_nonce( $_POST['portfolioplus_nonce'], basename( __FILE__ ) ) )
+	if ( !isset( $_POST['portfolioplus_nonce'] ) || !wp_verify_nonce( $_POST['portfolioplus_nonce'], basename( __FILE__ ) ) ) {
 		return $post_id;
+	}
 
 	// Get the post type object.
 	$post_type = get_post_type_object( $post->post_type );
 
 	// Check if the current user has permission to edit the post.
-	if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
+	if ( !current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 		return $post_id;
+	}
 
 	// Get the posted data for url and sanitize it.
 	$url_meta_value = ( isset( $_POST['portfolioplus-portfolio-url'] ) ? esc_url( $_POST['portfolioplus-portfolio-url'] ) : '' );
 
 	// Update the url meta.
-	portfoliolus_update_meta( $post_id, $url_meta_value, 'portfolioplus_url' );
+	portfolioplus_update_meta( $post_id, $url_meta_value, 'portfolioplus_url' );
+
+	// Open link in new winow
+	$target = isset( $_POST['portfolioplus_url_target'] );
+	if ( $target ) {
+		$target = 1;
+	} else {
+		$target = 0;
+	}
+
+	portfolioplus_update_meta( $post_id, $target, 'portfolioplus_url_target' );
 
 	// Get the posted data for post template.
 	$post_template = ( isset( $_POST['portfolioplus-post-template'] ) ? sanitize_text_field( $_POST['portfolioplus-post-template'] ) : '' );
 
 	// Update the post template meta.
-	portfoliolus_update_meta( $post_id, $post_template, 'portfolioplus_post_template' );
+	portfolioplus_update_meta( $post_id, $post_template, 'portfolioplus_post_template' );
 
 	// Hide feature image value
 	$image_meta_value = isset( $_POST['hide_featured_image'] );
 	if ( $image_meta_value ) {
 		$image_meta_value = 1;
+	} else {
+		$image_meta_value = 0;
 	}
 
 	// Update the featured image meta
-	portfoliolus_update_meta( $post_id, $image_meta_value, 'hide_featured_image' );
+	portfolioplus_update_meta( $post_id, $image_meta_value, 'hide_featured_image' );
 }
 
 /**
@@ -324,20 +345,23 @@ function portfolioplus_verify_meta( $post_id, $post ) {
  * @param string $new_meta_value
  * @param numeric $meta_key
  */
-function portfoliolus_update_meta( $post_id, $new_meta_value, $meta_key ) {
+function portfolioplus_update_meta( $post_id, $new_meta_value, $meta_key ) {
 
 	/* Get the meta value of the custom field key. */
 	$meta_value = get_post_meta( $post_id, $meta_key, true );
 
 	/* If a new meta value was added and there was no previous value, add it. */
-	if ( $new_meta_value && '' == $meta_value )
+	if ( $new_meta_value && '' == $meta_value ) {
 		add_post_meta( $post_id, $meta_key, $new_meta_value, true );
+	}
 
 	/* If the new meta value does not match the old value, update it. */
-	elseif ( $new_meta_value && $new_meta_value != $meta_value )
+	elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
 		update_post_meta( $post_id, $meta_key, $new_meta_value );
+	}
 
 	/* If there is no new meta value but an old value exists, delete it. */
-	elseif ( '' == $new_meta_value && $meta_value )
+	elseif ( '' == $new_meta_value && $meta_value ) {
 		delete_post_meta( $post_id, $meta_key, $meta_value );
+	}
 }

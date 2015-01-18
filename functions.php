@@ -16,7 +16,7 @@ define( 'PORTFOLIO_VERSION', '3.6.1' );
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 940;
+	$content_width = 980;
 }
 
 if ( ! function_exists( 'portfolioplus_setup' ) ) :

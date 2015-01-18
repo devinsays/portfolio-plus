@@ -19,11 +19,14 @@ if (
 	<div class="entry-content">
 		<?php
 		$link = get_the_permalink();
-		$target = '';
 		if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
 			$link = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+		}
+		$target = '';
+		if ( get_post_meta( $post->ID, 'portfolioplus_url_target', true ) ) {
 			$target = ' target="_blank"';
-		} ?>
+		}
+		?>
 		<a href="<?php echo $link; ?>" <?php echo $target; ?> rel="bookmark" class="thumb">
 			<h3><?php the_title() ?></h3>
 			<?php
