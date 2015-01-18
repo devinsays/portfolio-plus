@@ -2,7 +2,7 @@
 /**
  * Theme updater admin page and functions.
  *
- * @package Portfolio+
+ * @package EDD Theme Updater
  */
 
 class EDD_Theme_Updater_Admin {
@@ -17,36 +17,44 @@ class EDD_Theme_Updater_Admin {
 	 protected $theme_slug = null;
 	 protected $version = null;
 	 protected $author = null;
+	 protected $download_id = null;
+	 protected $renew_url = null;
+	 protected $strings = null;
 
 	/**
 	 * Initialize the class.
 	 *
 	 * @since 1.0.0
 	 */
-	function __construct( $args = array() ) {
+	function __construct( $config = array(), $strings = array() ) {
 
-		$args = wp_parse_args( $args, array(
+		$config = wp_parse_args( $config, array(
 			'remote_api_url' => 'http://easydigitaldownloads.com',
 			'theme_slug' => get_template(),
 			'item_name' => '',
 			'license' => '',
 			'version' => '',
-			'author' => ''
+			'author' => '',
+			'download_id' => '',
+			'renew_url' => ''
 		) );
-		extract( $args );
 
-		// Set args
-		$this->remote_api_url = $remote_api_url;
-		$this->item_name = $item_name;
-		$this->theme_slug = sanitize_key( $theme_slug );
-		$this->version = $version;
-		$this->author = $author;
+		// Set config arguments
+		$this->remote_api_url = $config['remote_api_url'];
+		$this->item_name = $config['item_name'];
+		$this->theme_slug = sanitize_key( $config['theme_slug'] );
+		$this->version = $config['version'];
+		$this->author = $config['author'];
+		$this->download_id = $config['download_id'];
+		$this->renew_url = $config['renew_url'];
 
-		// Populate fallbacks
-		if ( '' == $version ) {
+		// Populate version fallback
+		if ( '' == $config['version'] ) {
 			$theme = wp_get_theme( $this->theme_slug );
 			$this->version = $theme->get( 'Version' );
 		}
+
+		$this->strings = $strings;
 
 		add_action( 'admin_init', array( $this, 'updater' ) );
 		add_action( 'admin_init', array( $this, 'register_option' ) );
@@ -55,25 +63,6 @@ class EDD_Theme_Updater_Admin {
 		add_action( 'update_option_' . $this->theme_slug . '_license_key', array( $this, 'activate_license' ), 10, 2 );
 		add_filter( 'http_request_args', array( $this, 'disable_wporg_request' ), 5, 2 );
 
-	}
-
-	/**
-	 * Define strings
-	 *
-	 * @since 1.0.0
-	 */
-	protected function default_strings() {
-
-		$strings = array(
-			'title' => __( 'Theme License', 'portfolio-plus' ),
-			'enter-key' => __( 'Enter your theme license key.', 'portfolio-plus' ),
-			'license-key' => __( 'License Key', 'portfolio-plus' ),
-			'license-action' => __( 'License Action', 'portfolio-plus' ),
-			'deactivate-license' => __( 'Deactivate License', 'portfolio-plus' ),
-			'activate-license' => __( 'Activate License', 'portfolio-plus' )
-		);
-
-		return apply_filters( 'edd-theme-updater-strings', $strings );
 	}
 
 	/**
@@ -93,13 +82,15 @@ class EDD_Theme_Updater_Admin {
 			include( dirname( __FILE__ ) . '/theme-updater-class.php' );
 		}
 
-		new EDD_Theme_Updater( array(
+		new EDD_Theme_Updater(
+			array(
 				'remote_api_url' 	=> $this->remote_api_url,
 				'version' 			=> $this->version,
 				'license' 			=> trim( get_option( $this->theme_slug . '_license_key' ) ),
 				'item_name' 		=> $this->item_name,
 				'author'			=> $this->author
-			)
+			),
+			$this->strings
 		);
 	}
 
@@ -110,11 +101,11 @@ class EDD_Theme_Updater_Admin {
 	 */
 	function license_menu() {
 
-		$strings = $this->default_strings();
+		$strings = $this->strings;
 
 		add_theme_page(
-			$strings['title'],
-			$strings['title'],
+			$strings['theme-license'],
+			$strings['theme-license'],
 			'manage_options',
 			$this->theme_slug . '-license',
 			array( $this, 'license_page' )
@@ -128,7 +119,7 @@ class EDD_Theme_Updater_Admin {
 	 */
 	function license_page() {
 
-		$strings = $this->default_strings();
+		$strings = $this->strings;
 
 		$license = trim( get_option( $this->theme_slug . '_license_key' ) );
 		$status = get_option( $this->theme_slug . '_license_key_status', false );
@@ -145,7 +136,7 @@ class EDD_Theme_Updater_Admin {
 		}
 		?>
 		<div class="wrap">
-			<h2><?php echo $strings['title'] ?></h2>
+			<h2><?php echo $strings['theme-license'] ?></h2>
 			<form method="post" action="options.php">
 
 				<?php settings_fields( $this->theme_slug . '-license' ); ?>
@@ -303,6 +294,33 @@ class EDD_Theme_Updater_Admin {
 	}
 
 	/**
+	 * Constructs a renewal link
+	 *
+	 * @since 1.0.0
+	 */
+	function get_renewal_link() {
+
+		// If a renewal link was passed in the config, use that
+		if ( '' != $this->renew_url ) {
+			return $this->renew_url;
+		}
+
+		// If download_id was passed in the config, a renewal link can be constructed
+		$license_key = trim( get_option( $this->theme_slug . '_license_key', false ) );
+		if ( '' != $this->download_id && $license_key ) {
+			$url = esc_url( $this->remote_api_url );
+			$url .= '/checkout/?edd_license_key=' . $license_key . '&download_id=' . $this->download_id;
+			return $url;
+		}
+
+		// Otherwise return the remote_api_url
+		return $this->remote_api_url;
+
+	}
+
+
+
+	/**
 	 * Checks if a license action was submitted.
 	 *
 	 * @since 1.0.0
@@ -333,6 +351,7 @@ class EDD_Theme_Updater_Admin {
 	function check_license() {
 
 		$license = trim( get_option( $this->theme_slug . '_license_key' ) );
+		$strings = $this->strings;
 
 		$api_params = array(
 			'edd_action' => 'check_license',
@@ -344,7 +363,7 @@ class EDD_Theme_Updater_Admin {
 
 		// If response doesn't include license data, return
 		if ( !isset( $license_data->license ) ) {
-			$message = __( 'License status is unknown.', 'portfolio-plus' );
+			$message = $strings['license-unknown'];
 			return $message;
 		}
 
@@ -352,7 +371,7 @@ class EDD_Theme_Updater_Admin {
 		$expires = false;
 		if ( isset( $license_data->expires ) ) {
 			$expires = date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) );
-			$renew_link = '<a href="' . esc_url( $this->remote_api_url) . '">' . __( 'Renew?', 'portfolio-plus' ) . '</a>';
+			$renew_link = '<a href="' . esc_url( $this->get_renewal_link() ) . '" target="_blank">' . $strings['renew'] . '</a>';
 		}
 
 		// Get site counts
@@ -361,37 +380,37 @@ class EDD_Theme_Updater_Admin {
 
 		// If unlimited
 		if ( 0 == $license_limit ) {
-			$license_limit = __( 'unlimited', 'portfolio-plus' );
+			$license_limit = $strings['unlimited'];
 		}
 
 		if ( $license_data->license == 'valid' ) {
-			$message = __( 'License key is active.', 'portfolio-plus' ) . ' ';
+			$message = $strings['license-key-is-active'] . ' ';
 			if ( $expires ) {
-				$message .= sprintf( __( 'Expires %s.', 'portfolio-plus' ), $expires ) . ' ';
+				$message .= sprintf( $strings['expires%s'], $expires ) . ' ';
 			}
 			if ( $site_count && $license_limit ) {
-				$message .= sprintf( __( 'You have %1$s / %2$s sites activated.', 'portfolio-plus' ), $site_count, $license_limit );
+				$message .= sprintf( $strings['%1$s/%2$-sites'], $site_count, $license_limit );
 			}
 		} else if ( $license_data->license == 'expired' ) {
 			if ( $expires ) {
-				$message = sprintf( __( 'License key expired %s.', 'portfolio-plus' ), $expires );
+				$message = sprintf( $strings['license-key-expired-%s'], $expires );
 			} else {
-				$message = __( 'License key has expired.', 'portfolio-plus' );
+				$message = $strings['license-key-expired'];
 			}
 			if ( $renew_link ) {
 				$message .= ' ' . $renew_link;
 			}
 		} else if ( $license_data->license == 'invalid' ) {
-			$message = __( 'License keys do not match.', 'portfolio-plus' );
+			$message = $strings['license-keys-do-not-match'];
 		} else if ( $license_data->license == 'inactive' ) {
-			$message = __( 'License is inactive.', 'portfolio-plus' );
+			$message = $strings['license-is-inactive'];
 		} else if ( $license_data->license == 'disabled' ) {
-			$message = __( 'License key is disabled.', 'portfolio-plus' );
+			$message = $strings['license-key-is-disabled'];
 		} else if ( $license_data->license == 'site_inactive' ) {
 			// Site is inactive
-			$message = __( 'Site is inactive.', 'portfolio-plus' );
+			$message = $strings['site-is-inactive'];
 		} else {
-			$message = __( 'License status is unknown.', 'portfolio-plus' );
+			$message = $strings['license-status-unknown'];
 		}
 
 		return $message;

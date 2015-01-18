@@ -15,6 +15,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 
 * Fix: $content_width now matches max content width
 * Enhancement: Option to open linked portfolio items in new window
+* Update: Better theme updater
 
 3.6.1
 ---
