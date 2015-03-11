@@ -43,9 +43,7 @@ get_header(); ?>
 						<span class="entry-meta-icon icon-format-<?php echo esc_attr( 'image' ); ?>"></span>
 						<?php
 							$metadata = wp_get_attachment_metadata();
-							printf( __( '<span class="meta-prep meta-prep-entry-date">Published </span> <span class="entry-date"><time class="entry-date" datetime="%1$s">%2$s</time></span> at <a href="%3$s" title="Link to full-size image">%4$s &times; %5$s</a> in <a href="%6$s" title="Return to %7$s" rel="gallery">%8$s</a>.', 'portfolioplus' ),
-								esc_attr( get_the_date( 'c' ) ),
-								esc_html( get_the_date() ),
+							printf( __( 'Published in <a href="%4$s" title="Return to %5$s" rel="gallery">%6$s</a> at <a href="%1$s" title="Link to full-size image">%2$s &times; %3$s</a> ', 'portfolioplus' ),
 								esc_url( wp_get_attachment_url() ),
 								$metadata['width'],
 								$metadata['height'],

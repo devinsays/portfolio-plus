@@ -39,6 +39,7 @@
 
 	<?php // Otherwise show full content ?>
 	<div class="entry-content">
+
 		<?php if ( of_get_option( 'portfolio_images', true ) ) {
 			portfolioplus_display_image();
 		} ?>
