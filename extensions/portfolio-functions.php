@@ -159,20 +159,6 @@ function portfolioplus_display_image() {
 }
 
 /**
- * Helper function to display a gallery.
- *
- * @param object $post
- */
-function portfolioplus_display_gallery( $post ) {
-	$pattern = get_shortcode_regex();
-	preg_match('/'.$pattern.'/s', $post->post_content, $matches);
-	if ( is_array( $matches ) && isset( $matches[2] ) && $matches[2] == 'gallery' ) {
-		$shortcode = $matches[0];
-		echo do_shortcode( $shortcode );
-	}
-}
-
-/**
  * Add a checkbox to the featured image metabox
  */
 if ( of_get_option( 'portfolio_images', '1' ) ) {

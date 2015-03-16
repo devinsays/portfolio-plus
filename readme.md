@@ -17,6 +17,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 * Refactor CSS
 * Update form design
 * Update comment design
+* Show the content on search and author archives
 
 3.6.2
 ---
