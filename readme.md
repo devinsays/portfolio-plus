@@ -18,6 +18,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 * Update form design
 * Update comment design
 * Show the content on search and author archives
+* Allow galleries to fill content width
 
 3.6.2
 ---
