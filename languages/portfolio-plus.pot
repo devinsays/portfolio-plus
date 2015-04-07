@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio+ 3.7.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-04-07 21:20:32+00:00\n"
+"POT-Creation-Date: 2015-04-07 21:42:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -468,15 +468,15 @@ msgstr ""
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: extensions/template-helpers.php:152
+#: extensions/template-helpers.php:157
 msgid "Post navigation"
 msgstr ""
 
-#: extensions/template-helpers.php:166
+#: extensions/template-helpers.php:171
 msgid "&larr; Previous"
 msgstr ""
 
-#: extensions/template-helpers.php:167
+#: extensions/template-helpers.php:172
 msgid "Next &rarr;"
 msgstr ""
 
@@ -665,172 +665,172 @@ msgid "Display dates on posts."
 msgstr ""
 
 #: options.php:85
-msgid "Archive Titles"
+msgid "Display post navigation"
 msgstr ""
 
 #: options.php:86
-msgid "Display archive titles and descriptions."
+msgid "Show prev/next links."
 msgstr ""
 
 #: options.php:93
-msgid "Custom Footer Text"
+msgid "Archive Titles"
 msgstr ""
 
 #: options.php:94
+msgid "Display archive titles and descriptions."
+msgstr ""
+
+#: options.php:101
+msgid "Custom Footer Text"
+msgstr ""
+
+#: options.php:102
 msgid "Custom text that will appear in the footer of your theme."
 msgstr ""
 
-#: options.php:108
+#: options.php:116
 msgid "Header"
 msgstr ""
 
-#: options.php:113
+#: options.php:121
 msgid "Custom Logo"
 msgstr ""
 
-#: options.php:114
+#: options.php:122
 msgid "Upload a logo (optional)"
 msgstr ""
 
-#: options.php:121
+#: options.php:129
 msgid "Display Site Tagline"
 msgstr ""
 
-#: options.php:122
+#: options.php:130
 msgid "Display tagline under site title."
 msgstr ""
 
-#: options.php:130
+#: options.php:138
 msgid "Header Background"
 msgstr ""
 
-#: options.php:137
+#: options.php:145
 msgid "Header Text Colors"
 msgstr ""
 
-#: options.php:143
+#: options.php:151
 msgid "Site Title Color"
 msgstr ""
 
-#: options.php:150
+#: options.php:158
 msgid "Tagline Color"
 msgstr ""
 
-#: options.php:158
+#: options.php:166
 msgid "Menu Link Color"
 msgstr ""
 
-#: options.php:165
+#: options.php:173
 msgid "Header Bottom Border Color"
 msgstr ""
 
-#: options.php:172
+#: options.php:180
 msgid "Menu Position"
 msgstr ""
 
-#: options.php:173
+#: options.php:181
 msgid ""
 "Select where the main menu should go in the header.  Long menus should go "
 "underneath."
 msgstr ""
 
-#: options.php:184
+#: options.php:192
 msgid "Styles"
 msgstr ""
 
-#: options.php:189
+#: options.php:197
 msgid "Body Background"
 msgstr ""
 
-#: options.php:196
+#: options.php:204
 msgid "Body Font Color"
 msgstr ""
 
-#: options.php:203
+#: options.php:211
 msgid "Heading/Title Colors (H1, H2, H3)"
 msgstr ""
 
-#: options.php:210
+#: options.php:218
 msgid "Link Colors"
 msgstr ""
 
-#: options.php:216
+#: options.php:224
 msgid "Link color"
 msgstr ""
 
-#: options.php:223
+#: options.php:231
 msgid "Hover color"
 msgstr ""
 
-#: options.php:230
+#: options.php:238
 msgid "Sidebar Heading/Title Colors (Widgets)"
 msgstr ""
 
-#: options.php:237
+#: options.php:245
 msgid "Border Colors"
 msgstr ""
 
-#: options.php:244
+#: options.php:252
 msgid "Footer Text Color"
 msgstr ""
 
-#: options.php:251
+#: options.php:259
 msgid "Footer Top Border Color"
 msgstr ""
 
-#: options.php:258
+#: options.php:266
 msgid "Footer Background"
 msgstr ""
 
-#: options.php:272
+#: options.php:280
 msgid "Display Images on Portfolio / Image Posts"
 msgstr ""
 
-#: options.php:273 options.php:283
+#: options.php:281 options.php:291
 msgid "Display featured images automatically on posts."
 msgstr ""
 
-#: options.php:282
+#: options.php:290
 msgid "Display Images Automatically on Image Post Formats"
 msgstr ""
 
-#: options.php:294
+#: options.php:302
 msgid "Display Portfolio / Image / Galleries Full Width"
 msgstr ""
 
-#: options.php:295
+#: options.php:303
 msgid "Display all image based archives full width."
 msgstr ""
 
-#: options.php:304
+#: options.php:312
 msgid "Display Image and Gallery Post Format Archives Full Width"
 msgstr ""
 
-#: options.php:305
+#: options.php:313
 msgid "Display all image/gallery archives full width."
 msgstr ""
 
-#: options.php:314
+#: options.php:322
 msgid "Display Image and Gallery Formats on Posts Page"
 msgstr ""
 
-#: options.php:315
+#: options.php:323
 msgid "Display all post formats on posts page."
 msgstr ""
 
-#: options.php:324
-msgid "Display portfolio navigation"
-msgstr ""
-
-#: options.php:325
-msgid "Show prev/next links on portfolio posts."
-msgstr ""
-
-#: options.php:334
+#: options.php:330
 msgid "Posts Per Page"
 msgstr ""
 
-#: options.php:337
+#: options.php:333
 msgid "Posts per page can be set in the <a href=\"%s\">reading options</a>."
 msgstr ""
 
@@ -903,14 +903,14 @@ msgid_plural "%1$s Responses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: extensions/template-helpers.php:159 extensions/template-helpers.php:162
-#: extensions/template-helpers.php:170
+#: extensions/template-helpers.php:164 extensions/template-helpers.php:167
+#: extensions/template-helpers.php:175
 msgctxt "Next post link"
 msgid "%title <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: extensions/template-helpers.php:160 extensions/template-helpers.php:163
-#: extensions/template-helpers.php:169
+#: extensions/template-helpers.php:165 extensions/template-helpers.php:168
+#: extensions/template-helpers.php:174
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span> %title"
 msgstr ""

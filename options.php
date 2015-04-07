@@ -81,6 +81,14 @@ function optionsframework_options() {
 		'type' => 'checkbox'
 	);
 
+	$options['portfolio_navigation'] = array(
+		'name' => __( 'Display post navigation', 'portfolio-plus' ),
+		'desc' => __( 'Show prev/next links.', 'portfolio-plus' ),
+		'id' => 'portfolio_navigation',
+		'std' => '0',
+		'type' => 'checkbox'
+	);
+
 	$options['archive_titles'] = array(
 		'name' => __( 'Archive Titles', 'portfolio-plus' ),
 		'desc' => __( 'Display archive titles and descriptions.', 'portfolio-plus' ),
@@ -317,18 +325,6 @@ function optionsframework_options() {
 		'std' => "1",
 		'type' => "checkbox"
 	);
-
-	if ( class_exists( 'Portfolio_Post_Type' ) ) {
-
-		$options['portfolio_navigation'] = array(
-			'name' => __( 'Display portfolio navigation', 'portfolio-plus' ),
-			'desc' => __( 'Show prev/next links on portfolio posts.', 'portfolio-plus' ),
-			'id' => 'portfolio_navigation',
-			'std' => '1',
-			'type' => 'checkbox'
-		);
-
-	}
 
 	$options[] = array(
 		'name' => __( 'Posts Per Page', 'portfolio-plus' ),

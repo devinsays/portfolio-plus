@@ -140,6 +140,11 @@ if ( ! function_exists( 'portfolioplus_post_nav' ) ) :
  * @return void
  */
 function portfolioplus_post_nav() {
+
+	if ( of_get_option( 'portfolio_navigation', 0 ) ) {
+		return;
+	}
+
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next = get_adjacent_post( false, '', false );
