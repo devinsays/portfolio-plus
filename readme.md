@@ -13,12 +13,13 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 3.7.0
 ---
 
-* Grunt task for SASS
-* Refactor CSS
-* Update form design
-* Update comment design
-* Show the content on search and author archives
-* Allow galleries to fill content width
+* Update: Grunt task for SASS
+* Update: Refactor CSS
+* Update: Form design
+* Update: Comment design
+* Update: Show the content on search and author archives
+* Update: Allow galleries to fill content width
+* Update: Use SVG for fallback images
 
 3.6.2
 ---

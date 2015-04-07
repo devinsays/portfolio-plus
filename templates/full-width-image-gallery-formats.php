@@ -27,55 +27,55 @@ $args = array(
 	'paged' => $paged
 );
 $portfolio = new WP_Query( $args );
-$thumbnail = 'thumbnail-fullwidth';
 ?>
 
 <div id="primary">
 	<div id="content" role="main">
 
-	<?php if ( $portfolio->have_posts() ) : ?>
+		<?php if ( $portfolio->have_posts() ) : ?>
 
-		<?php /* Start the Loop */ ?>
-		<?php while ( $portfolio->have_posts() ) : $portfolio->the_post(); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( $portfolio->have_posts() ) : $portfolio->the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<div class="entry-content">
-					<?php
-					$link = get_the_permalink();
-					if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
-						$link = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+				<?php
+				// If no image is set, we'll use a fallback image
+				if ( has_post_thumbnail() ) {
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'portfolio-thumbnail', true );
+					$image = $image[0];
+					$class = "image-thumbnail";
+				} else {
+					$format = get_post_format();
+					$image = get_template_directory_uri() . '/images/image.svg';
+					$formats = array( 'gallery', 'image', 'video' );
+					if ( in_array( $format, $formats ) ) {
+						$image = get_template_directory_uri() . '/images/' . $format . '.svg';
 					}
-					$target = '';
-					if ( get_post_meta( $post->ID, 'portfolioplus_url_target', true ) ) {
-						$target = ' target="_blank"';
-					}
-					?>
-					<a href="<?php echo $link; ?>" <?php echo $target; ?> rel="bookmark" class="thumb">
-						<h3><?php the_title() ?></h3>
-						<?php if ( has_post_format() ) :
-							$format = get_post_format();
-						?>
-						<div class="portfolio-format-meta icon-format-<?php echo $format; ?>"></div>
-						<?php endif; ?>
-						<?php if ( post_password_required() ) { ?>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/protected-' . $thumbnail . '.gif' ); ?>">
-						<?php }
-						elseif ( has_post_thumbnail() ) {
-							the_post_thumbnail( 'portfolio-' . $thumbnail );
-						} else { ?>
-							<img src="<?php echo esc_url( get_template_directory_uri() . '/images/placeholder-' . $thumbnail . '.gif' ); ?>">
-						<?php } ?>
-					</a>
-				</div><!-- .entry-content -->
-			</article><!-- #post-<?php the_ID(); ?> -->
+					$class = 'fallback-thumbnail';
+				}
 
-		<?php endwhile; ?>
+				// If password is required, always show lock image
+				if ( post_password_required() ) {
+					$image = get_template_directory_uri() . '/images/lock.svg';
+					$class = 'fallback-thumbnail';
+				}
+				?>
 
-		<?php portfolioplus_paging_nav( $portfolio ); ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<div class="entry-content">
+						<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb">
+							<h3><?php the_title() ?></h3>
+							<img class="<?php echo $class; ?>" src="<?php echo esc_url( $image ); ?>" height="360" width="260">
+						</a>
+					</div><!-- .entry-content -->
+				</article><!-- #post-<?php the_ID(); ?> -->
 
-	<?php else : ?>
-		<?php get_template_part( 'content', 'none' ); ?>
-	<?php endif; ?>
+			<?php endwhile; ?>
+
+			<?php portfolioplus_paging_nav( $portfolio ); ?>
+
+		<?php else : ?>
+			<?php get_template_part( 'content', 'none' ); ?>
+		<?php endif; ?>
 
 	</div><!-- #content -->
 </div><!-- #primary -->

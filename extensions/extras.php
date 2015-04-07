@@ -95,6 +95,7 @@ function portfolioplus_page_templates_mod( $templates ) {
 	if ( !class_exists( 'Portfolio_Post_Type' ) ) {
 		unset( $templates['templates/portfolio.php'] );
 		unset( $templates['templates/full-width-portfolio.php'] );
+		unset( $templates['templates/portfolio-categories.php'] );
 	}
 	return $templates;
 }
