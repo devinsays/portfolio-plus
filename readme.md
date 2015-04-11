@@ -20,6 +20,7 @@ Additional testing and code audits were done by [Michael Fields](http://wordpres
 * Update: Show the content on search and author archives
 * Update: Allow galleries to fill content width
 * Update: Use SVG for fallback images
+* Update: Slight markup changes for portfolio templates
 
 3.6.2
 ---
