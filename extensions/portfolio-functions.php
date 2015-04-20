@@ -116,12 +116,12 @@ function portfolioplus_body_class( $classes ) {
 
 	return $classes;
 }
-
 add_filter( 'body_class','portfolioplus_body_class' );
 
 /**
  * Helper function for displaying image
  */
+if ( ! function_exists( 'portfolioplus_display_image' ) ) :
 function portfolioplus_display_image() {
 
 	// Exit if no featured image is set
@@ -157,6 +157,7 @@ function portfolioplus_display_image() {
 	</div>
 	<?php  }
 }
+endif;
 
 /**
  * Add a checkbox to the featured image metabox
@@ -170,6 +171,7 @@ if ( of_get_option( 'portfolio_images', '1' ) ) {
  *
  * @param string $content
  */
+if ( ! function_exists( 'portfolioplus_featured_image_meta' ) ) :
 function portfolioplus_featured_image_meta( $content ) {
 	global $post;
 	$text = __( "Don't display image in post.", 'portfolioplus' );
@@ -178,6 +180,7 @@ function portfolioplus_featured_image_meta( $content ) {
     $label = '<label for="' . $id . '" class="selectit"><input name="' . $id . '" type="checkbox" id="' . $id . '" value="' . $value . ' "'. checked( $value, 1, false) .'> ' . $text .'</label>';
     return $content .= $label;
 }
+endif;
 
 /**
  * Action hooks for metaboxes.
@@ -189,6 +192,7 @@ add_action( 'load-post-new.php', 'portfolioplus_meta_boxes_setup' );
 /**
  * Meta box setup function.
  */
+if ( ! function_exists( 'portfolioplus_meta_boxes_setup' ) ) :
 function portfolioplus_meta_boxes_setup() {
 
 	/* Add meta boxes on the 'add_meta_boxes' hook. */
@@ -197,6 +201,7 @@ function portfolioplus_meta_boxes_setup() {
 	/* Save post meta on the 'save_post' hook. */
 	add_action( 'save_post', 'portfolioplus_verify_meta', 10, 2 );
 }
+endif;
 
 /**
  * Create metaboxes to be displayed on the post editor screen.
@@ -204,6 +209,7 @@ function portfolioplus_meta_boxes_setup() {
  * @link http://codex.wordpress.org/Function_Reference/add_meta_box
  * @param string $post_type
  */
+if ( ! function_exists( 'portfolioplus_add_post_meta_boxes' ) ) :
 function portfolioplus_add_post_meta_boxes( $post_type ) {
 
 	$types = array( 'post', 'portfolio' );
@@ -231,12 +237,14 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 		endif;
 	}
 }
+endif;
 
 /**
  * Display the portfolio url metabox.
  *
  * @param object $post
  */
+if ( ! function_exists( 'portfolioplus_url_meta_box' ) ) :
 function portfolioplus_url_meta_box( $post ) { ?>
 	<?php wp_nonce_field( basename( __FILE__ ), 'portfolioplus_nonce' ); ?>
 	<p>
@@ -252,12 +260,14 @@ function portfolioplus_url_meta_box( $post ) { ?>
 			<input name="portfolioplus_url_target" type="checkbox" id="portfolioplus-url-target" value="<?php echo $value; ?>" <?php echo checked( $value, 1, false); ?>><?php _e( 'Open link in new window', 'portfolioplus' ); ?></label>
 	</p>
 <?php }
+endif;
 
 /**
  * Display the post template metabox
  *
  * @param object $post
  */
+if ( ! function_exists( 'portfolioplus_post_template_meta_box' ) ) :
 function portfolioplus_post_template_meta_box( $post ) { ?>
 	<?php $value = get_post_meta( $post->ID, 'portfolioplus_post_template', true ); ?>
 	<p><strong><?php _e( 'Template', 'portfolioplus' ); ?></strong></p>
@@ -268,6 +278,7 @@ function portfolioplus_post_template_meta_box( $post ) { ?>
 	</select>
 	<p>
 <?php }
+endif;
 
 /**
  * Verify that the meta data can be saved.
@@ -275,6 +286,7 @@ function portfolioplus_post_template_meta_box( $post ) { ?>
  * @param numeric $post_id
  * @param object $post
  */
+if ( ! function_exists( 'portfolioplus_verify_meta' ) ) :
 function portfolioplus_verify_meta( $post_id, $post ) {
 
 	// Verify the nonce before proceeding.
@@ -323,6 +335,7 @@ function portfolioplus_verify_meta( $post_id, $post ) {
 	// Update the featured image meta
 	portfolioplus_update_meta( $post_id, $image_meta_value, 'hide_featured_image' );
 }
+endif;
 
 /**
  * Update post meta.
@@ -331,6 +344,7 @@ function portfolioplus_verify_meta( $post_id, $post ) {
  * @param string $new_meta_value
  * @param numeric $meta_key
  */
+if ( ! function_exists( 'portfolioplus_update_meta' ) ) :
 function portfolioplus_update_meta( $post_id, $new_meta_value, $meta_key ) {
 
 	/* Get the meta value of the custom field key. */
@@ -351,3 +365,4 @@ function portfolioplus_update_meta( $post_id, $new_meta_value, $meta_key ) {
 		delete_post_meta( $post_id, $meta_key, $meta_value );
 	}
 }
+endif;
