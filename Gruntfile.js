@@ -87,6 +87,28 @@ module.exports = function(grunt) {
 					}
 				]
 			}
+		},
+		replace: {
+			styleVersion: {
+				src: [
+					'scss/style.scss',
+				],
+				overwrite: true,
+				replacements: [{
+					from: /Version:.*$/m,
+					to: 'Version: <%= pkg.version %>'
+				}]
+			},
+			functionsVersion: {
+				src: [
+					'functions.php'
+				],
+				overwrite: true,
+				replacements: [ {
+					from: /^define\( 'PORTFOLIO_VERSION'.*$/m,
+					to: 'define( \'PORTFOLIO_VERSION\', \'<%= pkg.version %>\' );'
+				} ]
+			},
 		}
 
 	});
@@ -97,6 +119,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask( 'release', [
+	    'replace',
 	    'sass',
 		'autoprefixer',
 		'csscomb',

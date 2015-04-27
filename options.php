@@ -124,7 +124,7 @@ function optionsframework_options() {
 		'type' => 'upload'
 	);
 
-	if ( !of_get_option('logo' ) ) {
+	if ( !of_get_option( 'logo' ) ) {
 		$options['tagline'] = array(
 			'name' => __( 'Display Site Tagline', 'portfolio-plus' ),
 			'desc' => __( 'Display tagline under site title.', 'portfolio-plus' ),

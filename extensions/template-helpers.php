@@ -141,7 +141,7 @@ if ( ! function_exists( 'portfolioplus_post_nav' ) ) :
  */
 function portfolioplus_post_nav() {
 
-	if ( of_get_option( 'portfolio_navigation', 0 ) ) {
+	if ( ! of_get_option( 'portfolio_navigation', false ) ) {
 		return;
 	}
 
