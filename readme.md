@@ -15,6 +15,7 @@ Development
 
 * Update: Allow functions in portfolio-functions.php to be overridden
 * Fix: Post navigation option
+* Fix: IE Footer Display (again)
 
 3.7.0
 ---

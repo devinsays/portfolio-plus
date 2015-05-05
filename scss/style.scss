@@ -40,11 +40,7 @@ body {
 	font-size: 14px;
 	line-height: 1.5;
 	min-height: 100%;
-	display: -webkit-flex;
- 	display: -ms-flexbox;
  	display: flex;
- 	-webkit-flex-direction: column;
- 	-ms-flex-direction: column;
 	flex-direction: column;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -98,8 +94,6 @@ a:active {
 -------------------------------------------------------------- */
 
 #page {
-	-webkit-flex: 1 0 auto;
-	-ms-flex: 1 0 auto;
 	flex: 1 0 auto;
 }
 #main {

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio+ 3.7.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-04-11 18:33:21+00:00\n"
+"POT-Creation-Date: 2015-05-05 02:59:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -380,41 +380,41 @@ msgstr ""
 msgid "Footer Background Color"
 msgstr ""
 
-#: extensions/portfolio-functions.php:175
+#: extensions/portfolio-functions.php:177
 msgid "Don't display image in post."
 msgstr ""
 
-#: extensions/portfolio-functions.php:215
+#: extensions/portfolio-functions.php:221
 msgid "Portfolio Link"
 msgstr ""
 
-#: extensions/portfolio-functions.php:225
+#: extensions/portfolio-functions.php:231
 msgid "Post Attributes"
 msgstr ""
 
-#: extensions/portfolio-functions.php:243
+#: extensions/portfolio-functions.php:251
 msgid ""
 "If you enter a url below, your image, gallery, or portfolio item will link "
 "to it from the archive."
 msgstr ""
 
-#: extensions/portfolio-functions.php:252
+#: extensions/portfolio-functions.php:260
 msgid "Open link in new window"
 msgstr ""
 
-#: extensions/portfolio-functions.php:263
+#: extensions/portfolio-functions.php:273
 msgid "Template"
 msgstr ""
 
-#: extensions/portfolio-functions.php:264
+#: extensions/portfolio-functions.php:274
 msgid "Post Template"
 msgstr ""
 
-#: extensions/portfolio-functions.php:266
+#: extensions/portfolio-functions.php:276
 msgid "Default Template"
 msgstr ""
 
-#: extensions/portfolio-functions.php:267
+#: extensions/portfolio-functions.php:277
 msgid "Full Width"
 msgstr ""
 
