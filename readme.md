@@ -10,6 +10,11 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 
 Additional testing and code audits were done by [Michael Fields](http://wordpress.mfields.org/) and [Jake Goldman](https://twitter.com/jakemgold).
 
+3.7.2
+---
+
+* Fix: Portfolio Categories template not working full-width
+
 3.7.1
 ---
 
