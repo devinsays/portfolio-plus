@@ -142,10 +142,21 @@ add_action( 'wp_enqueue_scripts', 'portfolioplus_scripts' );
 function portfolioplus_fonts() {
 
 	// Google Font
-	wp_enqueue_style( 'portfolioplus_fonts', '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700', '', null, 'screen' );
+	wp_enqueue_style(
+		'portfolioplus_fonts',
+		'//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700',
+		'',
+		null,
+		'screen'
+	);
 
 	// Icon font
-	wp_enqueue_style( 'portfolioplus_icon_font', get_template_directory_uri() . '/fonts/custom/portfolio-custom.css', array(), PORTFOLIO_VERSION );
+	wp_enqueue_style(
+		'portfolioplus_icon_font',
+		get_template_directory_uri() . '/fonts/custom/portfolio-custom.css',
+		array(),
+		PORTFOLIO_VERSION
+	);
 
 }
 add_action( 'wp_enqueue_scripts', 'portfolioplus_fonts', 10 );
@@ -207,9 +218,14 @@ function portfolioplus_widgets_init() {
 add_action( 'init', 'portfolioplus_widgets_init' );
 
 /**
- * Sets up the options panel and default functions
+ * Helper library for the theme customizer.
  */
-require_once( get_template_directory() . '/extensions/options-functions.php' );
+require get_template_directory() . '/extensions/customizer-library/customizer-library.php';
+
+/**
+ * Define options for the theme customizer.
+ */
+require get_template_directory() . '/extensions/customizer-options.php';
 
 /**
  * Adds general template functions
