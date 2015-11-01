@@ -11,7 +11,7 @@
 if ( ! function_exists( 'portfolioplus_postby_meta' ) ):
 function portfolioplus_postby_meta() {
 
-	if ( of_get_option( 'display_dates', 1 ) ) :
+	if ( portfolioplus_get_option( 'display_dates', 1 ) ) :
 
 	printf( __( '<span class="meta-prep meta-prep-author">Posted </span><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'portfolioplus' ),
         esc_url( get_permalink() ),
@@ -141,7 +141,7 @@ if ( ! function_exists( 'portfolioplus_post_nav' ) ) :
  */
 function portfolioplus_post_nav() {
 
-	if ( ! of_get_option( 'portfolio_navigation', false ) ) {
+	if ( ! portfolioplus_get_option( 'portfolio_navigation', false ) ) {
 		return;
 	}
 

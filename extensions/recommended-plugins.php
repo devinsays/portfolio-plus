@@ -11,13 +11,6 @@ function portfolioplus_recommended_plugins() {
 	// Recommended Plugins
 	$plugins = array(
 
-		// Options Framework
-		array(
-			'name' 		=> 'Options Framework',
-			'slug' 		=> 'options-framework',
-			'required' 	=> false,
-		),
-
 		// Regenerate thumbnails
 		array(
 			'name' 		=> 'Regenerate Thumbnails',

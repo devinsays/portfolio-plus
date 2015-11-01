@@ -237,20 +237,20 @@ function portfolioplus_styles() {
 	}
 
 	/*
-	if ( of_get_option( 'header_bg' ) ) {
-		$output .= portfolioplus_output_bg( '#branding', of_get_option('header_bg'), array('color'=>'#000000') );
+	if ( portfolioplus_get_option( 'header_bg' ) ) {
+		$output .= portfolioplus_output_bg( '#branding', portfolioplus_get_option('header_bg'), array('color'=>'#000000') );
 	}
 
-	$main_bg = of_get_option( 'main_bg' );
+	$main_bg = portfolioplus_get_option( 'main_bg' );
 	if ( $main_bg ) {
-		$output .= portfolioplus_output_bg( 'body', of_get_option('main_bg'), array('color'=>'#f6f6f6') );
+		$output .= portfolioplus_output_bg( 'body', portfolioplus_get_option('main_bg'), array('color'=>'#f6f6f6') );
 		if ( $main_bg['color'] != '#f6f6f6' ) {
 			$output .= "#content .entry-title, .widget-container h3, #nav-below { text-shadow: none; }\n";
 		}
 	}
 
-	if ( of_get_option( 'footer_bg' ) ) {
-		$output .= portfolioplus_output_bg( '#colophon', of_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
+	if ( portfolioplus_get_option( 'footer_bg' ) ) {
+		$output .= portfolioplus_output_bg( '#colophon', portfolioplus_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
 	}
 	*/
 
@@ -303,7 +303,7 @@ if ( ! function_exists( 'portfolioplus_display_customizations' ) ) :
 function portfolioplus_display_customizations() {
 
 	// If custom styles are turned off, return early
-	if ( of_get_option( 'disable_styles', false ) ) {
+	if ( portfolioplus_get_option( 'disable_styles', false ) ) {
 		return;
 	}
 

@@ -5,7 +5,7 @@
  * @package Portfolio+
  */
 
-if ( of_get_option( 'layout' ) != 'layout-1col' ) :
+if ( portfolioplus_get_option( 'layout' ) != 'layout-1col' ) :
 
 	if ( ! portfolioplus_post_template() ) { ?>
 	<div id="sidebar" role="complementary">

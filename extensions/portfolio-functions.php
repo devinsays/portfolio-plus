@@ -67,7 +67,7 @@ function portfolioplus_body_class( $classes ) {
 		get_query_var( 'portfolio_view' )
 	) {
 		$classes[] = 'portfolio-view';
-		if ( of_get_option( 'portfolio_sidebar', false ) ) {
+		if ( portfolioplus_get_option( 'portfolio_sidebar', false ) ) {
 			$classes[] = 'full-width-portfolio';
 		}
 	}
@@ -105,7 +105,7 @@ function portfolioplus_body_class( $classes ) {
 		}
 	}
 
-	if ( !of_get_option( 'portfolio_sidebar', false ) ) {
+	if ( !portfolioplus_get_option( 'portfolio_sidebar', false ) ) {
 		if (
 			is_page_template( 'templates/full-width-portfolio.php' ) ||
 			is_page_template( 'templates/full-width-image-gallery-formats.php' )
@@ -131,7 +131,7 @@ function portfolioplus_display_image() {
 
 	// Don't display images on single post if the option is turned off
 	if ( is_single() ) {
-		if ( ! of_get_option( 'portfolio_images', '1' ) ) {
+		if ( ! portfolioplus_get_option( 'portfolio_images', '1' ) ) {
 			return;
 		}
 
@@ -146,7 +146,7 @@ function portfolioplus_display_image() {
 		<?php if ( !is_single() ) { ?>
 			<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb">
 		<?php } ?>
-		<?php if ( ( of_get_option( 'layout' ) == 'layout-1col' ) || portfolioplus_post_template() ) {
+		<?php if ( ( portfolioplus_get_option( 'layout' ) == 'layout-1col' ) || portfolioplus_post_template() ) {
 			the_post_thumbnail( 'portfolio-fullwidth' );
 		} else {
 			the_post_thumbnail( 'portfolio-large' );
@@ -162,7 +162,7 @@ endif;
 /**
  * Add a checkbox to the featured image metabox
  */
-if ( of_get_option( 'portfolio_images', '1' ) ) {
+if ( portfolioplus_get_option( 'portfolio_images', '1' ) ) {
 	add_filter( 'admin_post_thumbnail_html', 'portfolioplus_featured_image_meta');
 }
 
@@ -225,7 +225,7 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 			'high'	// Priority
 		);
 
-		if ( of_get_option( 'layout' ) != 'layout-1col' ) :
+		if ( portfolioplus_get_option( 'layout' ) != 'layout-1col' ) :
 		add_meta_box(
 			'portfolioplus-post-atrributes',	// Unique ID
 			esc_html__( 'Post Attributes', 'portfolioplus' ),	// Title

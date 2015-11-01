@@ -16,7 +16,7 @@ if ( ! function_exists( 'portfolioplus_get_option' ) ) :
  */
 function portfolioplus_get_option( $name, $default = false ) {
 
-	$options = get_option( 'portfoliopress' );
+	$options = get_option( 'portfolioplus' );
 
 	if ( isset( $options[$name] ) ) {
 		return $options[$name];
@@ -37,7 +37,7 @@ if ( ! function_exists( 'of_get_option' ) ) :
  */
 function of_get_option( $name, $default = false ) {
 
-	$options = get_option( 'portfoliopress' );
+	$options = get_option( 'portfolioplus' );
 
 	if ( isset( $options[$name] ) ) {
 		return $options[$name];
@@ -53,10 +53,10 @@ endif;
 function portfolioplus_body_class_options( $classes ) {
 
 	// Layout options
-	$classes[] = of_get_option( 'layout','layout-2cr' );
+	$classes[] = portfolioplus_get_option( 'layout','layout-2cr' );
 
 	// Clear the menu if selected
-	if ( of_get_option( 'menu_position', false ) == 'clear' ) {
+	if ( portfolioplus_get_option( 'menu_position', false ) == 'clear' ) {
 		$classes[] = 'clear-menu';
 	}
 
@@ -73,7 +73,7 @@ add_filter( 'body_class', 'portfolioplus_body_class_options' );
  */
 function portfolioplus_post_template() {
 
-	if ( of_get_option( 'layout' ) == 'layout-1col' ) {
+	if ( portfolioplus_get_option( 'layout' ) == 'layout-1col' ) {
 		return false;
 	}
 
@@ -90,7 +90,7 @@ function portfolioplus_post_template() {
  * Infinite Scroll
  */
 function portfolioplus_infinite_scroll_js() {
-    if ( !is_single() && of_get_option( 'infinite_scroll', true ) ) { ?>
+    if ( !is_single() && portfolioplus_get_option( 'infinite_scroll', true ) ) { ?>
 	    <script>
 	    var infinite_scroll = {
 	        loading: {
@@ -119,7 +119,7 @@ add_action( 'wp_footer', 'portfolioplus_infinite_scroll_js', 100 );
  */
 function portfolioplus_exclude_post_formats( $query ) {
 	if (
-		! of_get_option( 'display_image_gallery_post_formats', true ) &&
+		! portfolioplus_get_option( 'display_image_gallery_post_formats', true ) &&
 		$query->is_main_query() &&
 		$query->is_home()
 	) {

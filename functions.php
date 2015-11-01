@@ -124,7 +124,7 @@ function portfolioplus_scripts() {
     	wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( !is_single() && of_get_option( 'infinite_scroll', true ) ) {
+	if ( !is_single() && portfolioplus_get_option( 'infinite_scroll', true ) ) {
 		wp_enqueue_script(
 			'portfolioplus-infinite-scroll',
 			get_template_directory_uri() . '/js/jquery.infinitescroll.min.js',
@@ -228,12 +228,17 @@ require get_template_directory() . '/extensions/customizer-library/customizer-li
 require get_template_directory() . '/extensions/customizer-options.php';
 
 /**
- * Adds general template functions
+ * Implements options selected in the customerizer.
+ */
+require get_template_directory() . '/extensions/mods.php';
+
+/**
+ * Adds general template functions.
  */
 require_once( get_template_directory() . '/extensions/template-helpers.php' );
 
 /**
- * Adds general portfolio functions
+ * Adds general portfolio functions.
  */
 require_once( get_template_directory() . '/extensions/portfolio-functions.php' );
 
@@ -243,12 +248,12 @@ require_once( get_template_directory() . '/extensions/portfolio-functions.php' )
 require_once( get_template_directory() . '/extensions/extras.php' );
 
 /**
- * Displays notices for recommended plugins
+ * Displays notices for recommended plugins.
  */
 require_once( get_template_directory() . '/extensions/recommended-plugins.php' );
 
 /**
- * Required functions for the portfolio category template
+ * Required functions for the portfolio category template.
  */
 if ( class_exists( 'Portfolio_Post_Type' ) ) {
 	require_once( get_template_directory() . '/extensions/portfolio-category-functions.php' );

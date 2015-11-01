@@ -27,14 +27,14 @@
         <?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
 			<hgroup id="logo">
 				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-                <?php if ( of_get_option( 'logo', false) ) { ?>
-					<img src="<?php echo esc_url( of_get_option( 'logo' ) ); ?>" alt="<?php echo bloginfo( 'name' ) ?>">
+                <?php if ( portfolioplus_get_option( 'logo', false) ) { ?>
+					<img src="<?php echo esc_url( portfolioplus_get_option( 'logo' ) ); ?>" alt="<?php echo bloginfo( 'name' ) ?>">
 				<?php } else {
 					bloginfo( 'name' );
 				}?>
                 </a>
                 </<?php echo $heading_tag; ?>>
-				<?php if ( !of_get_option( 'logo', false ) &&  of_get_option( 'tagline', true ) ) { ?>
+				<?php if ( ! portfolioplus_get_option( 'logo', false ) &&  portfolioplus_get_option( 'tagline', true ) ) { ?>
                 	<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
                 <?php } ?>
 			</hgroup>

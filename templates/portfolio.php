@@ -27,8 +27,8 @@ $thumbnail = 'thumbnail';
 
 // Set fullwidth thumbnail size
 if (
-	of_get_option( 'portfolio_sidebar' ) ||
-	of_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
+	portfolioplus_get_option( 'portfolio_sidebar' ) ||
+	portfolioplus_get_option( 'layout', 'layout-2cr' ) ==  'layout-1col' ) {
 	$thumbnail = 'thumbnail-fullwidth';
 }
 ?>
@@ -86,5 +86,5 @@ if (
 
 <?php wp_reset_query(); ?>
 
-<?php if ( ! of_get_option( 'portfolio_sidebar', false ) ) { get_sidebar(); } ?>
+<?php if ( ! portfolioplus_get_option( 'portfolio_sidebar', false ) ) { get_sidebar(); } ?>
 <?php get_footer(); ?>

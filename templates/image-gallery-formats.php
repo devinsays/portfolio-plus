@@ -56,5 +56,5 @@ query_posts( $args );
 
 <?php wp_reset_query(); ?>
 
-<?php if ( !of_get_option( 'portfolio_sidebar', false ) ) { get_sidebar(); } ?>
+<?php if ( !portfolioplus_get_option( 'portfolio_sidebar', false ) ) { get_sidebar(); } ?>
 <?php get_footer(); ?>

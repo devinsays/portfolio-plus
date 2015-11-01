@@ -19,7 +19,7 @@
 
 	<div class="entry-content">
 
-		<?php if ( of_get_option( 'portfolio_images', true ) ) {
+		<?php if ( portfolioplus_get_option( 'portfolio_images', true ) ) {
 			portfolioplus_display_image();
 		} ?>
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'portfolio-plus' ) ); ?>

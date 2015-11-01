@@ -31,7 +31,7 @@ function portfolioplus_options() {
 		'default' => '',
 	);
 
-	if ( !of_get_option( 'logo' ) ) :
+	if ( !portfolioplus_get_option( 'logo' ) ) :
 
 	$options['portfolioplus[tagline]'] = array(
 		'id' => 'portfolioplus[tagline]',
@@ -147,7 +147,7 @@ function portfolioplus_options() {
 		'default' => '#ffffff',
 	);
 
-	if ( of_get_option( 'tagline', true ) ) :
+	if ( portfolioplus_get_option( 'tagline', true ) ) :
 
 	$options['portfolioplus[tagline_color]'] = array(
 		'id' => 'portfolioplus[tagline_color]',
