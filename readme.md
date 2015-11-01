@@ -15,6 +15,11 @@ Development
 
 * Fix: Image sizing for templates/portfolio.php and templates/full-width-portfolio.php
 
+3.7.3
+---
+
+* Fix: External linking of portfolio items fixed
+
 3.7.2
 ---
 
@@ -25,7 +30,7 @@ Development
 
 * Update: Allow functions in portfolio-functions.php to be overridden
 * Fix: Post navigation option
-* Fix: IE Footer Display (again! ARRHG!)
+* Fix: IE Footer Display
 
 3.7.0
 ---

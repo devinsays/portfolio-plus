@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio+ 3.7.2\n"
+"Project-Id-Version: Portfolio+ 3.7.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2015-05-06 17:16:15+00:00\n"
+"POT-Creation-Date: 2015-11-01 22:02:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -341,6 +341,253 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
+#: extensions/customizer-library/extensions/fonts.php:18
+msgid "Standard Fonts"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:20
+msgid "Google Fonts"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:125
+msgid "All"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:126
+msgid "Cyrillic"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:127
+msgid "Cyrillic Extended"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:128
+msgid "Devanagari"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:129
+msgid "Greek"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:130
+msgid "Greek Extended"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:131
+msgid "Khmer"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:132
+msgid "Latin"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:133
+msgid "Latin Extended"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:134
+msgid "Vietnamese"
+msgstr ""
+
+#: extensions/customizer-options.php:21
+msgid "Logo Image"
+msgstr ""
+
+#: extensions/customizer-options.php:28
+msgid "Logo"
+msgstr ""
+
+#: extensions/customizer-options.php:39
+msgid "Display Site Tagline"
+msgstr ""
+
+#: extensions/customizer-options.php:53
+msgid "Layout"
+msgstr ""
+
+#: extensions/customizer-options.php:58
+msgid "Sidebar Right"
+msgstr ""
+
+#: extensions/customizer-options.php:59
+msgid "Sidebar Left"
+msgstr ""
+
+#: extensions/customizer-options.php:60
+msgid "Single Column"
+msgstr ""
+
+#: extensions/customizer-options.php:66
+msgid "Standard Layout"
+msgstr ""
+
+#: extensions/customizer-options.php:76
+msgid "Infinite Scroll"
+msgstr ""
+
+#: extensions/customizer-options.php:77
+msgid ""
+"Load new posts as the user scrolls down.  (\"Display Image and Gallery "
+"Formats on Posts Page\" should be unchecked under the \"Portfolio\" tab for "
+"infinite scroll to work best.)"
+msgstr ""
+
+#: extensions/customizer-options.php:86
+msgid "Display dates"
+msgstr ""
+
+#: extensions/customizer-options.php:87
+msgid "Display dates on posts."
+msgstr ""
+
+#: extensions/customizer-options.php:96 extensions/customizer-options.php:312
+msgid "Display post navigation"
+msgstr ""
+
+#: extensions/customizer-options.php:97
+msgid "Show prev/next links."
+msgstr ""
+
+#: extensions/customizer-options.php:106 extensions/customizer-options.php:367
+msgid "Archive Titles"
+msgstr ""
+
+#: extensions/customizer-options.php:107 extensions/customizer-options.php:368
+msgid "Display archive titles and descriptions."
+msgstr ""
+
+#: extensions/customizer-options.php:116
+msgid "Disable Styles"
+msgstr ""
+
+#: extensions/customizer-options.php:128
+msgid "Colors"
+msgstr ""
+
+#: extensions/customizer-options.php:135
+msgid "Header Color"
+msgstr ""
+
+#: extensions/customizer-options.php:144
+msgid "Site Title Color"
+msgstr ""
+
+#: extensions/customizer-options.php:155
+msgid "Tagline Color"
+msgstr ""
+
+#: extensions/customizer-options.php:166
+msgid "Menu Link Color"
+msgstr ""
+
+#: extensions/customizer-options.php:175
+msgid "Header Bottom Border Color"
+msgstr ""
+
+#: extensions/customizer-options.php:184
+msgid "Body Font Color"
+msgstr ""
+
+#: extensions/customizer-options.php:193
+msgid "Heading/Title Colors (H1, H2, H3)"
+msgstr ""
+
+#: extensions/customizer-options.php:202
+msgid "Link color"
+msgstr ""
+
+#: extensions/customizer-options.php:211
+msgid "Hover color"
+msgstr ""
+
+#: extensions/customizer-options.php:220
+msgid "Sidebar Heading/Title Colors (Widgets)"
+msgstr ""
+
+#: extensions/customizer-options.php:229
+msgid "Border Colors"
+msgstr ""
+
+#: extensions/customizer-options.php:238
+msgid "Footer Text Color"
+msgstr ""
+
+#: extensions/customizer-options.php:247
+msgid "Footer Top Border Color"
+msgstr ""
+
+#: extensions/customizer-options.php:257
+msgid "Right of Logo"
+msgstr ""
+
+#: extensions/customizer-options.php:258
+msgid "Underneath Logo"
+msgstr ""
+
+#: extensions/customizer-options.php:264
+msgid "Menu Position"
+msgstr ""
+
+#: extensions/customizer-options.php:278
+msgid "General"
+msgstr ""
+
+#: extensions/customizer-options.php:288 extensions/customizer-options.php:300
+msgid "Display Featured Images"
+msgstr ""
+
+#: extensions/customizer-options.php:289
+msgid "Display featured images on portfolio posts."
+msgstr ""
+
+#: extensions/customizer-options.php:301
+msgid "Display featured images on posts."
+msgstr ""
+
+#: extensions/customizer-options.php:313
+msgid "Previous/next links on posts."
+msgstr ""
+
+#: extensions/customizer-options.php:324
+msgid "Archive"
+msgstr ""
+
+#: extensions/customizer-options.php:334 extensions/customizer-options.php:346
+msgid "Full Width Archives"
+msgstr ""
+
+#: extensions/customizer-options.php:335
+msgid "Display portfolio archives full width."
+msgstr ""
+
+#: extensions/customizer-options.php:347
+msgid "Display image/gallery archives full width."
+msgstr ""
+
+#: extensions/customizer-options.php:358 options.php:75
+msgid "Display Image and Gallery Formats on Posts Page"
+msgstr ""
+
+#: extensions/customizer-options.php:379
+msgid "Footer"
+msgstr ""
+
+#: extensions/customizer-options.php:386
+msgid "Footer Text"
+msgstr ""
+
+#: extensions/customizer-options.php:394
+msgid "Arbitrary Content"
+msgstr ""
+
+#: extensions/customizer-options.php:397
+msgid "Content to output. Use <a href=\"#\">HTML</a> if you like."
+msgstr ""
+
+#: extensions/customizer-options.php:398
+msgid "Description if you like."
+msgstr ""
+
 #: extensions/extras.php:31
 msgid "Page %s"
 msgstr ""
@@ -352,32 +599,8 @@ msgid ""
 "href=\"%1$s\">Update It</a> | <a href=\"%2$s\">Dismiss Notice</a>."
 msgstr ""
 
-#: extensions/options-functions.php:245
+#: extensions/mods.php:99
 msgid "All items have loaded."
-msgstr ""
-
-#: extensions/options-functions.php:306
-msgid "Layout"
-msgstr ""
-
-#: extensions/options-functions.php:342
-msgid "Header Styles"
-msgstr ""
-
-#: extensions/options-functions.php:352
-msgid "Background Color"
-msgstr ""
-
-#: extensions/options-functions.php:405
-msgid "Body Styles"
-msgstr ""
-
-#: extensions/options-functions.php:490
-msgid "Footer Styles"
-msgstr ""
-
-#: extensions/options-functions.php:500
-msgid "Footer Background Color"
 msgstr ""
 
 #: extensions/portfolio-functions.php:177
@@ -586,27 +809,27 @@ msgstr ""
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:159
+#: functions.php:170
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:179
 msgid "Footer 1"
 msgstr ""
 
-#: functions.php:170 functions.php:180 functions.php:190 functions.php:200
+#: functions.php:181 functions.php:191 functions.php:201 functions.php:211
 msgid "Widgetized footer"
 msgstr ""
 
-#: functions.php:178
+#: functions.php:189
 msgid "Footer 2"
 msgstr ""
 
-#: functions.php:188
+#: functions.php:199
 msgid "Footer 3"
 msgstr ""
 
-#: functions.php:198
+#: functions.php:209
 msgid "Footer 4"
 msgstr ""
 
@@ -625,212 +848,31 @@ msgid ""
 "image\">%2$s &times; %3$s</a> "
 msgstr ""
 
-#: options.php:44
-msgid "General"
-msgstr ""
-
-#: options.php:49
-msgid "Main Layout"
-msgstr ""
-
-#: options.php:50
-msgid "Select main content and sidebar alignment."
-msgstr ""
-
-#: options.php:62
-msgid "Custom Favicon"
-msgstr ""
-
-#: options.php:63
-msgid "Upload a favicon (16px)"
-msgstr ""
-
-#: options.php:69
-msgid "Infinite Scroll"
-msgstr ""
-
-#: options.php:70
-msgid ""
-"Load new posts as the user scrolls down.  (\"Display Image and Gallery "
-"Formats on Posts Page\" should be unchecked under the \"Portfolio\" tab for "
-"infinite scroll to work best.)"
-msgstr ""
-
-#: options.php:77
-msgid "Display dates"
-msgstr ""
-
-#: options.php:78
-msgid "Display dates on posts."
-msgstr ""
-
-#: options.php:85
-msgid "Display post navigation"
-msgstr ""
-
-#: options.php:86
-msgid "Show prev/next links."
-msgstr ""
-
-#: options.php:93
-msgid "Archive Titles"
-msgstr ""
-
-#: options.php:94
-msgid "Display archive titles and descriptions."
-msgstr ""
-
-#: options.php:101
-msgid "Custom Footer Text"
-msgstr ""
-
-#: options.php:102
-msgid "Custom text that will appear in the footer of your theme."
-msgstr ""
-
-#: options.php:116
-msgid "Header"
-msgstr ""
-
-#: options.php:121
-msgid "Custom Logo"
-msgstr ""
-
-#: options.php:122
-msgid "Upload a logo (optional)"
-msgstr ""
-
-#: options.php:129
-msgid "Display Site Tagline"
-msgstr ""
-
-#: options.php:130
-msgid "Display tagline under site title."
-msgstr ""
-
-#: options.php:138
+#: options.php:42
 msgid "Header Background"
 msgstr ""
 
-#: options.php:145
-msgid "Header Text Colors"
-msgstr ""
-
-#: options.php:151
-msgid "Site Title Color"
-msgstr ""
-
-#: options.php:158
-msgid "Tagline Color"
-msgstr ""
-
-#: options.php:166
-msgid "Menu Link Color"
-msgstr ""
-
-#: options.php:173
-msgid "Header Bottom Border Color"
-msgstr ""
-
-#: options.php:180
-msgid "Menu Position"
-msgstr ""
-
-#: options.php:181
-msgid ""
-"Select where the main menu should go in the header.  Long menus should go "
-"underneath."
-msgstr ""
-
-#: options.php:192
+#: options.php:49
 msgid "Styles"
 msgstr ""
 
-#: options.php:197
+#: options.php:55
 msgid "Body Background"
 msgstr ""
 
-#: options.php:204
-msgid "Body Font Color"
-msgstr ""
-
-#: options.php:211
-msgid "Heading/Title Colors (H1, H2, H3)"
-msgstr ""
-
-#: options.php:218
-msgid "Link Colors"
-msgstr ""
-
-#: options.php:224
-msgid "Link color"
-msgstr ""
-
-#: options.php:231
-msgid "Hover color"
-msgstr ""
-
-#: options.php:238
-msgid "Sidebar Heading/Title Colors (Widgets)"
-msgstr ""
-
-#: options.php:245
-msgid "Border Colors"
-msgstr ""
-
-#: options.php:252
-msgid "Footer Text Color"
-msgstr ""
-
-#: options.php:259
-msgid "Footer Top Border Color"
-msgstr ""
-
-#: options.php:266
+#: options.php:63
 msgid "Footer Background"
 msgstr ""
 
-#: options.php:280
-msgid "Display Images on Portfolio / Image Posts"
-msgstr ""
-
-#: options.php:281 options.php:291
-msgid "Display featured images automatically on posts."
-msgstr ""
-
-#: options.php:290
-msgid "Display Images Automatically on Image Post Formats"
-msgstr ""
-
-#: options.php:302
-msgid "Display Portfolio / Image / Galleries Full Width"
-msgstr ""
-
-#: options.php:303
-msgid "Display all image based archives full width."
-msgstr ""
-
-#: options.php:312
-msgid "Display Image and Gallery Post Format Archives Full Width"
-msgstr ""
-
-#: options.php:313
-msgid "Display all image/gallery archives full width."
-msgstr ""
-
-#: options.php:322
-msgid "Display Image and Gallery Formats on Posts Page"
-msgstr ""
-
-#: options.php:323
+#: options.php:76
 msgid "Display all post formats on posts page."
 msgstr ""
 
-#: options.php:330
+#: options.php:83
 msgid "Posts Per Page"
 msgstr ""
 
-#: options.php:333
+#: options.php:86
 msgid "Posts per page can be set in the <a href=\"%s\">reading options</a>."
 msgstr ""
 
@@ -902,6 +944,21 @@ msgid "1 Response"
 msgid_plural "%1$s Responses"
 msgstr[0] ""
 msgstr[1] ""
+
+#: extensions/customizer-library/extensions/fonts.php:194
+msgctxt "font style"
+msgid "Serif"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:198
+msgctxt "font style"
+msgid "Sans Serif"
+msgstr ""
+
+#: extensions/customizer-library/extensions/fonts.php:202
+msgctxt "font style"
+msgid "Monospaced"
+msgstr ""
 
 #: extensions/template-helpers.php:164 extensions/template-helpers.php:167
 #: extensions/template-helpers.php:175

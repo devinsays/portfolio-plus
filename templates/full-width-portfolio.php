@@ -6,9 +6,8 @@
  * @package Portfolio+
  */
 
-get_header(); ?>
+get_header();
 
-<?php
 if ( get_query_var( 'paged' ) ) {
 	$paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
@@ -38,7 +37,12 @@ $portfolio = new WP_Query( $args );
 					$image = $image[0];
 					$class = "image-thumbnail";
 				} else {
+					$format = get_post_format();
 					$image = get_template_directory_uri() . '/images/image.svg';
+					$formats = array( 'gallery', 'image', 'video' );
+					if ( in_array( $format, $formats ) ) {
+						$image = get_template_directory_uri() . '/images/' . $format . '.svg';
+					}
 					$class = 'fallback-thumbnail';
 				}
 
@@ -47,11 +51,21 @@ $portfolio = new WP_Query( $args );
 					$image = get_template_directory_uri() . '/images/lock.svg';
 					$class = 'fallback-thumbnail';
 				}
+
+				// If alternative link is set, use it
+				$link = get_the_permalink();
+				$target = '';
+				if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
+					$link = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+					if ( get_post_meta( $post->ID, 'portfolioplus_url_target', true ) ) {
+						$target = ' target="_blank"';
+					}
+				}
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="entry-content">
-						<a href="<?php the_permalink() ?>" rel="bookmark" class="thumb">
+						<a href="<?php echo $link; ?>" <?php echo $target; ?> rel="bookmark" class="thumb">
 							<h3><?php the_title() ?></h3>
 							<img class="<?php echo $class; ?>" src="<?php echo esc_url( $image ); ?>" height="360" width="260">
 						</a>
