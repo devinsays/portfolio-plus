@@ -26,44 +26,9 @@ function optionsframework_option_name() {
 
 function optionsframework_options() {
 
-	// Background Defaults
-	$background_defaults = array(
-		'color' => '',
-		'image' => '',
-		'repeat' => 'repeat',
-		'position' => 'top center',
-		'attachment'=>'scroll'
-	);
-
-	$options = array();
-
-	// @TODO Background
-	$options['header_bg'] = array(
-		'name' =>  __( 'Header Background', 'portfolio-plus' ),
-		'id' => 'header_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#000000' ) ),
-		'type' =>'background'
-	);
-
 	$options[] = array(
 		'name' => __( 'Styles', 'portfolio-plus' ),
 		'type' => 'heading'
-	);
-
-	// @TODO Background
-	$options['main_bg'] = array(
-		'name' =>  __( 'Body Background', 'portfolio-plus' ),
-		'id' => 'main_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#f6f6f6' ) ),
-		'type' =>'background'
-	);
-
-	// @TODO Background
-	$options['footer_bg'] = array(
-		'name' =>  __( 'Footer Background', 'portfolio-plus' ),
-		'id' => 'footer_bg',
-		'std' => array_merge( $background_defaults, array( 'color' => '#ffffff' ) ),
-		'type' =>'background'
 	);
 
 	$options[] = array(

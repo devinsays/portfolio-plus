@@ -31,7 +31,7 @@ function portfolioplus_options() {
 		'default' => '',
 	);
 
-	if ( !portfolioplus_get_option( 'logo' ) ) :
+	if ( ! portfolioplus_get_option( 'logo' ) ) :
 
 	$options['portfolioplus[tagline]'] = array(
 		'id' => 'portfolioplus[tagline]',
@@ -120,23 +120,22 @@ function portfolioplus_options() {
 		'default' => 1
 	);
 
-	// Colors
-	$section = 'colors';
+	// Design
+	$section = 'design';
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Colors', 'portfolio-plus' ),
+		'title' => __( 'Design', 'portfolio-plus' ),
 		'priority' => '80'
 	);
 
-	$options['portfolioplus[header_color]'] = array(
-		'id' => 'portfolioplus[header_color]',
-		'option_type' => 'option',
-		'label'   => __( 'Header Color', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'color',
-		'default' => '#000000',
+	$header_bg = portfolioplus_background_option(
+		$section,
+		'header_bg',
+		__( 'Header', 'portfolio-plus' ),
+		'#000000'
 	);
+	$options = array_merge( $options, $header_bg );
 
 	$options['portfolioplus[site_title_color]'] = array(
 		'id' => 'portfolioplus[site_title_color]',
@@ -177,6 +176,14 @@ function portfolioplus_options() {
 		'type'    => 'color',
 		'default' => '#000000',
 	);
+
+	$main_bg = portfolioplus_background_option(
+		$section,
+		'main_bg',
+		__( 'Body', 'portfolio-plus' ),
+		'#f6f6f6'
+	);
+	$options = array_merge( $options, $main_bg );
 
 	$options['portfolioplus[body_color]'] = array(
 		'id' => 'portfolioplus[body_color]',
@@ -231,6 +238,14 @@ function portfolioplus_options() {
 		'type'    => 'color',
 		'default' => '#dddddd',
 	);
+
+	$footer_bg = portfolioplus_background_option(
+		$section,
+		'footer_bg',
+		__( 'Footer', 'portfolio-plus' ),
+		'#ffffff'
+	);
+	$options = array_merge( $options, $footer_bg );
 
 	$options['portfolioplus[footer_color]'] = array(
 		'id' => 'portfolioplus[footer_color]',
@@ -433,3 +448,90 @@ function portfolioplus_customize_preview_js() {
 	);
 }
 add_action( 'customize_preview_init', 'portfolioplus_customize_preview_js' );
+
+/**
+ * Builds an array for adding a background option
+ *
+ * @param string $section id
+ * @param string $id of option
+ * @param string $name of option
+ * @param string $color hex value
+ */
+function portfolioplus_background_option( $section, $id, $name, $color ) {
+
+	$background_repeat = array(
+		'no-repeat' => __( 'No Repeat', 'portfolio-plus' ),
+		'repeat-x'  => __( 'Repeat Horizontally', 'portfolio-plus' ),
+		'repeat-y'  => __( 'Repeat Vertically', 'portfolio-plus' ),
+		'repeat'    => __( 'Repeat All', 'portfolio-plus' ),
+	);
+
+	$background_position = array(
+		'top left'      => __( 'Top Left', 'portfolio-plus' ),
+		'top center'    => __( 'Top Center', 'portfolio-plus' ),
+		'top right'     => __( 'Top Right', 'portfolio-plus' ),
+		'center left'   => __( 'Middle Left', 'portfolio-plus' ),
+		'center center' => __( 'Middle Center', 'portfolio-plus' ),
+		'center right'  => __( 'Middle Right', 'portfolio-plus' ),
+		'bottom left'   => __( 'Bottom Left', 'portfolio-plus' ),
+		'bottom center' => __( 'Bottom Center', 'portfolio-plus' ),
+		'bottom right'  => __( 'Bottom Right', 'portfolio-plus')
+	);
+
+	$background_attachment = array(
+		'scroll' => __( 'Scroll Normally', 'portfolio-plus' ),
+		'fixed'  => __( 'Fixed in Place', 'portfolio-plus')
+	);
+
+	$options = array();
+
+	$options["portfolioplus[$id][color]"] = array(
+		'id' => "portfolioplus[$id][color]",
+		'option_type' => 'option',
+		'label'   => $name . ' ' . __( 'Background Color', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'color',
+		'default' => $color,
+	);
+
+	$options["portfolioplus[$id][image]"] = array(
+		'id' => "portfolioplus[$id][image]",
+		'option_type' => 'option',
+		'label'   => $name . ' ' . __( 'Background Image', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'image',
+		'default' => ''
+	);
+
+	$options["portfolioplus[$id][repeat]"] = array(
+		'id' => "portfolioplus[$id][repeat]",
+		'option_type' => 'option',
+		'label'   => $name . ' ' . __( 'Background Repeat', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => $background_repeat,
+		'default' => $background_repeat['repeat']
+	);
+
+	$options["portfolioplus[$id][position]"] = array(
+		'id' => "portfolioplus[$id][position]",
+		'option_type' => 'option',
+		'label'   => $name . ' ' . __( 'Background Position', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => $background_position,
+		'default' => $background_position['top center']
+	);
+
+	$options["portfolioplus[$id][attachment]"] = array(
+		'id' => "portfolioplus[$id][attachment]",
+		'option_type' => 'option',
+		'label'   => $name . ' ' . __( 'Background Attachment', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => $background_attachment,
+		'default' => $background_attachment['scroll']
+	);
+
+	return $options;
+}
