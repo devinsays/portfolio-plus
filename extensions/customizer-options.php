@@ -129,13 +129,15 @@ function portfolioplus_options() {
 		'priority' => '80'
 	);
 
-	$header_bg = portfolioplus_background_option(
-		$section,
-		'header_bg',
-		__( 'Header', 'portfolio-plus' ),
-		'#000000'
+	$options['portfolioplus[header_bg][color]'] = array(
+		'id' => 'portfolioplus[header_bg][color]',
+		'option_type' => 'option',
+		'label'   => __( 'Header Background Color', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'color',
+		'default' => '#000000',
+		'transport' => 'postMessage'
 	);
-	$options = array_merge( $options, $header_bg );
 
 	$options['portfolioplus[site_title_color]'] = array(
 		'id' => 'portfolioplus[site_title_color]',
@@ -177,13 +179,14 @@ function portfolioplus_options() {
 		'default' => '#000000',
 	);
 
-	$main_bg = portfolioplus_background_option(
-		$section,
-		'main_bg',
-		__( 'Body', 'portfolio-plus' ),
-		'#f6f6f6'
+	$options['portfolioplus[main_bg][color]'] = array(
+		'id' => 'portfolioplus[main_bg][color]',
+		'option_type' => 'option',
+		'label'   => __( 'Body Background Color', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'color',
+		'default' => '#f6f6f6',
 	);
-	$options = array_merge( $options, $main_bg );
 
 	$options['portfolioplus[body_color]'] = array(
 		'id' => 'portfolioplus[body_color]',
@@ -239,13 +242,14 @@ function portfolioplus_options() {
 		'default' => '#dddddd',
 	);
 
-	$footer_bg = portfolioplus_background_option(
-		$section,
-		'footer_bg',
-		__( 'Footer', 'portfolio-plus' ),
-		'#ffffff'
+	$options['portfolioplus[footer_bg][color]'] = array(
+		'id' => 'portfolioplus[footer_bg][color]',
+		'option_type' => 'option',
+		'label'   => __( 'Footer Background Color', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'color',
+		'default' => '#ffffff',
 	);
-	$options = array_merge( $options, $footer_bg );
 
 	$options['portfolioplus[footer_color]'] = array(
 		'id' => 'portfolioplus[footer_color]',
@@ -283,7 +287,6 @@ function portfolioplus_options() {
 		'default' => 'right',
 		'priority' => 100
 	);
-
 
 	// Portfolio Settings
 	$section = 'general';
@@ -423,6 +426,167 @@ function portfolioplus_options() {
 add_action( 'init', 'portfolioplus_options', 100 );
 
 /**
+ * Adds background controls to the customizer
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function portfolioplus_customize_controls( $wp_customize ) {
+
+	// Registers header background control
+	$wp_customize->add_setting( 'portfolioplus[header_bg][image]', array(
+		'sanitize_callback' => 'esc_url',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[header_bg][repeat]', array(
+		'default' => 'no-repeat',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[header_bg][size]', array(
+		'default' => 'auto',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[header_bg][attach]', array(
+		'default' => 'scroll',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[header_bg][position]', array(
+		'default' => 'center-center',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_control(
+		new Customize_Custom_Background_Control(
+			$wp_customize,
+			'header_bg',
+			array(
+				'label'		=> esc_html__( 'Header Background Image', 'portfolio-plus' ),
+				'section'	=> 'design',
+				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
+				'settings'    => array(
+					'image_url' => 'portfolioplus[header_bg][image]',
+					'repeat' => 'portfolioplus[header_bg][repeat]', // Use false to hide the field
+					'size' => 'portfolioplus[header_bg][size]',
+					'position' => 'portfolioplus[header_bg][attach]',
+					'attach' => 'portfolioplus[header_bg][position]'
+				)
+			)
+		)
+	);
+
+	// Registers body background control
+	$wp_customize->add_setting( 'portfolioplus[main_bg][image]', array(
+		'sanitize_callback' => 'esc_url',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[main_bg][repeat]', array(
+		'default' => 'no-repeat',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[main_bg][size]', array(
+		'default' => 'auto',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[main_bg][attach]', array(
+		'default' => 'scroll',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[main_bg][position]', array(
+		'default' => 'center-center',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	// Registers example_background control
+	$wp_customize->add_control(
+		new Customize_Custom_Background_Control(
+			$wp_customize,
+			'main_bg',
+			array(
+				'label'		=> esc_html__( 'Body Background Image', 'portfolio-plus' ),
+				'section'	=> 'design',
+				'priority'	=> 15,
+				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
+				'settings'    => array(
+					'image_url' => 'portfolioplus[main_bg][image]',
+					'repeat' => 'portfolioplus[main_bg][repeat]', // Use false to hide the field
+					'size' => 'portfolioplus[main_bg][size]',
+					'position' => 'portfolioplus[main_bg][attach]',
+					'attach' => 'portfolioplus[main_bg][position]'
+				)
+			)
+		)
+	);
+
+	// Registers footer background control
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][image]', array(
+		'sanitize_callback' => 'esc_url',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][repeat]', array(
+		'default' => 'no-repeat',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][size]', array(
+		'default' => 'auto',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][attach]', array(
+		'default' => 'scroll',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][position]', array(
+		'default' => 'center-center',
+		'sanitize_callback' => 'sanitize_text_field',
+		'option_type' => 'option'
+	) );
+
+	// Registers example_background control
+	$wp_customize->add_control(
+		new Customize_Custom_Background_Control(
+			$wp_customize,
+			'footer_bg',
+			array(
+				'label'		=> esc_html__( 'Footer Background Image', 'portfolio-plus' ),
+				'section'	=> 'design',
+				'priority'	=> 22,
+				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
+				'settings'    => array(
+					'image_url' => 'portfolioplus[footer_bg][image]',
+					'repeat' => 'portfolioplus[footer_bg][repeat]', // Use false to hide the field
+					'size' => 'portfolioplus[footer_bg][size]',
+					'position' => 'portfolioplus[footer_bg][attach]',
+					'attach' => 'portfolioplus[footer_bg][position]'
+				)
+			)
+		)
+	);
+
+}
+add_action( 'customize_register', 'portfolioplus_customize_controls' );
+
+/**
  * Register asynchronous customizer support for core controls.
  */
 function portfolioplus_async_suport_core( $wp_customize ) {
@@ -448,90 +612,3 @@ function portfolioplus_customize_preview_js() {
 	);
 }
 add_action( 'customize_preview_init', 'portfolioplus_customize_preview_js' );
-
-/**
- * Builds an array for adding a background option
- *
- * @param string $section id
- * @param string $id of option
- * @param string $name of option
- * @param string $color hex value
- */
-function portfolioplus_background_option( $section, $id, $name, $color ) {
-
-	$background_repeat = array(
-		'no-repeat' => __( 'No Repeat', 'portfolio-plus' ),
-		'repeat-x'  => __( 'Repeat Horizontally', 'portfolio-plus' ),
-		'repeat-y'  => __( 'Repeat Vertically', 'portfolio-plus' ),
-		'repeat'    => __( 'Repeat All', 'portfolio-plus' ),
-	);
-
-	$background_position = array(
-		'top left'      => __( 'Top Left', 'portfolio-plus' ),
-		'top center'    => __( 'Top Center', 'portfolio-plus' ),
-		'top right'     => __( 'Top Right', 'portfolio-plus' ),
-		'center left'   => __( 'Middle Left', 'portfolio-plus' ),
-		'center center' => __( 'Middle Center', 'portfolio-plus' ),
-		'center right'  => __( 'Middle Right', 'portfolio-plus' ),
-		'bottom left'   => __( 'Bottom Left', 'portfolio-plus' ),
-		'bottom center' => __( 'Bottom Center', 'portfolio-plus' ),
-		'bottom right'  => __( 'Bottom Right', 'portfolio-plus')
-	);
-
-	$background_attachment = array(
-		'scroll' => __( 'Scroll Normally', 'portfolio-plus' ),
-		'fixed'  => __( 'Fixed in Place', 'portfolio-plus')
-	);
-
-	$options = array();
-
-	$options["portfolioplus[$id][color]"] = array(
-		'id' => "portfolioplus[$id][color]",
-		'option_type' => 'option',
-		'label'   => $name . ' ' . __( 'Background Color', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'color',
-		'default' => $color,
-	);
-
-	$options["portfolioplus[$id][image]"] = array(
-		'id' => "portfolioplus[$id][image]",
-		'option_type' => 'option',
-		'label'   => $name . ' ' . __( 'Background Image', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'image',
-		'default' => ''
-	);
-
-	$options["portfolioplus[$id][repeat]"] = array(
-		'id' => "portfolioplus[$id][repeat]",
-		'option_type' => 'option',
-		'label'   => $name . ' ' . __( 'Background Repeat', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'select',
-		'choices' => $background_repeat,
-		'default' => $background_repeat['repeat']
-	);
-
-	$options["portfolioplus[$id][position]"] = array(
-		'id' => "portfolioplus[$id][position]",
-		'option_type' => 'option',
-		'label'   => $name . ' ' . __( 'Background Position', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'select',
-		'choices' => $background_position,
-		'default' => $background_position['top center']
-	);
-
-	$options["portfolioplus[$id][attachment]"] = array(
-		'id' => "portfolioplus[$id][attachment]",
-		'option_type' => 'option',
-		'label'   => $name . ' ' . __( 'Background Attachment', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'select',
-		'choices' => $background_attachment,
-		'default' => $background_attachment['scroll']
-	);
-
-	return $options;
-}

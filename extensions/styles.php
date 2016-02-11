@@ -6,6 +6,7 @@
  */
 
 if ( ! function_exists( 'portfolioplus_styles' ) && class_exists( 'Customizer_Library_Styles' ) ) :
+
 /**
  * Process user options to generate CSS needed to implement the choices.
  *
@@ -34,6 +35,39 @@ function portfolioplus_styles() {
 
 	}
 
+	// Body Background
+	$setting = 'main_bg';
+	$background = portfolioplus_get_option( $setting, array( 'color' => '#f6f6f6' ) );
+	$color = sanitize_hex_color( $background['color'] );
+
+	Customizer_Library_Styles()->add( array(
+		'selectors' => array(
+			'#main'
+		),
+		'declarations' => array(
+			'background' => $color
+		)
+	) );
+
+	if ( $background['image'] !== '' ) {
+
+		$image = esc_url( $background['image'] );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'body'
+			),
+			'declarations' => array(
+				'background-image' => 'url("' . $background['image'] . '")',
+				'background-repeat' => $background['repeat'],
+				'background-size' => $background['size'],
+				'background-attachment' => $background['attach'],
+				'background-position' => $background['position']
+			)
+		) );
+
+	}
+
 	// Link Color
 	$setting = 'link_color';
 	$mod = portfolioplus_get_option( $setting, customizer_library_get_default( $setting ) );
@@ -48,6 +82,44 @@ function portfolioplus_styles() {
 			),
 			'declarations' => array(
 				'color' => $color
+			)
+		) );
+
+	}
+
+	// Header Background
+	$setting = 'header_bg';
+	$background = portfolioplus_get_option( $setting, array( 'color' => '#000000' ) );
+
+	if ( $background['color'] !== '#000000' ) {
+
+		$color = sanitize_hex_color( $background['color'] );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'#branding'
+			),
+			'declarations' => array(
+				'background' => $color
+			)
+		) );
+
+	}
+
+	if ( $background['image'] !== '' ) {
+
+		$image = esc_url( $background['image'] );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'#branding'
+			),
+			'declarations' => array(
+				'background-image' => 'url("' . $background['image'] . '")',
+				'background-repeat' => $background['repeat'],
+				'background-size' => $background['size'],
+				'background-attachment' => $background['attach'],
+				'background-position' => $background['position']
 			)
 		) );
 
@@ -236,25 +308,45 @@ function portfolioplus_styles() {
 
 	}
 
-	/*
-	if ( portfolioplus_get_option( 'header_bg' ) ) {
-		$output .= portfolioplus_output_bg( '#branding', portfolioplus_get_option('header_bg'), array('color'=>'#000000') );
+	// Footer Background
+	$setting = 'footer_bg';
+	$background = portfolioplus_get_option( $setting, array( 'color' => '#ffffff' ) );
+
+	if ( $background['color'] !== '#ffffff' ) {
+
+		$color = sanitize_hex_color( $background['color'] );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'#colophon'
+			),
+			'declarations' => array(
+				'background' => $color
+			)
+		) );
+
 	}
 
-	$main_bg = portfolioplus_get_option( 'main_bg' );
-	if ( $main_bg ) {
-		$output .= portfolioplus_output_bg( 'body', portfolioplus_get_option('main_bg'), array('color'=>'#f6f6f6') );
-		if ( $main_bg['color'] != '#f6f6f6' ) {
-			$output .= "#content .entry-title, .widget-container h3, #nav-below { text-shadow: none; }\n";
-		}
+	if ( $background['image'] !== '' ) {
+
+		$image = esc_url( $background['image'] );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'#colophon'
+			),
+			'declarations' => array(
+				'background-image' => 'url("' . $background['image'] . '")',
+				'background-repeat' => $background['repeat'],
+				'background-size' => $background['size'],
+				'background-attachment' => $background['attach'],
+				'background-position' => $background['position']
+			)
+		) );
+
 	}
 
-	if ( portfolioplus_get_option( 'footer_bg' ) ) {
-		$output .= portfolioplus_output_bg( '#colophon', portfolioplus_get_option('footer_bg'), array( 'color'=>'#ffffff' ) );
-	}
-	*/
-
-	// Footer Color
+	// Menu Position
 	$setting = 'menu_position';
 	$mod = portfolioplus_get_option( $setting, customizer_library_get_default( $setting ) );
 
@@ -321,27 +413,3 @@ function portfolioplus_display_customizations() {
 endif;
 
 add_action( 'wp_head', 'portfolioplus_display_customizations', 11 );
-
-/**
- * Helper function for outputting background CSS
- *
- * @param string selector
- * @param array option
- * @param array default
- */
-function portfolioplus_output_bg( $selector, $option, $default ) {
-	$output = '';
-	if ( $option['color'] != $default['color'] ) {
-		$output .= 'background:' . $option['color'] . '; ';
-	}
-	if ( isset( $option['image'] ) && $option['image'] != '' ) {
-		$output .= 'background-image: url("' . $option['image'] . '"); ';
-		$output .= 'background-repeat:' . $option['repeat'] . '; ';
-		$output .= 'background-position:' . $option['position'] . '; ';
-		$output .= 'background-attachment:' . $option['attachment'] . '; ';
-	}
-	if ( $output != '' ) {
-		$output = $selector . " { " .$output . "}\n";
-	}
-	return $output;
-}

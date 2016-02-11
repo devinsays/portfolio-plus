@@ -218,42 +218,52 @@ function portfolioplus_widgets_init() {
 add_action( 'init', 'portfolioplus_widgets_init' );
 
 /**
- * Helper library for the theme customizer.
+ * Helper library for the Customizer
  */
 require get_template_directory() . '/extensions/customizer-library/customizer-library.php';
 
 /**
- * Define options for the theme customizer.
+ * Custom background control for the Customizer
+ */
+require get_template_directory() . '/extensions/customizer-background-control/customizer-background-control.php';
+
+/**
+ * Define options for the Customizer
  */
 require get_template_directory() . '/extensions/customizer-options.php';
 
 /**
- * Implements options selected in the customerizer.
+ * Implements options selected in the Customizer
  */
 require get_template_directory() . '/extensions/mods.php';
 
 /**
- * Adds general template functions.
+ * Implements styles from Customizer
+ */
+require get_template_directory() . '/extensions/styles.php';
+
+/**
+ * Adds general template functions
  */
 require_once( get_template_directory() . '/extensions/template-helpers.php' );
 
 /**
- * Adds general portfolio functions.
+ * Adds general portfolio functions
  */
 require_once( get_template_directory() . '/extensions/portfolio-functions.php' );
 
 /**
- * Custom functions that act independently of the theme templates.
+ * Custom functions that act independently of the theme templates
  */
 require_once( get_template_directory() . '/extensions/extras.php' );
 
 /**
- * Displays notices for recommended plugins.
+ * Displays notices for recommended plugins
  */
 require_once( get_template_directory() . '/extensions/recommended-plugins.php' );
 
 /**
- * Required functions for the portfolio category template.
+ * Required functions for the portfolio category template
  */
 if ( class_exists( 'Portfolio_Post_Type' ) ) {
 	require_once( get_template_directory() . '/extensions/portfolio-category-functions.php' );
