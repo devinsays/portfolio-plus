@@ -433,33 +433,33 @@ add_action( 'init', 'portfolioplus_options', 100 );
 function portfolioplus_customize_controls( $wp_customize ) {
 
 	// Registers header background control
-	$wp_customize->add_setting( 'portfolioplus[header_bg][image]', array(
+	$wp_customize->add_setting( 'portfolioplus[header_bg][image_url]', array(
 		'sanitize_callback' => 'esc_url',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[header_bg][repeat]', array(
 		'default' => 'no-repeat',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[header_bg][size]', array(
 		'default' => 'auto',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[header_bg][attach]', array(
 		'default' => 'scroll',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[header_bg][position]', array(
 		'default' => 'center-center',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_control(
@@ -471,7 +471,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'section'	=> 'design',
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[header_bg][image]',
+					'image_url' => 'portfolioplus[header_bg][image_url]',
 					'repeat' => 'portfolioplus[header_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[header_bg][size]',
 					'position' => 'portfolioplus[header_bg][attach]',
@@ -482,33 +482,33 @@ function portfolioplus_customize_controls( $wp_customize ) {
 	);
 
 	// Registers body background control
-	$wp_customize->add_setting( 'portfolioplus[main_bg][image]', array(
+	$wp_customize->add_setting( 'portfolioplus[main_bg][image_url]', array(
 		'sanitize_callback' => 'esc_url',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[main_bg][repeat]', array(
 		'default' => 'no-repeat',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[main_bg][size]', array(
 		'default' => 'auto',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[main_bg][attach]', array(
 		'default' => 'scroll',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[main_bg][position]', array(
 		'default' => 'center-center',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	// Registers example_background control
@@ -522,7 +522,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'priority'	=> 15,
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[main_bg][image]',
+					'image_url' => 'portfolioplus[main_bg][image_url]',
 					'repeat' => 'portfolioplus[main_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[main_bg][size]',
 					'position' => 'portfolioplus[main_bg][attach]',
@@ -533,33 +533,33 @@ function portfolioplus_customize_controls( $wp_customize ) {
 	);
 
 	// Registers footer background control
-	$wp_customize->add_setting( 'portfolioplus[footer_bg][image]', array(
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][image_url]', array(
 		'sanitize_callback' => 'esc_url',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[footer_bg][repeat]', array(
 		'default' => 'no-repeat',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[footer_bg][size]', array(
 		'default' => 'auto',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[footer_bg][attach]', array(
 		'default' => 'scroll',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	$wp_customize->add_setting( 'portfolioplus[footer_bg][position]', array(
 		'default' => 'center-center',
 		'sanitize_callback' => 'sanitize_text_field',
-		'option_type' => 'option'
+		'type' => 'option'
 	) );
 
 	// Registers example_background control
@@ -573,7 +573,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'priority'	=> 22,
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[footer_bg][image]',
+					'image_url' => 'portfolioplus[footer_bg][image_url]',
 					'repeat' => 'portfolioplus[footer_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[footer_bg][size]',
 					'position' => 'portfolioplus[footer_bg][attach]',
@@ -590,12 +590,17 @@ add_action( 'customize_register', 'portfolioplus_customize_controls' );
  * Register asynchronous customizer support for core controls.
  */
 function portfolioplus_async_suport_core( $wp_customize ) {
+
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	// $wp_customize->get_setting( 'portfolioplus[header_bg][color]' )->transport = 'postMessage';
-	// $wp_customize->get_setting( 'portfolioplus[site_title_color]' )->transport = 'postMessage';
-	// $wp_customize->get_setting( 'portfolioplus[tagline_color]' )->transport = 'postMessage';
-	// $wp_customize->get_setting( 'portfolioplus[menu_color]' )->transport = 'postMessage';
+
+	/*
+	$wp_customize->get_setting( 'portfolioplus[header_bg][color]' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'portfolioplus[site_title_color]' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'portfolioplus[tagline_color]' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'portfolioplus[menu_color]' )->transport = 'postMessage';
+	*/
+
 }
 add_action( 'customize_register', 'portfolioplus_async_suport_core' );
 
@@ -607,7 +612,7 @@ function portfolioplus_customize_preview_js() {
 		'portfolioplus_customizer',
 		get_template_directory_uri() . '/js/customizer.js',
 		array( 'customize-preview' ),
-		'20140221',
+		PORTFOLIO_VERSION,
 		true
 	);
 }

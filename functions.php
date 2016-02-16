@@ -258,11 +258,6 @@ require_once( get_template_directory() . '/extensions/portfolio-functions.php' )
 require_once( get_template_directory() . '/extensions/extras.php' );
 
 /**
- * Displays notices for recommended plugins
- */
-require_once( get_template_directory() . '/extensions/recommended-plugins.php' );
-
-/**
  * Required functions for the portfolio category template
  */
 if ( class_exists( 'Portfolio_Post_Type' ) ) {

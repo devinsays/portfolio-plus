@@ -1,4 +1,5 @@
 ( function( $ ) {
+
     var $branding = $( '#branding' ),
     	$title = $( '#site-title a' ),
         $tagline = $( '#site-description' ),

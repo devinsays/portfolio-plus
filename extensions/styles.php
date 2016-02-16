@@ -49,6 +49,20 @@ function portfolioplus_styles() {
 		)
 	) );
 
+	if ( '#f6f6f6' != $color ) :
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'#content .entry-title',
+				'.widget-container h3',
+				'#nav-below'
+
+			),
+			'declarations' => array(
+				'text-shadow' => 'none'
+			)
+		) );
+	endif;
+
 	if ( $background['image'] !== '' ) {
 
 		$image = esc_url( $background['image'] );
@@ -89,7 +103,11 @@ function portfolioplus_styles() {
 
 	// Header Background
 	$setting = 'header_bg';
-	$background = portfolioplus_get_option( $setting, array( 'color' => '#000000' ) );
+	$defaults = array(
+		'color' => '#000000',
+		'image_url' => ''
+	);
+	$background = portfolioplus_get_option( $setting, $defaults );
 
 	if ( $background['color'] !== '#000000' ) {
 
@@ -106,16 +124,16 @@ function portfolioplus_styles() {
 
 	}
 
-	if ( $background['image'] !== '' ) {
+	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
 
-		$image = esc_url( $background['image'] );
+		$image = esc_url( $background['image_url'] );
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
 				'#branding'
 			),
 			'declarations' => array(
-				'background-image' => 'url("' . $background['image'] . '")',
+				'background-image' => 'url("' . $image. '")',
 				'background-repeat' => $background['repeat'],
 				'background-size' => $background['size'],
 				'background-attachment' => $background['attach'],

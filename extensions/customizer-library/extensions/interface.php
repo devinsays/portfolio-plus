@@ -6,7 +6,8 @@
  * @author        Devin Price
  */
 
-if ( ! function_exists( 'customizer_library_register' ) ) : /**
+if ( ! function_exists( 'customizer_library_register' ) ) :
+/**
  * Configure settings and controls for the theme customizer
  *
  * @since  1.0.0.
@@ -239,7 +240,7 @@ function customizer_library_add_setting( $option, $wp_customize ) {
 		'option_type'          => 'theme_mod',
 		'capability'           => 'edit_theme_options',
 		'theme_supports'       => NULL,
-		'transport'            => NULL,
+		'transport'            => 'refresh',
 		'sanitize_callback'    => 'wp_kses_post',
 		'sanitize_js_callback' => NULL
 	);
