@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Portfolio+ 3.7.3\n"
+"Project-Id-Version: Portfolio+ 3.8.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
-"POT-Creation-Date: 2016-02-19 17:27:43+00:00\n"
+"POT-Creation-Date: 2016-02-19 18:12:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Display Site Tagline"
 msgstr ""
 
-#: extensions/customizer-options.php:53
+#: extensions/customizer-options.php:53 options.php:30
 msgid "General"
 msgstr ""
 
@@ -677,6 +677,17 @@ msgid ""
 "Published in <a href=\"%4$s\" title=\"Return to %5$s\" "
 "rel=\"gallery\">%6$s</a> at <a href=\"%1$s\" title=\"Link to full-size "
 "image\">%2$s &times; %3$s</a> "
+msgstr ""
+
+#: options.php:35
+msgid "Customization Options"
+msgstr ""
+
+#: options.php:38
+msgid ""
+"<p>All theme options are now in the <a "
+"href=\"%s\">Customizer</a>.</p><p>You can safely disable the Options "
+"Framework and delete it from your site.</p>"
 msgstr ""
 
 #: search.php:16
