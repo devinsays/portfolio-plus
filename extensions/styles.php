@@ -63,9 +63,9 @@ function portfolioplus_styles() {
 		) );
 	endif;
 
-	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
+	if ( isset( $background['image'] ) && $background['image'] !== '' ) {
 
-		$image = esc_url( $background['image_url'] );
+		$image = esc_url( $background['image'] );
 
 		$declarations = array();
 		$declarations['background-image'] = 'url("' . $image. '")';
@@ -115,7 +115,7 @@ function portfolioplus_styles() {
 	$setting = 'header_bg';
 	$defaults = array(
 		'color' => '#000000',
-		'image_url' => ''
+		'image' => ''
 	);
 	$background = portfolioplus_get_option( $setting, $defaults );
 
@@ -134,9 +134,9 @@ function portfolioplus_styles() {
 
 	}
 
-	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
+	if ( isset( $background['image'] ) && $background['image'] !== '' ) {
 
-		$image = esc_url( $background['image_url'] );
+		$image = esc_url( $background['image'] );
 
 		$declarations = array();
 		$declarations['background-image'] = 'url("' . $image. '")';
@@ -346,9 +346,9 @@ function portfolioplus_styles() {
 
 	}
 
-	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
+	if ( isset( $background['image'] ) && $background['image'] !== '' ) {
 
-		$image = esc_url( $background['image_url'] );
+		$image = esc_url( $background['image'] );
 
 		$declarations = array();
 		$declarations['background-image'] = 'url("' . $image. '")';

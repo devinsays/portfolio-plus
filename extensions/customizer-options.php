@@ -383,7 +383,7 @@ add_action( 'init', 'portfolioplus_options', 100 );
 function portfolioplus_customize_controls( $wp_customize ) {
 
 	// Registers header background control
-	$wp_customize->add_setting( 'portfolioplus[header_bg][image_url]', array(
+	$wp_customize->add_setting( 'portfolioplus[header_bg][image]', array(
 		'sanitize_callback' => 'esc_url',
 		'type' => 'option'
 	) );
@@ -421,7 +421,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'section'	=> 'design',
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[header_bg][image_url]',
+					'image_url' => 'portfolioplus[header_bg][image]',
 					'repeat' => 'portfolioplus[header_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[header_bg][size]',
 					'position' => 'portfolioplus[header_bg][attach]',
@@ -432,7 +432,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 	);
 
 	// Registers body background control
-	$wp_customize->add_setting( 'portfolioplus[main_bg][image_url]', array(
+	$wp_customize->add_setting( 'portfolioplus[main_bg][image]', array(
 		'sanitize_callback' => 'esc_url',
 		'type' => 'option'
 	) );
@@ -472,7 +472,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'priority'	=> 18,
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[main_bg][image_url]',
+					'image_url' => 'portfolioplus[main_bg][image]',
 					'repeat' => 'portfolioplus[main_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[main_bg][size]',
 					'position' => 'portfolioplus[main_bg][attach]',
@@ -483,7 +483,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 	);
 
 	// Registers footer background control
-	$wp_customize->add_setting( 'portfolioplus[footer_bg][image_url]', array(
+	$wp_customize->add_setting( 'portfolioplus[footer_bg][image]', array(
 		'sanitize_callback' => 'esc_url',
 		'type' => 'option'
 	) );
@@ -523,7 +523,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 				'priority'	=> 22,
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
-					'image_url' => 'portfolioplus[footer_bg][image_url]',
+					'image_url' => 'portfolioplus[footer_bg][image]',
 					'repeat' => 'portfolioplus[footer_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[footer_bg][size]',
 					'position' => 'portfolioplus[footer_bg][attach]',
