@@ -63,21 +63,31 @@ function portfolioplus_styles() {
 		) );
 	endif;
 
-	if ( $background['image'] !== '' ) {
+	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
 
-		$image = esc_url( $background['image'] );
+		$image = esc_url( $background['image_url'] );
+
+		$declarations = array();
+		$declarations['background-image'] = 'url("' . $image. '")';
+
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-repeat'] = $background['repeat'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-size'] = $background['size'];
+		}
+		if ( isset( $background['attach'] ) ) {
+			$declarations['background-attachment'] = $background['attach'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-position'] = $background['position'];
+		}
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'body'
+				'#branding'
 			),
-			'declarations' => array(
-				'background-image' => 'url("' . $background['image'] . '")',
-				'background-repeat' => $background['repeat'],
-				'background-size' => $background['size'],
-				'background-attachment' => $background['attach'],
-				'background-position' => $background['position']
-			)
+			'declarations' => $declarations
 		) );
 
 	}
@@ -128,17 +138,27 @@ function portfolioplus_styles() {
 
 		$image = esc_url( $background['image_url'] );
 
+		$declarations = array();
+		$declarations['background-image'] = 'url("' . $image. '")';
+
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-repeat'] = $background['repeat'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-size'] = $background['size'];
+		}
+		if ( isset( $background['attach'] ) ) {
+			$declarations['background-attachment'] = $background['attach'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-position'] = $background['position'];
+		}
+
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
 				'#branding'
 			),
-			'declarations' => array(
-				'background-image' => 'url("' . $image. '")',
-				'background-repeat' => $background['repeat'],
-				'background-size' => $background['size'],
-				'background-attachment' => $background['attach'],
-				'background-position' => $background['position']
-			)
+			'declarations' => $declarations
 		) );
 
 	}
@@ -345,21 +365,31 @@ function portfolioplus_styles() {
 
 	}
 
-	if ( $background['image'] !== '' ) {
+	if ( isset( $background['image_url'] ) && $background['image_url'] !== '' ) {
 
-		$image = esc_url( $background['image'] );
+		$image = esc_url( $background['image_url'] );
+
+		$declarations = array();
+		$declarations['background-image'] = 'url("' . $image. '")';
+
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-repeat'] = $background['repeat'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-size'] = $background['size'];
+		}
+		if ( isset( $background['attach'] ) ) {
+			$declarations['background-attachment'] = $background['attach'];
+		}
+		if ( isset( $background['repeat'] ) ) {
+			$declarations['background-position'] = $background['position'];
+		}
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'#colophon'
+				'#branding'
 			),
-			'declarations' => array(
-				'background-image' => 'url("' . $background['image'] . '")',
-				'background-repeat' => $background['repeat'],
-				'background-size' => $background['size'],
-				'background-attachment' => $background['attach'],
-				'background-position' => $background['position']
-			)
+			'declarations' => $declarations
 		) );
 
 	}
