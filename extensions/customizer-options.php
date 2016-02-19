@@ -50,7 +50,7 @@ function portfolioplus_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Layout', 'portfolio-plus' ),
+		'title' => __( 'General', 'portfolio-plus' ),
 		'priority' => '70'
 	);
 
@@ -110,6 +110,79 @@ function portfolioplus_options() {
 		'default' => 1
 	);
 
+	// Portfolio Post Type Plugin
+	if ( class_exists( 'Portfolio_Post_Type' ) ) :
+
+		$options['portfolioplus[portfolio_featured_images]'] = array(
+			'id' => 'portfolioplus[portfolio_images]',
+			'option_type' => 'option',
+			'label' => __( 'Display Featured Images', 'portfolio-plus' ),
+			'description' => __( 'Display featured images on portfolio posts.', 'portfolio-plus' ),
+			'section' => $section,
+			'type'    => 'checkbox',
+			'default' => '1',
+		);
+
+	else :
+
+		$options['portfolioplus[post_featured_images]'] = array(
+			'id' => 'portfolioplus[portfolio_images]',
+			'option_type' => 'option',
+			'label' => __( 'Display Featured Images', 'portfolio-plus' ),
+			'description' => __( 'Display featured images on posts.', 'portfolio-plus' ),
+			'section' => $section,
+			'type'    => 'checkbox',
+			'default' => '1',
+		);
+
+	endif;
+
+	// Portfolio Post Type Plugin
+	if ( class_exists( 'Portfolio_Post_Type' ) ) :
+
+		$options['portfolioplus[portfolio_archives_fullwidth]'] = array(
+			'id' => 'portfolioplus[portfolio_sidebar]',
+			'option_type' => 'option',
+			'label' => __( 'Full Width Archives', 'portfolio-plus' ),
+			'description' => __( 'Display portfolio archives full width.', 'portfolio-plus' ),
+			'section' => $section,
+			'type'    => 'checkbox',
+			'default' => '1',
+		);
+
+	else :
+
+		$options['portfolioplus[post_archives_fullwidth]'] = array(
+			'id' => 'portfolioplus[portfolio_sidebar]',
+			'option_type' => 'option',
+			'label' => __( 'Full Width Archives', 'portfolio-plus' ),
+			'description' => __( 'Display image/gallery archives full width.', 'portfolio-plus' ),
+			'section' => $section,
+			'type'    => 'checkbox',
+			'default' => '1',
+		);
+
+	endif;
+
+	$options['portfolioplus[display_image_gallery_post_formats]'] = array(
+		'id' => 'portfolioplus[display_image_gallery_post_formats]',
+		'option_type' => 'option',
+		'label' => __( 'Display Image and Gallery Formats on Posts Page', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => '1',
+	);
+
+	$options['portfolioplus[archive_titles]'] = array(
+		'id' => 'portfolioplus[archive_titles]',
+		'option_type' => 'option',
+		'label' => __( 'Archive Titles', 'portfolio-plus' ),
+		'description' => __( 'Display archive titles and descriptions.', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => '1',
+	);
+
 	$options['portfolioplus[disable_styles]'] = array(
 		'id' => 'portfolioplus[disable_styles]',
 		'option_type' => 'option',
@@ -161,6 +234,21 @@ function portfolioplus_options() {
 
 	endif;
 
+	$choices = array(
+		'right' => __( 'Right of Logo', 'portfolio-plus' ),
+		'clear' => __( 'Underneath Logo', 'portfolio-plus' )
+	);
+
+	$options['portfolioplus[menu_position]'] = array(
+		'id' => 'portfolioplus[menu_position]',
+		'option_type' => 'option',
+		'label'   => __( 'Menu Position', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => $choices,
+		'default' => 'right'
+	);
+
 	$options['portfolioplus[menu_color]'] = array(
 		'id' => 'portfolioplus[menu_color]',
 		'option_type' => 'option',
@@ -168,15 +256,6 @@ function portfolioplus_options() {
 		'section' => $section,
 		'type'    => 'color',
 		'default' => '#ffffff',
-	);
-
-	$options['portfolioplus[header_border_color]'] = array(
-		'id' => 'portfolioplus[header_border_color]',
-		'option_type' => 'option',
-		'label'   => __( 'Header Bottom Border Color', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'color',
-		'default' => '#000000',
 	);
 
 	$options['portfolioplus[main_bg][color]'] = array(
@@ -269,126 +348,6 @@ function portfolioplus_options() {
 		'default' => '#dddddd',
 	);
 
-	// Navigation
-	$section = 'nav';
-
-	$choices = array(
-		'right' => __( 'Right of Logo', 'portfolio-plus' ),
-		'clear' => __( 'Underneath Logo', 'portfolio-plus' )
-	);
-
-	$options['portfolioplus[menu_position]'] = array(
-		'id' => 'portfolioplus[menu_position]',
-		'option_type' => 'option',
-		'label'   => __( 'Menu Position', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'select',
-		'choices' => $choices,
-		'default' => 'right',
-		'priority' => 100
-	);
-
-	// Portfolio Settings
-	$section = 'general';
-
-	$sections[] = array(
-		'id' => $section,
-		'title' => __( 'General', 'portfolio-plus' ),
-		'priority' => '80'
-	);
-
-	// Portfolio Post Type Plugin
-	if ( class_exists( 'Portfolio_Post_Type' ) ) :
-
-		$options['portfolioplus[portfolio_featured_images]'] = array(
-			'id' => 'portfolioplus[portfolio_images]',
-			'option_type' => 'option',
-			'label' => __( 'Display Featured Images', 'portfolio-plus' ),
-			'description' => __( 'Display featured images on portfolio posts.', 'portfolio-plus' ),
-			'section' => $section,
-			'type'    => 'checkbox',
-			'default' => '1',
-		);
-
-	else :
-
-		$options['portfolioplus[post_featured_images]'] = array(
-			'id' => 'portfolioplus[portfolio_images]',
-			'option_type' => 'option',
-			'label' => __( 'Display Featured Images', 'portfolio-plus' ),
-			'description' => __( 'Display featured images on posts.', 'portfolio-plus' ),
-			'section' => $section,
-			'type'    => 'checkbox',
-			'default' => '1',
-		);
-
-	endif;
-
-	$options['portfolioplus[postnav]'] = array(
-		'id' => 'portfolioplus[postnav]',
-		'option_type' => 'option',
-		'label' => __( 'Display post navigation', 'portfolio-plus' ),
-		'description' => __( 'Previous/next links on posts.', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'checkbox',
-		'default' => '0',
-	);
-
-	// Archive Settings
-	$section = 'archive';
-
-	$sections[] = array(
-		'id' => $section,
-		'title' => __( 'Archive', 'portfolio-plus' ),
-		'priority' => '90'
-	);
-
-		// Portfolio Post Type Plugin
-	if ( class_exists( 'Portfolio_Post_Type' ) ) :
-
-		$options['portfolioplus[portfolio_archives_fullwidth]'] = array(
-			'id' => 'portfolioplus[portfolio_sidebar]',
-			'option_type' => 'option',
-			'label' => __( 'Full Width Archives', 'portfolio-plus' ),
-			'description' => __( 'Display portfolio archives full width.', 'portfolio-plus' ),
-			'section' => $section,
-			'type'    => 'checkbox',
-			'default' => '1',
-		);
-
-	else :
-
-		$options['portfolioplus[post_archives_fullwidth]'] = array(
-			'id' => 'portfolioplus[portfolio_sidebar]',
-			'option_type' => 'option',
-			'label' => __( 'Full Width Archives', 'portfolio-plus' ),
-			'description' => __( 'Display image/gallery archives full width.', 'portfolio-plus' ),
-			'section' => $section,
-			'type'    => 'checkbox',
-			'default' => '1',
-		);
-
-	endif;
-
-	$options['portfolioplus[display_image_gallery_post_formats]'] = array(
-		'id' => 'portfolioplus[display_image_gallery_post_formats]',
-		'option_type' => 'option',
-		'label' => __( 'Display Image and Gallery Formats on Posts Page', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'checkbox',
-		'default' => '1',
-	);
-
-	$options['portfolioplus[archive_titles]'] = array(
-		'id' => 'portfolioplus[archive_titles]',
-		'option_type' => 'option',
-		'label' => __( 'Archive Titles', 'portfolio-plus' ),
-		'description' => __( 'Display archive titles and descriptions.', 'portfolio-plus' ),
-		'section' => $section,
-		'type'    => 'checkbox',
-		'default' => '1',
-	);
-
 	// Footer Settings
 	$section = 'footer';
 
@@ -405,15 +364,6 @@ function portfolioplus_options() {
 		'section' => $section,
 		'type' => 'textarea',
 		'default' => ''
-	);
-
-	$options['helptext'] = array(
-		'id' => 'helptext',
-		'label' => __( 'Arbitrary Content', 'textdomain' ),
-		'section' => $section,
-		'type' => 'content',
-		'content' => '<p>' . __( 'Content to output. Use <a href="#">HTML</a> if you like.', 'textdomain' ) . '</p>',
-		'description' => __( 'Description if you like.', 'textdomain' )
 	);
 
 	// Adds the sections to the $options array
@@ -519,7 +469,7 @@ function portfolioplus_customize_controls( $wp_customize ) {
 			array(
 				'label'		=> esc_html__( 'Body Background Image', 'portfolio-plus' ),
 				'section'	=> 'design',
-				'priority'	=> 15,
+				'priority'	=> 18,
 				// Tie a setting (defined via `$wp_customize->add_setting()`) to the control.
 				'settings'    => array(
 					'image_url' => 'portfolioplus[main_bg][image_url]',

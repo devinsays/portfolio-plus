@@ -56,7 +56,7 @@ function portfolioplus_body_class_options( $classes ) {
 	$classes[] = portfolioplus_get_option( 'layout','layout-2cr' );
 
 	// Clear the menu if selected
-	if ( portfolioplus_get_option( 'menu_position', false ) == 'clear' ) {
+	if ( 'clear' === portfolioplus_get_option( 'menu_position', 'right' ) ) {
 		$classes[] = 'clear-menu';
 	}
 

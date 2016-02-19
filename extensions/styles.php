@@ -73,7 +73,7 @@ function portfolioplus_styles() {
 		if ( isset( $background['repeat'] ) ) {
 			$declarations['background-repeat'] = $background['repeat'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['size'] ) ) {
 			$declarations['background-size'] = $background['size'];
 		}
 		if ( isset( $background['attach'] ) ) {
@@ -85,7 +85,7 @@ function portfolioplus_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'#branding'
+				'#main'
 			),
 			'declarations' => $declarations
 		) );
@@ -196,25 +196,6 @@ function portfolioplus_styles() {
 			),
 			'declarations' => array(
 				'color' => $color
-			)
-		) );
-
-	}
-
-	// Header Border Color
-	$setting = 'header_border_color';
-	$mod = portfolioplus_get_option( $setting, customizer_library_get_default( $setting ) );
-
-	if ( $mod !== customizer_library_get_default( $setting ) ) {
-
-		$color = sanitize_hex_color( $mod );
-
-		Customizer_Library_Styles()->add( array(
-			'selectors' => array(
-				'#branding'
-			),
-			'declarations' => array(
-				'border-bottom-color' => $color
 			)
 		) );
 
@@ -375,7 +356,7 @@ function portfolioplus_styles() {
 		if ( isset( $background['repeat'] ) ) {
 			$declarations['background-repeat'] = $background['repeat'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['size'] ) ) {
 			$declarations['background-size'] = $background['size'];
 		}
 		if ( isset( $background['attach'] ) ) {
@@ -387,7 +368,7 @@ function portfolioplus_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'#branding'
+				'#colophon'
 			),
 			'declarations' => $declarations
 		) );
@@ -396,9 +377,8 @@ function portfolioplus_styles() {
 
 	// Menu Position
 	$setting = 'menu_position';
-	$mod = portfolioplus_get_option( $setting, customizer_library_get_default( $setting ) );
 
-	if ( $mod !== customizer_library_get_default( $setting ) ) {
+	if ( 'clear' == customizer_library_get_default( $setting ) ) {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
