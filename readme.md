@@ -12,6 +12,7 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 ---
 
 * Update: All options are now in the customizer
+* Update: Remove backward compatibility code for gallery and image markup
 * Fix: Image sizing for templates/portfolio.php and templates/full-width-portfolio.php
 
 3.7.3

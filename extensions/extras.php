@@ -92,7 +92,7 @@ add_action( 'admin_init', 'portfolioplus_notice_ignores' );
  */
 
 function portfolioplus_page_templates_mod( $templates ) {
-	if ( !class_exists( 'Portfolio_Post_Type' ) ) {
+	if ( ! class_exists( 'Portfolio_Post_Type' ) ) {
 		unset( $templates['templates/portfolio.php'] );
 		unset( $templates['templates/full-width-portfolio.php'] );
 		unset( $templates['templates/portfolio-categories.php'] );
@@ -111,32 +111,3 @@ function portfolioplus_deregister_styles() {
     wp_deregister_style( 'wp-pagenavi' );
 }
 add_action( 'wp_print_styles', 'portfolioplus_deregister_styles', 100 );
-
-/**
- * Replaces definition list elements with their appropriate HTML5 counterparts.
- *
- * @param array $atts The output array of shortcode attributes.
- * @return array HTML5-ified gallery attributes.
- */
-function portfolioplus_gallery_atts( $atts ) {
-    $atts['itemtag']    = 'figure';
-    $atts['icontag']    = 'div';
-    $atts['captiontag'] = 'figcaption';
-
-    return $atts;
-}
-add_filter( 'shortcode_atts_gallery', 'portfolioplus_gallery_atts' );
-
-// Removes the default gallery styling
-add_filter( 'use_default_gallery_style', '__return_false' );
-
-/**
- * Remove WordPress's default padding on images with captions
- *
- * @param int $width Default WP .wp-caption width (image width + 10px)
- * @return int Updated width to remove 10px padding
- */
-function portfolioplus_remove_caption_padding( $width ) {
-    return $width - 10;
-}
-add_filter( 'img_caption_shortcode_width', 'portfolioplus_remove_caption_padding' );
