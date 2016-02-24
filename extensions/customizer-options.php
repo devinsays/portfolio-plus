@@ -190,7 +190,7 @@ function portfolioplus_options() {
 		'description' => 'Disable inline styles from options (useful in child themes)',
 		'section' => $section,
 		'type'    => 'checkbox',
-		'default' => 1
+		'default' => 0
 	);
 
 	// Design

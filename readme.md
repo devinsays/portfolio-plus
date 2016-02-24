@@ -8,6 +8,12 @@ WordPress projects always stand on the shoulders of others.  Please take this th
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
+3.8.1 (02-24-2016)
+---
+
+* Fix: Updates for templates/portfolio.php
+* Fix: Disable Styles should default to false
+
 3.8.0 (02-20-2016)
 ---
 

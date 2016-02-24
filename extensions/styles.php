@@ -433,7 +433,7 @@ function portfolioplus_display_customizations() {
 	$css = Customizer_Library_Styles()->build();
 
 	if ( ! empty( $css ) ) {
-		echo "\n<!-- Begin Portfolio+ Custom CSS -->\n<style type=\"text/css\" id=\"gather-custom-css\">\n";
+		echo "\n<!-- Begin Portfolio+ Custom CSS -->\n<style type=\"text/css\" id=\"portfolioplus-css\">\n";
 		echo $css;
 		echo "\n</style>\n<!-- End Portfolio+ Custom CSS -->\n";
 	}
