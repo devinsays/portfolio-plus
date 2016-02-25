@@ -8,6 +8,11 @@ WordPress projects always stand on the shoulders of others.  Please take this th
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
+Development
+---
+
+* Fix: Swapped width/height attribute sizes
+
 3.8.1 (02-24-2016)
 ---
 

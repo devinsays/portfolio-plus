@@ -38,7 +38,7 @@ if ( !$portfolioplus_category_query ) {
 					<div class="entry-content">
 						<a href="<?php echo $portfolio_cat['term_link']; ?>" rel="bookmark" class="thumb">
 							<h3><?php echo $portfolio_cat['name']; ?></h3>
-							<img class="<?php echo $class; ?>" src="<?php echo esc_url( $image ); ?>" height="360" width="260">
+							<img class="<?php echo $class; ?>" src="<?php echo esc_url( $image ); ?>" width="360" height="260">
 						</a>
 					</div><!-- .entry-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->
