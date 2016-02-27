@@ -8,10 +8,11 @@ WordPress projects always stand on the shoulders of others.  Please take this th
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
-Development
+3.8.2 (02-27-2016)
 ---
 
 * Fix: Swapped width/height attribute sizes
+* Fix: Enable link hover color style
 
 3.8.1 (02-24-2016)
 ---

@@ -111,6 +111,25 @@ function portfolioplus_styles() {
 
 	}
 
+	// Link Hover Color
+	$setting = 'link_hover_color';
+	$mod = portfolioplus_get_option( $setting, customizer_library_get_default( $setting ) );
+
+	if ( $mod !== customizer_library_get_default( $setting ) ) {
+
+		$color = sanitize_hex_color( $mod );
+
+		Customizer_Library_Styles()->add( array(
+			'selectors' => array(
+				'a:hover, .entry-title a:hover'
+			),
+			'declarations' => array(
+				'color' => $color
+			)
+		) );
+
+	}
+
 	// Header Background
 	$setting = 'header_bg';
 	$defaults = array(
