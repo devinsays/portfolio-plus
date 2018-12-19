@@ -37,7 +37,7 @@ body {
 	font-family: $primary-font;
 	background: #f6f6f6;
 	color: #555;
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 1.5;
 	min-height: 100%;
  	display: flex;
@@ -66,11 +66,12 @@ a {
 	text-decoration: none;
 	transition: all 0.2s ease;
 	word-wrap: break-word;
-}
-a:hover,
-a:focus,
-a:active {
-	text-decoration: underline;
+	
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
 }
 .col-width {
 	max-width: 980px;
@@ -233,19 +234,30 @@ a:active {
 }
 #content blockquote {
 	color: #444;
+	margin-bottom: 30px;
 }
 .entry-content blockquote {
 	font-size: 18px;
 	font-style: italic;
+	
+	cite {
+		display: block;
+		margin-top: 5px;
+		font-size: 14px;
+		
+		&::before {
+			margin-right: 2px;
+			content: "\2014";
+		}
+	}
+
 }
-.entry-content blockquote cite {
-	display: block;
-	margin-top: 5px;
-	font-size: 14px;
-}
-.entry-content blockquote cite:before {
-	margin-right: 2px;
-	content: "\2014";
+#content .wp-block-pullquote {
+	margin: 30px 0;
+	
+	blockquote {
+		margin-bottom: 0;
+	}
 }
 footer.entry-meta:before {
 	margin-bottom: 8px;
@@ -414,7 +426,7 @@ footer.entry-meta:after {
 
 .widget-container {
 	margin: 0 0 30px 0;
-	font-size: 13px;
+	font-size: 14px;
 }
 .widget-container h3 {
 	margin: 0 0 20px;
@@ -594,11 +606,11 @@ table#wp-calendar th {
 	word-wrap: break-word;
 }
 .comment-metadata {
-	font-size:12px;
+	font-size: 13px;
 }
 .comment .reply {
 	display: inline-block;
-	font-size:12px;
+	font-size: 13px;
 }
 .comment-list .children {
 	margin: 0 0 0 60px;
@@ -622,8 +634,8 @@ table#wp-calendar th {
 	width: 50%;
 }
 #respond textarea {
-  display: block;
-  width: 80%;
+	display: block;
+	width: 80%;
 }
 /* These are not displayed by default */
 #respond .form-allowed-tags {
@@ -635,11 +647,11 @@ table#wp-calendar th {
 	margin-bottom: 15px;
 }
 #respond .form-allowed-tags code {
-	font-size: 12px;
+	font-size: 13px;
 }
 #cancel-comment-reply-link {
 	text-transform: uppercase;
-	font-size:12px;
+	font-size: 13px;
 }
 
 @media screen and (max-width:510px) {
@@ -682,7 +694,7 @@ table#wp-calendar th {
 }
 #colophon #site-generator p {
 	color: #333;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: bold;
 	margin: 0;
 }
@@ -745,6 +757,26 @@ table#wp-calendar th {
 	margin: 0 auto;
 }
 
+// Display wide images full width on mobile.
+@media (max-width: 680px) {
+	.alignwide {
+		width: calc(100% + 40px);
+		max-width: calc(100% + 40px);
+		margin-left: -20px;
+		
+		figcaption {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+}
+
+.alignwide img,
+.alignfull img {
+	display: block;
+	margin: 0 auto;
+}
+
 /* Media
 --------------------------------------------------------------*/
 
@@ -772,8 +804,8 @@ object {
 	margin: 0 auto;
 }
 .wp-caption-text {
-	margin:10px 0;
-	font-size: 12px;
+	margin: 10px 0;
+	font-size: 13px;
 }
 
 /* Galleries */
@@ -843,30 +875,33 @@ object {
 .gallery-caption {
 	margin: 0 0 10px;
 }
+.wp-block-gallery {
+	margin: 0 0 30px;
+}
 
 /* Clearings
 --------------------------------------------------------------*/
 
 .clear:before,
 .clear:after {
-    content: '';
-    display: table;
+	content: '';
+	display: table;
 }
 .clear:after {
-    clear: both;
+	clear: both;
 }
 .clearfix:before,
 .clearfix:after {
-  content: " ";
-  display: table;
+	content: " ";
+	display: table;
 }
 
 .clearfix:after {
-  clear: both;
+	clear: both;
 }
 
 .clearfix {
-  *zoom: 1;
+	*zoom: 1;
 }
 
 /* Print
