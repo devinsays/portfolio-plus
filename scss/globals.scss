@@ -156,6 +156,7 @@ input[type="submit"] {
 	
 	&:hover {
 		background: darken( $primary-color, 5% );
+		text-decoration: none;
 	}
 	&:focus,
 	&:active {
@@ -203,7 +204,7 @@ input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 input[name="post_password"] {
-	margin-top:.5em;
+	margin-top: .5em;
 }
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */

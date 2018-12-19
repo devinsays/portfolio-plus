@@ -8,26 +8,26 @@ WordPress projects always stand on the shoulders of others.  Please take this th
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
-Development
+3.9.0 (12.19.2018)
 ---
 
 * Update: WordPress 5.0 Editor support.
 * Update: Minor increase in font sizes.
 * Fix: Javascript fix for menu detection (props @ogonkov).
 
-3.8.2 (02-27-2016)
+3.8.2 (02.27.2016)
 ---
 
 * Fix: Swapped width/height attribute sizes
 * Fix: Enable link hover color style
 
-3.8.1 (02-24-2016)
+3.8.1 (02.24.2016)
 ---
 
 * Fix: Updates for templates/portfolio.php
 * Fix: Disable Styles should default to false
 
-3.8.0 (02-20-2016)
+3.8.0 (02.20.2016)
 ---
 
 * Update: All options are now in the customizer
