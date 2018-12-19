@@ -1,10 +1,15 @@
 'use strict';
+
+// Packages
+const fiberLibrary = require('fibers');
+const sassLibrary = require('node-sass');
+
 module.exports = function(grunt) {
 
 	// load all tasks
 	require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
 
-    grunt.initConfig({
+	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['scss/*.scss'],
@@ -15,66 +20,71 @@ module.exports = function(grunt) {
 		},
 		sass: {
 			default: {
-		  		options : {
-			  		style : 'expanded'
-			  	},
-			  	files: {
-					'style.css':'scss/style.scss',
+				options : {
+					implementation: sassLibrary,
+					fiber: fiberLibrary,
+					style : 'expanded',
+					sourceMap: true
+				},
+				files: {
+					'style.css': 'scss/style.scss',
 				}
 			}
 		},
-		autoprefixer: {
-            options: {
-				browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 9']
+		postcss: {
+			options: {
+				map: true,
+				processors: [
+					require('autoprefixer-core')({browsers: 'last 2 versions'}),
+				]
 			},
-			single_file: {
-				src: 'style.css',
-				dest: 'style.css'
+			files: {
+				'style.css':'style.css'
 			}
 		},
-		csscomb: {
-	        release: {
-	            options: {
-	                config: '.csscomb.json'
-	            },
-	            files: {
-	                'style.css': ['style.css'],
-	            }
-	        }
-	    },
 		concat: {
 			release: {
-		        src: [
-		            'js/navigation.js',
-		            'js/jquery.fitvids.js',
-		        ],
-		        dest: 'js/combined-min.js'
-	        }
+				src: [
+					'js/navigation.js',
+					'js/jquery.fitvids.js',
+				],
+				dest: 'js/combined-min.js'
+			}
 		},
 		uglify: {
-		    release: {
-		    	files: [
-					{
-						src: 'js/combined-min.js',
-						dest: 'js/combined-min.js'
-					},
-					{
-						src: 'js/jquery.infinitescroll.js',
-						dest: 'js/jquery.infinitescroll.min.js'
-					}
-				]
-		    }
+			options: {
+				mangle: {
+					reserved: ['jQuery']
+				},
+				drop_console: true
+			},
+			default: {
+				files: {
+					'js/combined-min.js' : 'js/combined-min.js',
+					'js/jquery.infinitescroll.js' : 'js/jquery.infinitescroll.min.js',
+				}
+			}
 		},
-    	// https://www.npmjs.org/package/grunt-wp-i18n
-	    makepot: {
-	        target: {
-	            options: {
-	                domainPath: '/languages/',    // Where to save the POT file.
-	                potFilename: 'portfolio-plus.pot',   // Name of the POT file.
-	                type: 'wp-theme'  // Type of project (wp-plugin or wp-theme).
-	            }
-	        }
-	    },
+		// https://www.npmjs.org/package/grunt-wp-i18n
+		makepot: {
+			target: {
+				options: {
+					domainPath: '/languages/', // Where to save the POT file.
+					potFilename: 'portfolio-plus.pot', // Name of the POT file.
+					potHeaders: {
+					poedit: true, // Includes common Poedit headers.
+					'x-poedit-keywordslist': true // Include a list of all possible gettext functions.
+				},
+				type: 'wp-theme', // Type of project (wp-plugin or wp-theme).
+				updateTimestamp: false, // Update timestamp if there's no string changes.
+				processPot: function( pot, options ) {
+					pot.headers['report-msgid-bugs-to'] = 'https://wptheming.com/';
+					pot.headers['language'] = 'en_US';
+					return pot;
+					}
+				}
+			}
+		},
 		cssjanus: {
 			theme: {
 				options: {
@@ -110,19 +120,17 @@ module.exports = function(grunt) {
 				} ]
 			},
 		}
-
 	});
 
 	grunt.registerTask( 'default', [
 		'sass',
-		'autoprefixer',
-    ]);
+		'postcss',
+	]);
 
-    grunt.registerTask( 'release', [
-	    'replace',
-	    'sass',
-		'autoprefixer',
-		'csscomb',
+	grunt.registerTask( 'release', [
+		'replace',
+		'sass',
+		'postcss',
 		'concat',
 		'uglify',
 		'makepot',
