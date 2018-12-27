@@ -15,7 +15,7 @@ $updater = new EDD_Theme_Updater_Admin(
 
 	// Config settings
 	$config = array(
-		'remote_api_url' => 'http://wptheming.com',
+		'remote_api_url' => 'https://wptheming.com',
 		'item_name' => 'portfolio-theme',
 		'theme_slug' => 'portfolio-plus',
 		'version' => PORTFOLIO_VERSION,
