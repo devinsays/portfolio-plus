@@ -796,16 +796,22 @@ object {
 }
 
 /* Captions */
+
 .wp-caption {
 	max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 0 auto;
+	
+	img[class*="wp-image-"] {
+		display: block;
+		margin: 0 auto;
+	}
+
 }
 .wp-caption-text {
 	margin: 10px 0;
 	font-size: 13px;
+}
+.wp-block-image figcaption {
+	color: #555;
 }
 
 /* Galleries */

@@ -8,12 +8,17 @@ WordPress projects always stand on the shoulders of others.  Please take this th
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
+Development (01.02.2018)
+---
+
+* Fix: Captions in image blocks now inherit body font color.
+
 3.9.0 (12.19.2018)
 ---
 
-* Update: WordPress 5.0 Editor support.
-* Update: Minor increase in font sizes.
-* Fix: Javascript fix for menu detection (props @ogonkov).
+* Update: WordPress 5.0 Editor support
+* Update: Minor increase in font sizes
+* Fix: Javascript fix for menu detection (props @ogonkov)
 
 3.8.2 (02.27.2016)
 ---

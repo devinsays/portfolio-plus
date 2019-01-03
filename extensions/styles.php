@@ -26,7 +26,7 @@ function portfolioplus_styles() {
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
-				'body, #content blockquote, #commentform .form-allowed-tags'
+				'body, #content blockquote, #commentform .form-allowed-tags, .wp-block-image figcaption'
 			),
 			'declarations' => array(
 				'color' => $color
