@@ -13,14 +13,22 @@ function portfolioplus_options() {
 	// Stores all the sections to be added
 	$sections = array();
 
-	// Logo section
-	$section = 'header';
+	// Logo options in "Site Identity" panel.
+	$section = 'title_tagline';
+	
+	if ( ! portfolioplus_get_option( 'logo' ) ) :
 
-	$sections[] = array(
-		'id' => $section,
-		'title' => __( 'Logo Image', 'portfolio-plus' ),
-		'priority' => '20'
+	$options['portfolioplus[tagline]'] = array(
+		'id' => 'portfolioplus[tagline]',
+		'option_type' => 'option',
+		'label' => __( 'Display tagline under site title.', 'portfolio-plus' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
+		'priority' => 20
 	);
+
+	endif;
 
 	$options['portfolioplus[logo]'] = array(
 		'id' => 'portfolioplus[logo]',
@@ -29,21 +37,8 @@ function portfolioplus_options() {
 		'section' => $section,
 		'type'    => 'image',
 		'default' => '',
+		'priority' => 20
 	);
-
-	if ( ! portfolioplus_get_option( 'logo' ) ) :
-
-	$options['portfolioplus[tagline]'] = array(
-		'id' => 'portfolioplus[tagline]',
-		'option_type' => 'option',
-		'label' => __( 'Display Site Tagline', 'portfolio-plus' ),
-		'description' => 'Display tagline under site title.',
-		'section' => $section,
-		'type'    => 'checkbox',
-		'default' => 1
-	);
-
-	endif;
 
 	// Layout
 	$section = 'general';

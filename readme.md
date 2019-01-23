@@ -12,6 +12,7 @@ Development (01.02.2018)
 ---
 
 * Fix: Captions in image blocks now inherit body font color.
+* Update: Move logo and tagline option to "Site Identity" panel in Customizer.
 
 3.9.0 (12.19.2018)
 ---
