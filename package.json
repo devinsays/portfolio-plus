@@ -2,20 +2,22 @@
 	"name": "portfolio-plus",
 	"version": "3.9.0",
 	"repository": "https://github.com/devinsays/portfolio-plus",
+	"packageManager": "pnpm@11.17.0",
+	"browserslist": [
+		"last 2 versions"
+	],
+	"scripts": {
+		"build": "vite build",
+		"start": "vite build --watch",
+		"makepot": "wp i18n make-pot . languages/portfolio-plus.pot --domain=portfolio-plus --exclude=node_modules",
+		"version-bump": "node scripts/sync-version.mjs"
+	},
 	"devDependencies": {
-		"autoprefixer-core": "^6.0.0",
-		"grunt": "^1.0.0",
-		"grunt-cli": "^1.3.0",
-		"load-grunt-tasks": "^4.0.0",
-		"grunt-contrib-watch": "^1.1.0",
-		"grunt-sass": "^3.0.0",
-		"grunt-postcss": "^0.9.0",
-		"grunt-contrib-concat": "^1.0.0",
-		"grunt-contrib-uglify": "^4.0.0",
-		"grunt-text-replace": "^0.4.0",
-		"grunt-wp-i18n": "^1.0.0",
-		"grunt-potomo": "^3.5.0",
-		"grunt-cssjanus": "^0.4.0",
-		"sass": "^1.60.0"
+		"autoprefixer": "^10.4.21",
+		"cssjanus": "^2.3.0",
+		"esbuild": "^0.25.0",
+		"postcss": "^8.5.6",
+		"sass-embedded": "^1.93.2",
+		"vite": "^8.0.0"
 	}
 }
