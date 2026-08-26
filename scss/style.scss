@@ -15,14 +15,15 @@ Text Domain: portfolio-plus
 Domain Path: /languages
 */
 
-@import "variables";
+@use "sass:meta";
+@use "variables";
 
 /* Reset
 -------------------------------------------------------------- */
 
-@import "reset";
+@include meta.load-css("reset");
 
-@import "globals";
+@include meta.load-css("globals");
 
 /* @noflip */
 body.rtl {
@@ -37,7 +38,7 @@ html {
 	height: 100%;
 }
 body {
-	font-family: $primary-font;
+	font-family: variables.$primary-font;
 	background: #f6f6f6;
 	color: #555;
 	font-size: 15px;
@@ -47,7 +48,7 @@ body {
 	flex-direction: column;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: $secondary-font;
+	font-family: variables.$secondary-font;
 	font-weight:400;
 	color: #111;
 	margin-bottom: .5em;
@@ -65,7 +66,7 @@ h4, h5, h6 {
 	font-size: 18px;
 }
 a {
-	color: $primary-color;
+	color: variables.$primary-color;
 	text-decoration: none;
 	transition: all 0.2s ease;
 	word-wrap: break-word;
@@ -192,7 +193,7 @@ a {
 /* Primary Navigation
 -------------------------------------------------------------- */
 
-@import "navigation";
+@include meta.load-css("navigation");
 
 /* Content
 --------------------------------------------------------------*/

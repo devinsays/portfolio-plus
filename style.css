@@ -289,6 +289,7 @@ input[type=submit] {
   color: #fff;
   font-size: 15px;
 }
+
 button:hover,
 .button:hover,
 .wp-block-button__link:hover,
@@ -298,6 +299,7 @@ input[type=submit]:hover {
   background: rgb(5.0893246187%, 30.8540305011%, 37.8518518519%);
   text-decoration: none;
 }
+
 button:focus, button:active,
 .button:focus,
 .button:active,
@@ -347,6 +349,7 @@ textarea {
   width: 100%;
   border-radius: 3px;
 }
+
 input[type=text]:focus,
 input[type=password]:focus,
 input[type=date]:focus,
