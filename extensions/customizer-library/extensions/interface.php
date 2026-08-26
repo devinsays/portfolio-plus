@@ -135,24 +135,9 @@ if ( ! function_exists( 'customizer_library_register' ) ) :
 
 					case 'textarea':
 
-						// Custom control required before WordPress 4.0
-						if ( version_compare( $GLOBALS['wp_version'], '3.9.2', '<=' ) ) :
-
-							$wp_customize->add_control(
-								new Customizer_Library_Textarea(
-									$wp_customize, $option['id'], $option
-								)
-							);
-
-						else :
-
-							$wp_customize->add_control( 'setting_id', array(
-								$wp_customize->add_control(
-									$option['id'], $option
-								)
-							) );
-
-						endif;
+						$wp_customize->add_control(
+							$option['id'], $option
+						);
 
 						break;
 

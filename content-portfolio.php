@@ -29,17 +29,19 @@ if ( post_password_required() ) {
 // If alternative link is set, use it
 $link = get_the_permalink();
 $target = '';
+$rel = 'bookmark';
 if ( get_post_meta( $post->ID, 'portfolioplus_url', true ) ) {
-	$link = esc_url( get_post_meta( $post->ID, 'portfolioplus_url', true ) );
+	$link = get_post_meta( $post->ID, 'portfolioplus_url', true );
 	if ( get_post_meta( $post->ID, 'portfolioplus_url_target', true ) ) {
 		$target = ' target="_blank"';
+		$rel = 'bookmark noopener';
 	}
 }
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="entry-content">
-		<a href="<?php echo $link; ?>" <?php echo $target; ?> rel="bookmark" class="thumb" aria-labelledby="post-<?php the_ID(); ?>-title">
+		<a href="<?php echo esc_url( $link ); ?>" <?php echo $target; ?> rel="<?php echo esc_attr( $rel ); ?>" class="thumb" aria-labelledby="post-<?php the_ID(); ?>-title">
 			<h3 id="post-<?php the_ID(); ?>-title"><?php the_title() ?></h3>
 			<img class="<?php echo $class; ?>" src="<?php echo esc_url( $image ); ?>" width="360" height="260">
 		</a>

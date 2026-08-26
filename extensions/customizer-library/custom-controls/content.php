@@ -30,15 +30,15 @@ class Customizer_Library_Content extends WP_Customize_Control {
 			case 'content' :
 
 				if ( isset( $this->label ) ) {
-					echo '<span class="customize-control-title">' . $this->label . '</span>';
+					echo '<span class="customize-control-title">' . esc_html( $this->label ) . '</span>';
 				}
 
 				if ( isset( $this->content ) ) {
-					echo $this->content;
+					echo wp_kses_post( $this->content );
 				}
 
 				if ( isset( $this->description ) ) {
-					echo '<span class="description customize-control-description">' . $this->description . '</span>';
+					echo '<span class="description customize-control-description">' . wp_kses_post( $this->description ) . '</span>';
 				}
 
 				break;
