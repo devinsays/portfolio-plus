@@ -41,10 +41,6 @@ Development (unreleased)
 - Update: Replace deprecated jQuery APIs in the bundled infinite scroll library (jQuery 4 ready) and remove the IE9 html5.js shim.
 - Update: Migrate the build from Grunt to pnpm + Vite; SCSS now uses @use and modern color functions.
 - Update: Declare Requires PHP 7.4 and Tested up to 6.8.
-
-Development (01.02.2018)
----
-
 - Fix: Captions in image blocks now inherit body font color.
 - Update: Move logo and tagline option to "Site Identity" panel in Customizer.
 
