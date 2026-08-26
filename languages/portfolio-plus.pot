@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-26T16:55:38+00:00\n"
+"POT-Creation-Date: 2026-08-26T19:20:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-plus\n"
@@ -290,7 +290,6 @@ msgid "Logo"
 msgstr ""
 
 #: extensions/customizer-options.php:48
-#: options.php:30
 msgid "General"
 msgstr ""
 
@@ -475,7 +474,7 @@ msgstr ""
 msgid "Portfolio+ recommends setting posts per page to 9. This can be changed under <a href=\"%3$s\">Settings > Reading Options</a>.<br><a href=\"%1$s\">Update It</a> | <a href=\"%2$s\">Dismiss Notice</a>."
 msgstr ""
 
-#: extensions/mods.php:99
+#: extensions/mods.php:106
 msgid "All items have loaded."
 msgstr ""
 
@@ -723,26 +722,17 @@ msgstr ""
 msgid "Footer 4"
 msgstr ""
 
-#: header.php:42
+#: header.php:39
 msgid "Menu"
 msgstr ""
 
-#: header.php:43
+#: header.php:40
 msgid "Skip to content"
 msgstr ""
 
 #: image.php:47
 #, php-format
 msgid "Published in <a href=\"%4$s\" title=\"Return to %5$s\" rel=\"gallery\">%6$s</a> at <a href=\"%1$s\" title=\"Link to full-size image\">%2$s &times; %3$s</a> "
-msgstr ""
-
-#: options.php:35
-msgid "Customization Options"
-msgstr ""
-
-#: options.php:38
-#, php-format
-msgid "<p>All theme options are now in the <a href=\"%s\">Customizer</a>.</p><p>You can safely disable the Options Framework and delete it from your site.</p>"
 msgstr ""
 
 #: search.php:16
