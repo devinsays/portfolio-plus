@@ -38,7 +38,7 @@ function portfolioplus_styles() {
 	// Body Background
 	$setting = 'main_bg';
 	$background = portfolioplus_get_option( $setting, array( 'color' => '#f6f6f6' ) );
-	$color = sanitize_hex_color( $background['color'] );
+	$color = sanitize_hex_color( isset( $background['color'] ) ? $background['color'] : '#f6f6f6' );
 
 	Customizer_Library_Styles()->add( array(
 		'selectors' => array(
@@ -137,10 +137,11 @@ function portfolioplus_styles() {
 		'image' => ''
 	);
 	$background = portfolioplus_get_option( $setting, $defaults );
+	$background_color = isset( $background['color'] ) ? $background['color'] : '#000000';
 
-	if ( $background['color'] !== '#000000' ) {
+	if ( $background_color !== '#000000' ) {
 
-		$color = sanitize_hex_color( $background['color'] );
+		$color = sanitize_hex_color( $background_color );
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(
@@ -349,10 +350,11 @@ function portfolioplus_styles() {
 	// Footer Background
 	$setting = 'footer_bg';
 	$background = portfolioplus_get_option( $setting, array( 'color' => '#ffffff' ) );
+	$background_color = isset( $background['color'] ) ? $background['color'] : '#ffffff';
 
-	if ( $background['color'] !== '#ffffff' ) {
+	if ( $background_color !== '#ffffff' ) {
 
-		$color = sanitize_hex_color( $background['color'] );
+		$color = sanitize_hex_color( $background_color );
 
 		Customizer_Library_Styles()->add( array(
 			'selectors' => array(

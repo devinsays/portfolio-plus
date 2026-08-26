@@ -43,14 +43,16 @@ get_header(); ?>
 						<span class="entry-meta-icon icon-format-<?php echo esc_attr( 'image' ); ?>"></span>
 						<?php
 							$metadata = wp_get_attachment_metadata();
-							printf( __( 'Published in <a href="%4$s" title="Return to %5$s" rel="gallery">%6$s</a> at <a href="%1$s" title="Link to full-size image">%2$s &times; %3$s</a> ', 'portfolioplus' ),
-								esc_url( wp_get_attachment_url() ),
-								$metadata['width'],
-								$metadata['height'],
-								esc_url( get_permalink( $post->post_parent ) ),
-								esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
-								get_the_title( $post->post_parent )
-							);
+							if ( is_array( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) {
+								printf( __( 'Published in <a href="%4$s" title="Return to %5$s" rel="gallery">%6$s</a> at <a href="%1$s" title="Link to full-size image">%2$s &times; %3$s</a> ', 'portfolioplus' ),
+									esc_url( wp_get_attachment_url() ),
+									$metadata['width'],
+									$metadata['height'],
+									esc_url( get_permalink( $post->post_parent ) ),
+									esc_attr( strip_tags( get_the_title( $post->post_parent ) ) ),
+									get_the_title( $post->post_parent )
+								);
+							}
 						?>
 						<?php edit_post_link( __( 'Edit', 'portfolioplus' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer>

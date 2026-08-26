@@ -48,16 +48,22 @@ function portfolioplus_category_cache() {
 			$portfolio_thumbnail = null;
 			$portfolio_thumbnail_fullwidth = null;
 			$portfolio_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'portfolio-thumbnail');
-			$portfolio_thumbnail_fullwidth = wp_get_attachment_image_src( get_post_thumbnail_id(), 'portfolio-thumbnail-fullwidth');
+			$portfolio_thumbnail_fullwidth = wp_get_attachment_image_src( get_post_thumbnail_id(), 'portfolio-fullwidth');
 
 			/* All the data pulled is saved into an array which we'll save later */
 
 			$portfolioplus_category_query[$category->slug] = array(
 				'name' => $category->name,
 				'term_link' =>  esc_attr( get_term_link( $category->slug, 'portfolio_category' ) ),
-				'portfolio-thumbnail' => $portfolio_thumbnail[0],
-				'portfolio-thumbnail-fullwidth' => $portfolio_thumbnail_fullwidth[0]
 			);
+
+			if ( is_array( $portfolio_thumbnail ) ) {
+				$portfolioplus_category_query[$category->slug]['portfolio-thumbnail'] = $portfolio_thumbnail[0];
+			}
+
+			if ( is_array( $portfolio_thumbnail_fullwidth ) ) {
+				$portfolioplus_category_query[$category->slug]['portfolio-thumbnail-fullwidth'] = $portfolio_thumbnail_fullwidth[0];
+			}
 
 		endwhile;
    }
