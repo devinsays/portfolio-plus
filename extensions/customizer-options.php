@@ -419,8 +419,8 @@ function portfolioplus_customize_controls( $wp_customize ) {
 					'image_url' => 'portfolioplus[header_bg][image]',
 					'repeat' => 'portfolioplus[header_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[header_bg][size]',
-					'position' => 'portfolioplus[header_bg][attach]',
-					'attach' => 'portfolioplus[header_bg][position]'
+					'position' => 'portfolioplus[header_bg][position]',
+					'attach' => 'portfolioplus[header_bg][attach]'
 				)
 			)
 		)
@@ -470,8 +470,8 @@ function portfolioplus_customize_controls( $wp_customize ) {
 					'image_url' => 'portfolioplus[main_bg][image]',
 					'repeat' => 'portfolioplus[main_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[main_bg][size]',
-					'position' => 'portfolioplus[main_bg][attach]',
-					'attach' => 'portfolioplus[main_bg][position]'
+					'position' => 'portfolioplus[main_bg][position]',
+					'attach' => 'portfolioplus[main_bg][attach]'
 				)
 			)
 		)
@@ -521,8 +521,8 @@ function portfolioplus_customize_controls( $wp_customize ) {
 					'image_url' => 'portfolioplus[footer_bg][image]',
 					'repeat' => 'portfolioplus[footer_bg][repeat]', // Use false to hide the field
 					'size' => 'portfolioplus[footer_bg][size]',
-					'position' => 'portfolioplus[footer_bg][attach]',
-					'attach' => 'portfolioplus[footer_bg][position]'
+					'position' => 'portfolioplus[footer_bg][position]',
+					'attach' => 'portfolioplus[footer_bg][attach]'
 				)
 			)
 		)
