@@ -12,9 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<!--[if lt IE 9]>
-<script src="<?php echo esc_url( get_template_directory_uri() . '/js/html5.js' ); ?>"></script>
-<![endif]-->
 <?php wp_head(); ?>
 </head>
 
@@ -27,7 +24,7 @@
 			<hgroup id="logo">
 				<<?php echo $heading_tag; ?> id="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
                 <?php if ( portfolioplus_get_option( 'logo', false) ) { ?>
-					<img src="<?php echo esc_url( portfolioplus_get_option( 'logo' ) ); ?>" alt="<?php echo bloginfo( 'name' ) ?>">
+					<img src="<?php echo esc_url( portfolioplus_get_option( 'logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 				<?php } else {
 					bloginfo( 'name' );
 				}?>

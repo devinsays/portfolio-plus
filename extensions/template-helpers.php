@@ -61,7 +61,7 @@ function portfolioplus_footer_meta( $post ) {
 		$tag_list = get_the_term_list( $post->ID, 'post_tag', '', ', ', '' );
 	} ?>
 
-	<a href="<?php echo $format_link; ?>">
+	<a href="<?php echo esc_url( $format_link ); ?>">
 		<span class="entry-meta-icon icon-format-<?php echo esc_attr( $format ); ?>"></span>
 	</a>
 

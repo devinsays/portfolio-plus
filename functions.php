@@ -150,7 +150,7 @@ function portfolioplus_fonts() {
 	// Google Font
 	wp_enqueue_style(
 		'portfolioplus_fonts',
-		'//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700',
+		'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Rokkitt:400,700',
 		'',
 		null,
 		'screen'

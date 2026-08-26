@@ -1,8 +1,7 @@
 'use strict';
 
 // Packages
-const fiberLibrary = require('fibers');
-const sassLibrary = require('node-sass');
+const sassLibrary = require('sass');
 
 module.exports = function(grunt) {
 
@@ -22,7 +21,6 @@ module.exports = function(grunt) {
 			default: {
 				options : {
 					implementation: sassLibrary,
-					fiber: fiberLibrary,
 					style : 'expanded',
 					sourceMap: true
 				},
@@ -61,7 +59,7 @@ module.exports = function(grunt) {
 			default: {
 				files: {
 					'js/combined-min.js' : 'js/combined-min.js',
-					'js/jquery.infinitescroll.js' : 'js/jquery.infinitescroll.min.js',
+					'js/jquery.infinitescroll.min.js' : 'js/jquery.infinitescroll.js',
 				}
 			}
 		},
