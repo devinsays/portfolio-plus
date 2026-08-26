@@ -174,7 +174,7 @@ if ( portfolioplus_get_option( 'portfolio_images', '1' ) ) {
 if ( ! function_exists( 'portfolioplus_featured_image_meta' ) ) :
 function portfolioplus_featured_image_meta( $content ) {
 	global $post;
-	$text = __( "Don't display image in post.", 'portfolioplus' );
+	$text = __( "Don't display image in post.", 'portfolio-plus' );
 	$id = 'hide_featured_image';
 	$value = esc_attr( get_post_meta( $post->ID, $id, true ) );
     $label = '<label for="' . $id . '" class="selectit"><input name="' . $id . '" type="checkbox" id="' . $id . '" value="' . $value . ' "'. checked( $value, 1, false) .'> ' . $text .'</label>';
@@ -218,7 +218,7 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 
 		add_meta_box(
 			'portfolioplus-portfolio-url',	// Unique ID
-			esc_html__( 'Portfolio Link', 'portfolioplus' ),	// Title
+			esc_html__( 'Portfolio Link', 'portfolio-plus' ),	// Title
 			'portfolioplus_url_meta_box',	// Callback
 			$post_type,	// Post type
 			'normal',	// Context
@@ -228,7 +228,7 @@ function portfolioplus_add_post_meta_boxes( $post_type ) {
 		if ( portfolioplus_get_option( 'layout' ) != 'layout-1col' ) :
 		add_meta_box(
 			'portfolioplus-post-atrributes',	// Unique ID
-			esc_html__( 'Post Attributes', 'portfolioplus' ),	// Title
+			esc_html__( 'Post Attributes', 'portfolio-plus' ),	// Title
 			'portfolioplus_post_template_meta_box',	// Callback
 			$post_type,	// Post type
 			'side',	// Context
@@ -248,7 +248,7 @@ if ( ! function_exists( 'portfolioplus_url_meta_box' ) ) :
 function portfolioplus_url_meta_box( $post ) { ?>
 	<?php wp_nonce_field( basename( __FILE__ ), 'portfolioplus_nonce' ); ?>
 	<p>
-		<label for="portfolioplus-portfolio-url"><?php _e( 'If you enter a url below, your image, gallery, or portfolio item will link to it from the archive.', 'portfolioplus' ); ?></label>
+		<label for="portfolioplus-portfolio-url"><?php _e( 'If you enter a url below, your image, gallery, or portfolio item will link to it from the archive.', 'portfolio-plus' ); ?></label>
 	</p>
 	<?php $value = esc_attr( get_post_meta( $post->ID, 'portfolioplus_url', true ) ); ?>
 	<p>
@@ -257,7 +257,7 @@ function portfolioplus_url_meta_box( $post ) { ?>
 	<?php $value = get_post_meta( $post->ID, 'portfolioplus_url_target', true ); ?>
 	<p>
 		<label for="portfolioplus-url-target" class="selectit">
-			<input name="portfolioplus_url_target" type="checkbox" id="portfolioplus-url-target" value="<?php echo $value; ?>" <?php echo checked( $value, 1, false); ?>><?php _e( 'Open link in new window', 'portfolioplus' ); ?></label>
+			<input name="portfolioplus_url_target" type="checkbox" id="portfolioplus-url-target" value="<?php echo $value; ?>" <?php echo checked( $value, 1, false); ?>><?php _e( 'Open link in new window', 'portfolio-plus' ); ?></label>
 	</p>
 <?php }
 endif;
@@ -270,11 +270,11 @@ endif;
 if ( ! function_exists( 'portfolioplus_post_template_meta_box' ) ) :
 function portfolioplus_post_template_meta_box( $post ) { ?>
 	<?php $value = get_post_meta( $post->ID, 'portfolioplus_post_template', true ); ?>
-	<p><strong><?php _e( 'Template', 'portfolioplus' ); ?></strong></p>
-	<label class="screen-reader-text" for="portfolioplus-post-template"><?php _e( 'Post Template', 'portfolioplus' ); ?></label>
+	<p><strong><?php _e( 'Template', 'portfolio-plus' ); ?></strong></p>
+	<label class="screen-reader-text" for="portfolioplus-post-template"><?php _e( 'Post Template', 'portfolio-plus' ); ?></label>
 	<select name="portfolioplus-post-template" id="portfolioplus-post-template">
-		<option value="default" <?php selected( $value, 'default' ); ?>><?php _e( 'Default Template', 'portfolioplus' ); ?></option>
-		<option value="full-width" <?php selected( $value, 'full-width' ); ?>><?php _e( 'Full Width', 'portfolioplus' ); ?></option>
+		<option value="default" <?php selected( $value, 'default' ); ?>><?php _e( 'Default Template', 'portfolio-plus' ); ?></option>
+		<option value="full-width" <?php selected( $value, 'full-width' ); ?>><?php _e( 'Full Width', 'portfolio-plus' ); ?></option>
 	</select>
 	<p>
 <?php }
