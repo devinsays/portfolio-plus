@@ -53,11 +53,14 @@ function portfolioplus_posts_per_page_notice() {
 	}
 
 	if ( current_user_can( 'manage_options' ) ) {
+		$update_url  = wp_nonce_url( add_query_arg( 'portfolio_update_posts_per_page', '1', admin_url() ), 'portfolioplus_update_posts_per_page' );
+		$dismiss_url = wp_nonce_url( add_query_arg( 'portfolio_post_per_page_ignore', '1', admin_url() ), 'portfolioplus_post_per_page_ignore' );
+
 		echo '<div class="updated"><p>';
 			printf( __(
 				'Portfolio+ recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.' ),
-				'?portfolio_update_posts_per_page=1',
-				'?portfolio_post_per_page_ignore=1',
+				esc_url( $update_url ),
+				esc_url( $dismiss_url ),
 				admin_url( 'options-reading.php', false ), 'portfolio-plus' );
 		echo '</p></div>';
 	}
@@ -69,14 +72,20 @@ add_action( 'admin_notices', 'portfolioplus_posts_per_page_notice', 120 );
  */
 function portfolioplus_notice_ignores() {
 
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
 	$options = get_option( 'portfolioplus' );
 
 	if ( isset( $_GET['portfolio_post_per_page_ignore'] ) && '1' == $_GET['portfolio_post_per_page_ignore'] ) {
+		check_admin_referer( 'portfolioplus_post_per_page_ignore' );
 		$options['post_per_page_ignore'] = 1;
 		update_option( 'portfolioplus', $options );
 	}
 
 	if ( isset( $_GET['portfolio_update_posts_per_page'] ) && '1' == $_GET['portfolio_update_posts_per_page'] ) {
+		check_admin_referer( 'portfolioplus_update_posts_per_page' );
 		update_option( 'posts_per_page', 9 );
 	}
 
