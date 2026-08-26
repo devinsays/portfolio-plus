@@ -1,0 +1,4 @@
+# pnpm reads its settings from here rather than package.json.
+# esbuild needs its install script to place the platform binary.
+allowBuilds:
+  esbuild: true
