@@ -1,287 +1,320 @@
 # Portfolio+
 
-Portfolio+ is a responsive theme for showcasing your photography, art, web sites, or other projects.  It also works nicely as a regular blog site.  An options panel is included for uploading logos and and changing the layout.  There's also support for the image, gallery and quote post formats.  Visit the [demo site](http://themes.wptheming.com/portfolio-plus/) or [watch the video screencast](http://wptheming.com/portfolio-press) for set up instructions.
+Portfolio+ is a responsive theme for showcasing your photography, art, web sites, or other projects. It also works nicely as a regular blog site. An options panel is included for uploading logos and and changing the layout. There's also support for the image, gallery and quote post formats. Visit the [demo site](http://themes.wptheming.com/portfolio-plus/) or [watch the video screencast](http://wptheming.com/portfolio-press) for set up instructions.
+
+Requires PHP 7.4+ and WordPress 5.0+.
+
+## Development
+
+The build uses [pnpm](https://pnpm.io/) and [Vite](https://vite.dev/):
+
+```
+pnpm install        # install dependencies
+pnpm build          # compile scss/ and minify js/ into the shipped assets
+pnpm start          # rebuild on file changes
+pnpm makepot        # regenerate languages/portfolio-plus.pot (requires WP-CLI)
+pnpm version-bump   # sync the package.json version into style.scss and functions.php
+```
+
+Compiled assets (style.css, style-rtl.css, js/*-min.js) are committed, so run `pnpm build` and commit the results along with source changes.
 
 ## Credits
 
-WordPress projects always stand on the shoulders of others.  Please take this theme and build upon it for you own work!
+WordPress projects always stand on the shoulders of others. Please take this theme and build upon it for you own work!
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
+
+Development (unreleased)
+---
+
+- Security: Add capability check and nonce verification to admin notice actions.
+- Security: Harden the theme updater (SSL verification, license checks via POST, safe unserialization of API responses).
+- Security: Escape output throughout (logo alt, term links, footer text, Customizer content control) and add rel="noopener" to links opening in a new tab.
+- Fix: Unchecking "Open link in new window" and "Don't display image in post" now saves correctly on PHP 8.
+- Fix: Background image position and attachment settings were swapped in the Customizer controls.
+- Fix: Infinite scroll no longer breaks on category/tag slugs containing a number.
+- Fix: Infinite scroll now loads items on screens tall enough to show the first page without a scrollbar.
+- Fix: Failed update checks no longer cache indefinitely.
+- Fix: PHP 8 warnings for missing thumbnails, attachment metadata, and background color options.
+- Update: Declare title-tag support and let WordPress manage the document title.
+- Update: Normalize all text domains to portfolio-plus so every string is translatable.
+- Update: Replace deprecated jQuery APIs in the bundled infinite scroll library (jQuery 4 ready) and remove the IE9 html5.js shim.
+- Update: Migrate the build from Grunt to pnpm + Vite; SCSS now uses @use and modern color functions.
+- Update: Declare Requires PHP 7.4 and Tested up to 6.8.
 
 Development (01.02.2018)
 ---
 
-* Fix: Captions in image blocks now inherit body font color.
-* Update: Move logo and tagline option to "Site Identity" panel in Customizer.
+- Fix: Captions in image blocks now inherit body font color.
+- Update: Move logo and tagline option to "Site Identity" panel in Customizer.
 
 3.9.0 (12.19.2018)
 ---
 
-* Update: WordPress 5.0 Editor support
-* Update: Minor increase in font sizes
-* Fix: Javascript fix for menu detection (props @ogonkov)
+- Update: WordPress 5.0 Editor support
+- Update: Minor increase in font sizes
+- Fix: Javascript fix for menu detection (props @ogonkov)
 
 3.8.2 (02.27.2016)
 ---
 
-* Fix: Swapped width/height attribute sizes
-* Fix: Enable link hover color style
+- Fix: Swapped width/height attribute sizes
+- Fix: Enable link hover color style
 
 3.8.1 (02.24.2016)
 ---
 
-* Fix: Updates for templates/portfolio.php
-* Fix: Disable Styles should default to false
+- Fix: Updates for templates/portfolio.php
+- Fix: Disable Styles should default to false
 
 3.8.0 (02.20.2016)
 ---
 
-* Update: All options are now in the customizer
-* Update: Remove backward compatibility code for gallery and image markup
-* Fix: Image sizing for templates/portfolio.php and templates/full-width-portfolio.php
+- Update: All options are now in the customizer
+- Update: Remove backward compatibility code for gallery and image markup
+- Fix: Image sizing for templates/portfolio.php and templates/full-width-portfolio.php
 
 3.7.3
 ---
 
-* Fix: External linking of portfolio items fixed
+- Fix: External linking of portfolio items fixed
 
 3.7.2
 ---
 
-* Fix: Portfolio Categories template not working full-width
+- Fix: Portfolio Categories template not working full-width
 
 3.7.1
 ---
 
-* Update: Allow functions in portfolio-functions.php to be overridden
-* Fix: Post navigation option
-* Fix: IE Footer Display
+- Update: Allow functions in portfolio-functions.php to be overridden
+- Fix: Post navigation option
+- Fix: IE Footer Display
 
 3.7.0
 ---
 
-* Update: Grunt task for SASS
-* Update: Refactor CSS
-* Update: Form design
-* Update: Comment design
-* Update: Show the content on search and author archives
-* Update: Allow galleries to fill content width
-* Update: Use SVG for fallback images
-* Update: Slight markup changes for portfolio templates
+- Update: Grunt task for SASS
+- Update: Refactor CSS
+- Update: Form design
+- Update: Comment design
+- Update: Show the content on search and author archives
+- Update: Allow galleries to fill content width
+- Update: Use SVG for fallback images
+- Update: Slight markup changes for portfolio templates
 
 3.6.2
 ---
 
-* Fix: $content_width now matches max content width
-* Enhancement: Option to open linked portfolio items in new window
-* Update: Better theme updater
+- Fix: $content_width now matches max content width
+- Enhancement: Option to open linked portfolio items in new window
+- Update: Better theme updater
 
 3.6.1
 ---
 
-* Fix: IE11 Footer Display
+- Fix: IE11 Footer Display
 
 3.6.0
 ---
 
-* Sticky footer
-* Update background color selectors
-* Fix debug error
+- Sticky footer
+- Update background color selectors
+- Fix debug error
 
 3.5.0
 ---
 
-* Add captions to image attachment page
-* Posts per page notice fix
-* Remove upgrade routines
-* Refactor RTL styles
-* Fix browser resizing of certain images
-* Fix fullwidth image sizes with full-width-image-gallery-formats template
-* Update class-tgm-plugin-activation library
-* CSS Support for JetPack Sharing
+- Add captions to image attachment page
+- Posts per page notice fix
+- Remove upgrade routines
+- Refactor RTL styles
+- Fix browser resizing of certain images
+- Fix fullwidth image sizes with full-width-image-gallery-formats template
+- Update class-tgm-plugin-activation library
+- CSS Support for JetPack Sharing
 
 3.4.2
 ---
 
-* Add descriptions to image attachment page
+- Add descriptions to image attachment page
 
 3.4.1
 ---
 
-* Fix for "Portfolio Categories" data caching
+- Fix for "Portfolio Categories" data caching
 
 3.4.0
 ---
 
-* Add FitVids for better support of responsive video
-* More efficient font loading
-* Minor updates to comment-author and caption styling (props @TomLany)
-* Update for license functions
+- Add FitVids for better support of responsive video
+- More efficient font loading
+- Minor updates to comment-author and caption styling (props @TomLany)
+- Update for license functions
 
 3.3.0
 ---
 
-* Minor style update for portfolio title overlays
-* Update z-index for drop down menus
-* Better support for 3 level menus
-* Restore post option to hide images
-* Restore post option to link to external url
-* Add "full-width" option for individual posts
-* New template for images
+- Minor style update for portfolio title overlays
+- Update z-index for drop down menus
+- Better support for 3 level menus
+- Restore post option to hide images
+- Restore post option to link to external url
+- Add "full-width" option for individual posts
+- New template for images
 
 3.2.0
 ---
 
-* Re-enable theme updates
-* Make post format icon a link
-* Update translation file
-* Update for gallery styles
-* Update for table, list and definition styles
-* Enhancements for input styles (props @TomLany)
-* Update to enqueue base stylesheet
-* Remove javascript mod to hide page templates
-* Fix update notice
-
+- Re-enable theme updates
+- Make post format icon a link
+- Update translation file
+- Update for gallery styles
+- Update for table, list and definition styles
+- Enhancements for input styles (props @TomLany)
+- Update to enqueue base stylesheet
+- Remove javascript mod to hide page templates
+- Fix update notice
 
 3.1.0
 ---
 
-* Fix for three tier menu styling
-* Fix for Google font loading from https
-* Remove padding on logo for small screen
-* Hide featured images in blog layout if option is unchecked
-* Display archive titles and descriptions
+- Fix for three tier menu styling
+- Fix for Google font loading from https
+- Remove padding on logo for small screen
+- Hide featured images in blog layout if option is unchecked
+- Display archive titles and descriptions
 
 3.0.0
 ---
 
-* New menu styling
-* Portfolio templates and styles rebuilt
-* Support post formats in portfolio layout
-* Icon font
-* Single column is now 980px
-* Support Jetpack Carousel Module
-* Update gallery shortcode to HTML5 markup
-* Update styling for image captions
-* Option to hide post dates
-* Better support for theme customizer
-* Add options for header/footer border colors
+- New menu styling
+- Portfolio templates and styles rebuilt
+- Support post formats in portfolio layout
+- Icon font
+- Single column is now 980px
+- Support Jetpack Carousel Module
+- Update gallery shortcode to HTML5 markup
+- Update styling for image captions
+- Option to hide post dates
+- Better support for theme customizer
+- Add options for header/footer border colors
 
 2.0.0
 ---
 
-* Show larger thumbnails on one-column layouts
-* Increase thumbnail sizes on regular layouts
-* Max-width fix for logos in Firefox
-* Show thumbnails on search pages
-* Larger screenshot for WordPress 3.8
-* Compatibility update for Options Framework 1.7
+- Show larger thumbnails on one-column layouts
+- Increase thumbnail sizes on regular layouts
+- Max-width fix for logos in Firefox
+- Show thumbnails on search pages
+- Larger screenshot for WordPress 3.8
+- Compatibility update for Options Framework 1.7
 
 1.9.0
 ---
 
-* Toggle menu inherits menu color (if set by option)
-* Update $content_width on full page templates
-* Improvements for password protected portfolio posts
-* Normalize post meta
-* New portfolioplus_posts_per_page filter
+- Toggle menu inherits menu color (if set by option)
+- Update $content_width on full page templates
+- Improvements for password protected portfolio posts
+- Normalize post meta
+- New portfolioplus_posts_per_page filter
 
 1.8.0
 ---
 
-* Better responsive menu
-* Author page displays posts and author description
-* Option to include bottom navigation on portfolio posts
-* Add metabox on post for featured image display
+- Better responsive menu
+- Author page displays posts and author description
+- Option to include bottom navigation on portfolio posts
+- Add metabox on post for featured image display
 
 1.7.5
 ---
 
-* Add fullwidth portfolio thumnail size
-* Max-width for iframe,embeds and objects
+- Add fullwidth portfolio thumnail size
+- Max-width for iframe,embeds and objects
 
 1.7.4
 ---
 
-* Fix so portfolio meta boxes work again
-* Put single portfolio navigation back due to multiple requests
+- Fix so portfolio meta boxes work again
+- Put single portfolio navigation back due to multiple requests
 
 1.7.3
 ---
 
-* Fixed minor output error with inline styles
-* Fix styling for archive meta descriptions
+- Fixed minor output error with inline styles
+- Fix styling for archive meta descriptions
 
 1.7.2
 ---
 
-* Fixed bug on portfolio page that caused an error
-* Updated version number for automatic updater
+- Fixed bug on portfolio page that caused an error
+- Updated version number for automatic updater
 
 1.7.1
 ---
 
-* Removes theme dependency on Options Framework plugin
-* Show taxonomy descriptions by default (option to turn off)
+- Removes theme dependency on Options Framework plugin
+- Show taxonomy descriptions by default (option to turn off)
 
 1.7.0
 ---
 
-* Added box shadows to borders
-* Remove prev/next post navigation on single posts and portfolio items
-* Add borders around post meta
-* Add transient expiration for portfolio category template
-* Add fix for portfolio category template due to Portfolio Post Type upgrade
-* Make the full width layout option max-width 780px
-* Increase width for full size posts to 640px
-* Make "Turn Off Inline Styles" option work correctly
+- Added box shadows to borders
+- Remove prev/next post navigation on single posts and portfolio items
+- Add borders around post meta
+- Add transient expiration for portfolio category template
+- Add fix for portfolio category template due to Portfolio Post Type upgrade
+- Make the full width layout option max-width 780px
+- Increase width for full size posts to 640px
+- Make "Turn Off Inline Styles" option work correctly
 
 1.6.0
 ---
 
-* Allow licensing screen to be translatable
-* Enqueue infinite scroll on single rather than singular
+- Allow licensing screen to be translatable
+- Enqueue infinite scroll on single rather than singular
 
 1.5.0
 ---
 
-* Max-width for logo image
-* Bugfix for portfolio category template
-* Theme supports automatic updates with license key
+- Max-width for logo image
+- Bugfix for portfolio category template
+- Theme supports automatic updates with license key
 
 1.4.0
 ---
 
-* Fix for number of items shown in portfolio taxonomies
-* Update thumbnail sizing (props @alexkunz)
-* Added option to display portfolio category/tag titles
+- Fix for number of items shown in portfolio taxonomies
+- Update thumbnail sizing (props @alexkunz)
+- Added option to display portfolio category/tag titles
 
 1.3.0
 ---
 
-* Fix for plugin notices
-* Display gallery images in archives
-* Fix for js binding on infinite scroll
+- Fix for plugin notices
+- Display gallery images in archives
+- Fix for js binding on infinite scroll
 
 1.2.0
 ---
 
-* Fixed bug that caused an error when deleting a portfolio item
-* Updated the metabox function name
+- Fixed bug that caused an error when deleting a portfolio item
+- Updated the metabox function name
 
 1.1.0
 ---
 
-* Bugfix for portfolios with single column layout
-* Template for displaying Portfolio Categories
-* Metabox for portfolio item url
+- Bugfix for portfolios with single column layout
+- Template for displaying Portfolio Categories
+- Metabox for portfolio item url
 
 1.0.1
 ---
 
-* Image alignment bug fixes
+- Image alignment bug fixes
 
 1.0.0
 ---
 
-* Initial Release
+- Initial Release
