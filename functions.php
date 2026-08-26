@@ -70,6 +70,9 @@ function portfolioplus_setup() {
 	// Support for wide images introduced in WordPress 5.0
 	add_theme_support( 'align-wide' );
 
+	// Let WordPress manage the document title
+	add_theme_support( 'title-tag' );
+
 }
 endif; // portfolioplus_setup
 add_action( 'after_setup_theme', 'portfolioplus_setup' );
