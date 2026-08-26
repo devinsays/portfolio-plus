@@ -14,6 +14,7 @@ class EDD_Theme_Updater_Admin {
 	 * @type string
 	 */
 	 protected $remote_api_url = null;
+	 protected $item_name = null;
 	 protected $theme_slug = null;
 	 protected $version = null;
 	 protected $author = null;
@@ -220,15 +221,15 @@ class EDD_Theme_Updater_Admin {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $api_params to be used for wp_remote_get.
+	 * @param array $api_params to be used for the request body.
 	 * @return array $response decoded JSON response.
 	 */
 	 function get_api_response( $api_params ) {
 
 		 // Call the custom API.
-		$response = wp_remote_get(
-			add_query_arg( $api_params, $this->remote_api_url ),
-			array( 'timeout' => 15, 'sslverify' => false )
+		$response = wp_remote_post(
+			$this->remote_api_url,
+			array( 'timeout' => 15, 'body' => $api_params )
 		);
 
 		// Make sure the response came back okay.
@@ -369,14 +370,15 @@ class EDD_Theme_Updater_Admin {
 
 		// Get expire date
 		$expires = false;
+		$renew_link = '';
 		if ( isset( $license_data->expires ) ) {
 			$expires = date_i18n( get_option( 'date_format' ), strtotime( $license_data->expires ) );
 			$renew_link = '<a href="' . esc_url( $this->get_renewal_link() ) . '" target="_blank">' . $strings['renew'] . '</a>';
 		}
 
 		// Get site counts
-		$site_count = $license_data->site_count;
-		$license_limit = $license_data->license_limit;
+		$site_count = isset( $license_data->site_count ) ? $license_data->site_count : 0;
+		$license_limit = isset( $license_data->license_limit ) ? $license_data->license_limit : 0;
 
 		// If unlimited
 		if ( 0 == $license_limit ) {
@@ -397,7 +399,7 @@ class EDD_Theme_Updater_Admin {
 			} else {
 				$message = $strings['license-key-expired'];
 			}
-			if ( $renew_link ) {
+			if ( '' !== $renew_link ) {
 				$message .= ' ' . $renew_link;
 			}
 		} else if ( $license_data->license == 'invalid' ) {

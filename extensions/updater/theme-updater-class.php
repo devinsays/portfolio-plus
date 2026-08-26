@@ -12,6 +12,8 @@ class EDD_Theme_Updater {
 	private $response_key;
 	private $theme_slug;
 	private $license_key;
+	private $license;
+	private $item_name;
 	private $version;
 	private $author;
 	protected $strings = null;
@@ -27,14 +29,14 @@ class EDD_Theme_Updater {
 			'version' => '',
 			'author' => ''
 		) );
-		extract( $args );
 
-		$this->license = $license;
-		$this->item_name = $item_name;
-		$this->version = $version;
-		$this->theme_slug = sanitize_key( $theme_slug );
-		$this->author = $author;
-		$this->remote_api_url = $remote_api_url;
+		$this->license = $args['license'];
+		$this->item_name = $args['item_name'];
+		$this->version = $args['version'];
+		$this->theme_slug = sanitize_key( $args['theme_slug'] );
+		$this->author = $args['author'];
+		$this->remote_api_url = $args['remote_api_url'];
+		$this->request_data = $args['request_data'];
 		$this->response_key = $this->theme_slug . '-update-response';
 		$this->strings = $strings;
 
@@ -78,10 +80,79 @@ class EDD_Theme_Updater {
 				$update_onclick
 			);
 			echo '</div>';
-			echo '<div id="' . $this->theme_slug . '_' . 'changelog" style="display:none;">';
-			echo wpautop( $api_response->sections['changelog'] );
-			echo '</div>';
+
+			$changelog = $this->get_section( $api_response, 'changelog' );
+
+			if ( '' !== $changelog ) {
+				echo '<div id="' . $this->theme_slug . '_' . 'changelog" style="display:none;">';
+				echo wpautop( $changelog );
+				echo '</div>';
+			}
 		}
+	}
+
+	/**
+	 * Safely reads a single section out of an API response.
+	 *
+	 * The sections property may be an array, an object or missing entirely,
+	 * so every access is guarded before the value is returned.
+	 *
+	 * @param object $api_response Decoded API response.
+	 * @param string $section Section name to retrieve.
+	 * @return string Section content, or an empty string when unavailable.
+	 */
+	private function get_section( $api_response, $section ) {
+
+		if ( ! is_object( $api_response ) || ! isset( $api_response->sections ) ) {
+			return '';
+		}
+
+		$sections = $api_response->sections;
+
+		if ( is_array( $sections ) && isset( $sections[ $section ] ) ) {
+			return is_string( $sections[ $section ] ) ? $sections[ $section ] : '';
+		}
+
+		if ( is_object( $sections ) && isset( $sections->$section ) ) {
+			return is_string( $sections->$section ) ? $sections->$section : '';
+		}
+
+		return '';
+	}
+
+	/**
+	 * Normalizes the sections property of an API response.
+	 *
+	 * The EDD API returns sections as a serialized string. It is decoded
+	 * without allowing any objects to be instantiated, so a tampered
+	 * response cannot be used for PHP object injection.
+	 *
+	 * @param mixed $sections Raw sections value from the API response.
+	 * @return array Sections as an array of strings.
+	 */
+	private function parse_sections( $sections ) {
+
+		if ( is_string( $sections ) && is_serialized( $sections ) ) {
+			$sections = unserialize( $sections, array( 'allowed_classes' => false ) );
+		}
+
+		if ( is_object( $sections ) ) {
+			$sections = get_object_vars( $sections );
+		}
+
+		if ( ! is_array( $sections ) ) {
+			return array();
+		}
+
+		$parsed = array();
+
+		foreach ( $sections as $key => $value ) {
+			if ( is_string( $value ) ) {
+				$parsed[ $key ] = $value;
+			}
+		}
+
+		return $parsed;
 	}
 
 	function theme_update_transient( $value ) {
@@ -128,14 +199,14 @@ class EDD_Theme_Updater {
 			if ( $failed ) {
 				$data = new stdClass;
 				$data->new_version = $this->version;
-				set_transient( $this->response_key, $data, strtotime( '+30 minutes' ) );
+				set_transient( $this->response_key, $data, 30 * MINUTE_IN_SECONDS );
 				return false;
 			}
 
 			// If the status is 'ok', return the update arguments
 			if ( ! $failed ) {
-				$update_data->sections = maybe_unserialize( $update_data->sections );
-				set_transient( $this->response_key, $update_data, strtotime( '+12 hours' ) );
+				$update_data->sections = $this->parse_sections( isset( $update_data->sections ) ? $update_data->sections : array() );
+				set_transient( $this->response_key, $update_data, 12 * HOUR_IN_SECONDS );
 			}
 		}
 
