@@ -26,10 +26,10 @@ function portfolioplus_posts_per_page_notice() {
 
 		echo '<div class="updated"><p>';
 			printf( __(
-				'Portfolio+ recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.' ),
+				'Portfolio+ recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.', 'portfolio-plus' ),
 				esc_url( $update_url ),
 				esc_url( $dismiss_url ),
-				admin_url( 'options-reading.php', false ), 'portfolio-plus' );
+				admin_url( 'options-reading.php' ) );
 		echo '</p></div>';
 	}
 }

@@ -233,13 +233,13 @@ class Customize_Custom_Background_Control extends WP_Customize_Upload_Control {
 	public static function get_button_labels() {
 
 		$button_labels = array(
-			'select'       => __( 'Select Image', 'customizer-background-control' ),
-			'change'       => __( 'Change Image', 'customizer-background-control' ),
-			'remove'       => __( 'Remove', 'customizer-background-control' ),
-			'default'      => __( 'Default', 'customizer-background-control' ),
-			'placeholder'  => __( 'No image selected', 'customizer-background-control' ),
-			'frame_title'  => __( 'Select Image', 'customizer-background-control' ),
-			'frame_button' => __( 'Choose Image', 'customizer-background-control' ),
+			'select'       => __( 'Select Image', 'portfolio-plus' ),
+			'change'       => __( 'Change Image', 'portfolio-plus' ),
+			'remove'       => __( 'Remove', 'portfolio-plus' ),
+			'default'      => __( 'Default', 'portfolio-plus' ),
+			'placeholder'  => __( 'No image selected', 'portfolio-plus' ),
+			'frame_title'  => __( 'Select Image', 'portfolio-plus' ),
+			'frame_button' => __( 'Choose Image', 'portfolio-plus' ),
 		);
 
 		return $button_labels;
@@ -254,10 +254,10 @@ class Customize_Custom_Background_Control extends WP_Customize_Upload_Control {
 	public static function get_field_labels() {
 
 		$field_labels = array(
-			'repeat'	=> __( 'Background Repeat', 'customizer-background-control' ),
-			'size'		=> __( 'Background Size', 'customizer-background-control' ),
-			'position'	=> __( 'Background Position', 'customizer-background-control' ),
-			'attach'	=> __( 'Background Attachment', 'customizer-background-control' )
+			'repeat'	=> __( 'Background Repeat', 'portfolio-plus' ),
+			'size'		=> __( 'Background Size', 'portfolio-plus' ),
+			'position'	=> __( 'Background Position', 'portfolio-plus' ),
+			'attach'	=> __( 'Background Attachment', 'portfolio-plus' )
 		);
 
 		return $field_labels;
@@ -274,30 +274,30 @@ class Customize_Custom_Background_Control extends WP_Customize_Upload_Control {
 
 		$choices = array(
 			'repeat' => array(
-				'no-repeat' => __( 'No Repeat', 'customizer-background-control' ),
-				'repeat'    => __( 'Tile', 'customizer-background-control' ),
-				'repeat-x'  => __( 'Tile Horizontally', 'customizer-background-control' ),
-				'repeat-y'  => __( 'Tile Vertically', 'customizer-background-control' )
+				'no-repeat' => __( 'No Repeat', 'portfolio-plus' ),
+				'repeat'    => __( 'Tile', 'portfolio-plus' ),
+				'repeat-x'  => __( 'Tile Horizontally', 'portfolio-plus' ),
+				'repeat-y'  => __( 'Tile Vertically', 'portfolio-plus' )
 			),
 			'size' => array(
-				'auto'    => __( 'Default', 'customizer-background-control' ),
-				'cover'   => __( 'Cover', 'customizer-background-control' ),
-				'contain' => __( 'Contain', 'customizer-background-control' )
+				'auto'    => __( 'Default', 'portfolio-plus' ),
+				'cover'   => __( 'Cover', 'portfolio-plus' ),
+				'contain' => __( 'Contain', 'portfolio-plus' )
 			),
 			'position' => array(
-				'left-top'      => __( 'Left Top', 'customizer-background-control' ),
-				'left-center'   => __( 'Left Center', 'customizer-background-control' ),
-				'left-bottom'   => __( 'Left Bottom', 'customizer-background-control' ),
-				'right-top'     => __( 'Right Top', 'customizer-background-control' ),
-				'right-center'  => __( 'Right Center', 'customizer-background-control' ),
-				'right-bottom'  => __( 'Right Bottom', 'customizer-background-control' ),
-				'center-top'    => __( 'Center Top', 'customizer-background-control' ),
-				'center-center' => __( 'Center Center', 'customizer-background-control' ),
-				'center-bottom' => __( 'Center Bottom', 'customizer-background-control' )
+				'left-top'      => __( 'Left Top', 'portfolio-plus' ),
+				'left-center'   => __( 'Left Center', 'portfolio-plus' ),
+				'left-bottom'   => __( 'Left Bottom', 'portfolio-plus' ),
+				'right-top'     => __( 'Right Top', 'portfolio-plus' ),
+				'right-center'  => __( 'Right Center', 'portfolio-plus' ),
+				'right-bottom'  => __( 'Right Bottom', 'portfolio-plus' ),
+				'center-top'    => __( 'Center Top', 'portfolio-plus' ),
+				'center-center' => __( 'Center Center', 'portfolio-plus' ),
+				'center-bottom' => __( 'Center Bottom', 'portfolio-plus' )
 			),
 			'attach' => array(
-				'fixed'   => __( 'Fixed', 'customizer-background-control' ),
-				'scroll'  => __( 'Scroll', 'customizer-background-control' )
+				'fixed'   => __( 'Fixed', 'portfolio-plus' ),
+				'scroll'  => __( 'Scroll', 'portfolio-plus' )
 			)
 		);
 

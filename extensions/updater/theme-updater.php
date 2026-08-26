@@ -24,27 +24,27 @@ $updater = new EDD_Theme_Updater_Admin(
 
 	// Strings
 	$strings = array(
-		'theme-license' => __( 'Theme License', 'portfolioplus' ),
-		'enter-key' => __( 'Enter your theme license key.', 'portfolioplus' ),
-		'license-key' => __( 'License Key', 'portfolioplus' ),
-		'license-action' => __( 'License Action', 'portfolioplus' ),
-		'deactivate-license' => __( 'Deactivate License', 'portfolioplus' ),
-		'activate-license' => __( 'Activate License', 'portfolioplus' ),
-		'status-unknown' => __( 'License status is unknown.', 'portfolioplus' ),
-		'renew' => __( 'Renew?', 'portfolioplus' ),
-		'unlimited' => __( 'unlimited', 'portfolioplus' ),
-		'license-key-is-active' => __( 'License key is active.', 'portfolioplus' ),
-		'expires%s' => __( 'Expires %s.', 'portfolioplus' ),
-		'%1$s/%2$-sites' => __( 'You have %1$s / %2$s sites activated.', 'portfolioplus' ),
-		'license-key-expired-%s' => __( 'License key expired %s.', 'portfolioplus' ),
-		'license-key-expired' => __( 'License key has expired.', 'portfolioplus' ),
-		'license-keys-do-not-match' => __( 'License keys do not match.', 'portfolioplus' ),
-		'license-is-inactive' => __( 'License is inactive.', 'portfolioplus' ),
-		'license-key-is-disabled' => __( 'License key is disabled.', 'portfolioplus' ),
-		'site-is-inactive' => __( 'Site is inactive.', 'portfolioplus' ),
-		'license-status-unknown' => __( 'License status is unknown.', 'portfolioplus' ),
-		'update-notice' => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'portfolioplus' ),
-		'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'portfolioplus' )
+		'theme-license' => __( 'Theme License', 'portfolio-plus' ),
+		'enter-key' => __( 'Enter your theme license key.', 'portfolio-plus' ),
+		'license-key' => __( 'License Key', 'portfolio-plus' ),
+		'license-action' => __( 'License Action', 'portfolio-plus' ),
+		'deactivate-license' => __( 'Deactivate License', 'portfolio-plus' ),
+		'activate-license' => __( 'Activate License', 'portfolio-plus' ),
+		'status-unknown' => __( 'License status is unknown.', 'portfolio-plus' ),
+		'renew' => __( 'Renew?', 'portfolio-plus' ),
+		'unlimited' => __( 'unlimited', 'portfolio-plus' ),
+		'license-key-is-active' => __( 'License key is active.', 'portfolio-plus' ),
+		'expires%s' => __( 'Expires %s.', 'portfolio-plus' ),
+		'%1$s/%2$-sites' => __( 'You have %1$s / %2$s sites activated.', 'portfolio-plus' ),
+		'license-key-expired-%s' => __( 'License key expired %s.', 'portfolio-plus' ),
+		'license-key-expired' => __( 'License key has expired.', 'portfolio-plus' ),
+		'license-keys-do-not-match' => __( 'License keys do not match.', 'portfolio-plus' ),
+		'license-is-inactive' => __( 'License is inactive.', 'portfolio-plus' ),
+		'license-key-is-disabled' => __( 'License key is disabled.', 'portfolio-plus' ),
+		'site-is-inactive' => __( 'Site is inactive.', 'portfolio-plus' ),
+		'license-status-unknown' => __( 'License status is unknown.', 'portfolio-plus' ),
+		'update-notice' => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'portfolio-plus' ),
+		'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'portfolio-plus' )
 	)
 
 );
