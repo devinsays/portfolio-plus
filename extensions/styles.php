@@ -79,7 +79,7 @@ function portfolioplus_styles() {
 		if ( isset( $background['attach'] ) ) {
 			$declarations['background-attachment'] = $background['attach'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['position'] ) ) {
 			$declarations['background-position'] = $background['position'];
 		}
 
@@ -163,13 +163,13 @@ function portfolioplus_styles() {
 		if ( isset( $background['repeat'] ) ) {
 			$declarations['background-repeat'] = $background['repeat'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['size'] ) ) {
 			$declarations['background-size'] = $background['size'];
 		}
 		if ( isset( $background['attach'] ) ) {
 			$declarations['background-attachment'] = $background['attach'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['position'] ) ) {
 			$declarations['background-position'] = $background['position'];
 		}
 
@@ -381,7 +381,7 @@ function portfolioplus_styles() {
 		if ( isset( $background['attach'] ) ) {
 			$declarations['background-attachment'] = $background['attach'];
 		}
-		if ( isset( $background['repeat'] ) ) {
+		if ( isset( $background['position'] ) ) {
 			$declarations['background-position'] = $background['position'];
 		}
 
