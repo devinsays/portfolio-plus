@@ -340,6 +340,11 @@ endif;
 /**
  * Update post meta.
  *
+ * Deletes the meta key when the new value is empty (including 0, '0', and
+ * an unchecked checkbox), otherwise adds or updates it. Uses empty() rather
+ * than a loose '' == $new_meta_value comparison so that int 0 is treated as
+ * empty on PHP 8, where 0 == '' is false.
+ *
  * @param numeric $post_id
  * @param string $new_meta_value
  * @param numeric $meta_key
@@ -347,22 +352,14 @@ endif;
 if ( ! function_exists( 'portfolioplus_update_meta' ) ) :
 function portfolioplus_update_meta( $post_id, $new_meta_value, $meta_key ) {
 
-	/* Get the meta value of the custom field key. */
-	$meta_value = get_post_meta( $post_id, $meta_key, true );
-
-	/* If a new meta value was added and there was no previous value, add it. */
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_post_meta( $post_id, $meta_key, $new_meta_value, true );
+	/* If there is no new meta value, delete any existing meta. */
+	if ( empty( $new_meta_value ) ) {
+		delete_post_meta( $post_id, $meta_key );
 	}
 
-	/* If the new meta value does not match the old value, update it. */
-	elseif ( $new_meta_value && $new_meta_value != $meta_value ) {
+	/* Otherwise, add or update the meta value. */
+	else {
 		update_post_meta( $post_id, $meta_key, $new_meta_value );
-	}
-
-	/* If there is no new meta value but an old value exists, delete it. */
-	elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_post_meta( $post_id, $meta_key, $meta_value );
 	}
 }
 endif;
