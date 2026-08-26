@@ -90,9 +90,16 @@ function portfolioplus_post_template() {
  * Infinite Scroll
  */
 function portfolioplus_infinite_scroll_js() {
-    if ( !is_single() && portfolioplus_get_option( 'infinite_scroll', true ) ) { ?>
+    if ( !is_single() && portfolioplus_get_option( 'infinite_scroll', true ) ) {
+
+	    // The library counts from page one, so tell it which page we are on
+	    // and the first request asks for the page after this one.
+	    $paged = max( 1, (int) get_query_var( 'paged' ) ); ?>
 	    <script>
 	    var infinite_scroll = {
+	        state: {
+	            currPage: <?php echo absint( $paged ); ?>
+	        },
 	        loading: {
 	            img: "<?php echo get_template_directory_uri(); ?>/images/spinner.gif",
 	            msgText: "",
@@ -102,7 +109,48 @@ function portfolioplus_infinite_scroll_js() {
 	        "nextSelector":".nav-previous a",
 	        "navSelector":"#nav-below",
 	        "itemSelector":".hentry",
-	        "contentSelector":"#content"
+	        // Passed as a jQuery object because the library's prefill check
+	        // calls .height() directly on this option.
+	        "contentSelector":jQuery("#content"),
+	        // Keep loading while the document is shorter than the viewport,
+	        // otherwise there is no scrollbar and nothing ever triggers.
+	        "prefill":true,
+	        // The library's own parser splits the next page URL on the first
+	        // standalone "2", which mangles slugs containing a number
+	        // (/portfolio_category/trees-2/page/2/).  Split on the pagination
+	        // component instead and return the [ before, after ] pair the
+	        // library joins the next page number into.
+	        "pathParse":function( path ) {
+
+	            // Separate any query string or fragment from the path.
+	            var split = path.match( /^([^?#]*)([?#].*)?$/ ),
+	                base = split[1],
+	                suffix = split[2] || '';
+
+	            // Pretty permalinks end in the pagination component: the
+	            // /page/2/ default, or a renamed pagination base.
+	            var pretty = base.match( /^(.*\/)\d+(\/?)$/ );
+
+	            if ( pretty ) {
+	                return [ pretty[1], pretty[2] + suffix ];
+	            }
+
+	            // Query string permalinks: ?paged=2
+	            var query = path.match( /^(.*[?&]paged=)\d+(.*)$/ );
+
+	            if ( query ) {
+	                return [ query[1], query[2] ];
+	            }
+
+	            // Nothing recognizable.  The library invokes this function as
+	            // a method of its options object, so flagging the page here
+	            // stops it the same way its own parser does when it gives up.
+	            if ( this && this.state ) {
+	                this.state.isInvalidPage = true;
+	            }
+
+	            return false;
+	        }
 	    };
 	    jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function( elements ) {
 	    	// Jetpack Infinite Scroll also uses this callback
