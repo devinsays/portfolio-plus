@@ -24,7 +24,7 @@ WordPress projects always stand on the shoulders of others. Please take this the
 
 Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/extend/themes/toolbox).
 
-Development (unreleased)
+4.0.0 (08.27.2026)
 ---
 
 - Security: Add capability check and nonce verification to admin notice actions.
