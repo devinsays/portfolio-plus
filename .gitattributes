@@ -1,0 +1,26 @@
+# Files excluded from `git archive`, which is what GitHub builds the
+# "Source code" downloads on a release from. Everything listed here is build
+# tooling or repository metadata that a WordPress install has no use for.
+#
+# Deliberately NOT excluded:
+#
+#   scss/, style.css.map  The theme ships its Sass sources and stylesheet
+#                         sourcemap so the CSS can be recompiled and debugged
+#                         from the download alone.
+#   js/*.js               js/navigation.js and js/jquery.fitvids.js are
+#                         enqueued directly when SCRIPT_DEBUG or WP_DEBUG is
+#                         on, and js/customizer.js is enqueued in the
+#                         Customizer, so the unminified scripts are runtime
+#                         files rather than build artifacts.
+#
+# Verify the contents of a release download before tagging with:
+#
+#   git archive --format=zip HEAD | zipinfo -1 -
+
+.gitattributes		export-ignore
+.gitignore		export-ignore
+package.json		export-ignore
+pnpm-lock.yaml		export-ignore
+pnpm-workspace.yaml	export-ignore
+vite.config.mjs		export-ignore
+scripts/		export-ignore
