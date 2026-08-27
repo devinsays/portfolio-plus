@@ -25,7 +25,8 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 		<h3 class="comments-title">
 			<?php
-				printf( _nx( '1 Response', '%1$s Responses', get_comments_number(), 'comments title', 'portfolio-plus' ),
+				/* translators: %1$s: Number of comments, already formatted for the locale. */
+				printf( _nx( '%1$s Response', '%1$s Responses', get_comments_number(), 'comments title', 'portfolio-plus' ),
 					number_format_i18n( get_comments_number() ) );
 			?>
 		</h3>

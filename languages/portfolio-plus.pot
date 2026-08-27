@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-27T19:11:16+00:00\n"
+"POT-Creation-Date: 2026-08-27T19:16:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: portfolio-plus\n"
@@ -51,44 +51,48 @@ msgstr ""
 msgid "Most Used Categories"
 msgstr ""
 
-#: author.php:15
+#. translators: %s: Author display name.
+#: author.php:17
 #, php-format
 msgid "Author Archives: <span class=\"vcard\">%s</span>"
 msgstr ""
 
-#: author.php:27
+#. translators: %s: Author display name.
+#: author.php:32
 #, php-format
 msgid "About %s"
 msgstr ""
 
-#: comments.php:28
+#. translators: %1$s: Number of comments, already formatted for the locale.
+#: comments.php:29
+#, php-format
 msgctxt "comments title"
-msgid "1 Response"
+msgid "%1$s Response"
 msgid_plural "%1$s Responses"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:35
-#: comments.php:54
-msgid "Comment navigation"
-msgstr ""
-
 #: comments.php:36
 #: comments.php:55
-msgid "&larr; Older Comments"
+msgid "Comment navigation"
 msgstr ""
 
 #: comments.php:37
 #: comments.php:56
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:38
+#: comments.php:57
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:66
+#: comments.php:67
 msgid "Comments are closed."
 msgstr ""
 
 #: content-none.php:11
-#: search.php:32
+#: search.php:35
 msgid "Nothing Found"
 msgstr ""
 
@@ -469,7 +473,8 @@ msgstr ""
 msgid "Footer Background Image"
 msgstr ""
 
-#: extensions/extras.php:28
+#. translators: Admin notice recommending 9 posts per page. %1$s: URL that applies the recommended setting. %2$s: URL that dismisses the notice. %3$s: URL of the Settings > Reading screen.
+#: extensions/extras.php:34
 #, php-format
 msgid "Portfolio+ recommends setting posts per page to 9. This can be changed under <a href=\"%3$s\">Settings > Reading Options</a>.<br><a href=\"%1$s\">Update It</a> | <a href=\"%2$s\">Dismiss Notice</a>."
 msgstr ""
@@ -514,78 +519,80 @@ msgstr ""
 msgid "Full Width"
 msgstr ""
 
-#: extensions/template-helpers.php:16
+#. translators: Post byline. %1$s: Post permalink. %2$s: Post date in ISO 8601 format, for the datetime attribute. %3$s: Post date, formatted for display. %4$s: Author archive URL. %5$s: Author name, for the link title attribute. %6$s: Author display name.
+#: extensions/template-helpers.php:25
 #, php-format
 msgid "<span class=\"meta-prep meta-prep-author\">Posted </span><a href=\"%1$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%2$s\" pubdate>%3$s</time></a> <span class=\"meta-sep\"> by </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%4$s\" title=\"%5$s\">%6$s</a></span>"
 msgstr ""
 
-#: extensions/template-helpers.php:21
+#. translators: %s: Author display name.
+#: extensions/template-helpers.php:31
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: extensions/template-helpers.php:69
+#: extensions/template-helpers.php:79
 msgid "Posted in: "
 msgstr ""
 
-#: extensions/template-helpers.php:77
+#: extensions/template-helpers.php:87
 msgid "Tagged: "
 msgstr ""
 
-#: extensions/template-helpers.php:82
+#: extensions/template-helpers.php:92
 msgid "Leave a comment"
 msgstr ""
 
-#: extensions/template-helpers.php:82
+#: extensions/template-helpers.php:92
 msgid "1 Comment"
 msgstr ""
 
-#: extensions/template-helpers.php:82
+#: extensions/template-helpers.php:92
 msgid "% Comments"
 msgstr ""
 
-#: extensions/template-helpers.php:85
-#: image.php:57
+#: extensions/template-helpers.php:95
+#: image.php:66
 #: page.php:23
 #: templates/full-width-page.php:24
 msgid "Edit"
 msgstr ""
 
-#: extensions/template-helpers.php:115
+#: extensions/template-helpers.php:125
 msgid "Posts navigation"
 msgstr ""
 
-#: extensions/template-helpers.php:119
+#: extensions/template-helpers.php:129
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: extensions/template-helpers.php:123
+#: extensions/template-helpers.php:133
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: extensions/template-helpers.php:157
+#: extensions/template-helpers.php:167
 msgid "Post navigation"
 msgstr ""
 
-#: extensions/template-helpers.php:164
-#: extensions/template-helpers.php:167
-#: extensions/template-helpers.php:175
+#: extensions/template-helpers.php:174
+#: extensions/template-helpers.php:177
+#: extensions/template-helpers.php:185
 msgctxt "Next post link"
 msgid "%title <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: extensions/template-helpers.php:165
-#: extensions/template-helpers.php:168
-#: extensions/template-helpers.php:174
+#: extensions/template-helpers.php:175
+#: extensions/template-helpers.php:178
+#: extensions/template-helpers.php:184
 msgctxt "Previous post link"
 msgid "<span class=\"meta-nav\">&larr;</span> %title"
 msgstr ""
 
-#: extensions/template-helpers.php:171
+#: extensions/template-helpers.php:181
 msgid "&larr; Previous"
 msgstr ""
 
-#: extensions/template-helpers.php:172
+#: extensions/template-helpers.php:182
 msgid "Next &rarr;"
 msgstr ""
 
@@ -614,7 +621,7 @@ msgid "Activate License"
 msgstr ""
 
 #: extensions/updater/theme-updater.php:33
-#: extensions/updater/theme-updater.php:45
+#: extensions/updater/theme-updater.php:48
 msgid "License status is unknown."
 msgstr ""
 
@@ -630,48 +637,52 @@ msgstr ""
 msgid "License key is active."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:37
+#. translators: %s: License expiration date.
+#: extensions/updater/theme-updater.php:38
 #, php-format
 msgid "Expires %s."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:38
+#. translators: %1$s: Number of sites activated. %2$s: Site limit for the license, or "unlimited".
+#: extensions/updater/theme-updater.php:40
 #, php-format
 msgid "You have %1$s / %2$s sites activated."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:39
+#. translators: %s: Date the license expired.
+#: extensions/updater/theme-updater.php:42
 #, php-format
 msgid "License key expired %s."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:40
+#: extensions/updater/theme-updater.php:43
 msgid "License key has expired."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:41
+#: extensions/updater/theme-updater.php:44
 msgid "License keys do not match."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:42
+#: extensions/updater/theme-updater.php:45
 msgid "License is inactive."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:43
+#: extensions/updater/theme-updater.php:46
 msgid "License key is disabled."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:44
+#: extensions/updater/theme-updater.php:47
 msgid "Site is inactive."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:46
+#: extensions/updater/theme-updater.php:49
 msgid "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update."
 msgstr ""
 
-#: extensions/updater/theme-updater.php:47
+#. translators: Update available notice. %1$s: Theme name. %2$s: New version number. %3$s: URL of the changelog thickbox. %4$s: Theme name, for the link title attribute. %5$s: Update URL. %6$s: Confirmation onclick attribute, already escaped.
+#: extensions/updater/theme-updater.php:59
 #, php-format
-msgid "<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" title=\"%4s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
+msgid "<strong>%1$s %2$s</strong> is available. <a href=\"%3$s\" class=\"thickbox\" title=\"%4$s\">Check out what's new</a> or <a href=\"%5$s\"%6$s>update now</a>."
 msgstr ""
 
 #: footer.php:40
@@ -730,17 +741,19 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: image.php:47
+#. translators: Image attachment meta. %1$s: Full-size image URL. %2$s: Image width in pixels. %3$s: Image height in pixels. %4$s: Parent post permalink. %5$s: Parent post title, for the link title attribute. %6$s: Parent post title.
+#: image.php:56
 #, php-format
 msgid "Published in <a href=\"%4$s\" title=\"Return to %5$s\" rel=\"gallery\">%6$s</a> at <a href=\"%1$s\" title=\"Link to full-size image\">%2$s &times; %3$s</a> "
 msgstr ""
 
-#: search.php:16
+#. translators: %s: Search query.
+#: search.php:18
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: search.php:36
+#: search.php:39
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 

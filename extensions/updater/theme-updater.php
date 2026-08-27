@@ -34,8 +34,11 @@ $updater = new EDD_Theme_Updater_Admin(
 		'renew' => __( 'Renew?', 'portfolio-plus' ),
 		'unlimited' => __( 'unlimited', 'portfolio-plus' ),
 		'license-key-is-active' => __( 'License key is active.', 'portfolio-plus' ),
+		/* translators: %s: License expiration date. */
 		'expires%s' => __( 'Expires %s.', 'portfolio-plus' ),
+		/* translators: %1$s: Number of sites activated. %2$s: Site limit for the license, or "unlimited". */
 		'%1$s/%2$-sites' => __( 'You have %1$s / %2$s sites activated.', 'portfolio-plus' ),
+		/* translators: %s: Date the license expired. */
 		'license-key-expired-%s' => __( 'License key expired %s.', 'portfolio-plus' ),
 		'license-key-expired' => __( 'License key has expired.', 'portfolio-plus' ),
 		'license-keys-do-not-match' => __( 'License keys do not match.', 'portfolio-plus' ),
@@ -44,7 +47,16 @@ $updater = new EDD_Theme_Updater_Admin(
 		'site-is-inactive' => __( 'Site is inactive.', 'portfolio-plus' ),
 		'license-status-unknown' => __( 'License status is unknown.', 'portfolio-plus' ),
 		'update-notice' => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'portfolio-plus' ),
-		'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'portfolio-plus' )
+		/*
+		 * translators: Update available notice.
+		 * %1$s: Theme name.
+		 * %2$s: New version number.
+		 * %3$s: URL of the changelog thickbox.
+		 * %4$s: Theme name, for the link title attribute.
+		 * %5$s: Update URL.
+		 * %6$s: Confirmation onclick attribute, already escaped.
+		 */
+		'update-available' => __('<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4$s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'portfolio-plus' )
 	)
 
 );

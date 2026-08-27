@@ -43,6 +43,9 @@ Portfolio was built on the solid foundation of [Toolbox](http://wordpress.org/ex
 - Update: Declare Requires PHP 7.4 and Tested up to 6.8.
 - Fix: Captions in image blocks now inherit body font color.
 - Update: Move logo and tagline option to "Site Identity" panel in Customizer.
+- Update: Add "translators:" comments to every string containing placeholders so translators know what each one holds.
+- Fix: The comments title now uses a placeholder in its singular form, which some locales need to pluralize correctly.
+- Fix: Correct a malformed placeholder (%4s) in the theme updater's "update available" notice.
 
 3.9.0 (12.19.2018)
 ---

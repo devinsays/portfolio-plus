@@ -25,6 +25,12 @@ function portfolioplus_posts_per_page_notice() {
 		$dismiss_url = wp_nonce_url( add_query_arg( 'portfolio_post_per_page_ignore', '1', admin_url() ), 'portfolioplus_post_per_page_ignore' );
 
 		echo '<div class="updated"><p>';
+			/*
+			 * translators: Admin notice recommending 9 posts per page.
+			 * %1$s: URL that applies the recommended setting.
+			 * %2$s: URL that dismisses the notice.
+			 * %3$s: URL of the Settings > Reading screen.
+			 */
 			printf( __(
 				'Portfolio+ recommends setting posts per page to 9. This can be changed under <a href="%3$s">Settings > Reading Options</a>.<br><a href="%1$s">Update It</a> | <a href="%2$s">Dismiss Notice</a>.', 'portfolio-plus' ),
 				esc_url( $update_url ),

@@ -13,11 +13,21 @@ function portfolioplus_postby_meta() {
 
 	if ( portfolioplus_get_option( 'display_dates', 1 ) ) :
 
+	/*
+	 * translators: Post byline.
+	 * %1$s: Post permalink.
+	 * %2$s: Post date in ISO 8601 format, for the datetime attribute.
+	 * %3$s: Post date, formatted for display.
+	 * %4$s: Author archive URL.
+	 * %5$s: Author name, for the link title attribute.
+	 * %6$s: Author display name.
+	 */
 	printf( __( '<span class="meta-prep meta-prep-author">Posted </span><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'portfolio-plus' ),
         esc_url( get_permalink() ),
         esc_html( get_the_date( 'c' ) ),
         esc_html( get_the_date() ),
         esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+        /* translators: %s: Author display name. */
         esc_attr( sprintf( __( 'View all posts by %s', 'portfolio-plus' ), get_the_author() ) ),
         esc_html( get_the_author() )
     );

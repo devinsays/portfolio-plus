@@ -44,6 +44,15 @@ get_header(); ?>
 						<?php
 							$metadata = wp_get_attachment_metadata();
 							if ( is_array( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) {
+								/*
+								 * translators: Image attachment meta.
+								 * %1$s: Full-size image URL.
+								 * %2$s: Image width in pixels.
+								 * %3$s: Image height in pixels.
+								 * %4$s: Parent post permalink.
+								 * %5$s: Parent post title, for the link title attribute.
+								 * %6$s: Parent post title.
+								 */
 								printf( __( 'Published in <a href="%4$s" title="Return to %5$s" rel="gallery">%6$s</a> at <a href="%1$s" title="Link to full-size image">%2$s &times; %3$s</a> ', 'portfolio-plus' ),
 									esc_url( wp_get_attachment_url() ),
 									$metadata['width'],

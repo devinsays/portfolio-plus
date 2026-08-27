@@ -12,7 +12,10 @@ get_header(); ?>
 
 			<?php the_post(); ?>
 
-			<h2 class="page-title"><?php printf( __( 'Author Archives: <span class="vcard">%s</span>', 'portfolio-plus' ), get_the_author() ); ?></h2>
+			<h2 class="page-title"><?php
+				/* translators: %s: Author display name. */
+				printf( __( 'Author Archives: <span class="vcard">%s</span>', 'portfolio-plus' ), get_the_author() );
+			?></h2>
 
 			<?php rewind_posts(); ?>
 
@@ -24,7 +27,10 @@ get_header(); ?>
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'portfolioplus_author_bio_avatar_size', 60 ) ); ?>
 				</div><!-- .author-avatar -->
 				<div class="author-description">
-					<h3><?php printf( __( 'About %s', 'portfolio-plus' ), get_the_author() ); ?></h3>
+					<h3><?php
+						/* translators: %s: Author display name. */
+						printf( __( 'About %s', 'portfolio-plus' ), get_the_author() );
+					?></h3>
 					<p><?php the_author_meta( 'description' ); ?></p>
 				</div><!-- .author-description	-->
 			</div><!-- .author-info -->
